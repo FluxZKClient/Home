@@ -1,213 +1,194 @@
-// fluxzk-nav-cute.js - Cria/injeta uma navbar fofa e funcional, respeitando os links do seu site.
-document.addEventListener('DOMContentLoaded', function(){
-    try{
-        // --- 1. ESTILO "CUTE" (FOFO) INJETADO ---
-        const cuteStyle = `
-            .fluxzk-nav-cute {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 10px 30px;
-                background-color: #ffe4e1; /* Rosa claro/Pastel - Cor de Fundo */
-                border-bottom: 3px solid #ffb6c1; /* Borda rosa mais forte */
-                box-shadow: 0 4px 8px rgba(255, 182, 193, 0.6); /* Sombra suave */
-                font-family: 'Quicksand', sans-serif; /* Fonte fofa */
-                position: sticky;
-                top: 0;
-                z-index: 1000;
-            }
-            .fluxzk-nav-cute .brand {
-                font-size: 26px;
-                font-weight: bold;
-                color: #ff69b4; /* Rosa Choque/Pink */
-                letter-spacing: 1px;
-                padding: 5px 10px;
-                border: 2px dashed #ffb6c1; /* Borda tracejada fofa */
-                border-radius: 15px;
-            }
-            .fluxzk-nav-cute .brand .fluxzk-link-accent {
-                color: #8a2be2; /* Roxo suave */
-            }
-            .fluxzk-nav-cute .links {
-                display: flex;
-                align-items: center;
-                gap: 10px; /* Espaçamento entre os links */
-            }
-            .fluxzk-nav-cute .links a {
-                text-decoration: none;
-                color: #4b0082; /* Roxo escuro para bom contraste */
-                padding: 8px 15px;
-                border-radius: 20px; /* Bordas arredondadas */
-                transition: all 0.3s ease-in-out;
-                font-weight: 700;
-                position: relative;
-            }
-            .fluxzk-nav-cute .links a:hover,
-            .fluxzk-nav-cute .links a.active {
-                background-color: #ff69b4; /* Rosa Choque */
-                color: white;
-                transform: translateY(-3px) scale(1.05); /* Efeito "pulo" suave */
-                box-shadow: 0 5px 15px rgba(255, 105, 180, 0.8);
-            }
-
-            /* --- SEPARADORES FOFOS (Opcional) --- 
-            .fluxzk-nav-cute .links a:not(:last-child)::after {
-                content: '💖'; 
-                color: #ff69b4;
-                font-size: 10px;
-                margin-left: 10px;
-            }
-            */
-
-            @media (max-width: 768px) {
-                .fluxzk-nav-cute {
-                    flex-direction: column;
-                    text-align: center;
-                    padding: 10px;
-                }
-                .fluxzk-nav-cute .brand {
-                    margin-bottom: 10px;
-                }
-                .fluxzk-nav-cute .links {
-                    flex-wrap: wrap;
-                    justify-content: center;
-                }
-                .fluxzk-nav-cute .links a {
-                    margin: 5px 8px;
-                    padding: 6px 12px;
-                }
-                .fluxzk-nav-cute .links a::after {
-                    content: none;
-                }
-            }
-        `;
-
-        // 1. Injetar o estilo fofo no <head>
-        const styleEl = document.createElement('style');
-        styleEl.textContent = cuteStyle;
-        document.head.appendChild(styleEl);
-
-        // --- 2. MONTAGEM DA NAVBAR DINÂMICA ---
-
-        // Coletar seções com id (features, about, gallery, faq)
-        const sections = Array.from(document.querySelectorAll('#features, #about, #gallery, #faq')).filter(s => s.id);
-        const linksData = sections.map(s => ({
-            id: s.id,
-            title: s.id.charAt(0).toUpperCase() + s.id.slice(1) // Capitaliza o ID (ex: Features)
-        }));
-
-        // Criar navbar HTML
-        const nav = document.createElement('nav');
-        nav.className = 'fluxzk-nav-cute'; 
-
-        const brand = document.createElement('div');
-        brand.className = 'brand';
-        brand.innerHTML = '<span class="fluxzk-link-accent">✨ FluxZK</span> <span style="font-weight:500">Client</span>'; 
-
-        const linksDiv = document.createElement('div');
-        linksDiv.className = 'links';
-
-        // 2.1 Link Home
-        const homeA = document.createElement('a');
-        homeA.href = '#';
-        homeA.innerText = '🏡 Home';
-        linksDiv.appendChild(homeA);
-        
-        // 2.2 Links Dinâmicos de Seções
-        linksData.forEach(l => {
-            const a = document.createElement('a');
-            a.href = '#'+l.id;
-            a.innerText = l.title;
-            a.setAttribute('data-target', l.id); 
-            linksDiv.appendChild(a);
-        });
-
-        // 2.3 Links Fixos do Site Original
-        const downloadA = document.createElement('a');
-        downloadA.href = '/download';
-        downloadA.innerText = '🎁 Download';
-        linksDiv.appendChild(downloadA);
-
-        const discordA = document.createElement('a');
-        discordA.href = '/discord';
-        discordA.innerText = '💬 Discord';
-        linksDiv.appendChild(discordA);
-
-        nav.appendChild(brand);
-        nav.appendChild(linksDiv);
-
-        // Substituir o <header> existente que contém o <nav> antigo
-        const existingHeader = document.querySelector('.header');
-        if(existingHeader){
-            // Remove o nav e o hamburger que estavam dentro do header
-            existingHeader.innerHTML = '';
-            existingHeader.appendChild(nav);
-        } else {
-            // Caso não tenha header (fallback)
-            document.body.insertBefore(nav, document.body.firstChild);
-        }
-
-        // --- 3. IMPLEMENTAÇÃO DO SCROLL E DO ESTADO ATIVO ---
-
-        const navLinks = document.querySelectorAll('.fluxzk-nav-cute a[href^="#"]');
-        
-        // Ativar Home por padrão
-        document.querySelector('.fluxzk-nav-cute a[href="#"]').classList.add('active');
-
-
-        // Scroll Suave
-        navLinks.forEach(a=>{
-            a.addEventListener('click', function(e){
-                if(this.hash && document.querySelector(this.hash)){
-                    e.preventDefault();
-                    document.querySelector(this.hash).scrollIntoView({behavior:'smooth'});
-                    
-                    // Lógica para marcar o link clicado como ativo
-                    navLinks.forEach(link => link.classList.remove('active'));
-                    this.classList.add('active');
-                }
-            });
-        });
-
-        // Observer para o Estado Ativo
-        const navHeight = nav.offsetHeight;
-        const observerOptions = {
-            root: null, 
-            // Aciona quando a seção está a 10px abaixo da navbar
-            rootMargin: `-${navHeight + 10}px 0px -70% 0px`, 
-            threshold: 0
-        };
-
-        const observer = new IntersectionObserver(entries => {
-            let activeId = null;
-            
-            // Encontra a seção mais alta que está intersectando
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    activeId = entry.target.id;
-                }
-            });
-
-            // Se uma seção foi encontrada
-            if (activeId) {
-                navLinks.forEach(link => link.classList.remove('active'));
-                const activeLink = document.querySelector(`.fluxzk-nav-cute a[data-target="${activeId}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                }
-            } else if (window.scrollY < 10) {
-                // Se estiver no topo, ativa o Home
-                navLinks.forEach(link => link.classList.remove('active'));
-                document.querySelector('.fluxzk-nav-cute a[href="#"]').classList.add('active');
-            }
-
-        }, observerOptions);
-
-        // Observar todas as seções (exceto a hero, que é tratada pelo scrollY < 10)
-        sections.forEach(sec => observer.observe(sec));
-
-
-    }catch(e){
-        console.warn('FluxZK nav injection failed', e);
-    }
-});
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TwayFly Client | Otimização Brutal e Domínio no Minecraft</title>
+<meta content="Otimização extrema de FPS. Chega de lag: o TwayFly Client garante o máximo desempenho e recursos avançados para Windows e Linux." name="description"/>
+<meta content="Minecraft, TwayFly Client, FPS Boost, Launcher, PvP, Otimização, Sem Lag" name="keywords"/>
+<meta content="Equipe TwayFly" name="author"/>
+<meta content="TwayFly Client | Otimização Brutal e Domínio no Minecraft" property="og:title"/>
+<meta content="Performance máxima, estabilidade de FPS e recursos PvP/Utilidade essenciais. A virada que seu jogo precisava." property="og:description"/>
+<meta content="https://TwayFlyclient.com/TwayFly-banner.png" property="og:image"/>
+<meta content="https://TwayFlyclient.com" property="og:url"/>
+<meta content="website" property="og:type"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="images/dsd.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="css/all.min.css" rel="stylesheet"/>
+<meta content="#0b1120" name="theme-color"/>
+<link href="css/style.css" rel="stylesheet"/>
+<meta content="Kaik_hg" name="author"/>
+</head>
+<body>
+<div class="video-background">
+<video autoplay="" id="bg-video" loop="" muted="">
+<source src="media/ggez.mp4" type="video/mp4"/>
+</video>
+</div>
+<nav class="navbar">
+<div class="logo">
+<a href="/"><img alt="Logo Principal" class="logo-img" src="images/Horizontal_1.webp"/></a>
+</div>
+<div class="links">
+<a href="/">Home</a>
+<a href="documentacao.html">Documentação</a><a href="faq.html">FAQ</a><a href="https://discord.gg/TwayFly" target="_blank">Discord</a>
+</div>
+<button class="btn" onclick="openModal()">Download</button>
+<div class="hamburger">
+<span class="bar"></span>
+<span class="bar"></span>
+<span class="bar"></span>
+</div>
+</nav>
+<header class="hero" id="hero">
+<div id="particles-js"></div>
+<div class="overlay"></div>
+<div class="hero-content">
+<h1>O Fim do Lag. O Início do Domínio.</h1>
+<p>Diga adeus à queda de FPS. Performance máxima garantida, estabilidade inabalável e todos os mods essenciais.</p>
+<div class="hero-buttons">
+<a class="btn btn-secondary" href="https://discord.gg/TwayFly">Discord</a>
+</div>
+</div>
+<div class="scroll-down-indicator">
+<a href="#features"><i class="fas fa-angle-down"></i></a>
+</div>
+</header>
+<main>
+<div class="modal" id="modal">
+<div class="modal-content">
+<button class="close" onclick="closeModal()"> </button>
+<div class="modal-header">
+<h2>⏳ Lançamento Impossível de Perder</h2>
+</div>
+<div class="modal-body">
+<p>O <strong>TwayFly Client</strong> está na fase final de polimento! Siga nosso Discord e seja o primeiro a garantir o download na data de lançamento.
+</p>
+</div>
+<div class="modal-footer">
+<button class="btn-secondary" onclick="closeModal()">Fechar</button>
+</div>
+</div>
+</div>
+<section class="faq-section" style="
+    background: black;
+">
+<div class="container">
+<h2 class="section-title"> Dúvidas Que Você Não Pode Ter</h2>
+<div class="faq-grid">
+<div class="faq-item">
+<h3 class="faq-question"><i class="fas fa-question-circle"></i> O launcher é gratuito?</h3>
+<p class="faq-answer">Sim! A performance extrema do nosso launcher é 100% gratuita. Zero custo para a melhor experiência.</p>
+</div>
+<div class="faq-item">
+<h3 class="faq-question"><i class="fas fa-question-circle"></i> Qual a previsão de lançamento do Client?</h3>
+<p class="faq-answer">Estamos fazendo testes de estresse para garantir a perfeição. Anunciaremos a data oficial nas redes sociais em breve, mas a espera vai valer a pena.</p>
+</div>
+<div class="faq-item">
+<h3 class="faq-question"><i class="fas fa-question-circle"></i> O que torna o TwayFly Client superior?</h3>
+<p class="faq-answer">Priorizamos a **Otimização Brutal**. Nosso código garante FPS estável em PCs fracos, além de mods exclusivos de utilidade e um design minimalista.</p>
+</div>
+<div class="faq-item">
+<h3 class="faq-question"><i class="fas fa-question-circle"></i> O TwayFly Client funciona com Minecraft pirata?</h3>
+<p class="faq-answer">Sim, temos suporte total. Você terá o mesmo nível de segurança e performance, independentemente de usar uma conta Original (Premium) ou Pirata.</p>
+</div>
+<div class="faq-item">
+<h3 class="faq-question"><i class="fas fa-question-circle"></i> O client terá versão para celulares (Mobile)?</h3>
+<p class="faq-answer">O foco inicial é Desktop, mas o desenvolvimento da versão Mobile com otimização radical já está nos planos de curto prazo. Fique ligado!</p>
+</div>
+</div>
+</div>
+</section>
+<section class="cta-section">
+<div class="container">
+<h2 class="cta-title">Sua Performance Está Prestes a Mudar.</h2>
+<p class="cta-description">
+Junte-se à comunidade **TwayFly**. O client que entrega o que promete: FPS alto e estável, personalização total e uma vantagem de desempenho irrecusável.
+</p>
+<button class="cta-button" onclick="openModal()">
+<i class="fas fa-download"></i> Baixar Agora
+</button>
+<p class="cta-note">Compatível com Windows, macOS e Linux • Simples, Rápido e Poderoso.</p>
+</div>
+</section>
+<footer class="footer">
+<div class="footer-content">
+<div class="footer-top">
+<div class="footer-column footer-brand">
+<div class="footer-logo">
+<div class="footer-logo-icon">
+<img alt="TwayFly Client Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" src="images/dsd.png"/>
+</div>
+<span class="footer-logo-text">TwayFly Client</span>
+</div>
+<p class="footer-description">
+Otimização radical, FPS estável e interface minimalista. O seu próximo nível de jogo começa aqui.
+</p>
+</div>
+<div class="footer-column">
+<h4 class="footer-title">
+<i class="fas fa-cube"></i>
+Produto
+</h4>
+<ul class="footer-links">
+<li><a href="#features"><i class="fas fa-chevron-right"></i> Recursos</a></li>
+<li><a href="#download"><i class="fas fa-chevron-right"></i> Download</a></li>
+<li><a href="#loja"><i class="fas fa-chevron-right"></i> Loja</a></li>
+<li><a href="#updates"><i class="fas fa-chevron-right"></i> Atualizações</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4 class="footer-title">
+<i class="fas fa-life-ring"></i>
+Suporte
+</h4>
+<ul class="footer-links">
+<li><a href="#docs"><i class="fas fa-chevron-right"></i> Documentação</a></li>
+<li><a href="#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h4 class="footer-title">
+<i class="fas fa-shield-alt"></i>
+Legal
+</h4>
+<ul class="footer-links">
+<li><a href="#"><i class="fas fa-chevron-right"></i> Privacidade</a></li>
+<li><a href="#"><i class="fas fa-chevron-right"></i> Termos de Uso</a></li>
+<li><a href="#"><i class="fas fa-chevron-right"></i> Licença</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<div class="footer-bottom-left">
+<p class="footer-copyright">
+© 2026 <span class="gradient-text">TwayFly Client</span>. Todos os direitos reservados.
+</p>
+<p class="footer-disclaimer">
+<i class="fas fa-info-circle"></i> Não é um produto oficial do Minecraft. Não é aprovado ou afiliado à Mojang Studios.
+</p>
+</div>
+<div class="footer-bottom-right">
+<div class="footer-credits">
+<span>Desenvolvido com <i class="fas fa-heart heart-beat"></i> por <strong class="gradient-text">Kaik</strong></span>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-background">
+<div class="footer-glow footer-glow-1"></div>
+<div class="footer-glow footer-glow-2"></div>
+<div class="footer-grid"></div>
+</div>
+</footer>
+</main>
+<script src="js/particles.min.js"></script>
+<script src="js/vanilla-tilt.min.js"></script>
+<script src="js/scrollreveal.min.js"></script>
+<script src="js/alerts.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
