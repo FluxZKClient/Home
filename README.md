@@ -1,4 +1,4 @@
 # Website by GlideClient Team (Edited By STRONGSK)
 
-[glideclient.com](https://glideclient.com)
+[https://fluxzkclient.github.io](https://fluxzkclient.github.io/Home/index.html)
 
