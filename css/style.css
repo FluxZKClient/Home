@@ -1,207 +1,397 @@
-/* --- Paleta de Cores Atualizada --- */
+/* ========================================================================= */
+/* --- FLUXZK CLIENT STYLES --- */
+/* PALETA: Vermelho (#e74c3c), Cinza Claro (#ecf0f1), Azul (#3498db) */
+/* ========================================================================= */
+
 :root {
-    --accent-red: #e74c3c; /* Destaque principal (era verde) */
-    --primary-blue: #3498db; /* Cor dos botões (era verde/vermelho) */
-    --dark-text: #2c3e50; /* Cinza escuro para texto */
-    --light-bg: #ecf0f1; /* Cinza muito claro para fundo (era preto/escuro) */
-    --dark-bg: #34495e; /* Cinza azulado escuro para rodapé/seções escuras */
-    --nav-bg: rgba(255, 255, 255, 0.9);
+    --accent-red: #e74c3c; 
+    --primary-blue: #3498db; 
+    --dark-text: #2c3e50; 
+    --light-bg: #ecf0f1; 
+    --dark-bg: #2c3e50; /* Cinza escuro/azul para o rodapé */
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --border-color: rgba(0, 0, 0, 0.1);
 }
 
-/* --- Base & Scrollbar --- */
+/* --- Base & Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background-color: var(--light-bg); /* Fundo principal cinza claro */
-    color: var(--dark-text); 
-    overflow-x: hidden; 
+    background-color: var(--light-bg); 
+    color: var(--dark-text);
+    overflow-x: hidden;
+    min-height: 100vh; /* Garante que o body ocupe a altura total */
 }
 
-/* --- Container (Garantindo Alinhamento Lateral) --- */
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--light-bg);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary-blue);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
+}
+
+/* --- Global Container --- */
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px; /* Adicionado padding para evitar que o conteúdo toque as bordas */
+    padding: 0 15px;
 }
 
-/* --- Navbar --- */
+/* --- Botões (Styles Globais) --- */
+.btn {
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary,
+.cta-main-button {
+    background: var(--primary-blue); 
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.btn-primary:hover,
+.cta-main-button:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.5);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--dark-text);
+    border: 2px solid var(--dark-text);
+    box-shadow: none;
+}
+
+.btn-secondary:hover {
+    background: var(--dark-text);
+    color: #fff;
+    transform: translateY(-2px);
+    border-color: var(--dark-text);
+}
+
+
+/* ========================================================================= */
+/* --- NAVEGAÇÃO (NAVBAR) --- */
+/* ========================================================================= */
+
 .navbar {
-    background: var(--nav-bg); 
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 1100px;
+    z-index: 100;
+    
+    background: var(--nav-bg);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 0, 0, 0.1); 
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    border-radius: 40px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 25px;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--dark-text);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.logo-text:hover {
+    color: var(--accent-red);
+}
+
+.navbar .links {
+    display: flex;
+    gap: 30px;
+}
+
+.navbar .links a {
+    color: #7f8c8d;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.navbar .links a:hover {
+    color: var(--dark-text);
+}
+
+.navbar .links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-red);
+    transition: width 0.3s ease;
 }
 
 .navbar .links a:hover::after {
-    background-color: var(--accent-red); /* Destaque do link para vermelho */
+    width: 100%;
 }
 
-/* --- Botões (Garantindo Azul) --- */
-.btn,
-.navbar .btn,
-.btn-primary {
-    background: var(--primary-blue); /* Fundo azul */
+.hamburger {
+    display: none; /* Escondido por padrão (Desktop) */
+}
+
+
+/* ========================================================================= */
+/* --- SEÇÃO HERO --- */
+/* ========================================================================= */
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+}
+
+#bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8; /* Escurecer o vídeo para melhorar o contraste */
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding-top: 100px; /* Espaço para a navbar fixa */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
     color: #fff;
-    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3); /* Sombra azul */
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    padding-top: 100px;
 }
 
-.btn:hover,
-.navbar .btn:hover,
-.btn-primary:hover {
-    background: #2980b9; /* Azul mais escuro no hover */
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.1;
 }
 
-/* --- Modal (Em Desenvolvimento) --- */
+.hero-content p {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+    color: #f0f0f0;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.scroll-down-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+.scroll-down-indicator a {
+    color: #fff;
+    font-size: 2rem;
+    transition: color 0.3s;
+    opacity: 0.8;
+}
+
+.scroll-down-indicator a:hover {
+    color: var(--accent-red);
+    opacity: 1;
+}
+
+/* ========================================================================= */
+/* --- MODAL (Em Desenvolvimento) --- */
+/* ========================================================================= */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none; /* Escondido por padrão */
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+}
+
 .modal-content {
-    background-color: #fff; /* Fundo do modal em branco */
+    background-color: #fff;
+    padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 450px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
 .modal-header h2 {
-    color: var(--accent-red); /* Título em vermelho */
+    color: var(--accent-red);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.modal-body p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--dark-text);
+    margin-bottom: 20px;
 }
 
 .modal-body strong {
-    color: var(--accent-red); /* Destaque em vermelho */
-}
-
-.modal-footer .btn-secondary {
-    border: 2px solid var(--dark-text);
-    color: var(--dark-text);
-    background: transparent;
-}
-
-.modal-footer .btn-secondary:hover {
-    background: var(--dark-text);
-    color: #fff;
-}
-
-/* --- Seção de FAQ --- */
-.faq-section {
-    padding: 80px 0;
-    background: var(--light-bg); /* Fundo cinza claro */
-    /* REMOVIDO: background: black !important; que estava no HTML inline */
-}
-
-.faq-section .container {
-    /* Certifica-se de que o FAQ não está grudado nas laterais */
-    padding: 0 20px; 
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    color: var(--dark-text);
-    margin-bottom: 40px;
-}
-
-.faq-item {
-    background: #ffffff; /* Fundo do item em branco */
-    border: 1px solid #bdc3c7; /* Borda cinza suave */
-    border-radius: 10px;
-    padding: 20px;
-    transition: all 0.3s;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.faq-item:hover {
-    border-color: var(--accent-red); /* Borda hover em vermelho */
-    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.1);
-}
-
-.faq-question {
-    color: var(--dark-text);
-    font-size: 1.1rem;
+    color: var(--accent-red);
     font-weight: 600;
 }
 
-.faq-question i.fa-question-circle {
-    color: var(--accent-red); /* Ícone da pergunta em vermelho */
-    margin-right: 10px;
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--dark-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s, color 0.3s;
 }
 
-.faq-answer {
-    padding-top: 10px;
-    color: #7f8c8d;
+.close:hover {
+    color: var(--accent-red);
+    transform: rotate(90deg);
 }
 
+.modal-footer {
+    text-align: right;
+}
 
-/* --- Seção CTA (+250fps) --- */
+/* ========================================================================= */
+/* --- SEÇÃO CTA (+250fps) --- */
+/* ========================================================================= */
+
 .cta-section {
-    padding: 80px 0;
-    background: #ffffff; /* Fundo branco/claro */
+    padding: 100px 0;
+    background: #ffffff; /* Fundo branco para contraste com o hero escuro */
     text-align: center;
 }
 
 .cta-title {
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: var(--accent-red); /* Destaque em vermelho */
+    font-size: 3rem;
+    font-weight: 800;
+    /* Usando o azul dos botões como destaque para FPS */
+    color: var(--primary-blue); 
     margin-bottom: 10px;
 }
 
 .cta-description {
     color: var(--dark-text);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-bottom: 30px;
 }
 
 .cta-note {
-    margin-top: 20px;
+    margin-top: 25px;
     color: #7f8c8d;
+    font-size: 0.95rem;
 }
 
-/* --- Rodapé (Footer) --- */
+.cta-button-secondary {
+    /* Fazendo com que o botão secundário seja o primário (azul) */
+    font-size: 1.1rem;
+    padding: 12px 30px;
+}
+
+/* ========================================================================= */
+/* --- RODAPÉ (FOOTER) --- */
+/* ========================================================================= */
+
 .footer {
-    padding: 60px 0;
-    background: var(--dark-bg); /* Fundo cinza azulado escuro */
-    color: #ecf0f1; /* Texto geral em cinza claro */
-    position: relative;
-    z-index: 10;
+    padding: 60px 0 10px;
+    background: var(--dark-bg); 
+    color: #ecf0f1; 
 }
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.footer-top {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap; /* Permite quebrar em telas menores */
-    gap: 30px; /* Espaçamento entre as colunas */
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* Coluna da marca maior que as outras */
+    gap: 40px;
     padding-bottom: 40px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.footer-column {
-    /* Define a largura para 20-25% para ter 4 colunas em desktop */
-    width: 20%; 
-    min-width: 150px; /* Garante que não fiquem muito estreitas */
-}
-
-/* Coluna da Brand/Logo */
 .footer-brand {
-    min-width: 250px;
-}
-
-.footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    padding-right: 30px;
 }
 
 .footer-logo-text {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
     color: #fff;
+    margin-bottom: 10px;
+    display: block;
 }
 
 .footer-description {
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.7);
-    margin-top: 15px;
 }
 
 .footer-title {
@@ -209,85 +399,108 @@ body {
     font-weight: 600;
     color: #fff;
     margin-bottom: 20px;
-}
-
-.footer-title i {
-    color: var(--accent-red); /* Ícones do título em vermelho */
-    margin-right: 8px;
+    border-bottom: 2px solid var(--accent-red); /* Destaque em vermelho */
+    width: fit-content;
+    padding-bottom: 5px;
 }
 
 .footer-links {
     list-style: none;
     padding: 0;
-    margin: 0;
 }
 
 .footer-links li {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .footer-links a {
     text-decoration: none;
     color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
-    transition: color 0.3s;
-    display: block; /* Garante que toda a linha seja clicável */
+    font-size: 0.95rem;
+    transition: color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
 }
 
 .footer-links a:hover {
-    color: var(--accent-red); /* Links hover em vermelho */
+    color: var(--accent-red);
     transform: translateX(5px);
 }
 
 .footer-links a i {
-    color: var(--accent-red); /* Setas em vermelho */
-    margin-right: 5px;
-}
-
-/* Footer Bottom (Direitos Autorais e Créditos) */
-.footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding-top: 20px;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.footer-bottom-left, .footer-bottom-right {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.footer-credits strong.gradient-text {
-    /* Corrigir o texto "STRONGSK" para aparecer branco ou vermelho */
-    background: none;
-    -webkit-background-clip: unset;
-    -webkit-text-fill-color: unset;
     color: var(--accent-red);
-    font-weight: bold;
+    margin-right: 8px;
+    font-size: 0.7rem;
 }
 
-.footer-bottom i.fa-heart {
+.footer-bottom {
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-copyright strong {
+    color: #fff;
+    font-weight: 700;
+}
+
+.footer-copyright i.fa-heart {
     color: var(--accent-red); /* Coração em vermelho */
+    animation: heart-beat 1s infinite;
 }
 
-/* Responsividade do Footer */
+/* ========================================================================= */
+/* --- RESPONSIVIDADE --- */
+/* ========================================================================= */
+
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    .navbar .links {
+        gap: 20px;
+    }
+}
+
 @media (max-width: 768px) {
-    .footer-top {
-        flex-direction: column;
-        gap: 40px;
+    .navbar-inner {
+        padding: 10px 15px;
     }
-    .footer-column {
-        width: 100%;
-        min-width: unset;
+    .navbar .links, .navbar .btn-primary {
+        display: none; /* Esconde links e botão Download no mobile */
     }
-    .footer-bottom {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
+    .hamburger {
+        display: block; /* Mostra o menu hamburger */
+        cursor: pointer;
+        padding: 5px;
+        position: relative;
+        z-index: 10;
+    }
+    .hamburger .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: var(--dark-text);
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Layout do Rodapé */
+    .footer-grid {
+        grid-template-columns: 1fr; /* Coluna única no mobile */
         text-align: center;
+    }
+    .footer-title {
+        margin: 20px auto;
+    }
+    .footer-links a {
+        justify-content: center;
+    }
+    .footer-links a:hover {
+        transform: none; /* Remove a translação lateral no hover mobile */
+    }
+    .footer-brand {
+        padding-right: 0;
     }
 }
