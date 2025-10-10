@@ -5,8 +5,8 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     scrollbar-width: thin;
-    /* Alterado: Cor do scrollbar para azul claro e fundo claro */
-    scrollbar-color: #3498db #f0f4f8; 
+    /* Alterado: Scrollbar para azul e fundo cinza claro */
+    scrollbar-color: #3498db #ecf0f1; 
 }
 
 html {
@@ -14,15 +14,14 @@ html {
 }
 
 body {
-    /* Alterado: Cor do texto principal para escuro em fundo claro */
-    color: #1f2937; 
+    color: #2c3e50; /* Cor do texto principal (cinza escuro para fundo claro) */
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     margin: 0;
-    /* Alterado: Fundo do corpo para branco/muito claro */
-    background-color: #ffffff; 
+    /* Alterado: Fundo do corpo para cinza muito claro */
+    background-color: #ecf0f1; 
     overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
@@ -34,21 +33,21 @@ body {
 
 ::-webkit-scrollbar-track {
     /* Alterado: Fundo claro para o track do scrollbar */
-    background: #f0f4f8; 
+    background: #ecf0f1; 
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    /* Alterado: Gradiente do thumb para azul claro */
+    /* Alterado: Gradiente do thumb para azul (botões) */
     background: linear-gradient(180deg, #3498db, #2980b9); 
     border-radius: 10px;
-    /* Alterado: Borda do thumb para fundo claro */
-    border: 2px solid #f0f4f8; 
+    /* Alterado: Borda do thumb para fundo cinza claro */
+    border: 2px solid #ecf0f1; 
 }
 
 ::-webkit-scrollbar-thumb:hover {
     /* Alterado: Gradiente do hover do thumb para azul mais escuro */
-    background: linear-gradient(180deg, #2980b9, #1f6b9c); 
+    background: linear-gradient(180deg, #2980b9, #206c9a); 
 }
 
 /* Container (sem alteração) */
@@ -74,7 +73,7 @@ body {
     position: relative;
     /* Alterado: Borda mais clara */
     border: 1px solid rgba(0, 0, 0, 0.1); 
-    /* Adicionado: Sombra para destacar em fundo branco */
+    /* Adicionado: Sombra para destacar em fundo claro */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
 }
 
@@ -83,8 +82,7 @@ body {
     align-items: center;
     font-size: 18px;
     font-weight: bold;
-    /* Alterado: Cor do logo para escuro */
-    color: #1f2937; 
+    color: #2c3e50; /* Cor do logo para cinza escuro */
     gap: 10px;
 }
 
@@ -106,8 +104,7 @@ body {
 
 .navbar .links a {
     text-decoration: none;
-    /* Alterado: Cor do link para cinza escuro */
-    color: #4b5563; 
+    color: #7f8c8d; /* Cor do link para cinza */
     font-size: 15px;
     transition: color 0.3s, transform 0.3s;
     position: relative;
@@ -122,14 +119,13 @@ body {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    /* Alterado: Linha de destaque para azul claro */
-    background-color: #3498db; 
+    /* Alterado: Linha de destaque para vermelho */
+    background-color: #e74c3c; 
     transition: width 0.3s;
 }
 
 .navbar .links a:hover {
-    /* Alterado: Cor do link hover para escuro */
-    color: #1f2937; 
+    color: #2c3e50; /* Cor do link hover para cinza escuro */
 }
 
 .navbar .links a:hover::after {
@@ -145,8 +141,7 @@ body {
     justify-content: center;
     text-align: center;
     position: relative;
-    /* Alterado: Cor do texto no Hero (assumindo que o vídeo de fundo é escuro, mantemos branco) */
-    color: #fff; 
+    color: #fff; /* Mantido branco para contraste com o vídeo de fundo (assumindo que é escuro) */
     overflow: hidden;
 }
 
@@ -173,7 +168,7 @@ body {
 .hero-content p {
     font-size: 1.3rem;
     margin-bottom: 30px;
-    color: #ccc;
+    color: #ccc; /* Mantido cinza claro */
 }
 
 
@@ -197,13 +192,12 @@ body {
 }
 
 .navbar .btn {
-    /* Alterado: Fundo para azul claro */
+    /* Alterado: Fundo para azul (botões) */
     background: #3498db; 
     border: none;
     padding: 8px 18px;
     border-radius: 20px;
-    /* Alterado: Cor do texto do botão para branco (para contraste com azul) */
-    color: #ffffff; 
+    color: #fff; /* Cor do texto do botão para branco */
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s;
@@ -218,10 +212,9 @@ body {
 }
 
 .btn-primary {
-    /* Alterado: Fundo primário para azul claro */
+    /* Alterado: Fundo primário para azul (botões) */
     background: #3498db; 
-    /* Alterado: Cor do texto para branco */
-    color: #fff; 
+    color: #fff; /* Cor do texto para branco */
 }
 
 .btn-primary:hover {
@@ -232,27 +225,24 @@ body {
 
 .btn-secondary {
     /* Alterado: Borda para cinza escuro */
-    border: 2px solid #4b5563; 
-    /* Alterado: Cor do texto para cinza escuro */
-    color: #4b5563; 
+    border: 2px solid #7f8c8d; 
+    color: #7f8c8d; /* Cor do texto para cinza */
     background: transparent;
     padding: 15px 35px;
     border-radius: 50px;
 }
 
 .btn-secondary:hover {
-    /* Alterado: Fundo para cinza claro (mantendo o contraste) */
-    background: #4b5563; 
-    /* Alterado: Cor do texto para branco */
-    color: #fff; 
+    background: #7f8c8d; /* Fundo para cinza (mantendo o contraste) */
+    color: #fff; /* Cor do texto para branco */
     transform: scale(1.05);
 }
 
 /* --- Footer --- */
 .footer {
     padding: 50px 0;
-    /* Alterado: Fundo do footer para cinza muito claro */
-    background-color: #f0f4f8; 
+    /* Alterado: Fundo do footer para cinza mais escuro (contraste com o corpo claro) */
+    background-color: #34495e; 
     position: relative;
     z-index: 10;
 }
@@ -271,8 +261,7 @@ body {
 .footer-logo {
     font-size: 1.5rem;
     font-weight: 700;
-    /* Alterado: Cor do logo para escuro */
-    color: #1f2937; 
+    color: #fff; /* Cor do logo para branco (no fundo escuro do footer) */
     text-decoration: none;
 }
 
@@ -282,31 +271,29 @@ body {
 }
 
 .footer-socials a {
-    /* Alterado: Cor do ícone social para cinza escuro */
-    color: #4b5563; 
+    color: #bdc3c7; /* Cor do ícone social para cinza claro */
     font-size: 1.5rem;
     text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .footer-socials a:hover {
-    /* Alterado: Cor do hover social para azul claro */
-    color: #3498db; 
+    /* Alterado: Cor do hover social para vermelho */
+    color: #e74c3c; 
     transform: translateY(-3px);
 }
 
 .footer-copyright {
-    /* Alterado: Cor do copyright para cinza escuro */
-    color: #4b5563; 
+    color: #bdc3c7; /* Cor do copyright para cinza claro */
     width: 100%;
     text-align: center;
     margin-top: 30px;
-    /* Alterado: Borda superior para cinza claro */
-    border-top: 1px solid #d1d5db; 
+    /* Alterado: Borda superior para cinza mais escuro */
+    border-top: 1px solid #4a627d; 
     padding-top: 30px;
 }
 
-/* Vídeo de fundo (mantido para o Hero) */
+/* Vídeo de fundo */
 .video-background {
     position: absolute;
     top: 0;
@@ -323,20 +310,27 @@ body {
     object-fit: cover;
 }
 
-/* --- Hamburger Menu (Cores de texto/fundo ajustadas) --- */
+/* --- Hamburger Menu --- */
 .hamburger .bar {
-    background-color: #1f2937; /* Alterado: Cor do hambúrguer para escuro */
+    background-color: #2c3e50; /* Alterado: Cor do hambúrguer para cinza escuro */
 }
 
-/* --- Responsive Styles (Ajuste de variáveis) --- */
+/* --- Responsive Styles --- */
+/* Reset / base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 :root{
     /* Alterado: Fundo da navbar para branco transparente */
     --nav-bg: rgba(255, 255, 255, 0.9); 
     --nav-blur: 8px;
-    /* Alterado: Cor de destaque para azul claro */
-    --accent: #3498db; 
-    /* Alterado: Cor do texto para escuro */
-    --text: #1f2937; 
+    /* Alterado: Cor de destaque para vermelho */
+    --accent: #e74c3c; 
+    /* Alterado: Cor do texto para cinza escuro */
+    --text: #2c3e50; 
     --radius-lg: 30px;
     --radius-md: 20px;
     --transition-fast: 180ms;
@@ -347,8 +341,8 @@ body {
 
 /* Estilo Mobile menu (fundo escuro para pop-up) */
 .navbar .links{
-    /* Alterado: Fundo do menu mobile para azul escuro transparente */
-    background-color: rgba(29, 41, 58, 0.95); 
+    /* Alterado: Fundo do menu mobile para cinza escuro transparente */
+    background-color: rgba(44, 62, 80, 0.95); 
     backdrop-filter: blur(var(--nav-blur));
 }
 
@@ -358,38 +352,45 @@ body {
 }
 
 .modal-content {
-    /* Alterado: Fundo do modal para claro */
-    background-color: #e5eaf0; 
-    /* Alterado: Borda do modal para cinza claro */
-    border: 1px solid #d1d5db; 
+    /* Alterado: Fundo do modal para cinza claro */
+    background-color: #f5f7f9; 
+    /* Alterado: Borda do modal para cinza */
+    border: 1px solid #bdc3c7; 
 }
 
 .modal-header h2 {
-    /* Alterado: Cor do título do modal para azul claro */
-    color: #3498db; 
+    /* Alterado: Cor do título do modal para vermelho */
+    color: #e74c3c; 
 }
 
 .modal-body strong {
-    /* Alterado: Destaque do texto do modal para azul claro */
-    color: #3498db; 
+    /* Alterado: Destaque do texto do modal para vermelho */
+    color: #e74c3c; 
 }
 
 .close {
     /* Alterado: Fundo do botão fechar para cinza claro transparente */
     background: rgba(0, 0, 0, 0.08); 
-    /* Alterado: Cor do ícone para escuro */
-    color: #1f2937; 
+    /* Alterado: Cor do ícone para cinza escuro */
+    color: #2c3e50; 
+}
+
+.close:hover {
+    background: #c0392b; /* Vermelho escuro para hover */
+    color: #fff;
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.5);
 }
 
 /* --- Features Section --- */
 .features-section {
     padding: 80px 20px;
-    /* Alterado: Fundo para gradiente claro */
-    background: linear-gradient(180deg, #ffffff 0%, #f0f4f8 100%); 
+    /* Alterado: Fundo para gradiente cinza claro */
+    background: linear-gradient(180deg, #ecf0f1 0%, #ffffff 100%); 
 }
 
 .features-section::before {
-    /* Alterado: Gradientes decorativos para azul/roxo mais claro */
+    /* Alterado: Gradientes decorativos para azul/roxo (mantidos pela descrição original) */
     background: radial-gradient(circle at 20% 50%, rgba(52, 152, 219, 0.1) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.08) 0%, transparent 50%);
 }
@@ -403,22 +404,22 @@ body {
 }
 
 .feature-card:hover {
-    /* Alterado: Borda hover para azul claro */
-    border-color: rgba(52, 152, 219, 0.5); 
+    /* Alterado: Borda hover para vermelho */
+    border-color: rgba(231, 76, 60, 0.5); 
     /* Alterado: Fundo hover para branco ligeiramente mais transparente */
     background: rgba(255, 255, 255, 0.9); 
-    /* Alterado: Sombra hover para azul */
-    box-shadow: 0 20px 40px rgba(52, 152, 219, 0.15); 
+    /* Alterado: Sombra hover para vermelho */
+    box-shadow: 0 20px 40px rgba(231, 76, 60, 0.15); 
 }
 
 .feature-card::before {
-    /* Alterado: Linha de destaque superior para gradiente azul/roxo */
-    background: linear-gradient(90deg, #3498db, #8a2be2); 
+    /* Alterado: Linha de destaque superior para gradiente vermelho/roxo */
+    background: linear-gradient(90deg, #e74c3c, #8a2be2); 
 }
 
 .feature-icon {
-    /* Alterado: Fundo do ícone para gradiente azul/roxo */
-    background: linear-gradient(135deg, #3498db 0%, #8a2be2 100%); 
+    /* Alterado: Fundo do ícone para gradiente vermelho/roxo */
+    background: linear-gradient(135deg, #e74c3c 0%, #8a2be2 100%); 
 }
 
 .feature-icon i {
@@ -426,20 +427,18 @@ body {
 }
 
 .feature-title {
-    /* Alterado: Cor do título para escuro */
-    color: #1f2937; 
+    color: #2c3e50; /* Cor do título para cinza escuro */
 }
 
 .feature-description {
-    /* Alterado: Cor da descrição para cinza escuro */
-    color: #4b5563; 
+    color: #7f8c8d; /* Cor da descrição para cinza */
 }
 
 .feature-badge {
-    /* Alterado: Fundo do badge para gradiente azul/roxo */
-    background: linear-gradient(135deg, #3498db, #8a2be2); 
-    /* Alterado: Sombra do badge para azul */
-    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4); 
+    /* Alterado: Fundo do badge para gradiente vermelho/roxo */
+    background: linear-gradient(135deg, #e74c3c, #8a2be2); 
+    /* Alterado: Sombra do badge para vermelho */
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4); 
 }
 
 
@@ -447,108 +446,99 @@ body {
 .stats-section {
     padding: 80px 20px;
     /* Alterado: Fundo para gradiente cinza claro/branco */
-    background: linear-gradient(180deg, #f0f4f8 0%, #ffffff 100%); 
+    background: linear-gradient(180deg, #ffffff 0%, #ecf0f1 100%); 
 }
 
 .stat-item {
-    /* Alterado: Fundo do card para branco */
-    background: #ffffff; 
-    /* Alterado: Borda para cinza claro */
-    border: 1px solid rgba(0, 0, 0, 0.1); 
+    background: #ffffff; /* Fundo do card para branco */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Borda para cinza claro */
 }
 
 .stat-item::before {
-    /* Alterado: Efeito before para azul claro */
-    background: linear-gradient(90deg, transparent, #3498db, transparent); 
+    /* Alterado: Efeito before para vermelho */
+    background: linear-gradient(90deg, transparent, #e74c3c, transparent); 
 }
 
 .stat-item:hover {
-    /* Alterado: Borda hover para azul claro */
-    border-color: rgba(52, 152, 219, 0.5); 
-    /* Alterado: Sombra hover para azul */
-    box-shadow: 0 15px 35px rgba(52, 152, 219, 0.2); 
+    /* Alterado: Borda hover para vermelho */
+    border-color: rgba(231, 76, 60, 0.5); 
+    /* Alterado: Sombra hover para vermelho */
+    box-shadow: 0 15px 35px rgba(231, 76, 60, 0.2); 
 }
 
 .stat-icon {
-    /* Alterado: Fundo do ícone para gradiente azul/roxo */
-    background: linear-gradient(135deg, #3498db 0%, #8a2be2 100%); 
+    /* Alterado: Fundo do ícone para gradiente vermelho/roxo */
+    background: linear-gradient(135deg, #e74c3c 0%, #8a2be2 100%); 
 }
 
 .stat-item:hover .stat-icon {
-    /* Alterado: Sombra do ícone para azul */
-    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.5); 
+    /* Alterado: Sombra do ícone para vermelho */
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.5); 
 }
 
 .stat-number {
-    /* Alterado: Cor do número para gradiente azul/roxo */
-    background: linear-gradient(135deg, #3498db, #8a2be2); 
+    /* Alterado: Cor do número para gradiente vermelho/roxo */
+    background: linear-gradient(135deg, #e74c3c, #8a2be2); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .stat-label {
-    /* Alterado: Cor do label para escuro */
-    color: #1f2937; 
+    color: #2c3e50; /* Cor do label para cinza escuro */
 }
 
 .stat-description {
-    /* Alterado: Cor da descrição para cinza escuro */
-    color: #4b5563; 
+    color: #7f8c8d; /* Cor da descrição para cinza */
 }
 
 /* Scroll Down Indicator */
 .scroll-down-indicator a {
-    /* Alterado: Cor do ícone para cinza escuro */
-    color: #4b5563; 
+    color: #7f8c8d; /* Cor do ícone para cinza */
 }
 
 .scroll-down-indicator a:hover {
-    /* Alterado: Cor do hover para azul claro */
-    color: #3498db; 
+    /* Alterado: Cor do hover para vermelho */
+    color: #e74c3c; 
 }
 
 .scroll-down-indicator i {
-    /* Alterado: Sombra para azul claro */
-    text-shadow: 0 0 15px rgba(52, 152, 219, 0.5); 
+    /* Alterado: Sombra para vermelho */
+    text-shadow: 0 0 15px rgba(231, 76, 60, 0.5); 
 }
 
 /* FAQ Section */
 .faq-item {
-    /* Alterado: Fundo do item FAQ para branco */
-    background: #ffffff; 
-    /* Alterado: Borda para cinza claro */
-    border: 1px solid rgba(0, 0, 0, 0.1); 
+    background: #ffffff; /* Fundo do item FAQ para branco */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Borda para cinza claro */
 }
 
 .faq-item:hover {
-    /* Alterado: Borda hover para azul claro */
-    border-color: #3498db; 
+    /* Alterado: Borda hover para vermelho */
+    border-color: #e74c3c; 
 }
 
 .faq-question {
-    /* Alterado: Cor do texto da pergunta para escuro */
-    color: #1f2937; 
+    color: #2c3e50; /* Cor do texto da pergunta para cinza escuro */
 }
 
 .faq-question:hover {
-    /* Alterado: Cor do hover para azul claro */
-    color: #3498db; 
+    /* Alterado: Cor do hover para vermelho */
+    color: #e74c3c; 
 }
 
 .faq-question i.fa-question-circle {
-    /* Alterado: Cor do ícone para azul claro */
-    color: #3498db; 
+    /* Alterado: Cor do ícone para vermelho */
+    color: #e74c3c; 
 }
 
 .faq-icon {
-    /* Alterado: Cor do ícone para azul claro */
-    color: #3498db; 
+    /* Alterado: Cor do ícone para vermelho */
+    color: #e74c3c; 
 }
 
 .faq-answer p {
-    /* Alterado: Cor da resposta para cinza escuro */
-    color: #4b5563; 
+    color: #7f8c8d; /* Cor da resposta para cinza */
 }
 
 /* --- CTA Section --- */
@@ -556,49 +546,42 @@ body {
     padding: 80px 0;
     /* Alterado: Fundo para gradiente de cinza claro */
     background: linear-gradient(rgba(240, 240, 240, 0.9), rgba(240, 240, 240, 0.9)), url('../images/background.png') no-repeat center center/cover;
-    /* Alterado: Cor do título para escuro */
-    color: #1f2937; 
+    color: #2c3e50; /* Cor do título para cinza escuro */
 }
 
 .cta-title {
-    /* Alterado: Cor do título para escuro */
-    color: #1f2937; 
+    color: #2c3e50; /* Cor do título para cinza escuro */
 }
 
 .cta-description {
-    /* Alterado: Cor da descrição para cinza escuro */
-    color: #4b5563; 
+    color: #7f8c8d; /* Cor da descrição para cinza */
 }
 
 .cta-button {
-    /* Alterado: Fundo para azul claro */
+    /* Alterado: Fundo para azul (botões) */
     background: #3498db; 
-    /* Alterado: Cor do texto para branco */
-    color: #fff; 
+    color: #fff; /* Cor do texto para branco */
     /* Alterado: Sombra para azul */
     box-shadow: 0 8px 25px rgba(52, 152, 219, 0.2); 
 }
 
 .cta-button:hover {
+    transform: translateY(-5px) scale(1.05);
     /* Alterado: Sombra hover para azul */
     box-shadow: 0 12px 35px rgba(52, 152, 219, 0.3); 
 }
 
 .cta-note {
-    /* Alterado: Cor da nota para cinza escuro */
-    color: #4b5563; 
+    color: #7f8c8d; /* Cor da nota para cinza */
 }
 
-/* Footer (O footer no final do código estava usando uma cor escura, estou ajustando para claro/azul) */
+/* Footer (Mantido o tema escuro para contraste, mas com tons de cinza mais sutis) */
 .footer {
-    /* Alterado: Fundo para cinza muito escuro/preto (para melhor contraste no rodapé se o fundo da página é claro) */
-    background: linear-gradient(180deg, #1f2937 0%, #111827 100%); 
+    /* Alterado: Fundo para cinza escuro */
+    background: linear-gradient(180deg, #2c3e50 0%, #212d3b 100%); 
 }
 
-/* ... (Muitas regras de footer foram ajustadas para manter o contraste, usando #fff ou cores claras no fundo escuro do footer) ... */
-
-/* Ajustes de cores dentro do footer (mantendo um tema escuro para o rodapé em contraste com o resto do tema claro) */
-
+/* Ajustes de cores dentro do footer */
 .footer-logo-text {
     color: #fff;
 }
@@ -607,73 +590,60 @@ body {
     color: rgba(255, 255, 255, 0.6);
 }
 
-.footer-social {
-    gap: 12px;
-}
-
 .social-link {
-    /* Alterado: Fundo do ícone social para cinza transparente */
     background: rgba(255, 255, 255, 0.08); 
-    /* Alterado: Borda do ícone social para cinza claro transparente */
     border: 1.5px solid rgba(255, 255, 255, 0.2); 
-    /* Alterado: Cor do ícone social para branco/cinza claro */
     color: rgba(255, 255, 255, 0.8); 
 }
 
 .social-link.discord-link:hover {
-    /* Mantido o azul do Discord */
     background: #5865F2; 
     border-color: #5865F2;
     box-shadow: 0 10px 30px rgba(88, 101, 242, 0.5);
 }
 
 .social-link.twitter-link:hover {
-    /* Mantido o azul do Twitter */
     background: #1DA1F2; 
     border-color: #1DA1F2;
     box-shadow: 0 10px 30px rgba(29, 161, 242, 0.5);
 }
 
 .social-link.youtube-link:hover {
-    /* Mantido o vermelho do Youtube */
     background: #FF0000; 
     border-color: #FF0000;
     box-shadow: 0 10px 30px rgba(255, 0, 0, 0.5);
 }
 
 .social-link.github-link:hover {
-    /* Alterado: Fundo hover do GitHub para cinza claro para manter a cor escura no ícone (se houver) */
-    background: #e5eaf0; 
-    border-color: #e5eaf0;
-    color: #1f2937;
+    background: #ecf0f1; 
+    border-color: #ecf0f1;
+    color: #2c3e50;
     box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
 }
 
-
 .footer-stat-number {
-    /* Alterado: Cor do número para gradiente azul/roxo */
-    background: linear-gradient(135deg, #3498db, #8a2be2); 
+    /* Alterado: Cor do número para gradiente vermelho/roxo */
+    background: linear-gradient(135deg, #e74c3c, #8a2be2); 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .footer-stat-label {
-    /* Alterado: Cor do label para cinza claro */
     color: rgba(255, 255, 255, 0.4); 
 }
 
 .footer-title i, .footer-links a i {
-    /* Alterado: Ícones do footer para azul claro */
-    color: #3498db; 
+    /* Alterado: Ícones do footer para vermelho */
+    color: #e74c3c; 
 }
 
 .footer-links a:hover {
-    /* Alterado: Hover do link para azul mais claro */
-    color: #3498db; 
+    /* Alterado: Hover do link para vermelho */
+    color: #e74c3c; 
 }
 
 .footer-divider {
-    /* Alterado: Divisor para gradiente de azul claro */
-    background: linear-gradient(90deg, transparent, #3498db, transparent); 
+    /* Alterado: Divisor para gradiente de vermelho */
+    background: linear-gradient(90deg, transparent, #e74c3c, transparent); 
 }
