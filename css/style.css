@@ -1,649 +1,293 @@
-/* Reset e configurações globais */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    scrollbar-width: thin;
-    /* Alterado: Scrollbar para azul e fundo cinza claro */
-    scrollbar-color: #3498db #ecf0f1; 
+/* --- Paleta de Cores Atualizada --- */
+:root {
+    --accent-red: #e74c3c; /* Destaque principal (era verde) */
+    --primary-blue: #3498db; /* Cor dos botões (era verde/vermelho) */
+    --dark-text: #2c3e50; /* Cinza escuro para texto */
+    --light-bg: #ecf0f1; /* Cinza muito claro para fundo (era preto/escuro) */
+    --dark-bg: #34495e; /* Cinza azulado escuro para rodapé/seções escuras */
+    --nav-bg: rgba(255, 255, 255, 0.9);
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
+/* --- Base & Scrollbar --- */
 body {
-    color: #2c3e50; /* Cor do texto principal (cinza escuro para fundo claro) */
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    margin: 0;
-    /* Alterado: Fundo do corpo para cinza muito claro */
-    background-color: #ecf0f1; 
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    background-color: var(--light-bg); /* Fundo principal cinza claro */
+    color: var(--dark-text); 
+    overflow-x: hidden; 
 }
 
-/* Scrollbar (Chrome, Edge, Safari) */
-::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-}
-
-::-webkit-scrollbar-track {
-    /* Alterado: Fundo claro para o track do scrollbar */
-    background: #ecf0f1; 
-    border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-    /* Alterado: Gradiente do thumb para azul (botões) */
-    background: linear-gradient(180deg, #3498db, #2980b9); 
-    border-radius: 10px;
-    /* Alterado: Borda do thumb para fundo cinza claro */
-    border: 2px solid #ecf0f1; 
-}
-
-::-webkit-scrollbar-thumb:hover {
-    /* Alterado: Gradiente do hover do thumb para azul mais escuro */
-    background: linear-gradient(180deg, #2980b9, #206c9a); 
-}
-
-/* Container (sem alteração) */
+/* --- Container (Garantindo Alinhamento Lateral) --- */
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px; /* Adicionado padding para evitar que o conteúdo toque as bordas */
 }
 
 /* --- Navbar --- */
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* Alterado: Fundo da navbar para branco transparente */
-    background: rgba(255, 255, 255, 0.8); 
+    background: var(--nav-bg); 
     backdrop-filter: blur(10px);
-    padding: 12px 30px;
-    border-radius: 40px;
-    width: fit-content;
-    margin: 20px auto;
-    z-index: 100;
-    position: relative;
-    /* Alterado: Borda mais clara */
     border: 1px solid rgba(0, 0, 0, 0.1); 
-    /* Adicionado: Sombra para destacar em fundo claro */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
 }
 
-.navbar .logo {
-    display: flex;
-    align-items: center;
-    font-size: 18px;
-    font-weight: bold;
-    color: #2c3e50; /* Cor do logo para cinza escuro */
-    gap: 10px;
-}
-
-.logo-img {
-    width: 160px;
-    transition: transform 0.3s ease;
-}
-
-.logo-img:hover {
-    transform: scale(1.05);
-}
-
-.navbar .links {
-    display: flex;
-    gap: 25px;
-    margin-left: 40px;
-    margin-right: 40px;
-}
-
-.navbar .links a {
-    text-decoration: none;
-    color: #7f8c8d; /* Cor do link para cinza */
-    font-size: 15px;
-    transition: color 0.3s, transform 0.3s;
-    position: relative;
-    padding-bottom: 5px;
-}
-
-.navbar .links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    /* Alterado: Linha de destaque para vermelho */
-    background-color: #e74c3c; 
-    transition: width 0.3s;
-}
-
-.navbar .links a:hover {
-    color: #2c3e50; /* Cor do link hover para cinza escuro */
-}
-
 .navbar .links a:hover::after {
-    width: 100%;
+    background-color: var(--accent-red); /* Destaque do link para vermelho */
 }
 
+/* --- Botões (Garantindo Azul) --- */
+.btn,
+.navbar .btn,
+.btn-primary {
+    background: var(--primary-blue); /* Fundo azul */
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3); /* Sombra azul */
+}
 
-/* --- Hero Section --- */
-.hero {
-    height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.btn:hover,
+.navbar .btn:hover,
+.btn-primary:hover {
+    background: #2980b9; /* Azul mais escuro no hover */
+}
+
+/* --- Modal (Em Desenvolvimento) --- */
+.modal-content {
+    background-color: #fff; /* Fundo do modal em branco */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header h2 {
+    color: var(--accent-red); /* Título em vermelho */
+}
+
+.modal-body strong {
+    color: var(--accent-red); /* Destaque em vermelho */
+}
+
+.modal-footer .btn-secondary {
+    border: 2px solid var(--dark-text);
+    color: var(--dark-text);
+    background: transparent;
+}
+
+.modal-footer .btn-secondary:hover {
+    background: var(--dark-text);
+    color: #fff;
+}
+
+/* --- Seção de FAQ --- */
+.faq-section {
+    padding: 80px 0;
+    background: var(--light-bg); /* Fundo cinza claro */
+    /* REMOVIDO: background: black !important; que estava no HTML inline */
+}
+
+.faq-section .container {
+    /* Certifica-se de que o FAQ não está grudado nas laterais */
+    padding: 0 20px; 
+}
+
+.section-title {
     text-align: center;
-    position: relative;
-    color: #fff; /* Mantido branco para contraste com o vídeo de fundo (assumindo que é escuro) */
-    overflow: hidden;
+    font-size: 2.5rem;
+    color: var(--dark-text);
+    margin-bottom: 40px;
 }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    padding: 60px 20px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+.faq-item {
+    background: #ffffff; /* Fundo do item em branco */
+    border: 1px solid #bdc3c7; /* Borda cinza suave */
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 0.3s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
-.hero-content h1, .hero-content p {
-    opacity: 0;
+
+.faq-item:hover {
+    border-color: var(--accent-red); /* Borda hover em vermelho */
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.1);
 }
-.hero-content h1 {
+
+.faq-question {
+    color: var(--dark-text);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.faq-question i.fa-question-circle {
+    color: var(--accent-red); /* Ícone da pergunta em vermelho */
+    margin-right: 10px;
+}
+
+.faq-answer {
+    padding-top: 10px;
+    color: #7f8c8d;
+}
+
+
+/* --- Seção CTA (+250fps) --- */
+.cta-section {
+    padding: 80px 0;
+    background: #ffffff; /* Fundo branco/claro */
+    text-align: center;
+}
+
+.cta-title {
     font-size: 3.5rem;
     font-weight: 700;
-    margin-bottom: 20px;
-    line-height: 1.2;
+    color: var(--accent-red); /* Destaque em vermelho */
+    margin-bottom: 10px;
 }
 
-.hero-content p {
-    font-size: 1.3rem;
+.cta-description {
+    color: var(--dark-text);
+    font-size: 1.1rem;
     margin-bottom: 30px;
-    color: #ccc; /* Mantido cinza claro */
 }
 
-
-/* Botões */
-.hero-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
+.cta-note {
+    margin-top: 20px;
+    color: #7f8c8d;
 }
 
-.btn {
-    padding: 12px 28px;
-    border-radius: 30px;
-    font-size: 1rem;
-    font-weight: bold;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.navbar .btn {
-    /* Alterado: Fundo para azul (botões) */
-    background: #3498db; 
-    border: none;
-    padding: 8px 18px;
-    border-radius: 20px;
-    color: #fff; /* Cor do texto do botão para branco */
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.navbar .btn:hover {
-    /* Alterado: Hover para azul mais escuro */
-    background: #2980b9; 
-    transform: scale(1.05);
-    /* Alterado: Sombra para azul */
-    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3); 
-}
-
-.btn-primary {
-    /* Alterado: Fundo primário para azul (botões) */
-    background: #3498db; 
-    color: #fff; /* Cor do texto para branco */
-}
-
-.btn-primary:hover {
-    /* Alterado: Hover para azul mais escuro */
-    background: #2980b9; 
-    transform: scale(1.05);
-}
-
-.btn-secondary {
-    /* Alterado: Borda para cinza escuro */
-    border: 2px solid #7f8c8d; 
-    color: #7f8c8d; /* Cor do texto para cinza */
-    background: transparent;
-    padding: 15px 35px;
-    border-radius: 50px;
-}
-
-.btn-secondary:hover {
-    background: #7f8c8d; /* Fundo para cinza (mantendo o contraste) */
-    color: #fff; /* Cor do texto para branco */
-    transform: scale(1.05);
-}
-
-/* --- Footer --- */
+/* --- Rodapé (Footer) --- */
 .footer {
-    padding: 50px 0;
-    /* Alterado: Fundo do footer para cinza mais escuro (contraste com o corpo claro) */
-    background-color: #34495e; 
+    padding: 60px 0;
+    background: var(--dark-bg); /* Fundo cinza azulado escuro */
+    color: #ecf0f1; /* Texto geral em cinza claro */
     position: relative;
     z-index: 10;
 }
 
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
+.footer-content {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Permite quebrar em telas menores */
+    gap: 30px; /* Espaçamento entre as colunas */
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-column {
+    /* Define a largura para 20-25% para ter 4 colunas em desktop */
+    width: 20%; 
+    min-width: 150px; /* Garante que não fiquem muito estreitas */
+}
+
+/* Coluna da Brand/Logo */
+.footer-brand {
+    min-width: 250px;
+}
+
 .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo-text {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #fff; /* Cor do logo para branco (no fundo escuro do footer) */
+    color: #fff;
+}
+
+.footer-description {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 15px;
+}
+
+.footer-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.footer-title i {
+    color: var(--accent-red); /* Ícones do título em vermelho */
+    margin-right: 8px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
     text-decoration: none;
-}
-
-.footer-socials {
-    display: flex;
-    gap: 20px;
-}
-
-.footer-socials a {
-    color: #bdc3c7; /* Cor do ícone social para cinza claro */
-    font-size: 1.5rem;
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.footer-socials a:hover {
-    /* Alterado: Cor do hover social para vermelho */
-    color: #e74c3c; 
-    transform: translateY(-3px);
-}
-
-.footer-copyright {
-    color: #bdc3c7; /* Cor do copyright para cinza claro */
-    width: 100%;
-    text-align: center;
-    margin-top: 30px;
-    /* Alterado: Borda superior para cinza mais escuro */
-    border-top: 1px solid #4a627d; 
-    padding-top: 30px;
-}
-
-/* Vídeo de fundo */
-.video-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
-}
-
-#bg-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* --- Hamburger Menu --- */
-.hamburger .bar {
-    background-color: #2c3e50; /* Alterado: Cor do hambúrguer para cinza escuro */
-}
-
-/* --- Responsive Styles --- */
-/* Reset / base */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-:root{
-    /* Alterado: Fundo da navbar para branco transparente */
-    --nav-bg: rgba(255, 255, 255, 0.9); 
-    --nav-blur: 8px;
-    /* Alterado: Cor de destaque para vermelho */
-    --accent: #e74c3c; 
-    /* Alterado: Cor do texto para cinza escuro */
-    --text: #2c3e50; 
-    --radius-lg: 30px;
-    --radius-md: 20px;
-    --transition-fast: 180ms;
-    --transition-medium: 300ms;
-}
-
-/* ... (Muitas regras de navbar e mobile menu usam as variáveis acima e não precisam de alteração direta) ... */
-
-/* Estilo Mobile menu (fundo escuro para pop-up) */
-.navbar .links{
-    /* Alterado: Fundo do menu mobile para cinza escuro transparente */
-    background-color: rgba(44, 62, 80, 0.95); 
-    backdrop-filter: blur(var(--nav-blur));
-}
-
-/* --- Modal --- */
-.modal {
-    background-color: rgba(0, 0, 0, 0.6);
-}
-
-.modal-content {
-    /* Alterado: Fundo do modal para cinza claro */
-    background-color: #f5f7f9; 
-    /* Alterado: Borda do modal para cinza */
-    border: 1px solid #bdc3c7; 
-}
-
-.modal-header h2 {
-    /* Alterado: Cor do título do modal para vermelho */
-    color: #e74c3c; 
-}
-
-.modal-body strong {
-    /* Alterado: Destaque do texto do modal para vermelho */
-    color: #e74c3c; 
-}
-
-.close {
-    /* Alterado: Fundo do botão fechar para cinza claro transparente */
-    background: rgba(0, 0, 0, 0.08); 
-    /* Alterado: Cor do ícone para cinza escuro */
-    color: #2c3e50; 
-}
-
-.close:hover {
-    background: #c0392b; /* Vermelho escuro para hover */
-    color: #fff;
-    transform: rotate(90deg) scale(1.1);
-    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.5);
-}
-
-/* --- Features Section --- */
-.features-section {
-    padding: 80px 20px;
-    /* Alterado: Fundo para gradiente cinza claro */
-    background: linear-gradient(180deg, #ecf0f1 0%, #ffffff 100%); 
-}
-
-.features-section::before {
-    /* Alterado: Gradientes decorativos para azul/roxo (mantidos pela descrição original) */
-    background: radial-gradient(circle at 20% 50%, rgba(52, 152, 219, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(138, 43, 226, 0.08) 0%, transparent 50%);
-}
-
-.feature-card {
-    /* Alterado: Fundo do card para branco transparente */
-    background: rgba(255, 255, 255, 0.8); 
-    backdrop-filter: blur(10px);
-    /* Alterado: Borda do card para cinza claro */
-    border: 1px solid rgba(0, 0, 0, 0.1); 
-}
-
-.feature-card:hover {
-    /* Alterado: Borda hover para vermelho */
-    border-color: rgba(231, 76, 60, 0.5); 
-    /* Alterado: Fundo hover para branco ligeiramente mais transparente */
-    background: rgba(255, 255, 255, 0.9); 
-    /* Alterado: Sombra hover para vermelho */
-    box-shadow: 0 20px 40px rgba(231, 76, 60, 0.15); 
-}
-
-.feature-card::before {
-    /* Alterado: Linha de destaque superior para gradiente vermelho/roxo */
-    background: linear-gradient(90deg, #e74c3c, #8a2be2); 
-}
-
-.feature-icon {
-    /* Alterado: Fundo do ícone para gradiente vermelho/roxo */
-    background: linear-gradient(135deg, #e74c3c 0%, #8a2be2 100%); 
-}
-
-.feature-icon i {
-    color: #fff;
-}
-
-.feature-title {
-    color: #2c3e50; /* Cor do título para cinza escuro */
-}
-
-.feature-description {
-    color: #7f8c8d; /* Cor da descrição para cinza */
-}
-
-.feature-badge {
-    /* Alterado: Fundo do badge para gradiente vermelho/roxo */
-    background: linear-gradient(135deg, #e74c3c, #8a2be2); 
-    /* Alterado: Sombra do badge para vermelho */
-    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4); 
-}
-
-
-/* Stats Section */
-.stats-section {
-    padding: 80px 20px;
-    /* Alterado: Fundo para gradiente cinza claro/branco */
-    background: linear-gradient(180deg, #ffffff 0%, #ecf0f1 100%); 
-}
-
-.stat-item {
-    background: #ffffff; /* Fundo do card para branco */
-    border: 1px solid rgba(0, 0, 0, 0.1); /* Borda para cinza claro */
-}
-
-.stat-item::before {
-    /* Alterado: Efeito before para vermelho */
-    background: linear-gradient(90deg, transparent, #e74c3c, transparent); 
-}
-
-.stat-item:hover {
-    /* Alterado: Borda hover para vermelho */
-    border-color: rgba(231, 76, 60, 0.5); 
-    /* Alterado: Sombra hover para vermelho */
-    box-shadow: 0 15px 35px rgba(231, 76, 60, 0.2); 
-}
-
-.stat-icon {
-    /* Alterado: Fundo do ícone para gradiente vermelho/roxo */
-    background: linear-gradient(135deg, #e74c3c 0%, #8a2be2 100%); 
-}
-
-.stat-item:hover .stat-icon {
-    /* Alterado: Sombra do ícone para vermelho */
-    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.5); 
-}
-
-.stat-number {
-    /* Alterado: Cor do número para gradiente vermelho/roxo */
-    background: linear-gradient(135deg, #e74c3c, #8a2be2); 
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.stat-label {
-    color: #2c3e50; /* Cor do label para cinza escuro */
-}
-
-.stat-description {
-    color: #7f8c8d; /* Cor da descrição para cinza */
-}
-
-/* Scroll Down Indicator */
-.scroll-down-indicator a {
-    color: #7f8c8d; /* Cor do ícone para cinza */
-}
-
-.scroll-down-indicator a:hover {
-    /* Alterado: Cor do hover para vermelho */
-    color: #e74c3c; 
-}
-
-.scroll-down-indicator i {
-    /* Alterado: Sombra para vermelho */
-    text-shadow: 0 0 15px rgba(231, 76, 60, 0.5); 
-}
-
-/* FAQ Section */
-.faq-item {
-    background: #ffffff; /* Fundo do item FAQ para branco */
-    border: 1px solid rgba(0, 0, 0, 0.1); /* Borda para cinza claro */
-}
-
-.faq-item:hover {
-    /* Alterado: Borda hover para vermelho */
-    border-color: #e74c3c; 
-}
-
-.faq-question {
-    color: #2c3e50; /* Cor do texto da pergunta para cinza escuro */
-}
-
-.faq-question:hover {
-    /* Alterado: Cor do hover para vermelho */
-    color: #e74c3c; 
-}
-
-.faq-question i.fa-question-circle {
-    /* Alterado: Cor do ícone para vermelho */
-    color: #e74c3c; 
-}
-
-.faq-icon {
-    /* Alterado: Cor do ícone para vermelho */
-    color: #e74c3c; 
-}
-
-.faq-answer p {
-    color: #7f8c8d; /* Cor da resposta para cinza */
-}
-
-/* --- CTA Section --- */
-.cta-section {
-    padding: 80px 0;
-    /* Alterado: Fundo para gradiente de cinza claro */
-    background: linear-gradient(rgba(240, 240, 240, 0.9), rgba(240, 240, 240, 0.9)), url('../images/background.png') no-repeat center center/cover;
-    color: #2c3e50; /* Cor do título para cinza escuro */
-}
-
-.cta-title {
-    color: #2c3e50; /* Cor do título para cinza escuro */
-}
-
-.cta-description {
-    color: #7f8c8d; /* Cor da descrição para cinza */
-}
-
-.cta-button {
-    /* Alterado: Fundo para azul (botões) */
-    background: #3498db; 
-    color: #fff; /* Cor do texto para branco */
-    /* Alterado: Sombra para azul */
-    box-shadow: 0 8px 25px rgba(52, 152, 219, 0.2); 
-}
-
-.cta-button:hover {
-    transform: translateY(-5px) scale(1.05);
-    /* Alterado: Sombra hover para azul */
-    box-shadow: 0 12px 35px rgba(52, 152, 219, 0.3); 
-}
-
-.cta-note {
-    color: #7f8c8d; /* Cor da nota para cinza */
-}
-
-/* Footer (Mantido o tema escuro para contraste, mas com tons de cinza mais sutis) */
-.footer {
-    /* Alterado: Fundo para cinza escuro */
-    background: linear-gradient(180deg, #2c3e50 0%, #212d3b 100%); 
-}
-
-/* Ajustes de cores dentro do footer */
-.footer-logo-text {
-    color: #fff;
-}
-
-.footer-description, .footer-links a, .footer-copyright, .footer-credits {
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.social-link {
-    background: rgba(255, 255, 255, 0.08); 
-    border: 1.5px solid rgba(255, 255, 255, 0.2); 
-    color: rgba(255, 255, 255, 0.8); 
-}
-
-.social-link.discord-link:hover {
-    background: #5865F2; 
-    border-color: #5865F2;
-    box-shadow: 0 10px 30px rgba(88, 101, 242, 0.5);
-}
-
-.social-link.twitter-link:hover {
-    background: #1DA1F2; 
-    border-color: #1DA1F2;
-    box-shadow: 0 10px 30px rgba(29, 161, 242, 0.5);
-}
-
-.social-link.youtube-link:hover {
-    background: #FF0000; 
-    border-color: #FF0000;
-    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.5);
-}
-
-.social-link.github-link:hover {
-    background: #ecf0f1; 
-    border-color: #ecf0f1;
-    color: #2c3e50;
-    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
-}
-
-.footer-stat-number {
-    /* Alterado: Cor do número para gradiente vermelho/roxo */
-    background: linear-gradient(135deg, #e74c3c, #8a2be2); 
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.footer-stat-label {
-    color: rgba(255, 255, 255, 0.4); 
-}
-
-.footer-title i, .footer-links a i {
-    /* Alterado: Ícones do footer para vermelho */
-    color: #e74c3c; 
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    transition: color 0.3s;
+    display: block; /* Garante que toda a linha seja clicável */
 }
 
 .footer-links a:hover {
-    /* Alterado: Hover do link para vermelho */
-    color: #e74c3c; 
+    color: var(--accent-red); /* Links hover em vermelho */
+    transform: translateX(5px);
 }
 
-.footer-divider {
-    /* Alterado: Divisor para gradiente de vermelho */
-    background: linear-gradient(90deg, transparent, #e74c3c, transparent); 
+.footer-links a i {
+    color: var(--accent-red); /* Setas em vermelho */
+    margin-right: 5px;
+}
+
+/* Footer Bottom (Direitos Autorais e Créditos) */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-bottom-left, .footer-bottom-right {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-credits strong.gradient-text {
+    /* Corrigir o texto "STRONGSK" para aparecer branco ou vermelho */
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    color: var(--accent-red);
+    font-weight: bold;
+}
+
+.footer-bottom i.fa-heart {
+    color: var(--accent-red); /* Coração em vermelho */
+}
+
+/* Responsividade do Footer */
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+        gap: 40px;
+    }
+    .footer-column {
+        width: 100%;
+        min-width: unset;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        text-align: center;
+    }
 }
