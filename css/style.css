@@ -506,6 +506,27 @@ body {
     box-shadow: 0 10px 30px rgba(255, 51, 153, 0.7); 
 }
 
+/* Novo estilo para o Botão de Download na Navbar (RGB Animado) */
+.btn-download-animated {
+    /* Herda o visual completo da animação RGB */
+    padding: 10px 25px; /* Ajuste o padding para caber melhor na navbar */
+    font-size: 1rem;    /* Ajuste o tamanho da fonte para caber melhor na navbar */
+    font-weight: 600;
+    background: transparent; 
+    color: var(--light-text);
+    border: 2px solid var(--accent-pink); /* Borda um pouco mais fina */
+    border-radius: 30px; 
+    animation: rgb-animation 4s linear infinite;
+    position: relative;
+    overflow: hidden; 
+    box-shadow: 0 0 15px rgba(155, 89, 182, 0.5); /* Sombra mais sutil */
+}
+
+.btn-download-animated:hover {
+    transform: translateY(-2px); /* Efeito de hover mais sutil na navbar */
+    box-shadow: 0 5px 20px rgba(255, 51, 153, 0.7); 
+}
+
 /* ========================================================================= */
 /* --- ESTILOS DO MODAL (POPUP) --- */
 /* ========================================================================= */
@@ -518,9 +539,11 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
+    /* Fundo com transparência escura */
     background-color: rgba(0,0,0,0.9);
-    align-items: center;
-    justify-content: center;
+    /* Regras de centralização: O script deve ativar display: flex */
+    align-items: center; 
+    justify-content: center; 
 }
 
 .modal-content {
@@ -543,7 +566,9 @@ body {
 
 .close-btn {
     color: var(--accent-pink);
-    float: right;
+    position: absolute; /* Usamos posição absoluta para o 'X' */
+    top: 10px;
+    right: 15px;
     font-size: 32px;
     font-weight: bold;
     cursor: pointer;
@@ -613,7 +638,11 @@ body {
 
 @media (max-width: 768px) {
     .navbar-inner { padding: 10px 15px; }
-    .navbar .links, .navbar .btn-primary, .navbar a.btn-primary { display: none; }
+    
+    /* CORREÇÃO RESPONSIVA: Esconde o novo botão animado também */
+    .navbar .links, .navbar .btn-primary, .navbar a.btn-primary, .navbar a.btn-download-animated { 
+        display: none; 
+    }
     
     .hamburger {
         display: flex; 
