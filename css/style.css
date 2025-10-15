@@ -1,5 +1,249 @@
 /* ========================================================================= */
 /* --- FLUXZK CLIENT STYLES - TEMA ROSA, PRETO E ROXO (FINAL) --- */
+/* PALETA: Rosa (#ff3399), Roxo (#9b59b6), Preto (#0c0c0c) */
+/* ========================================================================= */
+
+:root {
+    --accent-pink: #ff3399;     /* Rosa Choque (Destaque principal) */
+    --primary-purple: #9b59b6;   /* Roxo (Botões/Ação) */
+    
+    --main-bg: #0c0c0c;           /* Fundo Principal: Preto Profundo */
+    --secondary-bg: #1a1a1a;     /* Fundo de Seção/Rodapé: Cinza Escuro */
+    --light-text: #f0f0f0;       /* Texto Principal: Quase branco */
+    --muted-text: #bdc3c7;       /* Texto Secundário (Links/Descrições) */
+    
+    --nav-bg: rgba(26, 26, 26, 0.7); /* Fundo da Navbar (mais transparente) */
+    --border-color: rgba(255, 255, 255, 0.1); 
+}
+
+/* --- Base & Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--main-bg); 
+    color: var(--light-text);         
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--main-bg); }
+::-webkit-scrollbar-thumb { background: var(--primary-purple); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #8e44ad; }
+
+/* --- Global Container --- */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* --- LOGO IMAGE STYLES --- */
+.logo-img-nav { height: 35px; width: auto; }
+.logo-img-footer { height: 50px; width: auto; margin-bottom: 5px; }
+
+/* --- Botões (Styles Globais) --- */
+.btn {
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary,
+.cta-main-button {
+    background: var(--primary-purple); 
+    color: #fff;
+    box-shadow: 0 6px 25px rgba(155, 89, 182, 0.6);
+}
+.btn-primary:hover,
+.cta-main-button:hover {
+    background: #8e44ad;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(155, 89, 182, 0.7);
+}
+.btn-secondary {
+    background: transparent;
+    color: var(--light-text); 
+    border: 2px solid var(--muted-text); 
+    box-shadow: none;
+}
+.hero .btn-secondary:hover {
+    background: var(--secondary-bg);
+    color: var(--light-text);
+    border-color: var(--accent-pink); 
+    transform: translateY(-2px);
+}
+
+/* ========================================================================= */
+/* --- NOVO DESIGN: NAVBAR NEON GLAMOUR --- */
+/* ========================================================================= */
+
+.nav-wrapper-full {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 900px; /* Largura máxima do conjunto */
+    z-index: 100;
+    display: flex;
+    justify-content: space-between; /* Espaça os itens */
+    align-items: center;
+    padding: 0 20px;
+}
+
+.navbar {
+    width: fit-content;
+    background: var(--nav-bg);
+    backdrop-filter: blur(12px);
+    border-radius: 50px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.6);
+}
+
+.navbar-inner {
+    display: flex;
+    align-items: center;
+    padding: 8px 8px 8px 20px; /* Padding ajustado para o novo layout */
+}
+
+.navbar .logo {
+    margin-right: 25px;
+    line-height: 0; /* Remove espaço extra da imagem */
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.1));
+}
+
+.navbar .links {
+    display: flex;
+    gap: 25px;
+}
+
+.navbar .links a {
+    color: var(--muted-text);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.navbar .links a:hover { color: var(--light-text); }
+
+.navbar .links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-pink); 
+    transition: width 0.3s ease;
+}
+
+.navbar .links a:hover::after { width: 100%; }
+
+.hamburger { display: none; }
+
+
+/* ========================================================================= */
+/* --- SEÇÃO HERO --- */
+/* ========================================================================= */
+/* ... (Todo o resto do seu CSS permanece igual, por isso omiti para não ficar gigante) ... */
+/* ... (Cole o código CSS completo que te enviei na resposta anterior aqui, se estiver substituindo o arquivo inteiro) ... */
+/* A única parte que realmente precisa ser adicionada/substituída é a da Navbar acima e a da responsividade abaixo */
+
+/* ========================================================================= */
+/* --- RESPONSIVIDADE (COM AJUSTES PARA NOVA NAVBAR) --- */
+/* ========================================================================= */
+
+@media (max-width: 992px) {
+    .hero-content h1 { font-size: 3rem; }
+    .nav-wrapper-full { max-width: 95%; } /* O wrapper se ajusta */
+}
+
+@media (max-width: 768px) {
+    .nav-wrapper-full {
+        top: 15px; /* Sobe um pouco no mobile */
+        padding: 0 15px;
+    }
+    .navbar .links, .download-wrapper {
+        display: none; /* Esconde os links e o botão de download */
+    }
+    
+    /* Ajustes para a navbar no mobile mostrar só o logo */
+    .navbar {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+    }
+    .navbar-inner {
+        padding: 0;
+    }
+    .navbar .logo {
+        margin: 0;
+    }
+
+    /* Mostra o Hamburger */
+    .hamburger {
+        display: flex; 
+        flex-direction: column;
+        justify-content: space-around;
+        cursor: pointer;
+        height: 20px;
+        z-index: 101; /* Garante que fique clicável */
+    }
+    .hamburger .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: var(--light-text); 
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* ... (Resto das suas regras de responsividade) ... */
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-content p { font-size: 1rem; }
+
+    .footer-grid {
+        grid-template-columns: 1fr; 
+        text-align: center;
+    }
+    .footer-title { margin: 20px auto; }
+    .footer-links a { justify-content: center; }
+    .footer-links a:hover { transform: none; }
+    .footer-brand { padding-right: 0; }
+    
+    .cta-title, .client-video-section h2, .page-header h1 { font-size: 2.2rem; }
+    .client-video-section { padding: 50px 0; }
+    .video-container-embed { width: 100%; }
+
+    .store-section h1 { font-size: 2.5rem; }
+    .rgb-animated-button { padding: 12px 25px; font-size: 1.1rem; }
+}/* ========================================================================= */
+/* --- FLUXZK CLIENT STYLES - TEMA ROSA, PRETO E ROXO (FINAL) --- */
 /* ========================================================================= */
 
 :root {
