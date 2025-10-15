@@ -509,9 +509,9 @@ body {
 /* Novo estilo para o Botão de Download na Navbar (RGB Animado) */
 .btn-download-animated {
     /* Herda o visual completo da animação RGB */
-    padding: 10px 25px; /* Ajuste o padding para caber melhor na navbar */
-    font-size: 1rem;    /* Ajuste o tamanho da fonte para caber melhor na navbar */
-    font-weight: 600;
+    padding: 8px 22px; /* Padding ajustado para alinhar com os links */
+    font-size: 1rem;    /* Mesmo tamanho de fonte dos outros botões */
+    font-weight: 500;   /* Mesmo peso de fonte dos links */
     background: transparent; 
     color: var(--light-text);
     border: 2px solid var(--accent-pink); /* Borda um pouco mais fina */
