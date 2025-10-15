@@ -36,7 +36,7 @@ body {
 /* Scrollbar Styles */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--main-bg); }
-::-webkit-webkit-scrollbar-thumb { background: var(--primary-purple); border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: var(--primary-purple); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: #8e44ad; }
 
 /* --- Global Container --- */
@@ -47,13 +47,11 @@ body {
     padding: 0 15px;
 }
 
-/* --- Empurra o conteúdo principal para baixo da Navbar --- */
 main {
-    padding-top: 120px; /* Cria o espaço para a navbar fixa */
-    flex-grow: 1; 
-    overflow-x: hidden; 
+    padding-top: 120px;
+    flex-grow: 1;
+    overflow-x: hidden;
 }
-
 
 /* --- LOGO IMAGE STYLES --- */
 .logo-img-nav { height: 35px; width: auto; }
@@ -71,94 +69,70 @@ main {
     border: none;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.btn-primary,
-.cta-main-button {
-    background: var(--primary-purple);
-    color: #fff;
-    box-shadow: 0 6px 25px rgba(155, 89, 182, 0.6);
-}
-.btn-primary:hover,
-.cta-main-button:hover {
-    background: #8e44ad;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(155, 89, 182, 0.7);
-}
 .btn-secondary {
     background: transparent;
     color: var(--light-text);
     border: 2px solid var(--muted-text);
     box-shadow: none;
 }
-.hero .btn-secondary:hover {
+.btn-secondary:hover {
     background: var(--secondary-bg);
-    color: var(--light-text);
     border-color: var(--accent-pink);
     transform: translateY(-2px);
 }
 
 /* ========================================================================= */
-/* --- BOTÃO RGB ANIMADO --- */
+/* --- BOTÃO RGB ANIMADO (ESTILO UNIFICADO) --- */
 /* ========================================================================= */
 
 @keyframes rgb-animation {
-    0% { border-color: #ff3399; box-shadow: 0 0 15px rgba(255, 51, 153, 0.7); }
-    33% { border-color: #9b59b6; box-shadow: 0 0 15px rgba(155, 89, 182, 0.7); }
-    66% { border-color: #3498db; box-shadow: 0 0 15px rgba(52, 152, 219, 0.7); }
-    100% { border-color: #ff3399; box-shadow: 0 0 15px rgba(255, 51, 153, 0.7); }
+    0% { border-color: #ff3399; box-shadow: 0 0 15px rgba(255, 51, 153, 0.5); }
+    33% { border-color: #9b59b6; box-shadow: 0 0 15px rgba(155, 89, 182, 0.5); }
+    66% { border-color: #3498db; box-shadow: 0 0 15px rgba(52, 152, 219, 0.5); }
+    100% { border-color: #ff3399; box-shadow: 0 0 15px rgba(255, 51, 153, 0.5); }
 }
 
+/* Estilo principal para TODOS os botões de ação animados */
 .rgb-animated-button {
-    background: var(--primary-purple);
-    color: #fff;
+    background: transparent; /* <-- MUDANÇA PRINCIPAL AQUI */
+    color: var(--light-text);
     border: 2px solid var(--accent-pink);
     animation: rgb-animation 4s linear infinite;
     position: relative;
     overflow: hidden;
     z-index: 1;
+    font-weight: 500;
+    padding: 12px 30px;
 }
 
 .rgb-animated-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(255, 51, 153, 0.7);
+    box-shadow: 0 5px 20px rgba(255, 51, 153, 0.6);
 }
 
-
-/* Estilo específico para o botão de download na navbar (para corrigir alinhamento) */
+/* Estilo específico para o botão de download na navbar (um pouco menor) */
 .btn-download-animated {
     padding: 8px 22px;
-    font-size: 1rem;
     font-weight: 500;
-    background: transparent;
-    color: var(--light-text);
-    border: 2px solid var(--accent-pink); 
-    border-radius: 30px; 
-    animation: rgb-animation 4s linear infinite;
-    position: relative;
-    overflow: hidden; 
-    box-shadow: 0 0 15px rgba(155, 89, 182, 0.5); 
-}
-
-.btn-download-animated:hover {
-    transform: translateY(-2px); 
-    box-shadow: 0 5px 20px rgba(255, 51, 153, 0.7); 
 }
 
 /* ========================================================================= */
-/* --- NOVO DESIGN: NAVBAR NEON GLAMOUR (FIXA) --- */
+/* --- NAVBAR NEON GLAMOUR (FIXA) --- */
 /* ========================================================================= */
 
 .nav-wrapper-full {
-    position: fixed; /* Deixa a navbar sempre visível */
+    position: fixed;
     top: 25px;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
     max-width: 900px;
-    z-index: 1000; 
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -221,7 +195,6 @@ main {
 /* ========================================================================= */
 /* --- SEÇÃO HERO --- */
 /* ========================================================================= */
-
 .hero {
     min-height: 100vh;
     display: flex;
@@ -229,7 +202,7 @@ main {
     justify-content: center;
     text-align: center;
     position: relative;
-    margin-top: -120px; /* Compensa o padding do main para o hero ocupar a tela inteira */
+    margin-top: -120px;
     padding-bottom: 50px;
 }
 .hero-content h1 {
@@ -262,22 +235,14 @@ main {
     animation: bounce 2s infinite;
 }
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-10px);
-    }
-    60% {
-        transform: translateY(-5px);
-    }
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
 }
 
-
 /* ========================================================================= */
-/* --- SEÇÃO CTA DOWNLOAD (DESTAQUE) --- */
+/* --- SEÇÃO CTA DOWNLOAD --- */
 /* ========================================================================= */
-
 .cta-section {
     padding: 80px 0;
     text-align: center;
@@ -301,11 +266,9 @@ main {
     margin-top: 20px;
 }
 
-
 /* ========================================================================= */
 /* --- SEÇÃO DE VÍDEO --- */
 /* ========================================================================= */
-
 .client-video-section {
     padding: 100px 0;
     text-align: center;
@@ -322,7 +285,6 @@ main {
 .video-container-embed {
     max-width: 900px;
     margin: 0 auto;
-    background: var(--secondary-bg);
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
@@ -332,24 +294,20 @@ main {
     display: block;
 }
 
-
 /* ========================================================================= */
 /* --- FOOTER --- */
 /* ========================================================================= */
-
 .footer {
     background: var(--secondary-bg);
     padding-top: 60px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
-
 .footer-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     gap: 40px;
     padding-bottom: 40px;
 }
-
 .footer-brand .footer-logo-text {
     font-size: 1.5rem;
     font-weight: 700;
@@ -362,7 +320,6 @@ main {
     margin-top: 10px;
     max-width: 250px;
 }
-
 .footer-title {
     font-size: 1.1rem;
     font-weight: 700;
@@ -382,10 +339,7 @@ main {
     background-color: var(--accent-pink);
     border-radius: 3px;
 }
-
-.footer-links {
-    list-style: none;
-}
+.footer-links { list-style: none; }
 .footer-links li a {
     color: var(--muted-text);
     text-decoration: none;
@@ -404,7 +358,6 @@ main {
     color: var(--light-text);
     transform: translateX(5px);
 }
-
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding: 20px 0;
@@ -419,13 +372,10 @@ main {
     font-weight: 600;
 }
 
-
 /* ========================================================================= */
-/* --- ESTILOS DA LOJA (store-section) --- */
+/* --- LOJA --- */
 /* ========================================================================= */
-
 .store-section {
-    padding: 80px 0 100px;
     text-align: center;
 }
 .store-section h1 {
@@ -444,7 +394,6 @@ main {
     padding: 40px;
     border-radius: 15px;
     max-width: 350px;
-    text-align: center;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -461,30 +410,24 @@ main {
 .product-card p {
     color: var(--muted-text);
     margin-bottom: 30px;
-    min-height: 50px; /* Para alinhar os botões */
-}
-.product-card .btn {
-    width: 100%;
-    justify-content: center;
-    font-size: 1.1rem;
-    padding: 12px 0;
+    min-height: 50px;
 }
 
-/* --- Modal Styles (para a loja) --- */
+/* ========================================================================= */
+/* --- MODAL (POPUP) --- */
+/* ========================================================================= */
 .modal {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
-    z-index: 2000; /* Acima de tudo */
+    z-index: 2000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
     background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center; /* Centraliza o conteúdo */
-    align-items: center; /* Centraliza o conteúdo */
+    justify-content: center;
+    align-items: center;
 }
-
 .modal-content {
     background-color: var(--secondary-bg);
     padding: 30px;
@@ -509,7 +452,6 @@ main {
     color: var(--accent-pink);
     margin-right: 5px;
 }
-
 .close-btn {
     color: var(--muted-text);
     position: absolute;
@@ -523,22 +465,18 @@ main {
 .close-btn:hover,
 .close-btn:focus {
     color: var(--accent-pink);
-    text-decoration: none;
 }
 
-
 /* ========================================================================= */
-/* --- RESPONSIVIDADE FINAL --- */
+/* --- RESPONSIVIDADE --- */
 /* ========================================================================= */
-
 @media (max-width: 992px) {
     .nav-wrapper-full { max-width: 95%; }
     .hero-content h1 { font-size: 3.5rem; }
 }
 
 @media (max-width: 768px) {
-    /* Ajustes Gerais */
-    main { padding-top: 100px; } /* Ajusta o padding para o mobile */
+    main { padding-top: 100px; }
     .hero { margin-top: -100px; }
     .hero-content h1 { font-size: 2.8rem; }
     .cta-title, .client-video-section h2, .store-section h1 { font-size: 2.2rem; }
@@ -547,19 +485,14 @@ main {
         gap: 30px;
         align-items: center;
     }
-    .product-card {
-        max-width: 90%;
-    }
+    .product-card { max-width: 90%; }
 
-    /* Navbar Mobile */
     .nav-wrapper-full {
         top: 15px;
         padding: 0 15px;
         justify-content: space-between;
     }
-    .navbar .links, .download-wrapper {
-        display: none; /* Esconde os links e o botão de download */
-    }
+    .navbar .links, .download-wrapper { display: none; }
     
     .navbar {
         background: transparent;
@@ -567,21 +500,16 @@ main {
         box-shadow: none;
         backdrop-filter: none;
     }
-    .navbar-inner {
-        padding: 0;
-    }
-    .navbar .logo {
-        margin: 0;
-    }
+    .navbar-inner { padding: 0; }
+    .navbar .logo { margin: 0; }
 
-    /* Hamburger Menu */
     .hamburger {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         cursor: pointer;
         height: 20px;
-        z-index: 1001; 
+        z-index: 1001;
     }
     .hamburger .bar {
         display: block;
@@ -591,14 +519,12 @@ main {
         transition: all 0.3s ease-in-out;
     }
     
-    /* Footer Mobile */
     .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
     }
-    .footer-title { 
+    .footer-title {
         margin: 20px auto 10px;
-        text-align: center;
         padding-left: 0;
     }
     .footer-title::before {
