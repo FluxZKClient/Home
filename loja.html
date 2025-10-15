@@ -5,38 +5,36 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Loja - FluxZK Client</title>
     
-    <meta name="google-site-verification" content="tJeVzE8qQQ_ZFtMf_-UHZ3LgUSaAe3EMCJLrR7n_xC8" />
-    
-    <meta content="Adquira produtos Premium e VIP do FluxZK Client." name="description"/>
-    <meta content="Minecraft, FluxZK Client, Loja, Premium, VIP, Comprar" name="keywords"/>
-    <meta content="Equipe FluxZK" name="author"/>
     <link href="images/dsd.png" rel="icon" type="image/png"/>
     <meta content="#0c0c0c" name="theme-color"/>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
     <link href="css/all.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
-    <meta content="Kaik_hg" name="author"/>
 </head>
 <body>
 
     <nav class="navbar">
-        <div class="container navbar-inner">
+        <div class="container">
             <div class="logo">
-                <a href="/">
+                <a href="index.html">
                     <img src="images/dsd.png" alt="FluxZK Client Logo" class="logo-img-nav">
                 </a>
             </div>
+            
             <div class="links">
                 <a href="index.html">Home</a>
                 <a href="documentacao.html">Documentação</a>
-                <a href="faq.html">FAQ</a> 
+                <a href="faq.html">FAQ</a>
                 <a href="loja.html">Loja</a>
+                <a href="updates.html">Atualizações</a>
                 <a href="https://discord.gg/FluxZK" target="_blank">Discord</a>
             </div>
             
-            <a class="btn btn-download-animated" href="https://github.com/FluxZKClient/Data/releases/tag/Download" target="_blank">Download</a>
-            
+            <a class="btn rgb-animated-button btn-download-animated" href="https://github.com/FluxZKClient/Data/releases/tag/Download" target="_blank">
+                Download
+            </a>
+
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -44,67 +42,79 @@
             </div>
         </div>
     </nav>
-
     <main>
-        <section class="store-section" id="loja">
+        
+        <section class="store-section">
             <div class="container">
                 <h1>💰 Loja do FluxZK Client</h1>
                 <p class="cta-description">Escolha seu plano e desbloqueie recursos exclusivos!</p>
 
                 <div class="product-grid">
-                    <div class="product-card">
+                    <div class="product-card" data-tilt>
                         <h3>Plano Premium</h3>
                         <p>Acesso antecipado a recursos, emblema exclusivo e suporte prioritário.</p>
-                        <button class="btn btn-premium rgb-animated-button" data-plano="Premium R$3,99">
+                        <a href="#" class="btn rgb-animated-button open-modal-btn" data-plan="Premium" data-price="R$3,99">
                             Premium R$3,99
-                        </button>
+                        </a>
                     </div>
 
-                    <div class="product-card">
+                    <div class="product-card" data-tilt>
                         <h3>VIP Client</h3>
                         <p>Todos os benefícios Premium + customizações únicas e acesso Beta.</p>
-                        <button class="btn btn-vip rgb-animated-button" data-plano="Vip Client">
+                        <a href="#" class="btn rgb-animated-button open-modal-btn" data-plan="VIP Client" data-price="VIP Client">
                             VIP Client
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-    </main>
-    
-    <div id="authModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h4>🔑 Detalhes da Compra</h4>
-            <p><strong>Plano:</strong> <span id="plano-nome"></span></p>
-            <p>Obrigado pela sua compra! Use as informações abaixo para acessar os recursos exclusivos:</p>
-            <p><strong>Nick:</strong> <span id="user-nick">SeuNickAqui</span></p>
-            <p><strong>Senha:</strong> <span id="user-password">SuaSenhaSecreta123</span></p>
-            <br>
-            <p style="font-size: 0.8em; color: var(--muted-text);">* Estes são dados de exemplo. Em uma aplicação real, esta informação seria fornecida por um sistema de pagamento seguro.</p>
+        <div id="purchaseModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h4>🔑 Detalhes da Compra</h4>
+                
+                <form id="purchaseForm">
+                    <p><strong>Plano:</strong> <span id="modalPlanName"></span></p>
+                    <p><strong>Preço:</strong> <span id="modalPrice"></span></p>
+
+                    <p class="modal-info">Preencha com seu nick e senha para vincular a compra. Esta é apenas uma demonstração.</p>
+
+                    <div class="form-group">
+                        <label for="inputNick">Seu Nickname:</label>
+                        <input type="text" id="inputNick" placeholder="SeuNickNoMinecraft" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputPassword">Sua Senha:</label>
+                        <input type="password" id="inputPassword" placeholder="SuaSenhaSecreta" required>
+                    </div>
+
+                    <button type="submit" class="btn rgb-animated-button confirm-btn">
+                        Confirmar Compra
+                    </button>
+                </form>
+
+            </div>
         </div>
-    </div>
+        </main>
     
     <footer class="footer">
         <div class="container footer-grid">
-            
             <div class="footer-column footer-brand">
                 <img src="images/dsd.png" alt="FluxZK Client Logo" class="logo-img-footer">
                 <span class="footer-logo-text">FluxZK Client</span>
                 <p class="footer-description">Performance extrema, +70 mods e segurança total.</p>
             </div>
-
             <div class="footer-column">
                 <h4 class="footer-title">Produto</h4>
                 <ul class="footer-links">
-                    <li><a href="/#features"><i class="fas fa-chevron-right"></i> Recursos</a></li>
-                    <li><a href="/#cta-download"><i class="fas fa-chevron-right"></i> Download</a></li>
+                    <li><a href="index.html#features"><i class="fas fa-chevron-right"></i> Recursos</a></li>
+                    <li><a href="index.html#cta-download"><i class="fas fa-chevron-right"></i> Download</a></li>
                     <li><a href="loja.html"><i class="fas fa-chevron-right"></i> Loja</a></li>
-                    <li><a href="/#updates"><i class="fas fa-chevron-right"></i> Atualizações</a></li>
+                    <li><a href="updates.html"><i class="fas fa-chevron-right"></i> Atualizações</a></li>
                 </ul>
             </div>
-
             <div class="footer-column">
                 <h4 class="footer-title">Suporte & Info</h4>
                 <ul class="footer-links">
@@ -115,7 +125,6 @@
                 </ul>
             </div>
         </div>
-        
         <div class="footer-bottom">
             <div class="container">
                 <p class="footer-copyright">
@@ -125,45 +134,9 @@
         </div>
     </footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const premiumButton = document.querySelector('.btn-premium');
-            const vipButton = document.querySelector('.btn-vip');
-            const modal = document.getElementById('authModal');
-            const closeBtn = document.querySelector('.close-btn');
-            const planoNomeSpan = document.getElementById('plano-nome');
-
-            // Função para abrir o modal
-            function openModal(plano) {
-                planoNomeSpan.textContent = plano;
-                // A MUDANÇA ESTÁ AQUI: Usamos 'flex' para ativar a centralização do CSS
-                modal.style.display = 'flex'; 
-            }
-
-            // Event listener para o botão Premium
-            premiumButton.addEventListener('click', () => {
-                const plano = premiumButton.getAttribute('data-plano');
-                openModal(plano);
-            });
-
-            // Event listener para o botão VIP Client
-            vipButton.addEventListener('click', () => {
-                const plano = vipButton.getAttribute('data-plano');
-                openModal(plano);
-            });
-
-            // Event listener para fechar o modal no botão 'X'
-            closeBtn.addEventListener('click', () => {
-                modal.style.display = 'none';
-            });
-
-            // Event listener para fechar o modal ao clicar fora dele
-            window.addEventListener('click', (event) => {
-                if (event.target == modal) {
-                    modal.style.display = 'none';
-                }
-            });
-        });
-    </script>
+    <script src="js/particles.min.js"></script>
+    <script src="js/vanilla-tilt.min.js"></script>
+    <script src="js/scrollreveal.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
