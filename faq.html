@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>FAQ - FluxZK Client</title>
+    <title>Loja - FluxZK Client</title>
     
     <link href="images/dsd.png" rel="icon" type="image/png"/>
     <meta content="#0c0c0c" name="theme-color"/>
@@ -44,49 +44,60 @@
     </nav>
     <main>
         
-        <section class="changelog-section"> <div class="container">
-                <h1>Perguntas Frequentes (FAQ)</h1> <h2>Respostas para as dúvidas mais comuns sobre o FluxZK Client</h2> <p>
-                    <i class="fas fa-question-circle"></i> <strong>O launcher/client é gratuito?</strong>
-                </p>
-                <p>
-                    Sim! Nosso client é 100% gratuito para download e uso. Focamos em entregar a melhor experiência de jogo sem custo.
-                </p>
+        <section class="store-section">
+            <div class="container">
+                <h1>💰 Loja do FluxZK Client</h1>
+                <p class="cta-description">Escolha seu plano e desbloqueie recursos exclusivos!</p>
 
-                <p>
-                    <i class="fas fa-calendar-alt"></i> <strong>Quando o client será lançado?</strong>
-                </p>
-                <p>
-                    Ainda não temos data de lançamento exata. Porém, todos os anúncios e a data de lançamento oficial serão comunicados com bastante
-                    antecedência através do nosso Discord!
-                </p>
+                <div class="product-grid">
+                    <div class="product-card" data-tilt>
+                        <h3>Plano Premium</h3>
+                        <p>Acesso antecipado a recursos, emblema exclusivo e suporte prioritário.</p>
+                        <a href="#" class="btn rgb-animated-button open-modal-btn" data-plan="Premium" data-price="R$3,99">
+                            Premium R$3,99
+                        </a>
+                    </div>
 
-                <p>
-                    <i class="fas fa-star"></i> <strong>Quais diferenciais o FluxZK Client tem em relação a outros clients?</strong>
-                </p>
-                <p>
-                    Focamos em otimização e inovação. Nosso client busca fugir do padrão, servindo para qualquer máquina e com features surpreendentes de FPS
-                    Boost e interface.
-                </p>
-
-                <p>
-                    <i class="fas fa-gamepad"></i> <strong>O FluxZK funciona em Minecraft pirata?</strong>
-                </p>
-                <p>
-                    Sim, nosso client opera com extrema segurança tanto no Minecraft original quanto no pirata (TLauncher, SKLauncher, etc.), garantindo que todos
-                    possam usar.
-                </p>
-
-                <p>
-                    <i class="fas fa-mobile-alt"></i> <strong>Vocês têm planos de lançar para a versão para celulares?</strong>
-                </p>
-                <p>
-                    Sim, em breve teremos uma versão para todos os mobiles extremamente otimizada também!
-                </p>
-                
+                    <div class="product-card" data-tilt>
+                        <h3>VIP Client</h3>
+                        <p>Todos os benefícios Premium + customizações únicas e acesso Beta.</p>
+                        <a href="#" class="btn rgb-animated-button open-modal-btn" data-plan="VIP Client" data-price="VIP Client">
+                            VIP Client
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
-    </main>
+        <div id="purchaseModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h4>🔑 Detalhes da Compra</h4>
+                
+                <form id="purchaseForm">
+                    <p><strong>Plano:</strong> <span id="modalPlanName"></span></p>
+                    <p><strong>Preço:</strong> <span id="modalPrice"></span></p>
+
+                    <p class="modal-info">Preencha com seu nick e senha para vincular a compra. Esta é apenas uma demonstração.</p>
+
+                    <div class="form-group">
+                        <label for="inputNick">Seu Nickname:</label>
+                        <input type="text" id="inputNick" placeholder="SeuNickNoMinecraft" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputPassword">Sua Senha:</label>
+                        <input type="password" id="inputPassword" placeholder="SuaSenhaSecreta" required>
+                    </div>
+
+                    <button type="submit" class="btn rgb-animated-button confirm-btn">
+                        Confirmar Compra
+                    </button>
+                </form>
+
+            </div>
+        </div>
+        </main>
     
     <footer class="footer">
         <div class="container footer-grid">
