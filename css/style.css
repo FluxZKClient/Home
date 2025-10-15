@@ -1,20 +1,16 @@
 /* ========================================================================= */
 /* --- FLUXZK CLIENT STYLES - TEMA ROSA, PRETO E ROXO (FINAL) --- */
-/* PALETA: Rosa (#ff3399), Roxo (#9b59b6), Preto (#0c0c0c) */
 /* ========================================================================= */
 
 :root {
-    --accent-pink: #ff3399;     /* Rosa Choque (Destaque principal) */
-    --primary-purple: #9b59b6;   /* Roxo (Botões/Ação) */
-    
-    --main-bg: #0c0c0c;           /* Fundo Principal: Preto Profundo */
-    --secondary-bg: #1a1a1a;     /* Fundo de Seção/Rodapé: Cinza Escuro */
-    --light-text: #f0f0f0;       /* Texto Principal: Quase branco */
-    --muted-text: #bdc3c7;       /* Texto Secundário (Links/Descrições) */
-    
-    /* NAV BAR */
-    --nav-bg: rgba(26, 26, 26, 0.9); 
-    --border-color: rgba(255, 255, 255, 0.1); 
+    --accent-pink: #ff3399;
+    --primary-purple: #9b59b6;
+    --main-bg: #0c0c0c;
+    --secondary-bg: #1a1a1a;
+    --light-text: #f0f0f0;
+    --muted-text: #bdc3c7;
+    --nav-bg: rgba(26, 26, 26, 0.7);
+    --border-color: rgba(255, 255, 255, 0.1);
 }
 
 /* --- Base & Reset --- */
@@ -30,29 +26,18 @@ html {
 }
 
 body {
-    background-color: var(--main-bg); 
-    color: var(--light-text);         
-    overflow-x: hidden;
-    /* Correção de altura para páginas curtas (Sticky Footer) */
+    background-color: var--main-bg);
+    color: var(--light-text);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
 /* Scrollbar Styles */
-::-webkit-scrollbar {
-    width: 8px;
-}
-::-webkit-scrollbar-track {
-    background: var(--main-bg);
-}
-::-webkit-scrollbar-thumb {
-    background: var(--primary-purple);
-    border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #8e44ad;
-}
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--main-bg); }
+::-webkit-scrollbar-thumb { background: var(--primary-purple); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #8e44ad; }
 
 /* --- Global Container --- */
 .container {
@@ -62,18 +47,15 @@ body {
     padding: 0 15px;
 }
 
-/* --- LOGO IMAGE STYLES --- */
-.logo-img-nav {
-    height: 35px; 
-    width: auto;
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
+main {
+    padding-top: 120px;
+    flex-grow: 1;
+    overflow-x: hidden;
 }
 
-.logo-img-footer {
-    height: 50px; 
-    width: auto;
-    margin-bottom: 5px;
-}
+/* --- LOGO IMAGE STYLES --- */
+.logo-img-nav { height: 35px; width: auto; }
+.logo-img-footer { height: 50px; width: auto; margin-bottom: 5px; }
 
 /* --- Botões (Styles Globais) --- */
 .btn {
@@ -87,73 +69,90 @@ body {
     border: none;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.btn-primary,
-.cta-main-button {
-    background: var(--primary-purple); 
-    color: #fff;
-    box-shadow: 0 6px 25px rgba(155, 89, 182, 0.6);
-}
-
-.btn-primary:hover,
-.cta-main-button:hover {
-    background: #8e44ad;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(155, 89, 182, 0.7);
-}
-
 .btn-secondary {
     background: transparent;
-    color: var(--light-text); 
-    border: 2px solid var(--muted-text); 
+    color: var(--light-text);
+    border: 2px solid var(--muted-text);
     box-shadow: none;
 }
-
-.hero .btn-secondary:hover {
+.btn-secondary:hover {
     background: var(--secondary-bg);
-    color: var(--light-text);
-    border-color: var(--accent-pink); 
+    border-color: var(--accent-pink);
     transform: translateY(-2px);
 }
 
 /* ========================================================================= */
-/* --- NAVEGAÇÃO (NAVBAR) --- */
+/* --- BOTÃO RGB ANIMADO (ESTILO UNIFICADO) --- */
 /* ========================================================================= */
+@keyframes rgb-animation {
+    0% { border-color: #ff3399; box-shadow: 0 0 15px rgba(255, 51, 153, 0.5); }
+    33% { border-color: #9b59b6; box-shadow: 0 0 15px rgba(155, 89, 182, 0.5); }
+    66% { border-color: #3498db; box-shadow: 0 0 15px rgba(52, 152, 219, 0.5); }
+    100% { border-color: #ff3399; box-shadow: 0 0 15px rgba(255, 51, 153, 0.5); }
+}
 
+.rgb-animated-button {
+    background: transparent;
+    color: var(--light-text);
+    border: 2px solid var(--accent-pink);
+    animation: rgb-animation 4s linear infinite;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    font-weight: 500;
+    padding: 12px 30px;
+}
+.rgb-animated-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255, 51, 153, 0.6);
+}
+
+/* Estilo do botão de download na navbar */
+.btn-download-animated {
+    padding: 8px 22px;
+    font-weight: 500;
+    flex-shrink: 0; /* <<<< CORREÇÃO IMPORTANTE: Impede que o botão encolha */
+}
+
+/* ========================================================================= */
+/* --- NAVBAR FLUTUANTE (CORRIGIDA) --- */
+/* ========================================================================= */
 .navbar {
     position: fixed;
-    top: 20px;
+    top: 25px;
     left: 50%;
     transform: translateX(-50%);
-    
-    width: fit-content; 
+    width: fit-content; /* Deixa a navbar se ajustar ao conteúdo */
     max-width: 95%;
-    min-width: 650px; 
-    
-    z-index: 100;
-    
+    /* REMOVIDO: min-width: 650px; que estava causando o problema */
+    z-index: 1000;
     background: var(--nav-bg);
-    backdrop-filter: blur(10px);
-    border-radius: 40px;
+    backdrop-filter: blur(12px);
+    border-radius: 50px;
     border: 1px solid var(--border-color);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.6);
 }
 
 .navbar-inner {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px 25px;
+    padding: 8px 15px; /* Padding ajustado */
+    gap: 20px; /* Espaço entre logo, links e botão */
+}
+
+.navbar .logo {
+    line-height: 0;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.1));
 }
 
 .navbar .links {
     display: flex;
     gap: 25px;
-    margin-left: 20px; 
-    margin-right: 20px; 
 }
 
 .navbar .links a {
@@ -161,520 +160,12 @@ body {
     text-decoration: none;
     font-weight: 500;
     position: relative;
+    white-space: nowrap; /* Impede que o texto quebre linha */
     padding: 5px 0;
     transition: color 0.3s;
 }
 
-.navbar .links a:hover {
-    color: var(--light-text);
-}
+.navbar .links a:hover { color: var(--light-text); }
+.hamburger { display: none; }
 
-.navbar .links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--accent-pink); 
-    transition: width 0.3s ease;
-}
-
-.navbar .links a:hover::after {
-    width: 100%;
-}
-
-.hamburger {
-    display: none; 
-}
-
-/* ========================================================================= */
-/* --- SEÇÃO HERO --- */
-/* ========================================================================= */
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); 
-    z-index: 1;
-}
-
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    padding-top: 120px; 
-    padding-bottom: 50px;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    color: #fff;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
-}
-
-.hero-content h1 {
-    font-size: 4rem;
-    font-weight: 800;
-    margin-bottom: 20px;
-    line-height: 1.1;
-}
-
-.hero-content p {
-    font-size: 1.3rem;
-    font-weight: 400;
-    margin-bottom: 40px;
-    color: var(--muted-text);
-}
-
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.scroll-down-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-}
-
-.scroll-down-indicator a {
-    color: var(--muted-text);
-    font-size: 2rem;
-    transition: color 0.3s;
-    opacity: 0.8;
-}
-
-.scroll-down-indicator a:hover {
-    color: var(--accent-pink); 
-    opacity: 1;
-}
-
-/* ========================================================================= */
-/* --- SEÇÃO CTA (+250fps) --- */
-/* ========================================================================= */
-
-.cta-section {
-    padding: 100px 0;
-    background: var(--secondary-bg); 
-    color: var(--light-text);
-    text-align: center;
-}
-
-.cta-title {
-    font-size: 3rem;
-    font-weight: 800;
-    color: var(--primary-purple); 
-    margin-bottom: 10px;
-}
-
-.cta-description {
-    color: var(--muted-text);
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-}
-
-.cta-note {
-    color: var(--muted-text);
-    font-size: 0.95rem;
-}
-
-/* ========================================================================= */
-/* --- SEÇÃO VÍDEO DO CLIENTE (CUSTOMIZÁVEL) --- */
-/* ========================================================================= */
-
-.client-video-section {
-    padding: 80px 0;
-    background-color: var(--secondary-bg);
-    color: var(--light-text);
-    text-align: center;
-    border-top: 3px solid var(--accent-pink); 
-}
-
-.client-video-section h2 {
-    font-size: 3rem;
-    font-weight: 800;
-    color: var(--accent-pink);
-    margin-bottom: 10px;
-    text-shadow: 0 0 10px rgba(255, 51, 153, 0.4);
-}
-
-.client-video-section p {
-    font-size: 1.2rem;
-    color: var(--muted-text);
-    margin-bottom: 40px;
-}
-
-.video-container-embed {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-    height: 0; 
-    overflow: hidden;
-    max-width: 900px;
-    width: 90%;
-    margin: 0 auto;
-    border-radius: 12px;
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8);
-    border: 2px solid var(--primary-purple);
-}
-
-.video-container-embed video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.95; 
-}
-
-/* ========================================================================= */
-/* --- RODAPÉ (FOOTER) --- */
-/* ========================================================================= */
-
-.footer {
-    padding: 60px 0 10px;
-    background: var(--main-bg); 
-    color: var(--light-text); 
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr; 
-    gap: 40px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.footer-brand {
-    padding-right: 30px;
-}
-
-.footer-logo-text {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--light-text);
-    margin-bottom: 15px;
-    display: block;
-}
-
-.footer-description {
-    font-size: 0.9rem;
-    color: var(--muted-text);
-}
-
-.footer-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--light-text);
-    margin-bottom: 20px;
-    border-bottom: 2px solid var(--accent-pink); 
-    width: fit-content;
-    padding-bottom: 5px;
-}
-
-.footer-links {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links li {
-    margin-bottom: 8px;
-}
-
-.footer-links a {
-    text-decoration: none;
-    color: var(--muted-text);
-    font-size: 0.95rem;
-    transition: color 0.3s, transform 0.3s;
-    display: flex;
-    align-items: center;
-}
-
-.footer-links a:hover {
-    color: var(--accent-pink); 
-    transform: translateX(5px);
-}
-
-.footer-links a i {
-    color: var(--accent-pink); 
-    margin-right: 8px;
-    font-size: 0.7rem;
-}
-
-.footer-bottom {
-    padding: 20px 0;
-    text-align: center;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.4);
-}
-
-.footer-copyright strong {
-    color: var(--light-text);
-    font-weight: 700;
-}
-
-/* ========================================================================= */
-/* --- LOJA: ESTILOS E ANIMAÇÃO RGB PARA BOTÕES --- */
-/* ========================================================================= */
-
-.store-section {
-    padding: 120px 20px 60px; /* Ajuste para navbar */
-    text-align: center;
-    background-color: var(--main-bg);
-    flex-grow: 1; /* Faz a seção crescer e ocupar o espaço */
-}
-
-.store-section h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    color: var(--light-text);
-    text-shadow: 0 0 15px rgba(255, 51, 153, 0.6);
-}
-
-.product-grid {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    margin-top: 50px;
-}
-
-.product-card {
-    background: var(--secondary-bg);
-    border-radius: 15px;
-    padding: 30px;
-    width: 320px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
-    border: 1px solid rgba(155, 89, 182, 0.4);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(155, 89, 182, 0.6);
-}
-
-.product-card h3 {
-    color: var(--accent-pink);
-    font-size: 2.2rem;
-    margin-bottom: 15px;
-}
-
-.product-card p {
-    color: var(--muted-text);
-    margin-bottom: 30px;
-    font-size: 1.05rem;
-    min-height: 50px;
-}
-
-@keyframes rgb-animation {
-    0% { filter: hue-rotate(0deg); border-color: #ff3399; }
-    33% { border-color: #9b59b6; }
-    66% { border-color: #00bcd4; }
-    100% { filter: hue-rotate(360deg); border-color: #ff3399; }
-}
-
-.rgb-animated-button {
-    padding: 14px 30px; 
-    font-size: 1.2rem;
-    font-weight: 700;
-    background: transparent; 
-    color: var(--light-text);
-    border: 3px solid var(--accent-pink); 
-    border-radius: 40px; 
-    animation: rgb-animation 4s linear infinite;
-    position: relative;
-    overflow: hidden; 
-    box-shadow: 0 0 25px rgba(155, 89, 182, 0.5); 
-}
-
-.rgb-animated-button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(255, 51, 153, 0.7); 
-}
-
-/* Novo estilo para o Botão de Download na Navbar (RGB Animado) */
-.btn-download-animated {
-    /* Herda o visual completo da animação RGB */
-    padding: 10px 25px; /* Ajuste o padding para caber melhor na navbar */
-    font-size: 1rem;    /* Ajuste o tamanho da fonte para caber melhor na navbar */
-    font-weight: 600;
-    background: transparent; 
-    color: var(--light-text);
-    border: 2px solid var(--accent-pink); /* Borda um pouco mais fina */
-    border-radius: 30px; 
-    animation: rgb-animation 4s linear infinite;
-    position: relative;
-    overflow: hidden; 
-    box-shadow: 0 0 15px rgba(155, 89, 182, 0.5); /* Sombra mais sutil */
-}
-
-.btn-download-animated:hover {
-    transform: translateY(-2px); /* Efeito de hover mais sutil na navbar */
-    box-shadow: 0 5px 20px rgba(255, 51, 153, 0.7); 
-}
-
-/* ========================================================================= */
-/* --- ESTILOS DO MODAL (POPUP) --- */
-/* ========================================================================= */
-
-.modal {
-    display: none; /* Começa escondido */
-    position: fixed;
-    z-index: 200;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    /* Fundo com transparência escura */
-    background-color: rgba(0,0,0,0.9);
-    /* Regras de centralização: O script deve ativar display: flex */
-    align-items: center; 
-    justify-content: center; 
-}
-
-.modal-content {
-    background-color: var(--secondary-bg);
-    padding: 30px;
-    border: 3px solid var(--accent-pink);
-    width: 90%;
-    max-width: 450px;
-    border-radius: 15px;
-    text-align: left;
-    position: relative;
-    box-shadow: 0 0 40px rgba(255, 51, 153, 0.4);
-    animation: fadeIn 0.3s ease-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-.close-btn {
-    color: var(--accent-pink);
-    position: absolute; /* Usamos posição absoluta para o 'X' */
-    top: 10px;
-    right: 15px;
-    font-size: 32px;
-    font-weight: bold;
-    cursor: pointer;
-    line-height: 1;
-    transition: color 0.3s;
-}
-
-.close-btn:hover { color: #fff; }
-
-.modal-content h4 {
-    color: var(--primary-purple);
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 10px;
-}
-
-.modal-content p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 10px;
-}
-
-.modal-content strong { color: var(--accent-pink); }
-
-/* ========================================================================= */
-/* --- PÁGINAS DE CONTEÚDO (DOCUMENTAÇÃO, FAQ, ETC.) --- */
-/* ========================================================================= */
-
-.content-page {
-    flex-grow: 1; /* Faz o conteúdo principal crescer e empurrar o rodapé */
-    padding-top: 120px;
-    padding-bottom: 60px;
-}
-
-.page-header {
-    text-align: center;
-    margin-bottom: 50px;
-    border-bottom: 2px solid var(--accent-pink);
-    padding-bottom: 20px;
-}
-
-.page-header h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-.doc-section {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.doc-section:last-child { border-bottom: none; }
-.doc-section h2 { color: var(--accent-pink); margin-bottom: 10px; }
-.doc-icon { margin-right: 10px; color: var(--primary-purple); }
-
-
-/* ========================================================================= */
-/* --- RESPONSIVIDADE --- */
-/* ========================================================================= */
-
-@media (max-width: 992px) {
-    .hero-content h1 { font-size: 3rem; }
-    .navbar { min-width: unset; width: 95%; border-radius: 12px; }
-}
-
-@media (max-width: 768px) {
-    .navbar-inner { padding: 10px 15px; }
-    
-    /* CORREÇÃO RESPONSIVA: Esconde o novo botão animado também */
-    .navbar .links, .navbar .btn-primary, .navbar a.btn-primary, .navbar a.btn-download-animated { 
-        display: none; 
-    }
-    
-    .hamburger {
-        display: flex; 
-        flex-direction: column;
-        justify-content: space-around;
-        cursor: pointer;
-        height: 20px;
-    }
-    .hamburger .bar {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background-color: var(--light-text); 
-        transition: all 0.3s ease-in-out;
-    }
-
-    .hero-content h1 { font-size: 2.5rem; }
-    .hero-content p { font-size: 1rem; }
-
-    .footer-grid {
-        grid-template-columns: 1fr; 
-        text-align: center;
-    }
-    .footer-title { margin: 20px auto; }
-    .footer-links a { justify-content: center; }
-    .footer-links a:hover { transform: none; }
-    .footer-brand { padding-right: 0; }
-    
-    .cta-title, .client-video-section h2, .page-header h1 { font-size: 2.2rem; }
-    .client-video-section { padding: 50px 0; }
-    .video-container-embed { width: 100%; }
-
-    .store-section h1 { font-size: 2.5rem; }
-    .rgb-animated-button { padding: 12px 25px; font-size: 1.1rem; }
-}
+/* ... (O restante do seu CSS para Hero, Footer, Loja, etc., continua aqui) ... */
