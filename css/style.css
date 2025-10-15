@@ -1,5 +1,5 @@
 /* ========================================================================= */
-/* --- FLUXZK CLIENT STYLES - TEMA ROSA, PRETO E ROXO (FINAL - FIXO/REDONDO - CORREÇÃO DE CLIQUE) --- */
+/* --- FLUXZK CLIENT STYLES - TEMA ROSA, PRETO E ROXO (FINAL - FIXO/REDONDO) --- */
 /* ========================================================================= */
 
 :root {
@@ -9,6 +9,7 @@
     --secondary-bg: #1a1a1a;
     --light-text: #f0f0f0;
     --muted-text: #bdc3c7;
+    /* Fundo semi-transparente para a navbar */
     --nav-bg: rgba(26, 26, 26, 0.6); 
     --border-color: rgba(255, 255, 255, 0.1);
 }
@@ -118,7 +119,7 @@ main {
 }
 
 /* ========================================================================= */
-/* --- NAVBAR REDONDA, TRANSPARENTE E FIXA (CORRIGIDA) --- */
+/* --- NAVBAR REDONDA, TRANSPARENTE E FIXA --- */
 /* ========================================================================= */
 .navbar {
     position: fixed;
@@ -138,19 +139,15 @@ main {
 .navbar .container {
     display: flex;
     align-items: center;
-    /* Aumenta o padding horizontal para dar mais espaço */
-    padding: 8px 25px; 
-    gap: 30px; 
+    padding: 8px 15px;
+    gap: 20px;
 }
 .navbar .logo { line-height: 0; }
 .navbar .links {
     display: flex;
-    /* AUMENTA O ESPAÇAMENTO ENTRE OS LINKS DE TEXTO */
-    gap: 30px; 
+    gap: 25px;
     margin: 0; 
     flex-grow: 0;
-    /* Ajuste para que os links não encostem no botão */
-    margin-right: 10px; 
 }
 .navbar .links a {
     color: var(--muted-text);
@@ -173,6 +170,7 @@ main {
     justify-content: center;
     text-align: center;
     position: relative;
+    /* Compensa o padding do main para o hero ocupar a tela inteira */
     margin-top: -120px; 
     padding-bottom: 50px;
 }
