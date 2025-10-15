@@ -1,5 +1,5 @@
 /* ========================================================================= */
-/* --- FLUXZK CLIENT STYLES - TEMA ROSA, PRETO E ROXO (FINAL - FIXO/REDONDO) --- */
+/* --- FLUXZK CLIENT STYLES - TEMA ROSA, PRETO E ROXO (COMPLETO) --- */
 /* ========================================================================= */
 
 :root {
@@ -119,7 +119,7 @@ main {
 }
 
 /* ========================================================================= */
-/* --- NAVBAR REDONDA, TRANSPARENTE E FIXA --- */
+/* --- NAVBAR REDONDA, TRANSPARENTE E FIXA (CORRIGIDA) --- */
 /* ========================================================================= */
 .navbar {
     position: fixed;
@@ -139,15 +139,18 @@ main {
 .navbar .container {
     display: flex;
     align-items: center;
-    padding: 8px 15px;
-    gap: 20px;
+    /* Aumenta o padding horizontal para dar mais espaço e corrigir clique */
+    padding: 8px 25px; 
+    gap: 30px; 
 }
 .navbar .logo { line-height: 0; }
 .navbar .links {
     display: flex;
-    gap: 25px;
+    /* AUMENTA O ESPAÇAMENTO ENTRE OS LINKS DE TEXTO para corrigir clique */
+    gap: 30px; 
     margin: 0; 
     flex-grow: 0;
+    margin-right: 10px; 
 }
 .navbar .links a {
     color: var(--muted-text);
@@ -170,7 +173,6 @@ main {
     justify-content: center;
     text-align: center;
     position: relative;
-    /* Compensa o padding do main para o hero ocupar a tela inteira */
     margin-top: -120px; 
     padding-bottom: 50px;
 }
@@ -438,7 +440,55 @@ main {
 }
 
 /* ========================================================================= */
-/* --- SEÇÃO DE UPDATES (CHANGELOG) --- */
+/* --- ESTILOS DO FORMULÁRIO DENTRO DO MODAL (NOVO) --- */
+/* ========================================================================= */
+.modal-info {
+    font-size: 0.9rem;
+    color: var(--accent-pink);
+    margin-bottom: 25px;
+    border-left: 3px solid var(--accent-pink);
+    padding-left: 10px;
+    font-style: italic;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--muted-text);
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    background: var(--main-bg); 
+    border: 1px solid var(--border-color);
+    color: var(--light-text);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--accent-pink);
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 51, 153, 0.5);
+}
+
+.confirm-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px 25px;
+}
+
+/* ========================================================================= */
+/* --- SEÇÃO DE UPDATES (CHANGELOG) E DOCUMENTAÇÃO/FAQ --- */
 /* ========================================================================= */
 .changelog-section {
     padding: 80px 0;
@@ -553,16 +603,16 @@ main {
     main { padding-top: 100px; }
     .hero { margin-top: -100px; }
     .hero-content h1 { font-size: 2.8rem; }
-    .cta-title, .client-video-section h2, .store-section h1 { font-size: 2.2rem; }
+    .cta-title, .client-video-section h2, .store-section h1, .changelog-section h1 { font-size: 2.2rem; }
     .product-grid { flex-direction: column; gap: 30px; align-items: center; }
     .product-card { max-width: 90%; }
     
     /* Navbar Mobile */
     .navbar {
-        width: 95%; /* Ocupa a largura da tela */
+        width: 95%; 
     }
     .navbar .links, .navbar .btn-download-animated {
-        display: none; /* Esconde links e botão */
+        display: none; 
     }
     .hamburger {
         display: flex;
@@ -571,7 +621,7 @@ main {
         cursor: pointer;
         height: 20px;
         z-index: 1001;
-        margin-left: auto; /* Empurra o hamburger para a direita */
+        margin-left: auto; 
     }
     .hamburger .bar {
         display: block;
