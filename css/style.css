@@ -1,10 +1,10 @@
-/* --- 1. VARIÁVEIS DE COR E ESTILOS GLOBAIS --- */
+/* --- 1. VARIÁVEIS DE COR E ESTILOS GLOBAIS (ROXO/ROSA NEON) --- */
 
 :root {
-    --color-dark-primary: #0f0f0f; /* Fundo principal (mais escuro) */
+    --color-dark-primary: #0f0f0f; /* Fundo principal (quase preto) */
     --color-dark-secondary: #1a1a1a; /* Fundo de componentes/cartões */
-    --color-orange-primary: #ff5722; /* Laranja de destaque (ex: logo, botões) */
-    --color-orange-secondary: #e65100; /* Laranja mais escuro (ex: hover) */
+    --color-primary: #9d2ec9; /* Roxo Principal (Base/Destaque Suave) */
+    --color-secondary: #ff0099; /* Rosa Neon (Destaque Forte e Botões Principais) */
     --color-text-light: #ffffff;
     --color-text-faded: #aaaaaa;
     --color-border: #333333;
@@ -23,7 +23,7 @@ body {
     min-height: 100vh;
 }
 
-/* EFEITO GRID DE FUNDO (Similar ao da Imagem) */
+/* EFEITO GRID DE FUNDO */
 body::before {
     content: '';
     position: fixed;
@@ -31,11 +31,10 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Padrão de grid sutil */
     background-image: linear-gradient(to right, #222 1px, transparent 1px),
                       linear-gradient(to bottom, #222 1px, transparent 1px);
-    background-size: 50px 50px; /* Tamanho da célula do grid */
-    opacity: 0.1; /* Sutil */
+    background-size: 50px 50px;
+    opacity: 0.1;
     z-index: -1;
 }
 
@@ -47,7 +46,7 @@ body::before {
 
 a {
     text-decoration: none;
-    color: var(--color-orange-primary);
+    color: var(--color-secondary);
     transition: color 0.3s;
 }
 
@@ -60,17 +59,17 @@ a {
     border-radius: 6px;
     font-weight: 600;
     padding: 10px 20px;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
     text-transform: uppercase;
     font-size: 0.9rem;
 }
 
-/* --- 2. BARRA DE NAVEGAÇÃO (NAVBAR) --- */
+/* --- 2. BARRA DE NAVEGAÇÃO (NAVBAR ESTILO PHOENIX) --- */
 
 .navbar {
     background-color: var(--color-dark-primary);
     border-bottom: 1px solid var(--color-border);
-    padding: 15px 0;
+    padding: 15px 0 0 0; /* Ajustado para deixar espaço para a borda ativa */
     position: sticky;
     top: 0;
     z-index: 100;
@@ -85,31 +84,63 @@ a {
 .navbar .logo {
     display: flex;
     align-items: center;
+    padding-bottom: 15px;
 }
 
+/* Efeito Neon Roxo para o Logo */
 .navbar .logo-img-nav {
     height: 35px;
     margin-right: 10px;
+    filter: drop-shadow(0 0 5px var(--color-primary));
 }
 
 .navbar-client-name {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--color-orange-primary);
+    color: var(--color-text-light);
     line-height: 1;
 }
 
-.navbar .links a {
-    color: var(--color-text-faded);
-    text-decoration: none;
-    margin-left: 25px;
-    font-weight: 500;
-    transition: color 0.3s;
-    padding-bottom: 5px;
+/* Links Centrais (Estilo Phoenix - Ícone + Texto) */
+.links-center {
+    display: flex;
+    gap: 30px;
 }
 
-.navbar .links a:hover {
-    color: var(--color-orange-primary);
+.nav-btn-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-text-faded);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 15px 0; /* Padding para o clique e para a borda */
+    position: relative;
+}
+
+.nav-btn-icon i {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.nav-btn-icon:hover {
+    color: var(--color-secondary);
+}
+
+.nav-btn-icon.active {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* Borda Ativa (Bottom Border) */
+.nav-btn-icon.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-primary);
+    border-radius: 2px;
 }
 
 /* Ações do Lado Direito (Ícones e Sign In) */
@@ -117,6 +148,10 @@ a {
     display: flex;
     align-items: center;
     gap: 15px;
+    background-color: var(--color-dark-secondary);
+    border-radius: 30px;
+    padding: 5px 5px 5px 15px;
+    padding-bottom: 15px; /* Alinha com a logo */
 }
 
 .nav-icon-link {
@@ -126,35 +161,79 @@ a {
 }
 
 .nav-icon-link:hover {
-    color: var(--color-orange-primary);
+    color: var(--color-secondary);
 }
 
 .btn-sign-in {
-    background: var(--color-orange-primary);
-    color: var(--color-text-light);
-    padding: 8px 15px;
-    border-radius: 5px;
+    background: var(--color-secondary); /* Rosa Neon */
+    color: var(--color-dark-primary);
+    padding: 8px 18px;
+    border-radius: 20px;
     font-size: 0.9rem;
     text-transform: none;
+    font-weight: 700;
+    box-shadow: 0 0 10px rgba(255, 0, 153, 0.5); /* Efeito Neon */
 }
 
 .btn-sign-in:hover {
-    background: var(--color-orange-secondary);
+    background: var(--color-primary); /* Roxo no hover */
+    box-shadow: 0 0 10px rgba(157, 46, 201, 0.8);
+    color: var(--color-text-light);
 }
 
-/* --- 3. SEÇÃO PRINCIPAL (HERO/LAUNCHER) --- */
+/* --- 3. BOTÕES DE SWITCH (LAUNCHER/CLIENT) Abaixo da Navbar --- */
+.client-switch-bar {
+    background-color: var(--color-dark-primary);
+    padding: 0 0 20px 0;
+}
+.client-switch-bar .container {
+    /* Mover os botões para a direita, alinhando com a coluna da direita no Hero */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.switch-btn {
+    background-color: var(--color-dark-primary);
+    color: var(--color-text-faded);
+    border: 1px solid var(--color-border);
+    padding: 10px 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.switch-btn:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-right: none;
+}
+
+.switch-btn:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.switch-btn.active {
+    background-color: var(--color-dark-secondary);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    font-weight: 600;
+}
+
+
+/* --- 4. SEÇÃO PRINCIPAL (HERO/LAUNCHER) - Adaptação de Cores --- */
 
 .hero {
-    padding: 100px 0 120px 0;
+    padding: 50px 0 120px 0; /* Reduz o padding superior */
 }
 
 .hero-content {
     display: flex;
     gap: 50px;
-    align-items: flex-start; /* Alinha ao topo */
+    align-items: flex-start;
 }
 
-/* Coluna da Esquerda (Informações do Client) */
 .hero-left {
     flex: 1;
     max-width: 50%;
@@ -165,15 +244,8 @@ a {
     font-weight: 800;
     color: var(--color-text-light);
     margin-bottom: 5px;
-    text-shadow: 0 0 10px rgba(255, 87, 34, 0.2);
+    text-shadow: 0 0 15px rgba(157, 46, 201, 0.4); /* Brilho Roxo */
     line-height: 1.1;
-}
-
-.client-subtitle {
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: var(--color-text-faded);
-    margin-bottom: 30px;
 }
 
 /* Tags de Recursos */
@@ -183,54 +255,51 @@ a {
     gap: 10px;
     margin-bottom: 40px;
 }
-
 .tag {
     padding: 8px 15px;
     border-radius: 5px;
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--color-text-light);
-    /* Estilo do botão de tag na imagem (Fundo escuro, borda laranja) */
     background-color: var(--color-dark-secondary); 
     border: 1px solid var(--color-border);
     cursor: default;
 }
 .tag-pvp-client {
-    border-color: var(--color-orange-primary);
-    color: var(--color-orange-primary);
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+    box-shadow: 0 0 5px rgba(255, 0, 153, 0.2);
 }
 
 /* Botões de Ação Principal */
-.client-actions {
-    display: flex;
-    gap: 20px;
-}
-
-/* Botão de Download (Principal - Laranja Sólido) */
-.btn-primary-dark {
-    background-color: var(--color-orange-primary);
+.btn-primary-theme {
+    background-color: var(--color-secondary); /* Rosa Principal */
     color: var(--color-dark-primary);
     padding: 15px 35px;
     border-radius: 8px;
     border: none;
+    box-shadow: 0 5px 20px rgba(255, 0, 153, 0.4);
 }
 
-.btn-primary-dark:hover {
-    background-color: var(--color-orange-secondary);
+.btn-primary-theme:hover {
+    background-color: var(--color-primary); /* Roxo no hover */
+    color: var(--color-text-light);
+    box-shadow: 0 5px 20px rgba(157, 46, 201, 0.6);
 }
 
-/* Botão Explorar Loja (Secundário - Dark com Borda Laranja) */
-.btn-secondary-dark {
+/* Botão Explorar Loja (Secundário - Dark com Borda Roxo) */
+.btn-secondary-theme {
     background-color: transparent;
-    color: var(--color-orange-primary);
-    border: 2px solid var(--color-orange-primary);
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
     padding: 15px 35px;
     border-radius: 8px;
 }
 
-.btn-secondary-dark:hover {
-    background-color: var(--color-orange-primary);
+.btn-secondary-theme:hover {
+    background-color: var(--color-primary);
     color: var(--color-dark-primary);
+    border-color: var(--color-primary);
 }
 
 /* Coluna da Direita (Vídeo/Client Display) */
@@ -243,10 +312,8 @@ a {
     position: relative;
     border-radius: 10px;
     overflow: hidden;
-    /* Borda sutil para emoldurar a tela, como na imagem */
     border: 2px solid var(--color-border); 
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
-    margin-bottom: 20px;
 }
 
 .client-video {
@@ -277,7 +344,7 @@ a {
 }
 
 .btn-play {
-    background-color: var(--color-orange-primary);
+    background-color: var(--color-secondary);
     color: var(--color-dark-primary);
     padding: 8px 25px;
     border-radius: 5px;
@@ -285,46 +352,12 @@ a {
     text-transform: uppercase;
 }
 .btn-play:hover {
-    background-color: var(--color-orange-secondary);
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
 }
 
 
-/* Botões de Switch (Launcher/Client) */
-.client-switch-buttons {
-    display: flex;
-    justify-content: flex-start;
-}
-
-.switch-btn {
-    background-color: var(--color-dark-primary);
-    color: var(--color-text-faded);
-    border: 1px solid var(--color-border);
-    padding: 10px 25px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.3s;
-    font-weight: 500;
-}
-
-.switch-btn:first-child {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-right: none;
-}
-
-.switch-btn:last-child {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
-.switch-btn.active {
-    background-color: var(--color-dark-secondary);
-    color: var(--color-orange-primary);
-    border-color: var(--color-orange-primary);
-    font-weight: 600;
-}
-
-/* --- 4. SEÇÕES ADICIONAIS (EXEMPLO) --- */
+/* --- 5. SEÇÕES ADICIONAIS --- */
 
 .features-section {
     padding: 60px 0;
@@ -339,7 +372,7 @@ a {
 }
 
 
-/* --- 5. RODAPÉ (FOOTER) --- */
+/* --- 6. RODAPÉ (FOOTER) --- */
 
 .footer {
     background-color: var(--color-dark-secondary);
@@ -362,12 +395,14 @@ a {
 .logo-img-footer {
     height: 40px;
     margin-bottom: 10px;
+    /* Efeito Neon Roxo para o Logo do Rodapé */
+    filter: drop-shadow(0 0 5px var(--color-primary)); 
 }
 
 .footer-logo-text {
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--color-orange-primary);
+    color: var(--color-secondary); /* Rosa */
     margin-bottom: 10px;
 }
 
@@ -381,7 +416,7 @@ a {
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 15px;
-    border-left: 3px solid var(--color-orange-primary);
+    border-left: 3px solid var(--color-primary); /* Roxo */
     padding-left: 10px;
 }
 
@@ -402,13 +437,13 @@ a {
 }
 
 .footer-links a:hover {
-    color: var(--color-orange-primary);
+    color: var(--color-secondary);
 }
 
 .footer-links a .fas {
     font-size: 0.7rem;
     margin-right: 8px;
-    color: var(--color-orange-primary);
+    color: var(--color-secondary); /* Rosa */
 }
 
 .footer-bottom {
