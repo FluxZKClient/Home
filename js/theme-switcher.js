@@ -1,21 +1,25 @@
 /**
- * Lógica para trocar entre o tema principal (roxo/rosa) e o modo Grayscale (Preto e Branco)
- * Usa LocalStorage para salvar a preferência do usuário.
+ * Script para alternar entre o tema padrão e o modo Grayscale (Preto e Branco)
+ * Usa localStorage para lembrar a preferência do usuário.
  */
-
-console.log("FluxZK Theme Switcher: Script Carregado!"); // TESTE DE CARREGAMENTO
 
 const BODY_ID = 'site-body';
 const TOGGLE_CLASS = 'grayscale-mode';
 const STORAGE_KEY = 'fluxzk_theme_mode';
 
+// Função que será chamada ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
     const body = document.getElementById(BODY_ID);
     
-    // 1. Verifica se há um tema salvo
+    // Testa se o elemento body existe
+    if (!body) {
+        console.error("Erro: Elemento <body> com id='site-body' não encontrado.");
+        return;
+    }
+    
+    // Verifica se há um tema salvo
     const savedTheme = localStorage.getItem(STORAGE_KEY);
 
-    // Se o tema salvo for 'grayscale', aplica a classe
     if (savedTheme === 'grayscale') {
         body.classList.add(TOGGLE_CLASS);
         console.log("FluxZK Theme Switcher: Modo Grayscale restaurado.");
@@ -24,14 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Esta função é chamada pelo onclick="toggleTheme()" no HTML
+// Função chamada pelo botão de clique (onclick)
 function toggleTheme() {
     const body = document.getElementById(BODY_ID);
     
-    // 2. Alterna a classe 'grayscale-mode'
+    if (!body) return;
+
+    // Alterna a classe 'grayscale-mode' no elemento <body>
     const isGrayscale = body.classList.toggle(TOGGLE_CLASS);
 
-    // 3. Salva a preferência
+    // Salva a preferência
     if (isGrayscale) {
         localStorage.setItem(STORAGE_KEY, 'grayscale');
         console.log("FluxZK Theme Switcher: Mudança para Grayscale.");
