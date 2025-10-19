@@ -3,14 +3,15 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>FluxZK Client - A Melhor Experiência para Minecraft</title>
+    <title>FluxZK Client - Performance Extrema para Minecraft</title>
     
-    <meta content="Baixe o FluxZK Client e melhore sua performance no Minecraft. FPS Boost, recursos avançados e suporte para Windows, Linux ." name="description"/>
+    <meta content="Baixe o FluxZK Client e melhore sua performance no Minecraft. FPS Boost, recursos avançados e suporte para Windows e Linux." name="description"/>
     <link href="images/dsd.png" rel="icon" type="image/png"/>
     <meta content="#0c0c0c" name="theme-color"/>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-    <link href="css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <link href="css/style.css" rel="stylesheet"/>
 </head>
 <body>
@@ -20,6 +21,7 @@
             <div class="logo">
                 <a href="index.html">
                     <img src="images/dsd.png" alt="FluxZK Client Logo" class="logo-img-nav">
+                    <span class="navbar-client-name">FluxZK Client</span>
                 </a>
             </div>
             
@@ -29,59 +31,67 @@
                 <a href="faq.html">FAQ</a>
                 <a href="loja.html">Loja</a>
                 <a href="updates.html">Atualizações</a>
-                <a href="https://discord.gg/FluxZK" target="_blank">Discord</a>
+                <a href="https://discord.gg/FluxZK" target="_blank"><i class="fab fa-discord"></i> Discord</a>
             </div>
             
-            <a class="btn rgb-animated-button btn-download-animated" href="https://github.com/FluxZKClient/Data/releases/tag/Download" target="_blank">
-                Download
-            </a>
+            <div class="navbar-actions">
+                <a class="nav-icon-link" href="#"><i class="fas fa-heart"></i></a>
+                <a class="nav-icon-link" href="#"><i class="fas fa-sun"></i></a>
+                <a class="btn btn-sign-in" href="#">Sign In</a>
+            </div>
         </div>
     </nav>
+
     <main>
-        
         <header class="hero">
             <div class="hero-content container">
-                <h1>A Melhor Experiência para Minecraft</h1>
-                <p>FPS otimizado, +70 mods incríveis e uma interface moderna. Jogue no máximo desempenho!</p>
-                <div class="hero-buttons">
+                
+                <div class="hero-left">
+                    <h1 class="client-title">FluxZK Client</h1>
+                    <h2 class="client-subtitle">O Client Oficial para Performance Extrema no Minecraft.</h2>
                     
-                    <a class="btn rgb-animated-button" href="https://github.com/FluxZKClient/Data/releases/tag/Download" target="_blank">
-                        <i class="fas fa-download"></i> Baixar Agora
-                    </a>
+                    <div class="client-tags">
+                        <span class="tag tag-first-iranian">⭐ Novo Client Brasileiro</span>
+                        <span class="tag tag-free-to-use">🆓 Gratuito</span>
+                        <span class="tag tag-pvp-client">⚔️ Client PvP</span>
+                        <span class="tag tag-customizable">🎨 Customizável</span>
+                        <span class="tag tag-online-players">👥 74 Jogadores Online</span>
+                    </div>
                     
-                    <a class="btn btn-secondary" href="https://discord.gg/FluxZK" target="_blank">Comunidade Discord</a>
+                    <div class="hero-buttons client-actions">
+                        <a class="btn btn-primary-dark" href="https://github.com/FluxZKClient/Data/releases/tag/Download" target="_blank">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                        <a class="btn btn-secondary-dark" href="loja.html">
+                            <i class="fas fa-shopping-cart"></i> Explore a Loja
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="scroll-down-indicator">
-                <a href="#cta-download"><i class="fas fa-angle-down"></i></a>
+
+                <div class="hero-right">
+                    <div class="client-display">
+                        <video controls loop muted autoplay class="client-video">
+                            <source src="Client.mp4" type="video/mp4">
+                            Seu navegador não suporta o elemento de vídeo.
+                        </video>
+                        <div class="client-info-overlay">
+                            <span class="version-text">FluxZK 1.8.9 Beta</span>
+                            <a href="#" class="btn-play">Play</a>
+                        </div>
+                    </div>
+                    
+                    <div class="client-switch-buttons">
+                        <button class="switch-btn active">Launcher</button>
+                        <button class="switch-btn">Client</button>
+                    </div>
+                </div>
             </div>
         </header>
 
-        <section class="cta-section" id="cta-download">
+        <section class="features-section">
             <div class="container">
-                <h2 class="cta-title">+250fps Garantidos</h2>
-                <p class="cta-description">Junte-se à comunidade do <strong>FluxZK</strong>, um Client criado para entregar desempenho extremo.</p>
-                
-                <a class="btn rgb-animated-button" href="https://github.com/FluxZKClient/Data/releases/tag/Download" target="_blank">
-                    <i class="fas fa-download"></i> Baixar o Client
-                </a>
-                
-                <p class="cta-note">Disponível em breve para Windows e Linux.</p>
-            </div>
-        </section>
-
-        <section class="client-video-section">
-            <div class="container">
-                <h2>Client Customizável</h2>
-                <p>Assista ao vídeo para ver a interface moderna e a personalização do FluxZK Client.</p>
-                
-                <div class="video-container-embed">
-                    <video controls loop muted autoplay>
-                        <source src="Client.mp4" type="video/mp4">
-                        Seu navegador não suporta o elemento de vídeo.
-                    </video>
+                <h2 class="section-title">Features do nosso client</h2>
                 </div>
-            </div>
         </section>
 
     </main>
