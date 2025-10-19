@@ -14,9 +14,7 @@
     
     <link href="css/style.css" rel="stylesheet"/>
 </head>
-<body>
-
-    <nav class="navbar">
+<body id="site-body"> <nav class="navbar">
         <div class="container">
             
             <div class="logo">
@@ -37,7 +35,9 @@
             
             <div class="navbar-actions">
                 <a class="nav-icon-link" href="#"><i class="fas fa-heart"></i></a>
-                <a class="nav-icon-link" href="#"><i class="fas fa-sun"></i></a>
+                <a class="nav-icon-link" id="theme-toggle-btn" href="javascript:void(0);" onclick="toggleTheme()">
+                    <i class="fas fa-sun"></i> 
+                </a>
                 <a class="btn btn-sign-in" href="#">Sign In</a>
             </div>
         </div>
@@ -139,5 +139,6 @@
     <script src="js/vanilla-tilt.min.js"></script>
     <script src="js/scrollreveal.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/theme-switcher.js"></script>
 </body>
 </html>
