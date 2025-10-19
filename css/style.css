@@ -24,7 +24,6 @@ body {
     color: var(--color-text-light);
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    /* Transição para suavizar a troca de tema no filtro */
     transition: filter 0.8s ease, background-color 0.8s ease; 
 }
 
@@ -48,7 +47,25 @@ body::before {
     margin: 0 auto;
     padding: 0 20px;
 }
-/* ... (Outros estilos de botões e links) ... */
+
+a {
+    text-decoration: none;
+    color: var(--color-secondary);
+    transition: color 0.3s;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 6px;
+    font-weight: 600;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
 
 /* --- 2. BARRA DE NAVEGAÇÃO (NAVBAR ESTILO PHOENIX - VIDRO E REDONDA) --- */
 
@@ -75,32 +92,17 @@ body::before {
     transition: all 0.5s ease;
 }
 
-/* Estilos de Logo, Links, e Botões Sign In (Conforme código HTML) */
-
-.links-center {
-    display: flex;
-    gap: 30px;
+.navbar .logo-img-nav {
+    height: 35px;
+    filter: drop-shadow(0 0 5px var(--color-primary));
+    transition: filter 0.5s ease;
 }
 
-.nav-btn-icon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--color-text-faded);
-    font-size: 0.8rem;
-    font-weight: 500;
-    padding: 5px 0; 
-    position: relative;
-}
-
-.nav-btn-icon i {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-}
-
-.nav-btn-icon.active {
-    color: var(--color-primary);
-}
+/* Links Centrais */
+.links-center { display: flex; gap: 30px; }
+.nav-btn-icon { display: flex; flex-direction: column; align-items: center; color: var(--color-text-faded); font-size: 0.8rem; padding: 5px 0; position: relative; }
+.nav-btn-icon i { font-size: 1.2rem; margin-bottom: 5px; }
+.nav-btn-icon.active { color: var(--color-primary); }
 
 .navbar-actions {
     display: flex;
@@ -113,36 +115,32 @@ body::before {
     border: 1px solid var(--glass-border);
     transition: all 0.5s ease;
 }
+.nav-icon-link {
+    color: var(--color-text-faded);
+    font-size: 1.2rem;
+    padding: 5px;
+}
+.btn-sign-in {
+    background: var(--color-secondary);
+    color: var(--color-dark-primary);
+    padding: 8px 18px;
+    border-radius: 20px;
+}
+.btn-primary-theme {
+    background-color: var(--color-secondary);
+    color: var(--color-dark-primary);
+    box-shadow: 0 5px 20px rgba(255, 0, 153, 0.4);
+}
 
-/* --- 3. BOTÕES DE SWITCH (LAUNCHER/CLIENT) --- */
-.client-switch-bar {
-    padding: 20px 0; 
-}
-.client-switch-bar .container {
-    display: flex;
-    justify-content: flex-end; 
-    max-width: 1200px; 
-    margin: 0 auto; 
-    padding: 0 20px;
-}
-.client-switch-wrapper {
-    margin-left: auto;
-    width: 50%;
-    display: flex;
-    justify-content: flex-start;
-}
-/* ... (Outros estilos de switch-btn) ... */
 
 /* --- 4. TEMA ALTERNATIVO (MODO PRETO E BRANCO) --- */
 body.grayscale-mode {
-    /* O PRINCIPAL: Aplica o filtro de preto e branco a TUDO */
+    /* 1. O PRINCIPAL: Aplica o filtro de preto e branco a TUDO */
     filter: grayscale(100%);
-    
-    /* Mantenha a transição suave */
     transition: filter 0.8s ease;
 }
 
-/* AJUSTES PARA COMPLEMENTAR O P&B NO GLASSMORHISM */
+/* 2. AJUSTES PARA COMPLEMENTAR O P&B NO GLASSMORHISM */
 
 /* Remove o brilho neon */
 body.grayscale-mode .client-title,
@@ -167,3 +165,6 @@ body.grayscale-mode .btn,
 body.grayscale-mode .tag {
     box-shadow: none !important;
 }
+
+/* --- ESTILOS DE OUTRAS SEÇÕES (Omitidos, mas devem estar no seu arquivo) --- */
+/* ... (Seções Hero, Footer, Tags, etc.) ... */
