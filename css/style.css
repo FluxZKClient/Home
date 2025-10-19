@@ -8,9 +8,6 @@
     --color-text-light: #ffffff;
     --color-text-faded: #aaaaaa;
     --color-border: #333333;
-    /* Novas variáveis para o glassmorphism */
-    --glass-bg: rgba(255, 255, 255, 0.08); /* Fundo semi-transparente */
-    --glass-border: rgba(255, 255, 255, 0.15); /* Borda mais suave */
 }
 
 * {
@@ -67,12 +64,12 @@ a {
     font-size: 0.9rem;
 }
 
-/* --- 2. BARRA DE NAVEGAÇÃO (NAVBAR ESTILO PHOENIX - VIDRO E REDONDA) --- */
+/* --- 2. BARRA DE NAVEGAÇÃO (NAVBAR ESTILO PHOENIX) --- */
 
 .navbar {
-    background-color: transparent; /* Fundo transparente para ver o blur */
-    border-bottom: none; /* Remove a borda inferior antiga */
-    padding: 20px 0 0 0; /* Aumenta o padding superior para "flutuar" */
+    background-color: var(--color-dark-primary);
+    border-bottom: 1px solid var(--color-border);
+    padding: 15px 0 0 0; /* Ajustado para deixar espaço para a borda ativa */
     position: sticky;
     top: 0;
     z-index: 100;
@@ -82,27 +79,17 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--glass-bg); /* Fundo do efeito vidro */
-    backdrop-filter: blur(10px); /* O "vidro" */
-    border: 1px solid var(--glass-border); /* Borda do vidro */
-    border-radius: 30px; /* Arredondado */
-    padding: 10px 25px; /* Padding interno */
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); /* Sombra para profundidade */
-    margin: 0 auto;
-    max-width: calc(100% - 40px); /* Ajusta para não colar nas bordas da tela */
 }
 
 .navbar .logo {
     display: flex;
     align-items: center;
-    padding-bottom: 0; /* Remove padding que não é mais necessário aqui */
+    padding-bottom: 15px;
 }
 
-/* Ajuste da Logo: manter proporção e efeito neon */
+/* Efeito Neon Roxo para o Logo */
 .navbar .logo-img-nav {
     height: 35px;
-    width: auto; /* Permite que a largura se ajuste automaticamente */
-    object-fit: contain; /* Garante que a imagem não estique */
     margin-right: 10px;
     filter: drop-shadow(0 0 5px var(--color-primary));
 }
@@ -127,7 +114,7 @@ a {
     color: var(--color-text-faded);
     font-size: 0.8rem;
     font-weight: 500;
-    padding: 5px 0; /* Padding interno */
+    padding: 15px 0; /* Padding para o clique e para a borda */
     position: relative;
 }
 
@@ -149,7 +136,7 @@ a {
 .nav-btn-icon.active::after {
     content: '';
     position: absolute;
-    bottom: -15px; /* Posição abaixo do link */
+    bottom: 0;
     width: 100%;
     height: 3px;
     background-color: var(--color-primary);
@@ -161,12 +148,10 @@ a {
     display: flex;
     align-items: center;
     gap: 15px;
-    background-color: var(--glass-bg); /* Fundo do efeito vidro para esta seção também */
-    backdrop-filter: blur(8px); /* Blur para a sub-seção */
-    border-radius: 20px; /* Mais arredondado */
+    background-color: var(--color-dark-secondary);
+    border-radius: 30px;
     padding: 5px 5px 5px 15px;
-    padding-bottom: 5px; /* Ajusta o padding */
-    border: 1px solid var(--glass-border); /* Borda do vidro */
+    padding-bottom: 15px; /* Alinha com a logo */
 }
 
 .nav-icon-link {
@@ -198,22 +183,19 @@ a {
 
 /* --- 3. BOTÕES DE SWITCH (LAUNCHER/CLIENT) Abaixo da Navbar --- */
 .client-switch-bar {
-    background-color: transparent; /* Fundo transparente */
-    padding: 20px 0; /* Ajusta o padding para separar do hero */
+    background-color: var(--color-dark-primary);
+    padding: 0 0 20px 0;
 }
 .client-switch-bar .container {
+    /* Mover os botões para a direita, alinhando com a coluna da direita no Hero */
     display: flex;
     justify-content: flex-end;
-    /* Alinha a barra de botões com a largura do client-display */
-    max-width: calc(60% - 40px); /* Ajuste conforme a largura do hero-right */
-    margin-right: 20px; /* Margem da direita para alinhar com o container principal */
-    margin-left: auto; /* Empurra para a direita */
 }
 
 .switch-btn {
-    background-color: var(--glass-bg); /* Fundo vidro */
+    background-color: var(--color-dark-primary);
     color: var(--color-text-faded);
-    border: 1px solid var(--glass-border);
+    border: 1px solid var(--color-border);
     padding: 10px 25px;
     cursor: pointer;
     font-size: 0.9rem;
@@ -233,7 +215,7 @@ a {
 }
 
 .switch-btn.active {
-    background-color: var(--color-dark-secondary); /* Fundo mais sólido para o ativo */
+    background-color: var(--color-dark-secondary);
     color: var(--color-primary);
     border-color: var(--color-primary);
     font-weight: 600;
@@ -243,7 +225,7 @@ a {
 /* --- 4. SEÇÃO PRINCIPAL (HERO/LAUNCHER) - Adaptação de Cores --- */
 
 .hero {
-    padding: 50px 0 120px 0;
+    padding: 50px 0 120px 0; /* Reduz o padding superior */
 }
 
 .hero-content {
@@ -412,9 +394,8 @@ a {
 
 .logo-img-footer {
     height: 40px;
-    width: auto; /* Mantém a proporção */
-    object-fit: contain; /* Garante que a imagem não estique */
     margin-bottom: 10px;
+    /* Efeito Neon Roxo para o Logo do Rodapé */
     filter: drop-shadow(0 0 5px var(--color-primary)); 
 }
 
