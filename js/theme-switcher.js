@@ -11,24 +11,16 @@ const STORAGE_KEY = 'fluxzk_theme_mode';
 document.addEventListener('DOMContentLoaded', () => {
     const body = document.getElementById(BODY_ID);
     
-    // Testa se o elemento body existe
-    if (!body) {
-        console.error("Erro: Elemento <body> com id='site-body' não encontrado.");
-        return;
-    }
-    
     // Verifica se há um tema salvo
     const savedTheme = localStorage.getItem(STORAGE_KEY);
 
     if (savedTheme === 'grayscale') {
         body.classList.add(TOGGLE_CLASS);
         console.log("FluxZK Theme Switcher: Modo Grayscale restaurado.");
-    } else {
-        console.log("FluxZK Theme Switcher: Modo Default carregado.");
     }
 });
 
-// Função chamada pelo botão de clique (onclick)
+// Função chamada pelo botão de clique (onclick) no HTML
 function toggleTheme() {
     const body = document.getElementById(BODY_ID);
     
