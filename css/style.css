@@ -1,459 +1,459 @@
 /* --- 1. VARIÁVEIS DE COR E ESTILOS GLOBAIS (ROXO/ROSA NEON) --- */
 
 :root {
-    --color-dark-primary: #0f0f0f; /* Fundo principal (quase preto) */
-    --color-dark-secondary: #1a1a1a; /* Fundo de componentes/cartões */
-    --color-primary: #9d2ec9; /* Roxo Principal (Base/Destaque Suave) */
-    --color-secondary: #ff0099; /* Rosa Neon (Destaque Forte e Botões Principais) */
-    --color-text-light: #ffffff;
-    --color-text-faded: #aaaaaa;
-    --color-border: #333333;
+    --color-dark-primary: #0f0f0f; /* Fundo principal (quase preto) */
+    --color-dark-secondary: #1a1a1a; /* Fundo de componentes/cartões */
+    --color-primary: #9d2ec9; /* Roxo Principal (Base/Destaque Suave) */
+    --color-secondary: #ff0099; /* Rosa Neon (Destaque Forte e Botões Principais) */
+    --color-text-light: #ffffff;
+    --color-text-faded: #aaaaaa;
+    --color-border: #333333;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    background-color: var(--color-dark-primary);
-    color: var(--color-text-light);
-    font-family: 'Poppins', sans-serif;
-    min-height: 100vh;
+    background-color: var(--color-dark-primary);
+    color: var(--color-text-light);
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
 }
 
 /* EFEITO GRID DE FUNDO */
 body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(to right, #222 1px, transparent 1px),
-                      linear-gradient(to bottom, #222 1px, transparent 1px);
-    background-size: 50px 50px;
-    opacity: 0.1;
-    z-index: -1;
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, #222 1px, transparent 1px),
+                      linear-gradient(to bottom, #222 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.1;
+    z-index: -1;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 a {
-    text-decoration: none;
-    color: var(--color-secondary);
-    transition: color 0.3s;
+    text-decoration: none;
+    color: var(--color-secondary);
+    transition: color 0.3s;
 }
 
 /* Estilo Básico para Botões */
 .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    border-radius: 6px;
-    font-weight: 600;
-    padding: 10px 20px;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
-    text-transform: uppercase;
-    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 6px;
+    font-weight: 600;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+    text-transform: uppercase;
+    font-size: 0.9rem;
 }
 
 /* --- 2. BARRA DE NAVEGAÇÃO (NAVBAR ESTILO PHOENIX) --- */
 
 .navbar {
-    background-color: var(--color-dark-primary);
-    border-bottom: 1px solid var(--color-border);
-    padding: 15px 0 0 0; /* Ajustado para deixar espaço para a borda ativa */
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    background-color: var(--color-dark-primary);
+    border-bottom: 1px solid var(--color-border);
+    padding: 15px 0 0 0; /* Ajustado para deixar espaço para a borda ativa */
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .navbar .logo {
-    display: flex;
-    align-items: center;
-    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    padding-bottom: 15px;
 }
 
 /* Efeito Neon Roxo para o Logo */
 .navbar .logo-img-nav {
-    height: 35px;
-    margin-right: 10px;
-    filter: drop-shadow(0 0 5px var(--color-primary));
+    height: 35px;
+    margin-right: 10px;
+    filter: drop-shadow(0 0 5px var(--color-primary));
 }
 
 .navbar-client-name {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-text-light);
-    line-height: 1;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-light);
+    line-height: 1;
 }
 
 /* Links Centrais (Estilo Phoenix - Ícone + Texto) */
 .links-center {
-    display: flex;
-    gap: 30px;
+    display: flex;
+    gap: 30px;
 }
 
 .nav-btn-icon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--color-text-faded);
-    font-size: 0.8rem;
-    font-weight: 500;
-    padding: 15px 0; /* Padding para o clique e para a borda */
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-text-faded);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 15px 0; /* Padding para o clique e para a borda */
+    position: relative;
 }
 
 .nav-btn-icon i {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
 }
 
 .nav-btn-icon:hover {
-    color: var(--color-secondary);
+    color: var(--color-secondary);
 }
 
 .nav-btn-icon.active {
-    color: var(--color-primary);
-    font-weight: 600;
+    color: var(--color-primary);
+    font-weight: 600;
 }
 
 /* Borda Ativa (Bottom Border) */
 .nav-btn-icon.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 3px;
-    background-color: var(--color-primary);
-    border-radius: 2px;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-primary);
+    border-radius: 2px;
 }
 
 /* Ações do Lado Direito (Ícones e Sign In) */
 .navbar-actions {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background-color: var(--color-dark-secondary);
-    border-radius: 30px;
-    padding: 5px 5px 5px 15px;
-    padding-bottom: 15px; /* Alinha com a logo */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--color-dark-secondary);
+    border-radius: 30px;
+    padding: 5px 5px 5px 15px;
+    padding-bottom: 15px; /* Alinha com a logo */
 }
 
 .nav-icon-link {
-    color: var(--color-text-faded);
-    font-size: 1.2rem;
-    padding: 5px;
+    color: var(--color-text-faded);
+    font-size: 1.2rem;
+    padding: 5px;
 }
 
 .nav-icon-link:hover {
-    color: var(--color-secondary);
+    color: var(--color-secondary);
 }
 
 .btn-sign-in {
-    background: var(--color-secondary); /* Rosa Neon */
-    color: var(--color-dark-primary);
-    padding: 8px 18px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    text-transform: none;
-    font-weight: 700;
-    box-shadow: 0 0 10px rgba(255, 0, 153, 0.5); /* Efeito Neon */
+    background: var(--color-secondary); /* Rosa Neon */
+    color: var(--color-dark-primary);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    text-transform: none;
+    font-weight: 700;
+    box-shadow: 0 0 10px rgba(255, 0, 153, 0.5); /* Efeito Neon */
 }
 
 .btn-sign-in:hover {
-    background: var(--color-primary); /* Roxo no hover */
-    box-shadow: 0 0 10px rgba(157, 46, 201, 0.8);
-    color: var(--color-text-light);
+    background: var(--color-primary); /* Roxo no hover */
+    box-shadow: 0 0 10px rgba(157, 46, 201, 0.8);
+    color: var(--color-text-light);
 }
 
 /* --- 3. BOTÕES DE SWITCH (LAUNCHER/CLIENT) Abaixo da Navbar --- */
 .client-switch-bar {
-    background-color: var(--color-dark-primary);
-    padding: 0 0 20px 0;
+    background-color: var(--color-dark-primary);
+    padding: 0 0 20px 0;
 }
 .client-switch-bar .container {
-    /* Mover os botões para a direita, alinhando com a coluna da direita no Hero */
-    display: flex;
-    justify-content: flex-end;
+    /* Mover os botões para a direita, alinhando com a coluna da direita no Hero */
+    display: flex;
+    justify-content: flex-end;
 }
 
 .switch-btn {
-    background-color: var(--color-dark-primary);
-    color: var(--color-text-faded);
-    border: 1px solid var(--color-border);
-    padding: 10px 25px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.3s;
-    font-weight: 500;
+    background-color: var(--color-dark-primary);
+    color: var(--color-text-faded);
+    border: 1px solid var(--color-border);
+    padding: 10px 25px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    font-weight: 500;
 }
 
 .switch-btn:first-child {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-right: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-right: none;
 }
 
 .switch-btn:last-child {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .switch-btn.active {
-    background-color: var(--color-dark-secondary);
-    color: var(--color-primary);
-    border-color: var(--color-primary);
-    font-weight: 600;
+    background-color: var(--color-dark-secondary);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    font-weight: 600;
 }
 
 
 /* --- 4. SEÇÃO PRINCIPAL (HERO/LAUNCHER) - Adaptação de Cores --- */
 
 .hero {
-    padding: 50px 0 120px 0; /* Reduz o padding superior */
+    padding: 50px 0 120px 0; /* Reduz o padding superior */
 }
 
 .hero-content {
-    display: flex;
-    gap: 50px;
-    align-items: flex-start;
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
 }
 
 .hero-left {
-    flex: 1;
-    max-width: 50%;
+    flex: 1;
+    max-width: 50%;
 }
 
 .client-title {
-    font-size: 4rem;
-    font-weight: 800;
-    color: var(--color-text-light);
-    margin-bottom: 5px;
-    text-shadow: 0 0 15px rgba(157, 46, 201, 0.4); /* Brilho Roxo */
-    line-height: 1.1;
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--color-text-light);
+    margin-bottom: 5px;
+    text-shadow: 0 0 15px rgba(157, 46, 201, 0.4); /* Brilho Roxo */
+    line-height: 1.1;
 }
 
 /* Tags de Recursos */
 .client-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
 }
 .tag {
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--color-text-light);
-    background-color: var(--color-dark-secondary); 
-    border: 1px solid var(--color-border);
-    cursor: default;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text-light);
+    background-color: var(--color-dark-secondary); 
+    border: 1px solid var(--color-border);
+    cursor: default;
 }
 .tag-pvp-client {
-    border-color: var(--color-secondary);
-    color: var(--color-secondary);
-    box-shadow: 0 0 5px rgba(255, 0, 153, 0.2);
+    border-color: var(--color-secondary);
+    color: var(--color-secondary);
+    box-shadow: 0 0 5px rgba(255, 0, 153, 0.2);
 }
 
 /* Botões de Ação Principal */
 .btn-primary-theme {
-    background-color: var(--color-secondary); /* Rosa Principal */
-    color: var(--color-dark-primary);
-    padding: 15px 35px;
-    border-radius: 8px;
-    border: none;
-    box-shadow: 0 5px 20px rgba(255, 0, 153, 0.4);
+    background-color: var(--color-secondary); /* Rosa Principal */
+    color: var(--color-dark-primary);
+    padding: 15px 35px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 5px 20px rgba(255, 0, 153, 0.4);
 }
 
 .btn-primary-theme:hover {
-    background-color: var(--color-primary); /* Roxo no hover */
-    color: var(--color-text-light);
-    box-shadow: 0 5px 20px rgba(157, 46, 201, 0.6);
+    background-color: var(--color-primary); /* Roxo no hover */
+    color: var(--color-text-light);
+    box-shadow: 0 5px 20px rgba(157, 46, 201, 0.6);
 }
 
 /* Botão Explorar Loja (Secundário - Dark com Borda Roxo) */
 .btn-secondary-theme {
-    background-color: transparent;
-    color: var(--color-primary);
-    border: 2px solid var(--color-primary);
-    padding: 15px 35px;
-    border-radius: 8px;
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    padding: 15px 35px;
+    border-radius: 8px;
 }
 
 .btn-secondary-theme:hover {
-    background-color: var(--color-primary);
-    color: var(--color-dark-primary);
-    border-color: var(--color-primary);
+    background-color: var(--color-primary);
+    color: var(--color-dark-primary);
+    border-color: var(--color-primary);
 }
 
 /* Coluna da Direita (Vídeo/Client Display) */
 .hero-right {
-    flex: 1;
-    max-width: 50%;
+    flex: 1;
+    max-width: 50%;
 }
 
 .client-display {
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 2px solid var(--color-border); 
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid var(--color-border); 
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
 }
 
 .client-video {
-    width: 100%;
-    height: auto;
-    display: block;
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Overlay de Versão e Play (Imitando o launcher) */
 .client-info-overlay {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: 10px 15px;
-    background: rgba(0, 0, 0, 0.8);
-    border-top-left-radius: 10px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: 0.9rem;
-    backdrop-filter: blur(5px);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.8);
+    border-top-left-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.9rem;
+    backdrop-filter: blur(5px);
 }
 
 .version-text {
-    margin: 0;
-    color: var(--color-text-faded);
-    font-weight: 500;
+    margin: 0;
+    color: var(--color-text-faded);
+    font-weight: 500;
 }
 
 .btn-play {
-    background-color: var(--color-secondary);
-    color: var(--color-dark-primary);
-    padding: 8px 25px;
-    border-radius: 5px;
-    font-weight: 600;
-    text-transform: uppercase;
+    background-color: var(--color-secondary);
+    color: var(--color-dark-primary);
+    padding: 8px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 .btn-play:hover {
-    background-color: var(--color-primary);
-    color: var(--color-text-light);
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
 }
 
 
 /* --- 5. SEÇÕES ADICIONAIS --- */
 
 .features-section {
-    padding: 60px 0;
+    padding: 60px 0;
 }
 
 .section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 50px;
-    color: var(--color-text-light);
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: var(--color-text-light);
 }
 
 
 /* --- 6. RODAPÉ (FOOTER) --- */
 
 .footer {
-    background-color: var(--color-dark-secondary);
-    padding-top: 50px;
-    border-top: 1px solid var(--color-border);
+    background-color: var(--color-dark-secondary);
+    padding-top: 50px;
+    border-top: 1px solid var(--color-border);
 }
 
 .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 40px;
-    padding-bottom: 40px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
 }
 
 .footer-brand {
-    display: flex;
-    flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .logo-img-footer {
-    height: 40px;
-    margin-bottom: 10px;
-    /* Efeito Neon Roxo para o Logo do Rodapé */
-    filter: drop-shadow(0 0 5px var(--color-primary)); 
+    height: 40px;
+    margin-bottom: 10px;
+    /* Efeito Neon Roxo para o Logo do Rodapé */
+    filter: drop-shadow(0 0 5px var(--color-primary)); 
 }
 
 .footer-logo-text {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--color-secondary); /* Rosa */
-    margin-bottom: 10px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-secondary); /* Rosa */
+    margin-bottom: 10px;
 }
 
 .footer-description {
-    color: var(--color-text-faded);
-    font-size: 0.95rem;
+    color: var(--color-text-faded);
+    font-size: 0.95rem;
 }
 
 .footer-title {
-    color: var(--color-text-light);
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 15px;
-    border-left: 3px solid var(--color-primary); /* Roxo */
-    padding-left: 10px;
+    color: var(--color-text-light);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    border-left: 3px solid var(--color-primary); /* Roxo */
+    padding-left: 10px;
 }
 
 .footer-links {
-    list-style: none;
-    padding: 0;
+    list-style: none;
+    padding: 0;
 }
 
 .footer-links li {
-    margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .footer-links a {
-    color: var(--color-text-faded);
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
+    color: var(--color-text-faded);
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
 }
 
 .footer-links a:hover {
-    color: var(--color-secondary);
+    color: var(--color-secondary);
 }
 
 .footer-links a .fas {
-    font-size: 0.7rem;
-    margin-right: 8px;
-    color: var(--color-secondary); /* Rosa */
+    font-size: 0.7rem;
+    margin-right: 8px;
+    color: var(--color-secondary); /* Rosa */
 }
 
 .footer-bottom {
-    background-color: #101010;
-    border-top: 1px solid var(--color-border);
-    padding: 20px 0;
+    background-color: #101010;
+    border-top: 1px solid var(--color-border);
+    padding: 20px 0;
 }
 
 .footer-copyright {
-    text-align: center;
-    color: var(--color-text-faded);
-    font-size: 0.85rem;
+    text-align: center;
+    color: var(--color-text-faded);
+    font-size: 0.85rem;
 }
