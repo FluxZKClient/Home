@@ -103,6 +103,7 @@ a {
 .nav-btn-icon { display: flex; flex-direction: column; align-items: center; color: var(--color-text-faded); font-size: 0.8rem; padding: 5px 0; position: relative; }
 .nav-btn-icon i { font-size: 1.2rem; margin-bottom: 5px; }
 .nav-btn-icon.active { color: var(--color-primary); }
+.nav-btn-icon.active::after { content: ''; position: absolute; bottom: -15px; width: 100%; height: 3px; background-color: var(--color-primary); border-radius: 2px; }
 
 .navbar-actions {
     display: flex;
@@ -126,30 +127,22 @@ a {
     padding: 8px 18px;
     border-radius: 20px;
 }
-.btn-primary-theme {
-    background-color: var(--color-secondary);
-    color: var(--color-dark-primary);
-    box-shadow: 0 5px 20px rgba(255, 0, 153, 0.4);
-}
 
+/* Estilos do Hero e Botões (para garantir o visual roxo/rosa) */
+.client-title { font-size: 4rem; font-weight: 800; text-shadow: 0 0 15px rgba(157, 46, 201, 0.4); }
+.btn-primary-theme { background-color: var(--color-secondary); color: var(--color-dark-primary); box-shadow: 0 5px 20px rgba(255, 0, 153, 0.4); }
+.tag-pvp-client { border-color: var(--color-secondary); color: var(--color-secondary); }
 
 /* --- 4. TEMA ALTERNATIVO (MODO PRETO E BRANCO) --- */
 body.grayscale-mode {
     /* 1. O PRINCIPAL: Aplica o filtro de preto e branco a TUDO */
-    filter: grayscale(100%);
+    filter: grayscale(100%) !important;
     transition: filter 0.8s ease;
 }
 
-/* 2. AJUSTES PARA COMPLEMENTAR O P&B NO GLASSMORHISM */
+/* 2. AJUSTES PARA COMPLEMENTAR O P&B (Remove Neon e Blur) */
 
-/* Remove o brilho neon */
-body.grayscale-mode .client-title,
-body.grayscale-mode .navbar .logo-img-nav {
-    text-shadow: none !important;
-    filter: none !important;
-}
-
-/* Ajusta o Glassmorphism para cinza sólido (Sem Blur/Neon) */
+/* Ajusta o Glassmorphism para cinza sólido */
 body.grayscale-mode .navbar .container,
 body.grayscale-mode .navbar-actions,
 body.grayscale-mode .switch-btn {
@@ -160,11 +153,17 @@ body.grayscale-mode .switch-btn {
     transition: background-color 0.8s ease, backdrop-filter 0.8s ease, border 0.8s ease;
 }
 
-/* Remove o box-shadow neon de botões e tags */
+/* Remove os brilhos neon residuais */
+body.grayscale-mode .client-title,
+body.grayscale-mode .navbar .logo-img-nav,
 body.grayscale-mode .btn,
 body.grayscale-mode .tag {
+    text-shadow: none !important;
+    filter: none !important;
     box-shadow: none !important;
 }
 
-/* --- ESTILOS DE OUTRAS SEÇÕES (Omitidos, mas devem estar no seu arquivo) --- */
-/* ... (Seções Hero, Footer, Tags, etc.) ... */
+/* Garante que a cor dos links volte a ser visível em P&B */
+body.grayscale-mode a {
+    color: #cccccc !important; 
+}
