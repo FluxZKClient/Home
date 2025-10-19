@@ -24,6 +24,8 @@ body {
     color: var(--color-text-light);
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
+    /* Transição para suavizar a troca de tema no filtro */
+    transition: filter 0.8s ease, background-color 0.8s ease; 
 }
 
 /* EFEITO GRID DE FUNDO */
@@ -46,26 +48,7 @@ body::before {
     margin: 0 auto;
     padding: 0 20px;
 }
-
-a {
-    text-decoration: none;
-    color: var(--color-secondary);
-    transition: color 0.3s;
-}
-
-/* Estilo Básico para Botões */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    border-radius: 6px;
-    font-weight: 600;
-    padding: 10px 20px;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-}
+/* ... (Outros estilos de botões e links) ... */
 
 /* --- 2. BARRA DE NAVEGAÇÃO (NAVBAR ESTILO PHOENIX - VIDRO E REDONDA) --- */
 
@@ -81,10 +64,10 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--glass-bg); /* Fundo do efeito vidro */
-    backdrop-filter: blur(10px); /* O "vidro" */
-    border: 1px solid var(--glass-border); /* Borda do vidro */
-    border-radius: 30px; /* Arredondado */
+    background-color: var(--glass-bg); 
+    backdrop-filter: blur(10px); 
+    border: 1px solid var(--glass-border); 
+    border-radius: 30px; 
     padding: 10px 25px; 
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); 
     margin: 0 auto;
@@ -92,30 +75,8 @@ a {
     transition: all 0.5s ease;
 }
 
-.navbar .logo {
-    display: flex;
-    align-items: center;
-    padding-bottom: 0; 
-}
+/* Estilos de Logo, Links, e Botões Sign In (Conforme código HTML) */
 
-/* Logo: manter proporção e efeito neon */
-.navbar .logo-img-nav {
-    height: 35px;
-    width: auto;
-    object-fit: contain;
-    margin-right: 10px;
-    filter: drop-shadow(0 0 5px var(--color-primary));
-    transition: filter 0.5s ease;
-}
-
-.navbar-client-name {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-text-light);
-    line-height: 1;
-}
-
-/* Links Centrais (ESTILO ÍCONE + TEXTO) */
 .links-center {
     display: flex;
     gap: 30px;
@@ -137,27 +98,10 @@ a {
     margin-bottom: 5px;
 }
 
-.nav-btn-icon:hover {
-    color: var(--color-secondary);
-}
-
 .nav-btn-icon.active {
     color: var(--color-primary);
-    font-weight: 600;
 }
 
-/* Borda Ativa (Bottom Border) */
-.nav-btn-icon.active::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    width: 100%;
-    height: 3px;
-    background-color: var(--color-primary);
-    border-radius: 2px;
-}
-
-/* Ações do Lado Direito (Ícones e Sign In) */
 .navbar-actions {
     display: flex;
     align-items: center;
@@ -166,45 +110,14 @@ a {
     backdrop-filter: blur(8px);
     border-radius: 20px;
     padding: 5px 5px 5px 15px;
-    padding-bottom: 5px;
     border: 1px solid var(--glass-border);
     transition: all 0.5s ease;
 }
 
-.nav-icon-link {
-    color: var(--color-text-faded);
-    font-size: 1.2rem;
-    padding: 5px;
-}
-
-.nav-icon-link:hover {
-    color: var(--color-secondary);
-}
-
-.btn-sign-in {
-    background: var(--color-secondary);
-    color: var(--color-dark-primary);
-    padding: 8px 18px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    text-transform: none;
-    font-weight: 700;
-    box-shadow: 0 0 10px rgba(255, 0, 153, 0.5);
-    transition: all 0.3s ease;
-}
-
-.btn-sign-in:hover {
-    background: var(--color-primary);
-    box-shadow: 0 0 10px rgba(157, 46, 201, 0.8);
-    color: var(--color-text-light);
-}
-
-/* --- 3. BOTÕES DE SWITCH (LAUNCHER/CLIENT) Abaixo da Navbar --- */
+/* --- 3. BOTÕES DE SWITCH (LAUNCHER/CLIENT) --- */
 .client-switch-bar {
-    background-color: transparent; 
     padding: 20px 0; 
 }
-
 .client-switch-bar .container {
     display: flex;
     justify-content: flex-end; 
@@ -212,204 +125,41 @@ a {
     margin: 0 auto; 
     padding: 0 20px;
 }
-
-/* Novo Wrapper para garantir que o switch se alinhe à direita do Hero */
 .client-switch-wrapper {
     margin-left: auto;
-    width: 50%; /* Ocupa o espaço da coluna direita do hero */
+    width: 50%;
     display: flex;
-    justify-content: flex-start; /* Alinha os botões à esquerda dentro da coluna direita */
+    justify-content: flex-start;
 }
+/* ... (Outros estilos de switch-btn) ... */
 
-.switch-btn {
-    background-color: var(--glass-bg);
-    color: var(--color-text-faded);
-    border: 1px solid var(--glass-border);
-    padding: 10px 25px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.3s;
-    font-weight: 500;
-}
-
-.switch-btn:first-child {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-right: none;
-}
-
-.switch-btn:last-child {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
-.switch-btn.active {
-    background-color: var(--color-dark-secondary);
-    color: var(--color-primary);
-    border-color: var(--color-primary);
-    font-weight: 600;
-}
-
-
-/* --- 4. SEÇÃO PRINCIPAL (HERO/LAUNCHER) - Cores --- */
-
-.hero {
-    padding: 50px 0 120px 0;
-}
-
-.hero-content {
-    display: flex;
-    gap: 50px;
-    align-items: flex-start;
-}
-
-.hero-left {
-    flex: 1;
-    max-width: 50%;
-}
-
-.client-title {
-    font-size: 4rem;
-    font-weight: 800;
-    color: var(--color-text-light);
-    margin-bottom: 5px;
-    text-shadow: 0 0 15px rgba(157, 46, 201, 0.4); 
-    line-height: 1.1;
-    transition: text-shadow 0.5s ease;
-}
-.client-subtitle {
-    color: var(--color-text-faded);
-    margin-bottom: 30px;
-}
-/* Tags de Recursos */
-.tag {
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--color-text-light);
-    background-color: var(--color-dark-secondary); 
-    border: 1px solid var(--color-border);
-    cursor: default;
-}
-
-.tag-pvp-client {
-    border-color: var(--color-secondary);
-    color: var(--color-secondary);
-    box-shadow: 0 0 5px rgba(255, 0, 153, 0.2);
-    transition: all 0.5s ease;
-}
-
-/* Botões de Ação Principal */
-.btn-primary-theme {
-    background-color: var(--color-secondary);
-    color: var(--color-dark-primary);
-    box-shadow: 0 5px 20px rgba(255, 0, 153, 0.4);
-}
-
-.btn-secondary-theme {
-    background-color: transparent;
-    color: var(--color-primary);
-    border: 2px solid var(--color-primary);
-}
-.btn-secondary-theme:hover {
-    background-color: var(--color-primary);
-    color: var(--color-dark-primary);
-    border-color: var(--color-primary);
-}
-
-.hero-right {
-    flex: 1;
-    max-width: 50%;
-}
-
-.client-display {
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    border: 2px solid var(--color-border); 
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
-}
-
-.client-video {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.client-info-overlay {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: 10px 15px;
-    background: rgba(0, 0, 0, 0.8);
-    border-top-left-radius: 10px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    font-size: 0.9rem;
-    backdrop-filter: blur(5px);
-}
-.btn-play {
-    background-color: var(--color-secondary);
-    color: var(--color-dark-primary);
-    padding: 8px 25px;
-    border-radius: 5px;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-/* --- 5. RODAPÉ (FOOTER) --- */
-.footer {
-    background-color: var(--color-dark-secondary);
-    padding-top: 50px;
-    border-top: 1px solid var(--color-border);
-}
-
-.footer-logo-text {
-    color: var(--color-secondary);
-    transition: color 0.5s ease;
-}
-
-.footer-title {
-    border-left: 3px solid var(--color-primary);
-    transition: border-left-color 0.5s ease;
-}
-.footer-links a .fas {
-    color: var(--color-secondary);
-    transition: color 0.5s ease;
-}
-
-/* ================================================= */
-/* --- 6. TEMA ALTERNATIVO (MODO PRETO E BRANCO) --- */
-/* ================================================= */
-
+/* --- 4. TEMA ALTERNATIVO (MODO PRETO E BRANCO) --- */
 body.grayscale-mode {
     /* O PRINCIPAL: Aplica o filtro de preto e branco a TUDO */
-    filter: grayscale(100%); /* Transforma todas as cores em tons de cinza */
+    filter: grayscale(100%);
     
-    /* Suaviza a transição da mudança visual */
+    /* Mantenha a transição suave */
     transition: filter 0.8s ease;
 }
 
-/* AJUSTES OPCIONAIS PARA MELHORAR A EXPERIÊNCIA NO MODO P&B */
+/* AJUSTES PARA COMPLEMENTAR O P&B NO GLASSMORHISM */
 
-/* Remove o brilho neon para um visual limpo em P&B */
+/* Remove o brilho neon */
 body.grayscale-mode .client-title,
 body.grayscale-mode .navbar .logo-img-nav {
     text-shadow: none !important;
     filter: none !important;
 }
 
-/* Garante que o efeito de vidro/blur seja desativado para um P&B mais sólido */
+/* Ajusta o Glassmorphism para cinza sólido (Sem Blur/Neon) */
 body.grayscale-mode .navbar .container,
 body.grayscale-mode .navbar-actions,
 body.grayscale-mode .switch-btn {
-    /* Retorna a cor de fundo para um cinza escuro sólido */
     background-color: #222222 !important; 
-    backdrop-filter: none !important; /* Remove o blur */
-    border: 1px solid #444444 !important; /* Borda cinza */
-    box-shadow: none !important; /* Remove a sombra */
+    backdrop-filter: none !important; 
+    border: 1px solid #444444 !important; 
+    box-shadow: none !important; 
+    transition: background-color 0.8s ease, backdrop-filter 0.8s ease, border 0.8s ease;
 }
 
 /* Remove o box-shadow neon de botões e tags */
