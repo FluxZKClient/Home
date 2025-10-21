@@ -66,11 +66,11 @@ document.addEventListener('DOMContentLoaded', function(){
     // criar navbar HTML
     const nav = document.createElement('nav');
     // 2. Alteração: Adicionar a nova classe 'fluxzk-nav-cute'
-    nav.className = 'fluxzk-nav-cute'; 
+    nav.className = 'fluxzk-nav-cute';
     const brand = document.createElement('div');
     brand.className = 'brand';
     // 3. Alteração: Adicionar um emoji fofo 🐻
-    brand.innerHTML = '<span class="fluxzk-link-accent">🐻 FluxZK</span> <span style="font-weight:500">Client</span>'; 
+    brand.innerHTML = '<span class="fluxzk-link-accent">🐻 FluxZK</span> <span style="font-weight:500">Client</span>';
     const linksDiv = document.createElement('div');
     linksDiv.className = 'links';
 
