@@ -1,283 +1,85 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="GlideClient">
-    <meta property="og:description" content="The website for GlideClient">
-    <meta property="og:image" content="https://glideclient.github.io/Branding/banner.png">
-    <meta property="og:url" content="https://glideclient.com">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="GlideClient">
-    <meta name="twitter:description" content="The website for GlideClient">
-    <meta name="twitter:image" content="https://glideclient.github.io/Branding/banner.png">
-    <meta name="description" content="The website for GlideClient">
-    <meta name="keywords" content="minecraft, glide client, Soar client">
-    <meta name="author" content="GlideClient">
-    <meta name="theme-color" content="#6603fc">
-    <title>GlideClient - 404 Not Found</title>
-    <link rel="stylesheet" href="/style.css">
-    <link rel="icon" type="image/svg+xml" href="https://glideclient.github.io/Branding/glideicon.svg">
-<style id="modern-glass-css">
-
-/* === Modern Glass UI Enhancements === */
-:root{
-  --glass-bg: rgba(255,255,255,0.10);
-  --glass-border: rgba(255,255,255,0.18);
-  --accent: rgba(99,102,241,0.95);
-  --muted: rgba(255,255,255,0.75);
-  --radius: 14px;
-  --shadow: 0 8px 30px rgba(2,6,23,0.45);
-  --glass-gradient: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-}
-
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  min-height:100%;
-  background: radial-gradient(1200px 600px at 10% 10%, rgba(99,102,241,0.12), transparent 10%),
-              radial-gradient(1000px 400px at 90% 90%, rgba(16,185,129,0.06), transparent 10%),
-              #070717;
-  color:var(--muted);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  padding:32px;
-  display:flex;
-  align-items:flex-start;
-  justify-content:center;
-}
-
-/* Container */
-.site-card{
-  width: min(1100px, 96%);
-  background: var(--glass-bg);
-  border-radius: 18px;
-  padding: 28px;
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(10px) saturate(120%);
-  -webkit-backdrop-filter: blur(10px) saturate(120%);
-  animation: floatIn .7s cubic-bezier(.2,.9,.3,1) both;
-}
-
-/* Navbar (rounded, glass) */
-.navbar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:16px;
-  padding:10px 14px;
-  border-radius: 999px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-  border: 1px solid rgba(255,255,255,0.12);
-  box-shadow: 0 6px 18px rgba(2,6,23,0.35);
-  width:100%;
-  max-width:100%;
-}
-
-/* Brand */
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-weight:700;
-  color:var(--muted);
-}
-.brand .logo{
-  width:42px; height:42px;
-  border-radius:10px;
-  background: linear-gradient(135deg,var(--accent), rgba(99,102,241,0.6));
-  display:inline-flex; align-items:center; justify-content:center;
-  color:white; font-weight:700; font-size:18px;
-  box-shadow: 0 6px 18px rgba(99,102,241,0.14);
-  transform: translateZ(0);
-}
-
-/* Nav links */
-.nav-links{
-  display:flex;
-  gap:8px;
-  align-items:center;
-}
-.nav-links a{
-  padding:8px 12px;
-  border-radius:12px;
-  text-decoration:none;
-  color:var(--muted);
-  font-weight:600;
-  transition: all .25s ease;
-}
-.nav-links a:hover{
-  transform: translateY(-3px);
-  color:white;
-  background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-  box-shadow: 0 8px 20px rgba(16,24,40,0.35);
-}
-
-/* Hero / content */
-.header-hero{
-  margin-top:20px;
-  display:flex;
-  gap:22px;
-  align-items:center;
-  justify-content:space-between;
-}
-.left{
-  flex:1 1 60%;
-}
-.right{
-  flex:1 1 36%;
-}
-
-/* Cards */
-.card{
-  background: var(--glass-bg);
-  border-radius: var(--radius);
-  padding:18px;
-  border:1px solid var(--glass-border);
-  box-shadow: 0 10px 30px rgba(2,6,23,0.35);
-  transition: transform .35s cubic-bezier(.2,.9,.3,1), box-shadow .35s;
-}
-.card:hover{ transform: translateY(-8px) scale(1.01); box-shadow: 0 18px 40px rgba(2,6,23,0.45); }
-
-/* Buttons */
-.btn{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 16px;
-  border-radius:12px;
-  border: none;
-  cursor:pointer;
-  font-weight:700;
-  background: linear-gradient(90deg,var(--accent), #6ee7b7 90%);
-  color:white;
-  box-shadow: 0 8px 30px rgba(99,102,241,0.18);
-  transition: transform .18s ease;
-}
-.btn:active{ transform: translateY(1px) }
-
-/* Subtle accents */
-.accent-pill{
-  display:inline-block;
-  padding:6px 10px;
-  border-radius:999px;
-  background: rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.06);
-  font-weight:700;
-}
-
-/* Animations */
-@keyframes floatIn{
-  from{ opacity:0; transform: translateY(12px) scale(.995) }
-  to{ opacity:1; transform: translateY(0) scale(1) }
-}
-.fadeUp{ animation: floatIn .6s ease .12s both; }
-
-/* Responsive */
-@media (max-width:880px){
-  .header-hero{ flex-direction:column; gap:14px; }
-  .right{ order:2; width:100% }
-  .left{ order:1; width:100% }
-  .nav-links{ display:none; }
-  .navbar{ padding:10px; }
-}
-
-</style>
-<script id="modern-glass-js">
-
-// Modern UI small scripts
-document.addEventListener('DOMContentLoaded', function(){
-  // Mobile menu toggle
-  const btn = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.nav-links');
-  if(btn && nav){
-    btn.addEventListener('click', ()=> {
-      nav.classList.toggle('visible');
-      nav.style.display = nav.classList.contains('visible') ? 'flex' : '';
-    });
-  }
-
-  // Simple reveal on scroll
-  const obs = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting) e.target.classList.add('fadeUp');
-    });
-  }, {threshold: 0.12});
-  document.querySelectorAll('.card, .header-hero, .brand').forEach(el=>obs.observe(el));
-});
-
-</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GlideClient - 404 Not Found</title>
+<link rel="stylesheet" href="../../assets_rebuilt/global.css">
 </head>
 <body>
-    <div class="loader-wrapper">
-        <div class="loader">
-            <img src="https://glideclient.github.io/Branding/glideicon.svg" alt="GlideClient Logo">
+<header class="site-nav card">
+  <div class="brand"><div class="logo">FZ</div><div>FluxZK</div></div>
+  <nav class="nav-links">
+    <a href="./index.html">Início</a>
+    <a href="./documentacao.html">Documentação</a>
+    <a href="./faq.html">FAQ</a>
+    <a href="./loja.html">Loja</a>
+    <a href="./updates.html">Atualizações</a>
+    <a href="./discord/404.html">Discord</a>
+  </nav>
+  <button class="nav-toggle cta-btn" aria-label="menu">Menu</button>
+</header>
+
+<main class="container">
+  <section class="left">
+    <div class="card hero">
+      <div class="hero-left">
+        <h1 class="h-title">GlideClient - 404 Not Found</h1>
+        <p class="h-sub">Cliente oficial para performance extrema no Minecraft — redesenhado e reorganizado.</p>
+        <div class="kv">
+          <span class="pill">Gratuito</span>
+          <span class="pill">Customizável</span>
+          <span class="pill">PvP</span>
         </div>
+        <div style="margin-top:18px;">
+          <a class="cta-btn" href="./download/404.html">Download</a>
+        </div>
+      </div>
+      <aside style="width:360px">
+        <div class="card" style="height:220px;">
+          <h3>FluxZK Client</h3>
+          <p>Performance extrema, +70 mods e segurança.</p>
+          <div style="margin-top:12px;">
+            <a class="cta-btn" href="./loja.html">Explore a loja</a>
+          </div>
+        </div>
+      </aside>
     </div>
 
-    <header class="header">
-        <nav class="navbar">
-            <div class="logo">
-                <a href="/">
-                    <img src="https://glideclient.github.io/Branding/glideicon.svg" alt="GlideClient Logo">
-                </a>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="/#features">Features</a></li>
-                <li><a href="/#about">About</a></li>
-                <li><a href="/download">Download</a></li>
-                <li><a href="/discord">Discord</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div style="height:24px"></div>
 
-    <main class="main">
-<div class="site-card">
-        <section class="hero">
-            <h1>GlideClient</h1>
-            <p>404 Not Found</p>
-            <div class="button-group">
-                <a href="/" class="cta-button">Return Home</a>
-            </div>
-        </section>
+    <div class="card">
+      <h2>Conteúdo reestruturado</h2>
+      <p>Esta página foi automaticamente reorganizada para um layout consistente. Substitua este texto pelo conteúdo desejado em cada página.</p>
     </div>
+  </section>
+
+  <aside class="aside">
+    <div class="card">
+      <h4>Índice Rápido</h4>
+      <ul>
+        <li><a href="./index.html">Início</a></li>
+        <li><a href="./documentacao.html">Documentação</a></li>
+        <li><a href="./faq.html">FAQ</a></li>
+        <li><a href="./loja.html">Loja</a></li>
+      </ul>
+    </div>
+
+    <div style="height:16px"></div>
+
+    <div class="card">
+      <h4>Suporte</h4>
+      <p>Precisa de ajuda? Entre em contato no Discord.</p>
+    </div>
+  </aside>
 </main>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <p>Website by GlideClient Team</p>
-            <p>Follow us: <a href="https://www.youtube.com/@glideclient" target="_blank">Youtube</a> | <a href="https://github.com/GlideClient/" target="_blank">GitHub</a></p>
-        </div>
-    </footer>
+<footer class="site-footer">
+  <div class="card" style="display:inline-block; padding:12px 18px;">
+    © 2025 FluxZK Client. Todos os direitos reservados.
+  </div>
+</footer>
 
-    <script>
-        window.addEventListener('load', () => {
-            const loaderWrapper = document.querySelector('.loader-wrapper');
-            loaderWrapper.classList.add('fade-out');
-        });
-
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-        
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-    </script>
+<script src="../../assets_rebuilt/global.js"></script>
 </body>
 </html>
