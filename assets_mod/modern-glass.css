@@ -1,4 +1,4 @@
-<head><style id="modern-glass-css">
+
 /* === Modern Glass UI Enhancements === */
 :root{
   --glass-bg: rgba(255,255,255,0.10);
@@ -163,25 +163,3 @@ body{
   .nav-links{ display:none; }
   .navbar{ padding:10px; }
 }
-</style><script id="modern-glass-js">
-// Modern UI small scripts
-document.addEventListener('DOMContentLoaded', function(){
-  // Mobile menu toggle
-  const btn = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.nav-links');
-  if(btn && nav){
-    btn.addEventListener('click', ()=> {
-      nav.classList.toggle('visible');
-      nav.style.display = nav.classList.contains('visible') ? 'flex' : '';
-    });
-  }
-
-  // Simple reveal on scroll
-  const obs = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting) e.target.classList.add('fadeUp');
-    });
-  }, {threshold: 0.12});
-  document.querySelectorAll('.card, .header-hero, .brand').forEach(el=>obs.observe(el));
-});
-</script></head>google-site-verification: google4d4e14d99c58c51f.html

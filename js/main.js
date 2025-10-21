@@ -29,21 +29,24 @@ sr.reveal('.hero-content p', { origin: 'top', distance: '50px', duration: 800, d
 sr.reveal('.hero-buttons', { origin: 'bottom', distance: '50px', duration: 800, delay: 400 });
 sr.reveal('.feature-card', { interval: 200 });
 
+
+
+
 // FAQ Accordion
 document.addEventListener('DOMContentLoaded', function() {
   const faqItems = document.querySelectorAll('.faq-item');
-
+  
   faqItems.forEach(item => {
     const question = item.querySelector('.faq-question');
-
+    
     question.addEventListener('click', () => {
       const isActive = item.classList.contains('active');
-
+      
       // Fecha todos os itens
       faqItems.forEach(faqItem => {
         faqItem.classList.remove('active');
       });
-
+      
       // Abre o item clicado se ele não estava ativo
       if (!isActive) {
         item.classList.add('active');
@@ -51,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
-
+ 
 
 document.addEventListener('keydown', function(e) {
   if (e.key === "F12") {

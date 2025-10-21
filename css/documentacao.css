@@ -3,10 +3,10 @@
 /* Importa as variáveis de cor do arquivo principal */
 /* Nota: Se o seu style.css já define as variáveis, esta parte é opcional */
 :root {
-    --color-dark-primary: #0f0f0f;
-    --color-dark-secondary: #1a1a1a;
-    --color-primary: #9d2ec9;
-    --color-secondary: #ff0099;
+    --color-dark-primary: #0f0f0f; 
+    --color-dark-secondary: #1a1a1a; 
+    --color-primary: #9d2ec9; 
+    --color-secondary: #ff0099; 
     --color-text-light: #ffffff;
     --color-text-faded: #aaaaaa;
     --color-border: #333333;
@@ -85,7 +85,7 @@
     font-weight: 700;
     transition: background-color 0.3s, box-shadow 0.3s;
     text-transform: uppercase;
-    box-shadow: 0 0 10px rgba(255, 0, 153, 0.4);
+    box-shadow: 0 0 10px rgba(255, 0, 153, 0.4); 
 }
 
 .btn-download-sidebar:hover {

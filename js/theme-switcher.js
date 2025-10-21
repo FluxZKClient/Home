@@ -10,13 +10,13 @@ const STORAGE_KEY = 'fluxzk_theme_mode';
 // Função que será chamada ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
     const body = document.getElementById(BODY_ID);
-
+    
     // Testa se o elemento body existe
     if (!body) {
         console.error("Erro: Elemento <body> com id='site-body' não encontrado.");
         return;
     }
-
+    
     // Verifica se há um tema salvo
     const savedTheme = localStorage.getItem(STORAGE_KEY);
 
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Função chamada pelo botão de clique (onclick)
 function toggleTheme() {
     const body = document.getElementById(BODY_ID);
-
+    
     if (!body) return;
 
     // Alterna a classe 'grayscale-mode' no elemento <body>

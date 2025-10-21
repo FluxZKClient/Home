@@ -221,6 +221,7 @@ a {
     font-weight: 600;
 }
 
+
 /* --- 4. SEÇÃO PRINCIPAL (HERO/LAUNCHER) - Adaptação de Cores --- */
 
 .hero {
@@ -260,7 +261,7 @@ a {
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--color-text-light);
-    background-color: var(--color-dark-secondary);
+    background-color: var(--color-dark-secondary); 
     border: 1px solid var(--color-border);
     cursor: default;
 }
@@ -311,7 +312,7 @@ a {
     position: relative;
     border-radius: 10px;
     overflow: hidden;
-    border: 2px solid var(--color-border);
+    border: 2px solid var(--color-border); 
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
 }
 
@@ -355,6 +356,7 @@ a {
     color: var(--color-text-light);
 }
 
+
 /* --- 5. SEÇÕES ADICIONAIS --- */
 
 .features-section {
@@ -368,6 +370,7 @@ a {
     margin-bottom: 50px;
     color: var(--color-text-light);
 }
+
 
 /* --- 6. RODAPÉ (FOOTER) --- */
 
@@ -393,7 +396,7 @@ a {
     height: 40px;
     margin-bottom: 10px;
     /* Efeito Neon Roxo para o Logo do Rodapé */
-    filter: drop-shadow(0 0 5px var(--color-primary));
+    filter: drop-shadow(0 0 5px var(--color-primary)); 
 }
 
 .footer-logo-text {
