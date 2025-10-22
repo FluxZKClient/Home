@@ -1,38 +1,88 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Loja - FluxZK Client</title>
-<style>
-/* Inline global CSS - glassy modern theme */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap');
-:root{ --bg:#0b0b12; --card: rgba(255,255,255,0.03); --glass-border: rgba(255,255,255,0.06); --accent1: #8b5cf6; --accent2: #06b6d4; --muted: rgba(255,255,255,0.95); --radius:14px;}
-*{box-sizing:border-box} html,body{height:100%; margin:0; font-family:Inter,system-ui,Arial; background:var(--bg); color:var(--muted); -webkit-font-smoothing:antialiased;}
-a{color:inherit; text-decoration:none}
-.container{max-width:1200px; margin:28px auto; padding:20px; display:grid; grid-template-columns: 1fr 360px; gap:24px; align-items:start;}
-@media (max-width:920px){ .container{grid-template-columns:1fr; padding:16px} .aside{order:2} }
-.card{background:var(--card); border-radius:var(--radius); padding:18px; border:1px solid var(--glass-border); backdrop-filter: blur(8px); box-shadow: 0 10px 30px rgba(2,6,23,0.6);}
-.site-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 18px; border-radius:999px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.04); margin-bottom:18px;}
-.brand{display:flex; align-items:center; gap:12px; font-weight:800}
-.logo{width:44px; height:44px; border-radius:10px; background:linear-gradient(135deg,var(--accent1),var(--accent2)); display:flex; align-items:center; justify-content:center; color:white; font-weight:800}
-.nav-links{display:flex; gap:8px; align-items:center}
-.nav-links a{padding:8px 12px; border-radius:10px; font-weight:600; transition:all .18s}
-.nav-links a:hover{transform:translateY(-3px); box-shadow:0 8px 20px rgba(2,6,23,0.5)}
-.hero{display:flex; gap:18px; align-items:flex-start}
-.hero-left{flex:1}
-.h-title{font-size:40px; line-height:1; margin:0 0 12px; font-weight:800}
-.h-sub{margin:0 0 18px; opacity:0.9; font-weight:600}
-.aside{width:100%}
-.cta-btn{display:inline-block; padding:12px 18px; border-radius:12px; background:linear-gradient(90deg,var(--accent1),var(--accent2)); color:white; font-weight:800; box-shadow:0 10px 30px rgba(139,92,246,0.12)}
-.site-footer{margin-top:28px; text-align:center; opacity:0.8}
-.kv{display:flex; gap:10px; align-items:center}
-.kv .pill{background:rgba(255,255,255,0.02); padding:8px 10px; border-radius:10px; border:1px solid rgba(255,255,255,0.03); font-weight:700}
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Loja - FluxZK Client</title>
+    
+    <link href="images/dsd.png" rel="icon" type="image/png"/>
+    <meta content="#0c0c0c" name="theme-color"/>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="css/all.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+<style id="fz-style">
+:root{
+  --bg:#07060a;
+  --panel: rgba(255,255,255,0.03);
+  --glass-border: rgba(255,255,255,0.06);
+  --pink: #ff2d95;
+  --purple: #7c3aed;
+  --muted: rgba(255,255,255,0.85);
+  --radius:16px;
+  --shadow: 0 10px 30px rgba(2,6,23,0.6);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+*{box-sizing:border-box}
+html,body{height:100%; margin:0; background: radial-gradient(800px 400px at 10% 10%, rgba(124,58,237,0.06), transparent 10%), radial-gradient(600px 300px at 90% 90%, rgba(255,45,149,0.035), transparent 10%), var(--bg); color:var(--muted); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+a{color:inherit}
+.fz-site{min-height:100vh; display:flex; flex-direction:column;}
+
+/* Navbar */
+.fz-navbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 18px;
+  border-radius:999px;
+  margin:18px auto;
+  width:min(1100px,94%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border:1px solid rgba(255,255,255,0.06);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px) saturate(120%);
+}
+.fz-brand{display:flex;align-items:center;gap:12px;font-weight:800}
+.fz-logo{width:48px;height:48px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;color:white;font-weight:900;
+  background:linear-gradient(135deg,var(--purple),var(--pink)); box-shadow: 0 8px 30px rgba(124,58,237,0.12);}
+.fz-navlinks{display:flex;gap:8px;align-items:center}
+.fz-navlinks a{padding:8px 12px;border-radius:10px;font-weight:700;opacity:0.9;transition:all .18s}
+.fz-navlinks a:hover{transform:translateY(-3px); box-shadow:0 10px 30px rgba(2,6,23,0.5); background: rgba(255,255,255,0.02); color:white;}
+
+/* Buttons */
+.fz-cta{padding:10px 14px;border-radius:12px;font-weight:800;background:linear-gradient(90deg,var(--pink),var(--purple));color:white;box-shadow:0 10px 30px rgba(255,45,149,0.12);}
+
+/* Container */
+.fz-container{max-width:1100px;margin:22px auto;padding:20px;display:grid;grid-template-columns:1fr 340px;gap:24px;align-items:start;}
+@media (max-width:920px){ .fz-container{grid-template-columns:1fr;padding:16px} .fz-navbar{width:calc(100% - 32px);} .fz-navlinks{display:none} }
+
+/* Cards */
+.fz-card{background:var(--panel); border-radius:var(--radius); padding:18px; border:1px solid var(--glass-border); box-shadow:var(--shadow);}
+
+/* Hero */
+.fz-hero{display:flex;gap:20px;align-items:flex-start}
+.fz-hero-title{font-size:40px;line-height:1;margin:0;font-weight:900;color:white;text-shadow:0 6px 30px rgba(124,58,237,0.12)}
+.fz-hero-sub{margin:10px 0 18px;opacity:0.9}
+
+/* small utilities */
+.pill{display:inline-block;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);font-weight:800;}
+
+/* footer */
+.fz-footer{margin:28px auto;text-align:center;color:rgba(255,255,255,0.6)}
+
+/* Particles canvas covers the background */
+#fz-particles{position:fixed; inset:0; z-index:0; pointer-events:none;}
+
+/* Ensure content is above particles */
+.fz-site > *{position:relative; z-index:2}
 </style>
 </head>
 <body>
-<header class="site-nav card">
-  <div class="brand"><div class="logo">FZ</div><div>FluxZK</div></div>
-  <nav class="nav-links">
+
+<div class="fz-navbar fz-card">
+  <div class="fz-brand"><img src="Home-main/images/background.png" alt="logo" style="width:48px;height:48px;border-radius:10px;object-fit:cover"><div style="font-weight:800;margin-left:6px">FluxZK</div></div>
+  <nav class="fz-navlinks">
     <a href="./index.html">Início</a>
     <a href="./documentacao.html">Documentação</a>
     <a href="./faq.html">FAQ</a>
@@ -40,80 +90,194 @@ a{color:inherit; text-decoration:none}
     <a href="./updates.html">Atualizações</a>
     <a href="./discord/404.html">Discord</a>
   </nav>
-  <button class="nav-toggle cta-btn" aria-label="menu">Menu</button>
-</header>
+  <button class="fz-nav-toggle fz-cta" aria-label="Menu">Menu</button>
+</div>
 
-<main class="container">
-  <section class="left">
-    <div class="card hero">
-      <div class="hero-left">
-        <h1 class="h-title">💰 Loja do FluxZK Client</h1>
-        <p class="h-sub">Cliente oficial para performance extrema no Minecraft — redesenhado e reorganizado.</p>
-        <div class="kv">
-          <span class="pill">Gratuito</span>
-          <span class="pill">Customizável</span>
-          <span class="pill">PvP</span>
+<div class="fz-site">
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/dsd.png" alt="FluxZK Client Logo" class="logo-img-nav">
+                </a>
+            </div>
+            
+            <div class="links">
+                <a href="index.html">Home</a>
+                <a href="documentacao.html">Documentação</a>
+                <a href="faq.html">FAQ</a>
+                <a href="loja.html">Loja</a>
+                <a href="updates.html">Atualizações</a>
+                <a href="https://discord.gg/FluxZK" target="_blank">Discord</a>
+            </div>
+            
+            <a class="btn rgb-animated-button btn-download-animated" href="https://github.com/FluxZKClient/Data/releases/tag/Download" target="_blank">
+                Download
+            </a>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
-        <div style="margin-top:18px;">
-          <a class="cta-btn" href="./download/404.html">Download</a>
+    </nav>
+    <main>
+        
+        <section class="store-section">
+            <div class="container">
+                <h1>💰 Loja do FluxZK Client</h1>
+                <p class="cta-description">Escolha seu plano e desbloqueie recursos exclusivos!</p>
+
+                <div class="product-grid">
+                    <div class="product-card" data-tilt>
+                        <h3>Plano Premium</h3>
+                        <p>Acesso antecipado a recursos, emblema exclusivo e suporte prioritário.</p>
+                        <a href="#" class="btn rgb-animated-button open-modal-btn" data-plan="Premium" data-price="R$3,99">
+                            Premium R$3,99
+                        </a>
+                    </div>
+
+                    <div class="product-card" data-tilt>
+                        <h3>VIP Client</h3>
+                        <p>Todos os benefícios Premium + customizações únicas e acesso Beta.</p>
+                        <a href="#" class="btn rgb-animated-button open-modal-btn" data-plan="VIP Client" data-price="VIP Client">
+                            VIP Client
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="purchaseModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h4>🔑 Detalhes da Compra</h4>
+                
+                <form id="purchaseForm">
+                    <p><strong>Plano:</strong> <span id="modalPlanName"></span></p>
+                    <p><strong>Preço:</strong> <span id="modalPrice"></span></p>
+
+                    <p class="modal-info">Preencha com seu nick e senha para vincular a compra. Esta é apenas uma demonstração.</p>
+
+                    <div class="form-group">
+                        <label for="inputNick">Seu Nickname:</label>
+                        <input type="text" id="inputNick" placeholder="SeuNickNoMinecraft" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputPassword">Sua Senha:</label>
+                        <input type="password" id="inputPassword" placeholder="SuaSenhaSecreta" required>
+                    </div>
+
+                    <button type="submit" class="btn rgb-animated-button confirm-btn">
+                        Confirmar Compra
+                    </button>
+                </form>
+
+            </div>
         </div>
-      </div>
-      <aside style="width:360px">
-        <div class="card" style="height:220px;">
-          <h3>FluxZK Client</h3>
-          <p>Performance extrema, +70 mods e segurança.</p>
-          <div style="margin-top:12px;">
-            <a class="cta-btn" href="./loja.html">Explore a loja</a>
-          </div>
+        </main>
+    
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-column footer-brand">
+                <img src="images/dsd.png" alt="FluxZK Client Logo" class="logo-img-footer">
+                <span class="footer-logo-text">FluxZK Client</span>
+                <p class="footer-description">Performance extrema, +70 mods e segurança total.</p>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">Produto</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#features"><i class="fas fa-chevron-right"></i> Recursos</a></li>
+                    <li><a href="index.html#cta-download"><i class="fas fa-chevron-right"></i> Download</a></li>
+                    <li><a href="loja.html"><i class="fas fa-chevron-right"></i> Loja</a></li>
+                    <li><a href="updates.html"><i class="fas fa-chevron-right"></i> Atualizações</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">Suporte & Info</h4>
+                <ul class="footer-links">
+                    <li><a href="documentacao.html"><i class="fas fa-chevron-right"></i> Documentação</a></li>
+                    <li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    <li><a href="https://discord.gg/FluxZK" target="_blank"><i class="fas fa-chevron-right"></i> Discord</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Licença</a></li>
+                </ul>
+            </div>
         </div>
-      </aside>
-    </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="footer-copyright">
+                    © 2025 <strong>FluxZK Client</strong>. Website by GlideClient Team (Edited By STRONGSK)
+                </p>
+            </div>
+        </div>
+    </footer>
 
-    <div style="height:24px"></div>
-
-    <div class="card">
-      <h2>Conteúdo reestruturado</h2>
-      <p>Esta página foi automaticamente reorganizada para um layout consistente. Substitua este texto pelo conteúdo desejado em cada página.</p>
-    </div>
-  </section>
-
-  <aside class="aside">
-    <div class="card">
-      <h4>Índice Rápido</h4>
-      <ul>
-        <li><a href="./index.html">Início</a></li>
-        <li><a href="./documentacao.html">Documentação</a></li>
-        <li><a href="./faq.html">FAQ</a></li>
-        <li><a href="./loja.html">Loja</a></li>
-      </ul>
-    </div>
-
-    <div style="height:16px"></div>
-
-    <div class="card">
-      <h4>Suporte</h4>
-      <p>Precisa de ajuda? Entre em contato no Discord.</p>
-    </div>
-  </aside>
-</main>
-
-<footer class="site-footer">
-  <div class="card" style="display:inline-block; padding:12px 18px;">
-    © 2025 FluxZK Client. Todos os direitos reservados.
-  </div>
-</footer>
-
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.nav-links');
-  if(toggle && nav){
-    toggle.addEventListener('click', ()=> {
-      nav.classList.toggle('open');
-      nav.style.display = nav.classList.contains('open') ? 'flex' : '';
+    <script src="js/particles.min.js"></script>
+    <script src="js/vanilla-tilt.min.js"></script>
+    <script src="js/scrollreveal.min.js"></script>
+    <script src="js/main.js"></script>
+</div>
+<script id="fz-scripts">
+// Particles and small interactions
+(function(){
+  // particles canvas
+  function createParticles(){
+    const c = document.createElement('canvas');
+    c.id = 'fz-particles';
+    document.body.appendChild(c);
+    const ctx = c.getContext('2d');
+    let w, h, particles;
+    function reset(){
+      w = c.width = window.innerWidth;
+      h = c.height = window.innerHeight;
+      particles = [];
+      for(let i=0;i<40;i++){
+        particles.push({
+          x: Math.random()*w,
+          y: Math.random()*h,
+          r: 6+Math.random()*18,
+          a: 0.05+Math.random()*0.2,
+          vx: (Math.random()-0.5)*0.2,
+          vy: (Math.random()-0.5)*0.2,
+          hue: 300 + Math.random()*80
+        });
+      }
+    }
+    function draw(){
+      ctx.clearRect(0,0,w,h);
+      for(const p of particles){
+        p.x += p.vx;
+        p.y += p.vy;
+        p.a += (Math.random()-0.5)*0.01;
+        ctx.beginPath();
+        const g = ctx.createRadialGradient(p.x,p.y,p.r*0.1,p.x,p.y,p.r);
+        g.addColorStop(0,'hsla('+p.hue+',100%,'+'55%,'+ (0.16+p.a*0.4) +')');
+        g.addColorStop(1,'rgba(0,0,0,0)');
+        ctx.fillStyle = g;
+        ctx.fillRect(p.x-p.r,p.y-p.r,p.r*2,p.r*2);
+      }
+      requestAnimationFrame(draw);
+    }
+    window.addEventListener('resize', reset);
+    reset(); draw();
+  }
+  // mobile menu toggle
+  function menuToggle(){
+    document.addEventListener('DOMContentLoaded', function(){
+      const btn = document.querySelector('.fz-nav-toggle');
+      const nav = document.querySelector('.fz-navlinks');
+      if(btn && nav){
+        btn.addEventListener('click', ()=> {
+          nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+      }
     });
   }
-});
+  createParticles(); menuToggle();
+})();
 </script>
 </body>
 </html>

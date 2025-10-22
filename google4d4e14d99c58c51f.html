@@ -1,38 +1,7 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FluxZK Client</title>
-<style>
-/* Inline global CSS - glassy modern theme */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap');
-:root{ --bg:#0b0b12; --card: rgba(255,255,255,0.03); --glass-border: rgba(255,255,255,0.06); --accent1: #8b5cf6; --accent2: #06b6d4; --muted: rgba(255,255,255,0.95); --radius:14px;}
-*{box-sizing:border-box} html,body{height:100%; margin:0; font-family:Inter,system-ui,Arial; background:var(--bg); color:var(--muted); -webkit-font-smoothing:antialiased;}
-a{color:inherit; text-decoration:none}
-.container{max-width:1200px; margin:28px auto; padding:20px; display:grid; grid-template-columns: 1fr 360px; gap:24px; align-items:start;}
-@media (max-width:920px){ .container{grid-template-columns:1fr; padding:16px} .aside{order:2} }
-.card{background:var(--card); border-radius:var(--radius); padding:18px; border:1px solid var(--glass-border); backdrop-filter: blur(8px); box-shadow: 0 10px 30px rgba(2,6,23,0.6);}
-.site-nav{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 18px; border-radius:999px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.04); margin-bottom:18px;}
-.brand{display:flex; align-items:center; gap:12px; font-weight:800}
-.logo{width:44px; height:44px; border-radius:10px; background:linear-gradient(135deg,var(--accent1),var(--accent2)); display:flex; align-items:center; justify-content:center; color:white; font-weight:800}
-.nav-links{display:flex; gap:8px; align-items:center}
-.nav-links a{padding:8px 12px; border-radius:10px; font-weight:600; transition:all .18s}
-.nav-links a:hover{transform:translateY(-3px); box-shadow:0 8px 20px rgba(2,6,23,0.5)}
-.hero{display:flex; gap:18px; align-items:flex-start}
-.hero-left{flex:1}
-.h-title{font-size:40px; line-height:1; margin:0 0 12px; font-weight:800}
-.h-sub{margin:0 0 18px; opacity:0.9; font-weight:600}
-.aside{width:100%}
-.cta-btn{display:inline-block; padding:12px 18px; border-radius:12px; background:linear-gradient(90deg,var(--accent1),var(--accent2)); color:white; font-weight:800; box-shadow:0 10px 30px rgba(139,92,246,0.12)}
-.site-footer{margin-top:28px; text-align:center; opacity:0.8}
-.kv{display:flex; gap:10px; align-items:center}
-.kv .pill{background:rgba(255,255,255,0.02); padding:8px 10px; border-radius:10px; border:1px solid rgba(255,255,255,0.03); font-weight:700}
-</style>
-</head>
 <body>
-<header class="site-nav card">
-  <div class="brand"><div class="logo">FZ</div><div>FluxZK</div></div>
-  <nav class="nav-links">
+<div class="fz-navbar fz-card">
+  <div class="fz-brand"><img src="Home-main/images/background.png" alt="logo" style="width:48px;height:48px;border-radius:10px;object-fit:cover"><div style="font-weight:800;margin-left:6px">FluxZK</div></div>
+  <nav class="fz-navlinks">
     <a href="./index.html">Início</a>
     <a href="./documentacao.html">Documentação</a>
     <a href="./faq.html">FAQ</a>
@@ -40,80 +9,65 @@ a{color:inherit; text-decoration:none}
     <a href="./updates.html">Atualizações</a>
     <a href="./discord/404.html">Discord</a>
   </nav>
-  <button class="nav-toggle cta-btn" aria-label="menu">Menu</button>
-</header>
+  <button class="fz-nav-toggle fz-cta" aria-label="Menu">Menu</button>
+</div>
 
-<main class="container">
-  <section class="left">
-    <div class="card hero">
-      <div class="hero-left">
-        <h1 class="h-title">FluxZK Client</h1>
-        <p class="h-sub">Cliente oficial para performance extrema no Minecraft — redesenhado e reorganizado.</p>
-        <div class="kv">
-          <span class="pill">Gratuito</span>
-          <span class="pill">Customizável</span>
-          <span class="pill">PvP</span>
-        </div>
-        <div style="margin-top:18px;">
-          <a class="cta-btn" href="./download/404.html">Download</a>
-        </div>
-      </div>
-      <aside style="width:360px">
-        <div class="card" style="height:220px;">
-          <h3>FluxZK Client</h3>
-          <p>Performance extrema, +70 mods e segurança.</p>
-          <div style="margin-top:12px;">
-            <a class="cta-btn" href="./loja.html">Explore a loja</a>
-          </div>
-        </div>
-      </aside>
-    </div>
-
-    <div style="height:24px"></div>
-
-    <div class="card">
-      <h2>Conteúdo reestruturado</h2>
-      <p>Esta página foi automaticamente reorganizada para um layout consistente. Substitua este texto pelo conteúdo desejado em cada página.</p>
-    </div>
-  </section>
-
-  <aside class="aside">
-    <div class="card">
-      <h4>Índice Rápido</h4>
-      <ul>
-        <li><a href="./index.html">Início</a></li>
-        <li><a href="./documentacao.html">Documentação</a></li>
-        <li><a href="./faq.html">FAQ</a></li>
-        <li><a href="./loja.html">Loja</a></li>
-      </ul>
-    </div>
-
-    <div style="height:16px"></div>
-
-    <div class="card">
-      <h4>Suporte</h4>
-      <p>Precisa de ajuda? Entre em contato no Discord.</p>
-    </div>
-  </aside>
-</main>
-
-<footer class="site-footer">
-  <div class="card" style="display:inline-block; padding:12px 18px;">
-    © 2025 FluxZK Client. Todos os direitos reservados.
-  </div>
-</footer>
-
-<script>
-document.addEventListener('DOMContentLoaded', function(){
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.nav-links');
-  if(toggle && nav){
-    toggle.addEventListener('click', ()=> {
-      nav.classList.toggle('open');
-      nav.style.display = nav.classList.contains('open') ? 'flex' : '';
+<div class="fz-container"><div class="fz-site">google-site-verification: google4d4e14d99c58c51f.html</div><script id="fz-scripts">
+// Particles and small interactions
+(function(){
+  // particles canvas
+  function createParticles(){
+    const c = document.createElement('canvas');
+    c.id = 'fz-particles';
+    document.body.appendChild(c);
+    const ctx = c.getContext('2d');
+    let w, h, particles;
+    function reset(){
+      w = c.width = window.innerWidth;
+      h = c.height = window.innerHeight;
+      particles = [];
+      for(let i=0;i<40;i++){
+        particles.push({
+          x: Math.random()*w,
+          y: Math.random()*h,
+          r: 6+Math.random()*18,
+          a: 0.05+Math.random()*0.2,
+          vx: (Math.random()-0.5)*0.2,
+          vy: (Math.random()-0.5)*0.2,
+          hue: 300 + Math.random()*80
+        });
+      }
+    }
+    function draw(){
+      ctx.clearRect(0,0,w,h);
+      for(const p of particles){
+        p.x += p.vx;
+        p.y += p.vy;
+        p.a += (Math.random()-0.5)*0.01;
+        ctx.beginPath();
+        const g = ctx.createRadialGradient(p.x,p.y,p.r*0.1,p.x,p.y,p.r);
+        g.addColorStop(0,'hsla('+p.hue+',100%,'+'55%,'+ (0.16+p.a*0.4) +')');
+        g.addColorStop(1,'rgba(0,0,0,0)');
+        ctx.fillStyle = g;
+        ctx.fillRect(p.x-p.r,p.y-p.r,p.r*2,p.r*2);
+      }
+      requestAnimationFrame(draw);
+    }
+    window.addEventListener('resize', reset);
+    reset(); draw();
+  }
+  // mobile menu toggle
+  function menuToggle(){
+    document.addEventListener('DOMContentLoaded', function(){
+      const btn = document.querySelector('.fz-nav-toggle');
+      const nav = document.querySelector('.fz-navlinks');
+      if(btn && nav){
+        btn.addEventListener('click', ()=> {
+          nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        });
+      }
     });
   }
-});
-</script>
-</body>
-</html>
+  createParticles(); menuToggle();
+})();
+</script></body>
