@@ -16,14 +16,30 @@ body {
 /* Navbar */
 .navbar {
   position: fixed;
-  width: 100%;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
   background: rgba(15, 15, 25, 0.7);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 0, 184, 0.2);
+  border: 1px solid rgba(255, 0, 184, 0.3);
+  border-radius: 25px;
   display: flex;
   justify-content: center;
   z-index: 1000;
+  box-shadow: 0 0 25px rgba(255, 0, 184, 0.25);
+  animation: glowPulse 3s infinite alternate;
 }
+
+@keyframes glowPulse {
+  from {
+    box-shadow: 0 0 15px rgba(255, 0, 184, 0.2);
+  }
+  to {
+    box-shadow: 0 0 35px rgba(255, 0, 184, 0.4);
+  }
+}
+
 .navbar .container {
   display: flex;
   justify-content: space-between;
@@ -32,6 +48,7 @@ body {
   width: 100%;
   max-width: 1200px;
 }
+
 .logo {
   display: flex;
   align-items: center;
@@ -53,7 +70,8 @@ body {
   text-decoration: none;
   transition: 0.3s;
 }
-.nav-links a:hover, .nav-links a.active {
+.nav-links a:hover,
+.nav-links a.active {
   color: var(--pink);
   text-shadow: 0 0 10px var(--pink);
 }
@@ -85,7 +103,8 @@ body {
 .hero-buttons {
   margin-top: 30px;
 }
-.btn-primary, .btn-secondary {
+.btn-primary,
+.btn-secondary {
   padding: 12px 28px;
   border-radius: 10px;
   font-weight: 600;
