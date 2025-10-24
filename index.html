@@ -5,7 +5,6 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>FluxZK Client - A Melhor Experiência para Minecraft</title>
     
-    <meta content="Baixe o FluxZK Client e melhore sua performance no Minecraft. FPS Boost, recursos avançados e suporte para Windows, Linux ." name="description"/>
     <link href="images/dsd.png" rel="icon" type="image/png"/>
     <meta content="#0c0c0c" name="theme-color"/>
     
@@ -17,46 +16,40 @@
 
     <nav class="navbar">
         <div class="container">
-            <div class="logo">
+            <div class="logo-group">
                 <a href="index.html">
                     <img src="images/dsd.png" alt="FluxZK Client Logo" class="logo-img-nav">
                 </a>
                 <span class="online-counter">43</span> 
             </div>
             
-            <div class="main-nav-links">
-                <a href="index.html" class="nav-icon-link active phoenix-btn-home">
-                    <i class="fas fa-home"></i> 
-                    <span>Home</span>
+            <div class="utility-icons-center">
+                <a href="index.html" class="nav-icon-link active">
+                    <i class="fas fa-home"></i> <span>Home</span>
                 </a>
-                <a href="documentacao.html" class="nav-icon-link">
-                    <i class="fas fa-book"></i> 
-                    <span>Docs</span>
+                <a href="documentacao.html" class="nav-icon-link" title="Documentação">
+                    <i class="fas fa-book-open"></i> <span>Docs</span>
                 </a>
-                <a href="faq.html" class="nav-icon-link">
-                    <i class="fas fa-question-circle"></i> 
-                    <span>FAQ</span>
+                <a href="faq.html" class="nav-icon-link" title="FAQ">
+                    <i class="fas fa-question-circle"></i> <span>FAQ</span>
                 </a>
-                <a href="loja.html" class="nav-icon-link">
-                    <i class="fas fa-shopping-cart"></i> 
-                    <span>Loja</span>
+                <a href="loja.html" class="nav-icon-link" title="Loja">
+                    <i class="fas fa-shopping-cart"></i> <span>Loja</span>
                 </a>
-                <a href="updates.html" class="nav-icon-link">
-                    <i class="fas fa-sync-alt"></i> 
-                    <span>Updates</span>
+                <a href="updates.html" class="nav-icon-link" title="Atualizações">
+                    <i class="fas fa-sync-alt"></i> <span>Updates</span>
                 </a>
-                <a href="https://discord.gg/FluxZK" target="_blank" class="nav-icon-link">
-                    <i class="fab fa-discord"></i> 
-                    <span>Discord</span>
+                <a href="https://discord.gg/FluxZK" target="_blank" class="nav-icon-link" title="Discord">
+                    <i class="fab fa-discord"></i> <span>Discord</span>
                 </a>
             </div>
             
-            <div class="secondary-nav-icons">
-                <a href="#" class="nav-icon-link">
-                    <i class="fas fa-cog"></i> 
+            <div class="right-actions-group">
+                <a href="#" class="nav-icon-link" title="Configurações">
+                    <i class="fas fa-cog"></i>
                 </a>
-                <a href="#" class="nav-icon-link">
-                    <i class="fas fa-moon"></i> 
+                <a href="#" class="nav-icon-link" title="Tema Escuro">
+                    <i class="fas fa-moon"></i>
                 </a>
                 
                 <a class="btn phoenix-sign-in-btn" href="#">
@@ -65,55 +58,64 @@
             </div>
         </div>
     </nav>
+    
     <main>
-        
-        <header class="hero">
-            <div class="hero-content container">
-                <h1>A Melhor Experiência para Minecraft</h1>
-                <p>FPS otimizado, +70 mods incríveis e uma interface moderna. Jogue no máximo desempenho!</p>
-                <div class="hero-buttons">
-                    
-                    <a class="btn rgb-animated-button" href="https://github.com/FluxZKClient/Data/releases/tag/Download" target="_blank">
+
+        <section class="hero-section text-center">
+            <div class="container">
+                <h1 class="hero-title">A Melhor Experiência para <span class="highlight-text">Minecraft</span></h1>
+                <p class="hero-subtitle">FPS otimizado, +70 mods incríveis e uma interface moderna. Jogue no máximo desempenho!</p>
+
+                <div class="hero-actions">
+                    <a class="btn btn-outline-purple" href="https://github.com/FluxZKClient/Data/releases/tag/Download" target="_blank">
                         <i class="fas fa-download"></i> Baixar Agora
                     </a>
-                    
-                    <a class="btn btn-secondary" href="https://discord.gg/FluxZK" target="_blank">Comunidade Discord</a>
+                    <a class="btn btn-dark-filled" href="https://discord.gg/FluxZK" target="_blank">
+                        Comunidade Discord
+                    </a>
                 </div>
-            </div>
-            <div class="scroll-down-indicator">
-                <a href="#cta-download"><i class="fas fa-angle-down"></i></a>
-            </div>
-        </header>
-
-        <section class="cta-section" id="cta-download">
-            <div class="container">
-                <h2 class="cta-title">+250fps Garantidos</h2>
-                <p class="cta-description">Junte-se à comunidade do <strong>FluxZK</strong>, um Client criado para entregar desempenho extremo.</p>
                 
-                <a class="btn rgb-animated-button" href="https://github.com/FluxZKClient/Data/releases/tag/Download" target="_blank">
-                    <i class="fas fa-download"></i> Baixar o Client
-                </a>
-                
-                <p class="cta-note">Disponível em breve para Windows e Linux.</p>
+                <div class="hero-media-placeholder">
+                    </div>
             </div>
         </section>
 
-        <section class="client-video-section">
+        <section class="features-section" id="features">
             <div class="container">
-                <h2>Client Customizável</h2>
-                <p>Assista ao vídeo para ver a interface moderna e a personalização do FluxZK Client.</p>
-                
-                <div class="video-container-embed">
-                    <video controls loop muted autoplay>
-                        <source src="Client.mp4" type="video/mp4">
-                        Seu navegador não suporta o elemento de vídeo.
-                    </video>
+                <h2 class="section-title">Nossos Recursos</h2>
+                <p class="section-description">Descubra o que torna o FluxZK Client o melhor para jogar Minecraft.</p>
+
+                <div class="features-grid">
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-tachometer-alt feature-icon"></i>
+                        <h3 class="feature-title">Performance Extrema</h3>
+                        <p class="feature-text">O FluxZK Client é projetado para máxima fluidez. Com código otimizado e algoritmos eficientes, ele oferece um desempenho ultra-rápido e suave.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-palette feature-icon"></i>
+                        <h3 class="feature-title">Totalmente Customizável</h3>
+                        <p class="feature-text">Nosso Client é altamente personalizável, incluindo temas, mods, configurações de mod e muito mais, permitindo que os jogadores ajustem tudo ao seu gosto.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-users feature-icon"></i>
+                        <h3 class="feature-title">Comunidade Vibrante</h3>
+                        <p class="feature-text">O FluxZK é uma comunidade de Minecraft com milhares de jogadores. Ajuda você a se conectar com outros e a desfrutar de uma experiência de jogo de alta qualidade.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-laptop-code feature-icon"></i>
+                        <h3 class="feature-title">Multi-Plataforma</h3>
+                        <p class="feature-text">O FluxZK Client suporta sistemas operacionais Windows e Linux (em breve), permitindo que você aproveite a melhor qualidade em diferentes plataformas.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
     </main>
-    
+
     <footer class="footer">
         <div class="container footer-grid">
             <div class="footer-column footer-brand">
@@ -124,8 +126,8 @@
             <div class="footer-column">
                 <h4 class="footer-title">Produto</h4>
                 <ul class="footer-links">
-                    <li><a href="#features"><i class="fas fa-chevron-right"></i> Recursos</a></li>
-                    <li><a href="#download"><i class="fas fa-chevron-right"></i> Download</a></li>
+                    <li><a href="index.html#features"><i class="fas fa-chevron-right"></i> Recursos</a></li>
+                    <li><a href="#cta-download"><i class="fas fa-chevron-right"></i> Download</a></li>
                     <li><a href="loja.html"><i class="fas fa-chevron-right"></i> Loja</a></li>
                     <li><a href="updates.html"><i class="fas fa-chevron-right"></i> Atualizações</a></li>
                 </ul>
