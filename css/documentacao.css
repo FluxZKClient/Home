@@ -1,145 +1,84 @@
-/* --- ESTILOS ESPECÍFICOS PARA A PÁGINA DE DOCUMENTAÇÃO --- */
-
-/* Importa as variáveis de cor do arquivo principal */
-/* Nota: Se o seu style.css já define as variáveis, esta parte é opcional */
-:root {
-    --color-dark-primary: #0f0f0f; 
-    --color-dark-secondary: #1a1a1a; 
-    --color-primary: #9d2ec9; 
-    --color-secondary: #ff0099; 
-    --color-text-light: #ffffff;
-    --color-text-faded: #aaaaaa;
-    --color-border: #333333;
+/* --- NAVBAR REDONDA E FLUTUANTE GLOBAL --- */
+.navbar {
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  background: rgba(18, 18, 28, 0.6);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 0, 184, 0.25);
+  border-radius: 50px;
+  box-shadow: 0 0 25px rgba(255, 0, 184, 0.25);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
 
-.docs-section {
-    padding: 80px 0;
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.8rem 2rem;
+  max-width: 1200px;
 }
 
-.docs-grid {
-    display: grid;
-    grid-template-columns: 250px 1fr; /* Coluna lateral e conteúdo */
-    gap: 60px;
-    align-items: flex-start;
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
 }
 
-/* --- COLUNA LATERAL (SIDEBAR) --- */
-
-.docs-sidebar {
-    position: sticky; /* Mantém a barra lateral na tela */
-    top: 100px; /* Distância do topo */
-    padding: 20px;
-    background-color: var(--color-dark-secondary);
-    border-radius: 8px;
-    border: 1px solid var(--color-border);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+.navbar a:hover {
+  color: #ff00b8;
 }
 
-.sidebar-title {
-    font-size: 1.3rem;
-    color: var(--color-primary);
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    border-bottom: 2px solid var(--color-border);
-    padding-bottom: 10px;
+.navbar .active {
+  color: #ff00b8;
 }
 
-.topic-links {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 30px;
+.nav-btn-icon i {
+  margin-right: 6px;
 }
 
-.topic-links li {
-    margin-bottom: 10px;
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.topic-links a {
-    display: flex;
-    align-items: center;
-    color: var(--color-text-faded);
-    padding: 8px 10px;
-    border-radius: 5px;
-    transition: background-color 0.2s, color 0.2s;
-    font-size: 0.95rem;
+.nav-icon-link {
+  color: #fff;
+  font-size: 1.1rem;
+  transition: 0.3s;
 }
 
-.topic-links a:hover {
-    background-color: #2a2a2a;
-    color: var(--color-secondary);
+.nav-icon-link:hover {
+  color: #ff00b8;
 }
 
-.topic-links a i {
-    font-size: 1rem;
-    margin-right: 10px;
-    color: var(--color-primary);
+.btn-sign-in {
+  background: linear-gradient(90deg, #ff00b8, #7300ff);
+  padding: 8px 16px;
+  border-radius: 30px;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
-.btn-download-sidebar {
-    display: block;
-    text-align: center;
-    background-color: var(--color-secondary);
-    color: var(--color-dark-primary);
-    padding: 12px;
-    border-radius: 6px;
-    font-weight: 700;
-    transition: background-color 0.3s, box-shadow 0.3s;
-    text-transform: uppercase;
-    box-shadow: 0 0 10px rgba(255, 0, 153, 0.4); 
+.btn-sign-in:hover {
+  opacity: 0.85;
 }
 
-.btn-download-sidebar:hover {
-    background-color: var(--color-primary);
-    color: var(--color-text-light);
-    box-shadow: 0 0 15px rgba(157, 46, 201, 0.6);
-}
-
-/* --- CONTEÚDO DA DOCUMENTAÇÃO (ARTICLE) --- */
-
-.docs-content h1 {
-    font-size: 2.5rem;
-    color: var(--color-text-light);
-    margin-bottom: 5px;
-}
-
-.docs-content .subtitle {
-    font-size: 1.2rem;
-    color: var(--color-text-faded);
-    margin-bottom: 40px;
-    border-bottom: 1px solid var(--color-border);
-    padding-bottom: 15px;
-}
-
-.doc-item {
-    margin-bottom: 40px;
-    padding: 20px;
-    background-color: var(--color-dark-secondary);
-    border-left: 5px solid var(--color-primary);
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.doc-title {
-    font-size: 1.5rem;
-    color: var(--color-text-light);
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.icon-primary {
-    color: var(--color-secondary);
-    font-size: 1.2em;
-}
-
-.doc-item p {
-    color: var(--color-text-faded);
-    line-height: 1.7;
-    margin-bottom: 10px;
-}
-
-.doc-item strong {
-    color: var(--color-primary);
-    font-weight: 700;
+/* RESPONSIVO */
+@media (max-width: 900px) {
+  .links-center {
+    display: none;
+  }
+  .navbar {
+    width: 95%;
+  }
 }
