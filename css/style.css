@@ -13,42 +13,32 @@ body {
   overflow-x: hidden;
 }
 
-/* Navbar */
+/* ---------------- NAVBAR ---------------- */
 .navbar {
   position: fixed;
-  top: 10px;
+  top: 15px;
   left: 50%;
   transform: translateX(-50%);
-  width: 95%;
-  background: rgba(15, 15, 25, 0.7);
-  backdrop-filter: blur(12px);
+  width: 90%;
+  background: rgba(20, 20, 30, 0.6);
+  backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 0, 184, 0.3);
-  border-radius: 25px;
-  display: flex;
-  justify-content: center;
+  border-radius: 50px; /* 🔹 arredondada */
+  box-shadow: 0 0 30px rgba(255, 0, 184, 0.25);
   z-index: 1000;
-  box-shadow: 0 0 25px rgba(255, 0, 184, 0.25);
-  animation: glowPulse 3s infinite alternate;
-}
-
-@keyframes glowPulse {
-  from {
-    box-shadow: 0 0 15px rgba(255, 0, 184, 0.2);
-  }
-  to {
-    box-shadow: 0 0 35px rgba(255, 0, 184, 0.4);
-  }
+  transition: all 0.3s ease;
 }
 
 .navbar .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0.8rem 2rem;
   width: 100%;
   max-width: 1200px;
 }
 
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -64,10 +54,12 @@ body {
   text-shadow: 0 0 8px var(--pink);
 }
 
+/* Links */
 .nav-links a {
-  margin: 0 10px;
+  margin: 0 12px;
   color: var(--light);
   text-decoration: none;
+  font-weight: 500;
   transition: 0.3s;
 }
 .nav-links a:hover,
@@ -76,7 +68,23 @@ body {
   text-shadow: 0 0 10px var(--pink);
 }
 
-/* Hero */
+/* Discord Button */
+.nav-actions .btn-discord {
+  color: var(--pink);
+  border: 2px solid var(--pink);
+  padding: 8px 16px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.nav-actions .btn-discord:hover {
+  background: var(--pink);
+  color: white;
+  box-shadow: 0 0 15px var(--pink);
+}
+
+/* ---------------- HERO ---------------- */
 .hero {
   height: 100vh;
   display: flex;
@@ -86,6 +94,7 @@ body {
   position: relative;
   overflow: hidden;
 }
+
 .hero-title {
   font-size: 3.5rem;
   color: white;
@@ -103,6 +112,7 @@ body {
 .hero-buttons {
   margin-top: 30px;
 }
+
 .btn-primary,
 .btn-secondary {
   padding: 12px 28px;
@@ -112,6 +122,7 @@ body {
   transition: 0.3s;
   margin: 0 10px;
 }
+
 .btn-primary {
   background: linear-gradient(90deg, var(--pink), var(--purple));
   color: #fff;
@@ -129,7 +140,7 @@ body {
   color: white;
 }
 
-/* Features */
+/* ---------------- FEATURES ---------------- */
 .features {
   padding: 100px 20px;
   text-align: center;
@@ -164,7 +175,7 @@ body {
   color: var(--pink);
 }
 
-/* Footer */
+/* ---------------- FOOTER ---------------- */
 .footer {
   background: linear-gradient(90deg, rgba(157,78,221,0.1), rgba(255,0,184,0.1));
   padding: 40px 20px;
@@ -185,8 +196,12 @@ body {
   text-shadow: 0 0 10px var(--pink);
 }
 
-/* Responsivo */
+/* ---------------- RESPONSIVO ---------------- */
 @media (max-width: 768px) {
+  .navbar {
+    width: 95%;
+    border-radius: 25px;
+  }
   .navbar .container {
     flex-direction: column;
   }
