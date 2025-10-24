@@ -1,35 +1,30 @@
 /* ========================================================================= */
-/* --- 1. VARIÁVEIS DE COR E ESTILO GLOBAL (TEMA DARK/PHOENIX) --- */
+/* --- 1. VARIÁVEIS DE COR E ESTILO GLOBAL (TEMA DARK/PURPLE) --- */
 /* ========================================================================= */
 :root {
-    /* Cores do Phoenix Client (Ajuste Fino para um Bronze Mais Escuro) */
-    --accent-orange: #e06d1c; /* Laranja/Bronze Principal */
+    /* Cores do Novo Tema (Baseado em image_42f9ea.png) */
+    --accent-purple: #973cff; /* Roxo/Pink Principal (Destaque) */
     --primary-dark: #0c0c0c; /* Fundo principal */
-    --main-bg: #121212;      /* Fundo do corpo */
-    --secondary-bg: #1e1e1e; /* Fundo de componentes (cards, modals) */
-    --light-text: #f0f0f0;   /* Texto principal */
-    --muted-text: #bdc3c7;   /* Texto secundário/apagado */
+    --main-bg: #1a1a1e;      /* Fundo do corpo (Ligeiramente mais claro que o dark) */
+    --secondary-bg: #222226; /* Fundo de componentes (cards, modals) */
+    --light-text: #ffffff;   /* Texto principal */
+    --muted-text: #b3b3b3;   /* Texto secundário/apagado */
     
     /* Cores da Navbar */
-    --nav-bg: rgba(30, 30, 30, 0.7); 
-    --border-color: rgba(255, 255, 255, 0.05); 
+    --nav-bg: rgba(34, 34, 38, 0.9); /* Fundo opaco com blur */
+    --border-color: rgba(255, 255, 255, 0.1); 
     
     /* Configurações Globais */
-    --border-radius-lg: 10px;
+    --border-radius-lg: 12px;
 }
 
-/* Fundo com Padrão Quadriculado Sutil (Como no Phoenix) */
+/* Fundo Simplesmente Escuro (Removendo o Grid para um visual mais limpo) */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     color: var(--light-text);
     background-color: var(--main-bg);
-    
-    /* Fundo quadriculado/grade sutil */
-    background-image: linear-gradient(0deg, transparent 9px, rgba(255, 255, 255, 0.015) 10px), 
-                      linear-gradient(90deg, transparent 9px, rgba(255, 255, 255, 0.015) 10px);
-    background-size: 10px 10px;
     min-height: 100vh;
 }
 
@@ -40,7 +35,7 @@ body {
     background: var(--secondary-bg); 
     border-radius: 4px;
 }
-::-webkit-scrollbar-thumb:hover { background: #c25d19; } 
+::-webkit-scrollbar-thumb:hover { background: var(--accent-purple); } 
 
 
 /* Reset e Utilitários */
@@ -49,7 +44,8 @@ body {
 }
 
 main {
-    padding-top: 150px; /* Espaço para a navbar fixa */
+    padding-top: 150px; 
+    min-height: calc(100vh - 150px);
 }
 
 .container {
@@ -60,12 +56,12 @@ main {
 
 a {
     text-decoration: none;
-    color: var(--accent-orange);
+    color: var(--accent-purple);
     transition: color 0.3s;
 }
 
 a:hover {
-    color: #f08c43;
+    color: #c080ff; /* Roxo mais claro no hover */
 }
 
 /* Títulos */
@@ -75,13 +71,13 @@ h1, h2, h3, h4 {
 
 
 /* ========================================================================= */
-/* --- 2. BOTÕES GERAIS (ESTILO MINIMALISTA E ACENTO) --- */
+/* --- 2. BOTÕES GERAIS (NOVO ESTILO) --- */
 /* ========================================================================= */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 20px;
+    padding: 12px 25px;
     font-size: 1rem;
     font-weight: 600;
     text-align: center;
@@ -92,29 +88,31 @@ h1, h2, h3, h4 {
     text-transform: uppercase;
 }
 
-/* Botão de Destaque Padrão (Phoenix Sign In) */
-.phoenix-sign-in-btn {
-    background-color: var(--accent-orange);
+/* Botão de Destaque Padrão (Sign In, Loja) */
+.phoenix-sign-in-btn, .phoenix-btn-home {
+    background-color: var(--accent-purple);
     color: var(--light-text);
-    box-shadow: 0 4px 10px rgba(224, 109, 28, 0.4); 
+    box-shadow: 0 4px 15px rgba(151, 60, 255, 0.4); 
     padding: 10px 20px;
     gap: 8px;
+    border: none !important;
 }
-.phoenix-sign-in-btn:hover {
-    background: #c25d19; /* Laranja mais escuro no hover */
+.phoenix-sign-in-btn:hover, .phoenix-btn-home:hover {
+    background: #7a2ed4; 
     color: var(--light-text);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(224, 109, 28, 0.6);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(151, 60, 255, 0.6);
 }
 
-/* Botão RGB (Como os botões Premium/VIP na Loja) */
+/* Botão RGB - Usando o novo destaque roxo */
 .rgb-animated-button {
     color: #fff;
     font-weight: 700;
-    background: var(--accent-orange);
+    background: var(--accent-purple);
     position: relative;
     overflow: hidden;
     padding: 12px 25px;
+    border: 2px solid var(--accent-purple);
 }
 
 .rgb-animated-button:before {
@@ -135,21 +133,21 @@ h1, h2, h3, h4 {
 
 
 /* ========================================================================= */
-/* --- 3. NAVBAR ESTILO PHOENIX CLIENT --- */
+/* --- 3. NAVBAR (ESTILO FLOATING MAIS COMPACTO) --- */
 /* ========================================================================= */
 .navbar {
     position: fixed;
-    top: 20px;
+    top: 25px; /* Mais afastado do topo */
     left: 50%;
     transform: translateX(-50%);
     width: 90%; 
     max-width: 1250px; 
     z-index: 1000;
     background: var(--nav-bg);
-    backdrop-filter: blur(15px); 
-    border-radius: var(--border-radius-lg); 
+    backdrop-filter: blur(10px); 
+    border-radius: 50px; /* Borda mais arredondada */
     border: 1px solid var(--border-color);
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.6);
     padding: 0; 
     transition: all 0.3s;
 }
@@ -157,43 +155,84 @@ h1, h2, h3, h4 {
 .navbar .container {
     display: flex;
     align-items: center;
-    padding: 10px 15px;
+    padding: 8px 15px; /* Padding menor */
     width: 100%;
     justify-content: space-between; 
-    gap: 15px;
+    gap: 10px;
 }
 
 /* Logo e Contador */
 .logo-group { 
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     flex-shrink: 0;
 }
 .logo-img-nav {
-    height: 35px; 
-    transition: transform 0.3s;
-}
-.logo-img-nav:hover {
-    transform: scale(1.05);
+    height: 30px; /* Logo menor */
 }
 .online-counter {
-    color: var(--accent-orange);
-    font-weight: 700;
-    font-size: 1.1rem;
-    padding-left: 5px;
-    border-left: 1px solid var(--border-color);
+    color: var(--light-text);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 5px 8px;
+    background-color: var(--secondary-bg);
+    border-radius: 50px;
 }
 
-/* GRUPO CENTRO: Ícones Utilitários */
+/* GRUPO CENTRO: Ícones Utilitários (Links de Navegação) */
 .utility-icons-center {
     display: flex;
-    gap: 10px;
+    gap: 5px; /* Espaçamento menor entre ícones */
     margin-right: auto; 
     margin-left: 20px; 
 }
 
-/* GRUPO DIREITA: Home/Link Ativo + Outros Ícones + Login */
+/* Estilo Básico de Link/Ícone na Navbar (Com Ícone e Texto) */
+.nav-icon-link {
+    color: var(--muted-text);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 8px 12px;
+    border-radius: 50px; /* Arredondado para "pill" shape */
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+.nav-icon-link i {
+    font-size: 1em;
+}
+
+.nav-icon-link:hover {
+    color: var(--accent-purple);
+    background-color: rgba(151, 60, 255, 0.1); 
+}
+
+/* Link de Destaque (Home/Loja/Atualizações Ativo) */
+.phoenix-btn-home {
+    background-color: var(--accent-purple);
+    color: var(--light-text) !important;
+    font-weight: 600;
+    padding: 8px 15px; 
+    border-radius: 50px; 
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.phoenix-btn-home:hover {
+    background-color: #7a2ed4;
+    transform: none;
+}
+.active {
+    /* Estilo para o link da página atual */
+    background-color: var(--accent-purple);
+    color: var(--light-text) !important;
+}
+
+/* GRUPO DIREITA */
 .right-actions-group {
     display: flex;
     align-items: center;
@@ -201,63 +240,34 @@ h1, h2, h3, h4 {
     flex-shrink: 0;
 }
 
-/* Estilo Básico de Link/Ícone na Navbar (Sem Texto) */
-.nav-icon-link {
-    color: var(--muted-text);
-    text-decoration: none;
-    font-size: 1.1rem;
-    padding: 8px;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px; 
-    height: 40px;
-}
-.nav-icon-link:hover {
-    color: var(--accent-orange);
-    background-color: rgba(224, 109, 28, 0.1); /* Fundo sutil no hover */
-}
-
-/* Link de Destaque (Home/Loja/Atualizações Ativo) */
-.phoenix-btn-home {
-    background-color: var(--accent-orange);
-    color: var(--light-text) !important;
-    font-weight: 600;
-    padding: 8px 15px; 
-    border-radius: 8px; 
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 4px 10px rgba(224, 109, 28, 0.4);
-    transition: background-color 0.3s, transform 0.3s;
-}
-.phoenix-btn-home:hover {
-    background-color: #c25d19;
-    color: var(--light-text) !important;
-    transform: scale(1.02);
-}
-
 /* Media Query para Responsividade da Navbar */
 @media (max-width: 900px) {
     .navbar {
         width: 95%;
-        max-width: none;
+        top: 15px;
     }
-    .utility-icons-center {
-        display: none; /* Esconde links centrais no mobile */
+    /* Oculta o texto dos links de navegação, mantendo só os ícones */
+    .utility-icons-center .nav-icon-link {
+        padding: 8px;
+        width: 40px; 
+        height: 40px;
+        justify-content: center;
     }
-    .right-actions-group {
-        gap: 5px;
+    .utility-icons-center .nav-icon-link span {
+        display: none; 
     }
     .phoenix-btn-home {
-        padding: 8px 10px;
+        padding: 8px 12px;
         font-size: 0.9rem;
     }
     .phoenix-btn-home span {
-        display: none; /* Esconde o texto do Home/Loja/etc no mobile, deixando só o ícone */
+        display: none; 
+    }
+    .phoenix-sign-in-btn {
+        display: none; /* Oculta o sign in no mobile */
+    }
+    .online-counter {
+        display: none;
     }
 }
 
@@ -285,7 +295,7 @@ h1, h2, h3, h4 {
 .product-grid {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 30px;
     flex-wrap: wrap;
 }
 
@@ -303,22 +313,23 @@ h1, h2, h3, h4 {
 .product-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-color: var(--accent-purple);
 }
 
 .product-card h3 {
     font-size: 1.8rem;
     font-weight: 700;
     margin-top: 0;
-    color: var(--accent-orange);
+    color: var(--accent-purple);
 }
 
 .product-card p {
     color: var(--muted-text);
-    min-height: 50px; /* Para manter o alinhamento em cards com texto de tamanho diferente */
+    min-height: 50px; 
     margin-bottom: 30px;
 }
 
-/* Botões Premium/VIP na Loja (Tamanhos e Cores Específicas) */
+/* Botões Premium/VIP na Loja */
 .product-card .btn {
     width: 100%;
     font-size: 1.1rem;
@@ -329,7 +340,7 @@ h1, h2, h3, h4 {
 /* --- 5. ESTILOS DO MODAL (authModal) --- */
 /* ========================================================================= */
 .modal {
-    display: none; /* Escondido por padrão, ativado via JS */
+    display: none; 
     position: fixed;
     z-index: 2000; 
     left: 0;
@@ -346,7 +357,7 @@ h1, h2, h3, h4 {
     background-color: var(--secondary-bg);
     margin: auto;
     padding: 30px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--accent-purple);
     width: 90%;
     max-width: 400px;
     border-radius: var(--border-radius-lg);
@@ -355,7 +366,6 @@ h1, h2, h3, h4 {
     animation-duration: 0.4s
 }
 
-/* Animação de entrada do modal */
 @keyframes animatetop {
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
@@ -374,14 +384,14 @@ h1, h2, h3, h4 {
 
 .close-btn:hover,
 .close-btn:focus {
-    color: var(--accent-orange);
+    color: var(--accent-purple);
     text-decoration: none;
     cursor: pointer;
 }
 
 .modal-content h4 {
     font-size: 1.5rem;
-    color: var(--accent-orange);
+    color: var(--accent-purple);
     margin-top: 0;
     margin-bottom: 20px;
 }
@@ -403,7 +413,7 @@ h1, h2, h3, h4 {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 10px;
-    color: var(--accent-orange);
+    color: var(--accent-purple);
 }
 
 .changelog-section h2 {
@@ -455,6 +465,7 @@ h1, h2, h3, h4 {
 .timeline-version:hover .timeline-content {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    border-color: var(--accent-purple);
 }
 
 /* O Círculo na linha vertical */
@@ -463,8 +474,8 @@ h1, h2, h3, h4 {
     position: absolute;
     width: 15px;
     height: 15px;
-    background-color: var(--accent-orange); 
-    border: 3px solid var(--primary-dark); 
+    background-color: var(--accent-purple); 
+    border: 3px solid var(--main-bg); 
     top: 25px;
     left: -25px; 
     border-radius: 50%;
@@ -485,13 +496,13 @@ h1, h2, h3, h4 {
     font-weight: 500;
 }
 .update-date i {
-    color: var(--accent-orange);
+    color: var(--accent-purple);
     margin-right: 5px;
 }
 
 .update-category {
     font-weight: 600;
-    color: var(--accent-orange);
+    color: var(--accent-purple);
     margin-top: 20px;
     margin-bottom: 5px;
     border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
@@ -515,7 +526,7 @@ h1, h2, h3, h4 {
     font-size: 0.8em;
     margin-right: 10px;
     margin-top: 5px;
-    color: var(--accent-orange);
+    color: var(--accent-purple);
 }
 
 /* Media Query para a Timeline no Mobile */
@@ -598,7 +609,7 @@ h1, h2, h3, h4 {
 .footer-title {
     font-size: 1.2rem;
     font-weight: 600;
-    color: var(--accent-orange);
+    color: var(--accent-purple);
     margin-bottom: 15px;
 }
 
@@ -627,7 +638,7 @@ h1, h2, h3, h4 {
 .footer-links a i {
     font-size: 0.7em;
     margin-right: 10px;
-    color: var(--accent-orange);
+    color: var(--accent-purple);
 }
 @media (max-width: 768px) {
     .footer-links a {
