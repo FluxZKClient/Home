@@ -1,316 +1,86 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>FluxZK Client - Performance Extrema para Minecraft</title>
-    <link rel="stylesheet" href="assets/css/site-global.css">
-<meta content="Baixe o FluxZK Client e melhore sua performance no Minecraft. FPS Boost, recursos avançados e suporte para Windows e Linux." name="description"/>
-    <link href="images/dsd.png" rel="icon" type="image/png"/>
-    <meta content="#0c0c0c" name="theme-color"/>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <link href="css/style.css" rel="stylesheet"/>
-<style id="fz-style">
-:root{
-  --bg:#07060a;
-  --panel: rgba(255,255,255,0.03);
-  --glass-border: rgba(255,255,255,0.06);
-  --pink: #ff2d95;
-  --purple: #7c3aed;
-  --muted: rgba(255,255,255,0.85);
-  --radius:16px;
-  --shadow: 0 10px 30px rgba(2,6,23,0.6);
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-}
-*{box-sizing:border-box}
-html,body{height:100%; margin:0; background: radial-gradient(800px 400px at 10% 10%, rgba(124,58,237,0.06), transparent 10%), radial-gradient(600px 300px at 90% 90%, rgba(255,45,149,0.035), transparent 10%), var(--bg); color:var(--muted); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
-a{color:inherit}
-.fz-site{min-height:100vh; display:flex; flex-direction:column;}
-
-/* Navbar */
-.fz-navbar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:10px 18px;
-  border-radius:999px;
-  margin:18px auto;
-  width:min(1100px,94%);
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border:1px solid rgba(255,255,255,0.06);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(8px) saturate(120%);
-}
-.fz-brand{display:flex;align-items:center;gap:12px;font-weight:800}
-.fz-logo{width:48px;height:48px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;color:white;font-weight:900;
-  background:linear-gradient(135deg,var(--purple),var(--pink)); box-shadow: 0 8px 30px rgba(124,58,237,0.12);}
-.fz-navlinks{display:flex;gap:8px;align-items:center}
-.fz-navlinks a{padding:8px 12px;border-radius:10px;font-weight:700;opacity:0.9;transition:all .18s}
-.fz-navlinks a:hover{transform:translateY(-3px); box-shadow:0 10px 30px rgba(2,6,23,0.5); background: rgba(255,255,255,0.02); color:white;}
-
-/* Buttons */
-.fz-cta{padding:10px 14px;border-radius:12px;font-weight:800;background:linear-gradient(90deg,var(--pink),var(--purple));color:white;box-shadow:0 10px 30px rgba(255,45,149,0.12);}
-
-/* Container */
-.fz-container{max-width:1100px;margin:22px auto;padding:20px;display:grid;grid-template-columns:1fr 340px;gap:24px;align-items:start;}
-@media (max-width:920px){ .fz-container{grid-template-columns:1fr;padding:16px} .fz-navbar{width:calc(100% - 32px);} .fz-navlinks{display:none} }
-
-/* Cards */
-.fz-card{background:var(--panel); border-radius:var(--radius); padding:18px; border:1px solid var(--glass-border); box-shadow:var(--shadow);}
-
-/* Hero */
-.fz-hero{display:flex;gap:20px;align-items:flex-start}
-.fz-hero-title{font-size:40px;line-height:1;margin:0;font-weight:900;color:white;text-shadow:0 6px 30px rgba(124,58,237,0.12)}
-.fz-hero-sub{margin:10px 0 18px;opacity:0.9}
-
-/* small utilities */
-.pill{display:inline-block;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);font-weight:800;}
-
-/* footer */
-.fz-footer{margin:28px auto;text-align:center;color:rgba(255,255,255,0.6)}
-
-/* Particles canvas covers the background */
-#fz-particles{position:fixed; inset:0; z-index:0; pointer-events:none;}
-
-/* Ensure content is above particles */
-.fz-site > *{position:relative; z-index:2}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FluxZK Client</title>
+  <link rel="icon" href="images/dsd.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://kit.fontawesome.com/a2e0e9c8f4.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
+  <header class="navbar">
+    <div class="container">
+      <div class="logo">
+        <img src="images/dsd.png" alt="FluxZK Client" class="logo-img">
+        <span class="logo-text">FluxZK Client</span>
+      </div>
 
-<!-- Standard Header -->
-<header class="site-header">
-  <div class="inner container">
-    <div class="site-brand">
-      <img src="assets/images/logo.png" alt="logo" onerror="this.style.display='none'"/>
-      <div>
-        <div class="site-title">FluxZK Client</div>
-        <div class="small">Performance extrema para Minecraft</div>
+      <nav class="nav-links">
+        <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+        <a href="documentacao.html"><i class="fas fa-file-alt"></i> Documentação</a>
+        <a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a>
+        <a href="loja.html"><i class="fas fa-shopping-bag"></i> Loja</a>
+        <a href="updates.html"><i class="fas fa-history"></i> Atualizações</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://discord.gg/FluxZK" target="_blank" class="btn-discord"><i class="fab fa-discord"></i> Discord</a>
       </div>
     </div>
-    <nav class="site-nav" aria-label="Main navigation">
-      <a href="index.html">Início</a>
-      <a href="documentacao.html">Documentação</a>
-      <a href="faq.html">FAQ</a>
-      <a href="loja.html">Loja</a>
-      <a href="updates.html">Atualizações</a>
-      <a href="discord/404.html">Discord</a>
-    </nav>
-    <div class="actions">
-      <button class="menu-toggle btn-ghost" aria-label="Menu">Menu</button>
-      <a class="ghost-btn" href="loja.html">Explorar</a>
-      <a class="cta-btn" href="download.html">Download</a>
-    </div>
-  </div>
-</header>
-<!-- End Header -->
+  </header>
 
-
-<!-- Standardized Header Start -->
-
-<!-- Standardized Header End -->
-
-
-<div class="fz-navbar fz-card">
-  <div class="fz-brand"><img src="Home-main/images/background.png" alt="logo" style="width:48px;height:48px;border-radius:10px;object-fit:cover"><div style="font-weight:800;margin-left:6px">FluxZK</div></div>
-  
-  <button class="fz-nav-toggle fz-cta" aria-label="Menu">Menu</button>
-</div>
-
-<div class="fz-site">
-
-    
-    
-    <div class="client-switch-bar">
-        <div class="container">
-             <button class="switch-btn active">Launcher</button>
-             <button class="switch-btn">Client</button>
-        </div>
-    </div>
-
-
-    
-<main class="container">
   <section class="hero">
-    <div>
-      <h1 class="fade-up">FluxZK Client</h1>
-      <p class="fade-up" style="transition-delay:.05s">O client oficial para performance extrema no Minecraft — leve, estável e totalmente customizável. Compatível com múltiplas versões e pronto para PvP.</p>
-      <div class="badges fade-up" style="transition-delay:.08s">
-        <div class="badge">Novo Client Brasileiro</div>
-        <div class="badge">Gratuito</div>
-        <div class="badge">Client PvP</div>
-      </div>
-      <div style="margin-top:22px" class="fade-up" style="transition-delay:.12s">
-        <a class="cta-btn" href="download.html">Download</a>
-        <a class="ghost-btn" href="loja.html" style="margin-left:12px">Explorar a Loja</a>
+    <div class="hero-content">
+      <h1 class="hero-title"><span>FluxZK</span> Client</h1>
+      <p class="hero-subtitle">Performance extrema, +70 mods e segurança total.</p>
+      <div class="hero-buttons">
+        <a href="https://github.com/FluxZKClient/Data/releases/tag/Download" class="btn-primary">Baixar Agora</a>
+        <a href="loja.html" class="btn-secondary">Explorar Loja</a>
       </div>
     </div>
-    <div class="card fade-up" style="padding:8px;display:flex;align-items:center;justify-content:center">
-      <img src="assets/images/preview.png" alt="preview" style="max-width:100%;border-radius:12px;object-fit:cover" onerror="this.style.display='none'"/>
+    <div id="particles-js"></div>
+  </section>
+
+  <section class="features">
+    <h2>Por que escolher o FluxZK?</h2>
+    <div class="features-grid">
+      <div class="feature-card" data-tilt>
+        <i class="fas fa-rocket"></i>
+        <h3>Alta Performance</h3>
+        <p>Mais de 70 mods otimizados e engine leve para FPS máximo.</p>
+      </div>
+      <div class="feature-card" data-tilt>
+        <i class="fas fa-shield-alt"></i>
+        <h3>Segurança</h3>
+        <p>Sistema anti-trapaça e proteção de integridade avançada.</p>
+      </div>
+      <div class="feature-card" data-tilt>
+        <i class="fas fa-code"></i>
+        <h3>Customização</h3>
+        <p>Interface configurável e suporte a personalização visual completa.</p>
+      </div>
     </div>
   </section>
-</main>
 
-    
-    <footer class="footer">
-        <div class="container footer-grid">
-            <div class="footer-column footer-brand">
-                <img src="images/dsd.png" alt="FluxZK Client Logo" class="logo-img-footer">
-                <span class="footer-logo-text">FluxZK Client</span>
-                <p class="footer-description">Performance extrema, +70 mods e segurança total.</p>
-            </div>
-            <div class="footer-column">
-                <h4 class="footer-title">Produto</h4>
-                <ul class="footer-links">
-                    <li><a href="#features"><i class="fas fa-chevron-right"></i> Recursos</a></li>
-                    <li><a href="#download"><i class="fas fa-chevron-right"></i> Download</a></li>
-                    <li><a href="loja.html"><i class="fas fa-chevron-right"></i> Loja</a></li>
-                    <li><a href="updates.html"><i class="fas fa-chevron-right"></i> Atualizações</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4 class="footer-title">Suporte & Info</h4>
-                <ul class="footer-links">
-                    <li><a href="documentacao.html"><i class="fas fa-chevron-right"></i> Documentação</a></li>
-                    <li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li>
-                    <li><a href="https://discord.gg/FluxZK" target="_blank"><i class="fas fa-chevron-right"></i> Discord</a></li>
-                    <li><a href="LICENSE"><i class="fas fa-chevron-right"></i> Licença</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <p class="footer-copyright">
-                    © 2025 <strong>FluxZK Client</strong>. Website by GlideClient Team (Edited By STRONGSK)
-                </p>
-            </div>
-        </div>
-    </footer>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="images/dsd.png" alt="FluxZK Logo">
+        <p>© 2025 FluxZK Client - Todos os direitos reservados</p>
+      </div>
+      <div class="footer-links">
+        <a href="documentacao.html">Documentação</a>
+        <a href="faq.html">FAQ</a>
+        <a href="updates.html">Atualizações</a>
+      </div>
+    </div>
+  </footer>
 
-    <script src="js/particles.min.js"></script>
-    <script src="js/vanilla-tilt.min.js"></script>
-    <script src="js/scrollreveal.min.js"></script>
-    <script src="js/main.js"></script>
-</div>
-<script id="fz-scripts">
-// Particles and small interactions
-(function(){
-  // particles canvas
-  function createParticles(){
-    const c = document.createElement('canvas');
-    c.id = 'fz-particles';
-    document.body.appendChild(c);
-    const ctx = c.getContext('2d');
-    let w, h, particles;
-    function reset(){
-      w = c.width = window.innerWidth;
-      h = c.height = window.innerHeight;
-      particles = [];
-      for(let i=0;i<40;i++){
-        particles.push({
-          x: Math.random()*w,
-          y: Math.random()*h,
-          r: 6+Math.random()*18,
-          a: 0.05+Math.random()*0.2,
-          vx: (Math.random()-0.5)*0.2,
-          vy: (Math.random()-0.5)*0.2,
-          hue: 300 + Math.random()*80
-        });
-      }
-    }
-    function draw(){
-      ctx.clearRect(0,0,w,h);
-      for(const p of particles){
-        p.x += p.vx;
-        p.y += p.vy;
-        p.a += (Math.random()-0.5)*0.01;
-        ctx.beginPath();
-        const g = ctx.createRadialGradient(p.x,p.y,p.r*0.1,p.x,p.y,p.r);
-        g.addColorStop(0,'hsla('+p.hue+',100%,'+'55%,'+ (0.16+p.a*0.4) +')');
-        g.addColorStop(1,'rgba(0,0,0,0)');
-        ctx.fillStyle = g;
-        ctx.fillRect(p.x-p.r,p.y-p.r,p.r*2,p.r*2);
-      }
-      requestAnimationFrame(draw);
-    }
-    window.addEventListener('resize', reset);
-    reset(); draw();
-  }
-  // mobile menu toggle
-  function menuToggle(){
-    document.addEventListener('DOMContentLoaded', function(){
-      const btn = document.querySelector('.fz-nav-toggle');
-      const nav = document.querySelector('.fz-navlinks');
-      if(btn && nav){
-        btn.addEventListener('click', ()=> {
-          nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-        });
-      }
-    });
-  }
-  createParticles(); menuToggle();
-})();
-</script>
-
-<!-- Standardized Footer Start -->
-<footer class="site-footer">
-  <div class="inner">
-    <div>
-      <h4>FluxZK Client</h4>
-      <p class="small">Performance extrema, +70 mods e segurança total. Feito com ❤.</p>
-      <div class="small">© 2025 FluxZK Client</div>
-    </div>
-    <div>
-      <h4>Produto</h4>
-      <a href="documentacao.html">Documentação</a><br/>
-      <a href="loja.html">Loja</a><br/>
-      <a href="updates.html">Atualizações</a>
-    </div>
-    <div>
-      <h4>Suporte</h4>
-      <a href="faq.html">FAQ</a><br/>
-      <a href="#">Discord</a><br/>
-      <a href="#">Licença</a>
-    </div>
-  </div>
-</footer>
-<!-- Standardized Footer End -->
-
-
-<!-- Standard Footer -->
-<footer class="site-footer">
-  <div class="inner">
-    <div>
-      <h4>FluxZK Client</h4>
-      <p class="small">Performance extrema, +70 mods e segurança total. Feito com ❤.</p>
-      <div class="small">© 2025 FluxZK Client</div>
-    </div>
-    <div>
-      <h4>Produto</h4>
-      <a href="documentacao.html">Documentação</a><br/>
-      <a href="loja.html">Loja</a><br/>
-      <a href="updates.html">Atualizações</a>
-    </div>
-    <div>
-      <h4>Suporte</h4>
-      <a href="faq.html">FAQ</a><br/>
-      <a href="https://discord.gg" target="_blank">Discord</a><br/>
-      <a href="#">Licença</a>
-    </div>
-    <div>
-      <h4>Social</h4>
-      <a href="https://discord.gg" target="_blank">Discord</a><br/>
-      <a href="https://youtube.com" target="_blank">YouTube</a><br/>
-      <a href="https://github.com" target="_blank">GitHub</a>
-    </div>
-  </div>
-</footer>
-<!-- End Footer -->
-<script src="assets/js/site-main.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.3/dist/vanilla-tilt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
