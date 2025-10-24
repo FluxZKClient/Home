@@ -1,17 +1,18 @@
 /* ========================================================================= */
-/* --- FLUXZK CLIENT STYLES - TEMA ROSA, PRETO E ROXO (FINAL - FIXO/REDONDO) --- */
+/* --- FLUXZK CLIENT STYLES - TEMA PHOENIX (LARANJA/BRONZE) --- */
 /* ========================================================================= */
 
 :root {
-    --accent-pink: #ff3399;
-    --primary-purple: #9b59b6;
-    --main-bg: #0c0c0c;
-    --secondary-bg: #1a1a1a;
+    /* Cores do Phoenix Client (Adaptadas) */
+    --accent-orange: #ff781f; /* Laranja/Bronze Principal */
+    --primary-dark: #121212; /* Fundo principal escuro */
+    --main-bg: #121212;
+    --secondary-bg: #1e1e1e; /* Fundo secundário (cards, etc.) */
     --light-text: #f0f0f0;
     --muted-text: #bdc3c7;
     /* Fundo semi-transparente para a navbar */
-    --nav-bg: rgba(26, 26, 26, 0.6); 
-    --border-color: rgba(255, 255, 255, 0.1);
+    --nav-bg: rgba(30, 30, 30, 0.7); /* Mais escuro */
+    --border-color: rgba(255, 255, 255, 0.05); /* Borda mais sutil */
 }
 
 /* --- Base & Reset --- */
@@ -32,13 +33,18 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    /* Efeito de Grade do Phoenix */
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px; 
+    background-attachment: fixed;
 }
 
-/* Scrollbar Styles */
+/* Scrollbar Styles (Atualizado para Laranja) */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--main-bg); }
-::-webkit-scrollbar-thumb { background: var(--primary-purple); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #8e44ad; }
+::-webkit-scrollbar-thumb { background: var(--accent-orange); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #e06d1c; }
 
 /* --- Global Container --- */
 .container {
@@ -50,19 +56,19 @@ body {
 
 /* Adiciona espaçamento superior para a navbar fixa */
 main {
-    padding-top: 120px; 
+    padding-top: 100px; /* Reduzido um pouco o padding */
     flex-grow: 1;
     overflow-x: hidden;
 }
 
 /* --- LOGO IMAGE STYLES --- */
-.logo-img-nav { height: 35px; width: auto; }
+.logo-img-nav { height: 30px; width: auto; }
 .logo-img-footer { height: 50px; width: auto; margin-bottom: 5px; }
 
 /* --- Botões (Styles Globais) --- */
 .btn {
     padding: 10px 25px;
-    border-radius: 30px;
+    border-radius: 10px; /* Ajuste para o estilo Phoenix */
     font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
@@ -83,23 +89,23 @@ main {
 }
 .btn-secondary:hover {
     background: var(--secondary-bg);
-    border-color: var(--accent-pink);
+    border-color: var(--accent-orange);
     transform: translateY(-2px);
 }
 
 /* ========================================================================= */
-/* --- BOTÃO RGB ANIMADO --- */
+/* --- BOTÃO RGB ANIMADO (ATUALIZADO PARA LARANJA) --- */
 /* ========================================================================= */
 @keyframes rgb-animation {
-    0% { border-color: #ff3399; box-shadow: 0 0 15px rgba(255, 51, 153, 0.5); }
-    33% { border-color: #9b59b6; box-shadow: 0 0 15px rgba(155, 89, 182, 0.5); }
+    0% { border-color: var(--accent-orange); box-shadow: 0 0 15px rgba(255, 120, 31, 0.5); }
+    33% { border-color: #9b59b6; box-shadow: 0 0 15px rgba(155, 89, 182, 0.5); } /* Manteve um toque de roxo sutil */
     66% { border-color: #3498db; box-shadow: 0 0 15px rgba(52, 152, 219, 0.5); }
-    100% { border-color: #ff3399; box-shadow: 0 0 15px rgba(255, 51, 153, 0.5); }
+    100% { border-color: var(--accent-orange); box-shadow: 0 0 15px rgba(255, 120, 31, 0.5); }
 }
 .rgb-animated-button {
     background: transparent;
     color: var(--light-text);
-    border: 2px solid var(--accent-pink);
+    border: 2px solid var(--accent-orange);
     animation: rgb-animation 4s linear infinite;
     position: relative;
     overflow: hidden;
@@ -109,56 +115,126 @@ main {
 }
 .rgb-animated-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(255, 51, 153, 0.6);
+    box-shadow: 0 5px 20px rgba(255, 120, 31, 0.6);
 }
 .btn-download-animated {
-    padding: 10px 25px;
-    font-size: 1rem;
-    font-weight: 600;
-    flex-shrink: 0;
+    display: none; /* Escondido na navbar Phoenix */
 }
 
+
 /* ========================================================================= */
-/* --- NAVBAR REDONDA, TRANSPARENTE E FIXA --- */
+/* --- NAVBAR ESTILO PHOENIX --- */
 /* ========================================================================= */
 .navbar {
     position: fixed;
-    top: 25px;
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
     width: fit-content;
-    max-width: 95%;
+    max-width: 98%;
     z-index: 1000;
     background: var(--nav-bg);
-    backdrop-filter: blur(12px); 
-    border-radius: 50px; 
+    backdrop-filter: blur(15px); 
+    border-radius: 15px; /* Mais quadrado, menos arredondado */
     border: 1px solid var(--border-color);
-    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
     padding: 0; 
+    transition: all 0.3s;
 }
+
 .navbar .container {
     display: flex;
     align-items: center;
-    padding: 8px 15px;
-    gap: 20px;
+    padding: 10px 15px;
+    gap: 30px;
+    width: 100%;
 }
-.navbar .logo { line-height: 0; }
-.navbar .links {
+
+.navbar .logo { 
     display: flex;
-    gap: 25px;
-    margin: 0; 
-    flex-grow: 0;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
 }
-.navbar .links a {
+
+/* Estilo do contador de jogadores Online */
+.online-counter {
+    background: var(--secondary-bg);
+    color: var(--muted-text);
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+/* Container para os links de navegação principais (meio da barra) */
+.main-nav-links {
+    display: flex;
+    gap: 10px;
+    flex-grow: 1;
+    justify-content: center; /* Centraliza os links do meio */
+}
+
+/* Container para os ícones secundários e botão de login (lado direito) */
+.secondary-nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+/* Estilo Básico de Link/Ícone na Navbar */
+.nav-icon-link {
     color: var(--muted-text);
     text-decoration: none;
-    font-weight: 500;
-    white-space: nowrap;
-    padding: 5px 0;
-    transition: color 0.3s;
+    font-size: 1.1rem;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    white-space: nowrap; /* Impede quebras de linha */
 }
-.navbar .links a:hover { color: var(--light-text); }
-.hamburger { display: none; }
+
+.nav-icon-link i { font-size: 1.2rem; }
+
+.nav-icon-link:hover {
+    color: var(--light-text);
+    background: var(--secondary-bg);
+}
+
+/* Estilo Especial para o Botão/Link Home (Active) */
+.phoenix-btn-home {
+    background-color: var(--accent-orange);
+    color: var(--light-text) !important;
+    font-weight: 600;
+    padding: 8px 15px; 
+    border-radius: 10px;
+    font-size: 1rem;
+}
+.phoenix-btn-home:hover {
+    background-color: #e06d1c;
+}
+
+/* Estilo do Botão Sign In */
+.phoenix-sign-in-btn {
+    background: var(--accent-orange);
+    color: var(--light-text);
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(255, 120, 31, 0.4);
+    transition: background-color 0.3s;
+}
+.phoenix-sign-in-btn:hover {
+    background: #e06d1c;
+    transform: none; 
+}
 
 /* ========================================================================= */
 /* --- SEÇÃO HERO --- */
@@ -171,7 +247,7 @@ main {
     text-align: center;
     position: relative;
     /* Compensa o padding do main para o hero ocupar a tela inteira */
-    margin-top: -120px; 
+    margin-top: -100px; 
     padding-bottom: 50px;
 }
 .hero-content h1 {
@@ -199,7 +275,7 @@ main {
     transform: translateX(-50%);
 }
 .scroll-down-indicator a {
-    color: var(--accent-pink);
+    color: var(--accent-orange); /* Laranja */
     font-size: 2rem;
     animation: bounce 2s infinite;
 }
@@ -210,7 +286,7 @@ main {
 }
 
 /* ========================================================================= */
-/* --- SEÇÃO CTA DOWNLOAD --- */
+/* --- SEÇÃO CTA DOWNLOAD (ATUALIZADA) --- */
 /* ========================================================================= */
 .cta-section {
     padding: 80px 0;
@@ -220,9 +296,9 @@ main {
 .cta-title {
     font-size: 3rem;
     font-weight: 700;
-    color: var(--accent-pink);
+    color: var(--accent-orange); /* Laranja */
     margin-bottom: 15px;
-    text-shadow: 0 0 10px rgba(255, 51, 153, 0.5);
+    text-shadow: 0 0 10px rgba(255, 120, 31, 0.5); /* Sombra Laranja */
 }
 .cta-description {
     font-size: 1.2rem;
@@ -264,7 +340,7 @@ main {
 }
 
 /* ========================================================================= */
-/* --- FOOTER --- */
+/* --- FOOTER (ATUALIZADO) --- */
 /* ========================================================================= */
 .footer {
     background: var(--secondary-bg);
@@ -305,7 +381,7 @@ main {
     transform: translateY(-50%);
     width: 5px;
     height: 100%;
-    background-color: var(--accent-pink);
+    background-color: var(--accent-orange); /* Laranja */
     border-radius: 3px;
 }
 .footer-links { list-style: none; }
@@ -321,7 +397,7 @@ main {
 .footer-links li a i {
     font-size: 0.7rem;
     margin-right: 10px;
-    color: var(--accent-pink);
+    color: var(--accent-orange); /* Laranja */
 }
 .footer-links li a:hover {
     color: var(--light-text);
@@ -342,7 +418,7 @@ main {
 }
 
 /* ========================================================================= */
-/* --- LOJA --- */
+/* --- LOJA (EXEMPLO DE ADAPTAÇÃO) --- */
 /* ========================================================================= */
 .store-section {
     padding: 80px 0 100px;
@@ -366,7 +442,7 @@ main {
     max-width: 350px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
 }
 .product-card:hover {
     transform: translateY(-5px);
@@ -374,7 +450,7 @@ main {
 }
 .product-card h3 {
     font-size: 1.8rem;
-    color: var(--accent-pink);
+    color: var(--accent-orange); /* Laranja */
     margin-bottom: 15px;
 }
 .product-card p {
@@ -383,169 +459,18 @@ main {
     min-height: 50px;
 }
 
-/* ========================================================================= */
-/* --- MODAL (POPUP) --- */
-/* ========================================================================= */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-}
-.modal-content {
-    background-color: var(--secondary-bg);
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 400px;
-    width: 90%;
-    position: relative;
-    box-shadow: 0 5px 25px rgba(255, 51, 153, 0.5);
-    border: 1px solid var(--accent-pink);
-    text-align: left;
-}
-.modal-content h4 {
-    font-size: 1.5rem;
-    color: var(--accent-pink);
-    margin-bottom: 20px;
-}
-.modal-content p {
-    margin-bottom: 10px;
-    color: var(--light-text);
-}
-.modal-content p strong {
-    color: var(--accent-pink);
-    margin-right: 5px;
-}
-.close-btn {
-    color: var(--muted-text);
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-.close-btn:hover,
-.close-btn:focus {
-    color: var(--accent-pink);
-}
 
 /* ========================================================================= */
-/* --- SEÇÃO DE UPDATES (CHANGELOG) --- */
-/* ========================================================================= */
-.changelog-section {
-    padding: 80px 0;
-    text-align: center;
-}
-.changelog-section h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    color: var(--light-text);
-    margin-bottom: 5px;
-}
-.changelog-section h2 {
-    font-size: 1.5rem;
-    color: var(--accent-pink);
-    margin-bottom: 50px;
-}
-.version-timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: left;
-}
-.version-timeline::after {
-    content: '';
-    position: absolute;
-    width: 4px;
-    background-color: var(--secondary-bg);
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    margin-left: -2px;
-}
-.timeline-version {
-    padding: 10px 40px;
-    position: relative;
-    background-color: inherit;
-    width: 50%;
-    margin-bottom: 50px;
-}
-.timeline-version:nth-child(even) { left: 50%; }
-.timeline-version:nth-child(odd) { left: 0; text-align: right; }
-.timeline-version::after {
-    content: '';
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    right: -17px;
-    background-color: var(--main-bg);
-    border: 4px solid var(--accent-pink);
-    top: 15px;
-    border-radius: 50%;
-    z-index: 1;
-}
-.timeline-version:nth-child(even)::after { left: -16px; }
-.timeline-content {
-    padding: 20px 30px;
-    background-color: var(--secondary-bg);
-    position: relative;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
-    border: 1px solid var(--border-color);
-}
-.timeline-content:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(255, 51, 153, 0.4);
-}
-.timeline-content h3 {
-    font-size: 1.6rem;
-    color: var(--accent-pink);
-    margin-bottom: 10px;
-}
-.timeline-content .update-date {
-    display: block;
-    color: var(--muted-text);
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-}
-.update-category {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--light-text);
-    margin-top: 20px;
-    margin-bottom: 5px;
-}
-.update-list { list-style: none; padding-left: 0; margin-bottom: 0; }
-.update-list li {
-    font-size: 0.95rem;
-    color: var(--muted-text);
-    margin-bottom: 8px;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-}
-.update-list i {
-    font-size: 0.8em;
-    padding-top: 3px;
-    min-width: 15px;
-}
-.update-list .fa-plus { color: #2ecc71; }
-.update-list .fa-minus { color: #e74c3c; }
-
-
-/* ========================================================================= */
-/* --- RESPONSIVIDADE FINAL --- */
+/* --- RESPONSIVIDADE FINAL (AJUSTADA) --- */
 /* ========================================================================= */
 @media (max-width: 992px) {
+    /* Esconde o texto dos links na navbar para economizar espaço em telas menores */
+    .main-nav-links span {
+        display: none;
+    }
+    .main-nav-links {
+        gap: 8px;
+    }
     .hero-content h1 { font-size: 3.5rem; }
 }
 
@@ -557,28 +482,17 @@ main {
     .product-grid { flex-direction: column; gap: 30px; align-items: center; }
     .product-card { max-width: 90%; }
     
-    /* Navbar Mobile */
+    /* Navbar Mobile Ajustada */
     .navbar {
-        width: 95%; /* Ocupa a largura da tela */
+        width: 95%; 
     }
-    .navbar .links, .navbar .btn-download-animated {
-        display: none; /* Esconde links e botão */
+    .navbar .container {
+        padding: 8px 10px;
+        gap: 15px;
     }
-    .hamburger {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        cursor: pointer;
-        height: 20px;
-        z-index: 1001;
-        margin-left: auto; /* Empurra o hamburger para a direita */
-    }
-    .hamburger .bar {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background-color: var(--light-text);
-        transition: all 0.3s ease-in-out;
+    .phoenix-sign-in-btn {
+        padding: 6px 10px;
+        font-size: 0.85rem;
     }
 
     /* Footer Mobile */
@@ -588,7 +502,7 @@ main {
     .footer-links { text-align: center; }
     .footer-links li a { justify-content: center; }
 
-    /* Ajustes na Timeline */
+    /* Ajustes na Timeline (mantido o seu estilo original para a timeline) */
     .version-timeline::after { left: 15px; }
     .timeline-version { width: 100%; padding-left: 50px; padding-right: 5px; left: 0 !important; text-align: left !important; }
     .timeline-version::after { left: 8px !important; right: auto; }
