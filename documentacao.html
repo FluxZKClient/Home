@@ -9,121 +9,82 @@
     <meta content="#0c0c0c" name="theme-color"/>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+    <link href="css/all.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
-    <link href="css/documentacao.css" rel="stylesheet"/> </head>
+</head>
 <body>
 
     <nav class="navbar">
-        <div class="container">
-            
+        <div class="container navbar-inner">
             <div class="logo">
                 <a href="index.html">
                     <img src="images/dsd.png" alt="FluxZK Client Logo" class="logo-img-nav">
-                    <span class="navbar-client-name">FluxZK Client</span>
                 </a>
             </div>
-            
-            <div class="links-center">
-                <a href="index.html" class="nav-btn-icon"><i class="fas fa-home"></i> Home</a>
-                <a href="documentacao.html" class="nav-btn-icon active"><i class="fas fa-file-alt"></i> Documentação</a>
-                <a href="faq.html" class="nav-btn-icon"><i class="fas fa-question-circle"></i> FAQ</a>
-                <a href="loja.html" class="nav-btn-icon"><i class="fas fa-shopping-bag"></i> Loja</a>
-                <a href="updates.html" class="nav-btn-icon"><i class="fas fa-history"></i> Atualizações</a>
-                <a href="https://discord.gg/FluxZK" target="_blank" class="nav-btn-icon"><i class="fab fa-discord"></i> Discord</a>
+            <div class="links">
+                <a href="index.html">Home</a>
+                <a href="documentacao.html">Documentação</a>
+                <a href="faq.html">FAQ</a>
+                <a href="loja.html">Loja</a> 
+                <a href="https://discord.gg/FluxZK" target="_blank">Discord</a>
             </div>
-            
-            <div class="navbar-actions">
-                <a class="nav-icon-link" href="#"><i class="fas fa-heart"></i></a>
-                <a class="nav-icon-link" href="#"><i class="fas fa-sun"></i></a>
-                <a class="btn btn-sign-in" href="#">Sign In</a>
+            <a class="btn btn-primary" href="https://github.com/FluxZKClient/Data/releases/tag/Download" target="_blank">Download</a>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </div>
     </nav>
     
-    <main>
+    <main class="content-page container">
         
-        <section class="docs-section"> 
-            <div class="container docs-grid">
-                
-                <aside class="docs-sidebar">
-                    <h3 class="sidebar-title">Tópicos</h3>
-                    <ul class="topic-links">
-                        <li><a href="#regras"><i class="fas fa-book"></i> Regras Gerais</a></li>
-                        <li><a href="#proibicoes"><i class="fas fa-ban"></i> Proibições de Modificações</a></li>
-                        <li><a href="#hacks"><i class="fas fa-bug"></i> Proibição de Hacks</a></li>
-                        <li><a href="#distribuicao"><i class="fas fa-exclamation-triangle"></i> Distribuição Não Autorizada</a></li>
-                        <li><a href="#anti-cheat"><i class="fas fa-shield-alt"></i> Anti-Trapaça</a></li>
-                    </ul>
-                    <a class="btn btn-download-sidebar" href="https://github.com/FluxZKClient/Data/releases/tag/Download" target="_blank">
-                        <i class="fas fa-download"></i> Baixar Client
-                    </a>
-                </aside>
-
-                <article class="docs-content">
-                    <h1>Documentação Oficial</h1> 
-                    <h2 class="subtitle">Regras de utilização, termos e detalhes do FluxZK Client</h2> 
-                    
-                    <div class="doc-item" id="regras">
-                        <h3 class="doc-title"><i class="fas fa-book icon-primary"></i> Regras Gerais de Uso</h3>
-                        <p>Esta seção estabelece as diretrizes básicas para o uso do FluxZK Client, garantindo uma experiência justa para todos os usuários.</p>
-                    </div>
-
-                    <div class="doc-item" id="proibicoes">
-                        <h3 class="doc-title"><i class="fas fa-ban icon-primary"></i> Proibição de Modificações (mods)</h3>
-                        <p>
-                            É estritamente proibido criar, distribuir ou utilizar qualquer modificação (mod ou addon) que utilize o código-fonte, assets ou bibliotecas
-                            proprietárias do **FluxZK Client** ou que altere a funcionalidade pretendida sem autorização expressa da equipe.
-                        </p>
-                    </div>
-
-                    <div class="doc-item" id="hacks">
-                        <h3 class="doc-title"><i class="fas fa-bug icon-primary"></i> Proibição de Injeção e Hacks</h3>
-                        <p>
-                            É totalmente proibido o uso de injectors, hacks, cheats ou qualquer software de terceiros que interaja, manipule ou extraia dados do **FluxZK
-                            Client** para obter vantagem indevida ou violar a integridade do jogo. O uso desses recursos resulta em banimento permanente.
-                        </p>
-                    </div>
-
-                    <div class="doc-item" id="distribuicao">
-                        <h3 class="doc-title"><i class="fas fa-exclamation-triangle icon-primary"></i> Proibição de Distribuição de Versões Não Autorizadas</h3>
-                        <p>
-                            É proibido redistribuir o client sob um nome diferente (rebrand) ou hospedar o download do client em qualquer site que não seja o oficial. Apenas
-                            links diretos do nosso site são permitidos.
-                        </p>
-                    </div>
-
-                    <div class="doc-item" id="anti-cheat">
-                        <h3 class="doc-title"><i class="fas fa-shield-alt icon-primary"></i> Proteção de Tecnologia Anti-Trapaça (Anti-Cheat)</h3>
-                        <p>
-                            O **FluxZK Client** contém tecnologia proprietária de detecção e prevenção de trapaças. Qualquer tentativa de contornar, desativar ou reverter a
-                            engenharia dessa tecnologia anti-cheat constitui uma violação grave e levará a ação legal e banimento permanente do serviço associado.
-                        </p>
-                    </div>
-
-                </article>
-            </div>
+        <header class="page-header">
+            <h1>Documentação Oficial - FluxZK Client</h1>
+            <p>Regras de utilização, termos e detalhes sobre a tecnologia do client.</p>
+        </header>
+        
+        <section class="doc-section">
+            <h2><i class="fas fa-ban doc-icon"></i> Proibição de Modificações (Mods)</h2>
+            <p>É estritamente proibido criar, distribuir ou utilizar qualquer modificação (mod ou addon) que utilize o código-fonte, assets ou bibliotecas proprietárias do **FluxZK Client** ou que altere a funcionalidade pretendida sem autorização expressa da equipe.</p>
         </section>
-
+        
+        <section class="doc-section">
+            <h2><i class="fas fa-user-secret doc-icon"></i> Proibição de Injeção e Hacks</h2>
+            <p>É totalmente proibido o uso de injectors, hacks, cheats ou qualquer software de terceiros que interaja, manipule ou extraia dados do **FluxZK Client** para obter vantagem indevida ou violar a integridade do jogo. O uso desses recursos resulta em banimento permanente.</p>
+        </section>
+        
+        <section class="doc-section">
+            <h2><i class="fas fa-truck-loading doc-icon"></i> Proibição de Distribuição de Versões Não Autorizadas</h2>
+            <p>É proibido redistribuir o client sob um nome diferente (rebrand) ou hospedar o download do client em qualquer site que não seja o oficial. Apenas links diretos do nosso site são permitidos.</p>
+        </section>
+        
+        <section class="doc-section">
+            <h2><i class="fas fa-shield-alt doc-icon"></i> Proteção de Tecnologia Anti-Trapaça (Anti-Cheat)</h2>
+            <p>O **FluxZK Client** contém tecnologia proprietária de detecção e prevenção de trapaças. Qualquer tentativa de contornar, desativar ou reverter a engenharia dessa tecnologia anti-cheat constitui uma violação grave e levará a ação legal e banimento permanente do serviço associado.</p>
+        </section>
+        
     </main>
-    
+
     <footer class="footer">
         <div class="container footer-grid">
+            
             <div class="footer-column footer-brand">
                 <img src="images/dsd.png" alt="FluxZK Client Logo" class="logo-img-footer">
                 <span class="footer-logo-text">FluxZK Client</span>
                 <p class="footer-description">Performance extrema, +70 mods e segurança total.</p>
             </div>
+
             <div class="footer-column">
                 <h4 class="footer-title">Produto</h4>
                 <ul class="footer-links">
                     <li><a href="index.html#features"><i class="fas fa-chevron-right"></i> Recursos</a></li>
                     <li><a href="index.html#cta-download"><i class="fas fa-chevron-right"></i> Download</a></li>
                     <li><a href="loja.html"><i class="fas fa-chevron-right"></i> Loja</a></li>
-                    <li><a href="updates.html"><i class="fas fa-chevron-right"></i> Atualizações</a></li>
+                    <li><a href="index.html#updates"><i class="fas fa-chevron-right"></i> Atualizações</a></li>
                 </ul>
             </div>
+
             <div class="footer-column">
                 <h4 class="footer-title">Suporte & Info</h4>
                 <ul class="footer-links">
@@ -134,6 +95,7 @@
                 </ul>
             </div>
         </div>
+        
         <div class="footer-bottom">
             <div class="container">
                 <p class="footer-copyright">
@@ -146,6 +108,7 @@
     <script src="js/particles.min.js"></script>
     <script src="js/vanilla-tilt.min.js"></script>
     <script src="js/scrollreveal.min.js"></script>
+    <script src="js/alerts.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

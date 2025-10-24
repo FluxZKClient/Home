@@ -4,135 +4,123 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Atualizações - FluxZK Client</title>
-    <link rel="stylesheet" href="assets/css/site-global.css">
-<link href="images/dsd.png" rel="icon" type="image/png"/>
+    
+    <link href="images/dsd.png" rel="icon" type="image/png"/>
     <meta content="#0c0c0c" name="theme-color"/>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
     <link href="css/all.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
-<style id="fz-style">
-:root{
-  --bg:#07060a;
-  --panel: rgba(255,255,255,0.03);
-  --glass-border: rgba(255,255,255,0.06);
-  --pink: #ff2d95;
-  --purple: #7c3aed;
-  --muted: rgba(255,255,255,0.85);
-  --radius:16px;
-  --shadow: 0 10px 30px rgba(2,6,23,0.6);
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-}
-*{box-sizing:border-box}
-html,body{height:100%; margin:0; background: radial-gradient(800px 400px at 10% 10%, rgba(124,58,237,0.06), transparent 10%), radial-gradient(600px 300px at 90% 90%, rgba(255,45,149,0.035), transparent 10%), var(--bg); color:var(--muted); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
-a{color:inherit}
-.fz-site{min-height:100vh; display:flex; flex-direction:column;}
-
-/* Navbar */
-.fz-navbar{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:10px 18px;
-  border-radius:999px;
-  margin:18px auto;
-  width:min(1100px,94%);
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border:1px solid rgba(255,255,255,0.06);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(8px) saturate(120%);
-}
-.fz-brand{display:flex;align-items:center;gap:12px;font-weight:800}
-.fz-logo{width:48px;height:48px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;color:white;font-weight:900;
-  background:linear-gradient(135deg,var(--purple),var(--pink)); box-shadow: 0 8px 30px rgba(124,58,237,0.12);}
-.fz-navlinks{display:flex;gap:8px;align-items:center}
-.fz-navlinks a{padding:8px 12px;border-radius:10px;font-weight:700;opacity:0.9;transition:all .18s}
-.fz-navlinks a:hover{transform:translateY(-3px); box-shadow:0 10px 30px rgba(2,6,23,0.5); background: rgba(255,255,255,0.02); color:white;}
-
-/* Buttons */
-.fz-cta{padding:10px 14px;border-radius:12px;font-weight:800;background:linear-gradient(90deg,var(--pink),var(--purple));color:white;box-shadow:0 10px 30px rgba(255,45,149,0.12);}
-
-/* Container */
-.fz-container{max-width:1100px;margin:22px auto;padding:20px;display:grid;grid-template-columns:1fr 340px;gap:24px;align-items:start;}
-@media (max-width:920px){ .fz-container{grid-template-columns:1fr;padding:16px} .fz-navbar{width:calc(100% - 32px);} .fz-navlinks{display:none} }
-
-/* Cards */
-.fz-card{background:var(--panel); border-radius:var(--radius); padding:18px; border:1px solid var(--glass-border); box-shadow:var(--shadow);}
-
-/* Hero */
-.fz-hero{display:flex;gap:20px;align-items:flex-start}
-.fz-hero-title{font-size:40px;line-height:1;margin:0;font-weight:900;color:white;text-shadow:0 6px 30px rgba(124,58,237,0.12)}
-.fz-hero-sub{margin:10px 0 18px;opacity:0.9}
-
-/* small utilities */
-.pill{display:inline-block;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);font-weight:800;}
-
-/* footer */
-.fz-footer{margin:28px auto;text-align:center;color:rgba(255,255,255,0.6)}
-
-/* Particles canvas covers the background */
-#fz-particles{position:fixed; inset:0; z-index:0; pointer-events:none;}
-
-/* Ensure content is above particles */
-.fz-site > *{position:relative; z-index:2}
-</style>
 </head>
 <body>
 
-<!-- Standard Header -->
-<header class="site-header">
-  <div class="inner container">
-    <div class="site-brand">
-      <img src="assets/images/logo.png" alt="logo" onerror="this.style.display='none'"/>
-      <div>
-        <div class="site-title">FluxZK Client</div>
-        <div class="small">Performance extrema para Minecraft</div>
-      </div>
-    </div>
-    <nav class="site-nav" aria-label="Main navigation">
-      <a href="index.html">Início</a>
-      <a href="documentacao.html">Documentação</a>
-      <a href="faq.html">FAQ</a>
-      <a href="loja.html">Loja</a>
-      <a href="updates.html">Atualizações</a>
-      <a href="discord/404.html">Discord</a>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/dsd.png" alt="FluxZK Client Logo" class="logo-img-nav">
+                </a>
+            </div>
+            
+            <div class="links">
+                <a href="index.html">Home</a>
+                <a href="documentacao.html">Documentação</a>
+                <a href="faq.html">FAQ</a>
+                <a href="loja.html">Loja</a>
+                <a href="updates.html">Atualizações</a>
+                <a href="https://discord.gg/FluxZK" target="_blank">Discord</a>
+            </div>
+            
+            <a class="btn rgb-animated-button btn-download-animated" href="https://github.com/FluxZKClient/Data/releases/tag/Download" target="_blank">
+                Download
+            </a>
+        </div>
     </nav>
-    <div class="actions">
-      <button class="menu-toggle btn-ghost" aria-label="Menu">Menu</button>
-      <a class="ghost-btn" href="loja.html">Explorar</a>
-      <a class="cta-btn" href="download.html">Download</a>
-    </div>
-  </div>
-</header>
-<!-- End Header -->
+    <main>
+        
+        <section class="changelog-section">
+            <div class="container">
+                <h1>Changelog Oficial</h1>
+                <h2>Todas as atualizações do FluxZK Client</h2>
 
+                <div class="version-timeline">
+                    
+                    <div class="timeline-version">
+                        <div class="timeline-content">
+                            <h3>Versão 1.2.0 - "The Glide Update"</h3>
+                            <span class="update-date"><i class="fas fa-calendar-alt"></i> Lançado em 15 de Outubro de 2025</span>
 
-<!-- Standardized Header Start -->
+                            <p class="update-category">Client - Funcionalidades Principais</p>
+                            <ul class="update-list">
+                                <li><i class="fas fa-plus"></i> Adicionado **suporte completo para macOS e Linux** (lançamento inicial).</li>
+                                <li><i class="fas fa-plus"></i> Substituída a tela de pausa padrão pela **tela customizada Glide**.</li>
+                                <li><i class="fas fa-plus"></i> Adicionados **Minigames** e tela **Home** no menu de mods.</li>
+                                <li><i class="fas fa-plus"></i> Adicionadas mais de **dez novas temas** para o menu de mods.</li>
+                                <li><i class="fas fa-plus"></i> Melhorada a busca no menu com **apelidos** e a capacidade de **digitar para pesquisar**.</li>
+                                <li><i class="fas fa-plus"></i> Substituída a **Soar API** por **Remote Glide features** e tornado todos os recursos Soar Premium **gratuitos**.</li>
+                            </ul>
 
-<!-- Standardized Header End -->
+                            <p class="update-category">Mods - Adições e Mudanças</p>
+                            <ul class="update-list">
+                                <li><i class="fas fa-plus"></i> Adicionados **3 novos estilos** ao Mod Crosshair.</li>
+                                <li><i class="fas fa-plus"></i> Adicionada a opção de **cor** ao Mod Hitboxes.</li>
+                                <li><i class="fas fa-plus"></i> Adicionada a configuração de **"smooth sneak"** ao Mod Animations.</li>
+                                <li><i class="fas fa-plus"></i> Adicionado **Mod de Gênero Feminino** para aparência de jogadora.</li>
+                                <li><i class="fas fa-plus"></i> Adicionadas **opções de capa** e um recurso de **salvamento** para elas.</li>
+                                <li><i class="fas fa-minus"></i> Removido o Mod Browser.</li>
+                                <li><i class="fas fa-minus"></i> Removido ViaVersion.</li>
+                            </ul>
 
+                            <p class="update-category">HUD - Melhorias</p>
+                            <ul class="update-list">
+                                <li><i class="fas fa-plus"></i> Adicionada a opção de **borrar o fundo** atrás dos mods.</li>
+                                <li><i class="fas fa-plus"></i> Adicionado **Mojangles** como opção de fonte HUD.</li>
+                                <li><i class="fas fa-plus"></i> Adicionado o modificador **Shift** para desativar o "snapping" no HudEditor.</li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-version">
+                        <div class="timeline-content">
+                            <h3>Versão 1.1.0 - Correções e Otimização</h3>
+                            <span class="update-date"><i class="fas fa-calendar-alt"></i> Lançado em 10 de Setembro de 2025</span>
 
-<div class="fz-navbar fz-card">
-  <div class="fz-brand"><img src="Home-main/images/background.png" alt="logo" style="width:48px;height:48px;border-radius:10px;object-fit:cover"><div style="font-weight:800;margin-left:6px">FluxZK</div></div>
-  
-  <button class="fz-nav-toggle fz-cta" aria-label="Menu">Menu</button>
-</div>
+                            <p class="update-category">Client & Segurança</p>
+                            <ul class="update-list">
+                                <li><i class="fas fa-plus"></i> Adicionadas **traduções de UI** para Glide em vários idiomas.</li>
+                                <li><i class="fas fa-plus"></i> Adicionados **avisos** de que mods podem ser baníveis e um **sistema de blacklisting** para certos mods.</li>
+                                <li><i class="fas fa-plus"></i> Melhorias na facilidade de uso de várias UIs (botões de voltar, atalhos de teclado).</li>
+                            </ul>
 
-<div class="fz-site">
+                            <p class="update-category">Mods & HUD</p>
+                            <ul class="update-list">
+                                <li><i class="fas fa-plus"></i> Adicionadas **novas animações de coleta** ao Mod Hotbar.</li>
+                                <li><i class="fas fa-plus"></i> Adicionados novos **Estilos de HUD**.</li>
+                                <li><i class="fas fa-minus"></i> Removido o Mod Music Player.</li>
+                            </ul>
+                        </div>
+                    </div>
 
-    
-    
-<main class="container">
-  <section class="card fade-up">
-    <h1>Atualizações</h1>
-    <p class="small">Changelog, releases e notas técnicas de cada versão.</p>
-    <div style="margin-top:18px">
-      <a class="ghost-btn" href="index.html">Voltar</a>
-    </div>
-  </section>
-</main>
+                    <div class="timeline-version">
+                        <div class="timeline-content">
+                            <h3>Versão 1.0.0 - Lançamento Oficial</h3>
+                            <span class="update-date"><i class="fas fa-calendar-alt"></i> Lançado em 01 de Agosto de 2025</span>
 
+                            <p class="update-category">Base</p>
+                            <ul class="update-list">
+                                <li><i class="fas fa-plus"></i> Lançamento da primeira versão estável do FluxZK Client.</li>
+                                <li><i class="fas fa-plus"></i> Inclui mais de 70 mods de otimização e qualidade de vida.</li>
+                                <li><i class="fas fa-plus"></i> FPS Boost e Otimização de Rede.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <footer class="footer">
         <div class="container footer-grid">
@@ -173,122 +161,5 @@ a{color:inherit}
     <script src="js/vanilla-tilt.min.js"></script>
     <script src="js/scrollreveal.min.js"></script>
     <script src="js/main.js"></script>
-</div>
-<script id="fz-scripts">
-// Particles and small interactions
-(function(){
-  // particles canvas
-  function createParticles(){
-    const c = document.createElement('canvas');
-    c.id = 'fz-particles';
-    document.body.appendChild(c);
-    const ctx = c.getContext('2d');
-    let w, h, particles;
-    function reset(){
-      w = c.width = window.innerWidth;
-      h = c.height = window.innerHeight;
-      particles = [];
-      for(let i=0;i<40;i++){
-        particles.push({
-          x: Math.random()*w,
-          y: Math.random()*h,
-          r: 6+Math.random()*18,
-          a: 0.05+Math.random()*0.2,
-          vx: (Math.random()-0.5)*0.2,
-          vy: (Math.random()-0.5)*0.2,
-          hue: 300 + Math.random()*80
-        });
-      }
-    }
-    function draw(){
-      ctx.clearRect(0,0,w,h);
-      for(const p of particles){
-        p.x += p.vx;
-        p.y += p.vy;
-        p.a += (Math.random()-0.5)*0.01;
-        ctx.beginPath();
-        const g = ctx.createRadialGradient(p.x,p.y,p.r*0.1,p.x,p.y,p.r);
-        g.addColorStop(0,'hsla('+p.hue+',100%,'+'55%,'+ (0.16+p.a*0.4) +')');
-        g.addColorStop(1,'rgba(0,0,0,0)');
-        ctx.fillStyle = g;
-        ctx.fillRect(p.x-p.r,p.y-p.r,p.r*2,p.r*2);
-      }
-      requestAnimationFrame(draw);
-    }
-    window.addEventListener('resize', reset);
-    reset(); draw();
-  }
-  // mobile menu toggle
-  function menuToggle(){
-    document.addEventListener('DOMContentLoaded', function(){
-      const btn = document.querySelector('.fz-nav-toggle');
-      const nav = document.querySelector('.fz-navlinks');
-      if(btn && nav){
-        btn.addEventListener('click', ()=> {
-          nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-        });
-      }
-    });
-  }
-  createParticles(); menuToggle();
-})();
-</script>
-
-<!-- Standardized Footer Start -->
-<footer class="site-footer">
-  <div class="inner">
-    <div>
-      <h4>FluxZK Client</h4>
-      <p class="small">Performance extrema, +70 mods e segurança total. Feito com ❤.</p>
-      <div class="small">© 2025 FluxZK Client</div>
-    </div>
-    <div>
-      <h4>Produto</h4>
-      <a href="documentacao.html">Documentação</a><br/>
-      <a href="loja.html">Loja</a><br/>
-      <a href="updates.html">Atualizações</a>
-    </div>
-    <div>
-      <h4>Suporte</h4>
-      <a href="faq.html">FAQ</a><br/>
-      <a href="#">Discord</a><br/>
-      <a href="#">Licença</a>
-    </div>
-  </div>
-</footer>
-<!-- Standardized Footer End -->
-
-
-<!-- Standard Footer -->
-<footer class="site-footer">
-  <div class="inner">
-    <div>
-      <h4>FluxZK Client</h4>
-      <p class="small">Performance extrema, +70 mods e segurança total. Feito com ❤.</p>
-      <div class="small">© 2025 FluxZK Client</div>
-    </div>
-    <div>
-      <h4>Produto</h4>
-      <a href="documentacao.html">Documentação</a><br/>
-      <a href="loja.html">Loja</a><br/>
-      <a href="updates.html">Atualizações</a>
-    </div>
-    <div>
-      <h4>Suporte</h4>
-      <a href="faq.html">FAQ</a><br/>
-      <a href="https://discord.gg" target="_blank">Discord</a><br/>
-      <a href="#">Licença</a>
-    </div>
-    <div>
-      <h4>Social</h4>
-      <a href="https://discord.gg" target="_blank">Discord</a><br/>
-      <a href="https://youtube.com" target="_blank">YouTube</a><br/>
-      <a href="https://github.com" target="_blank">GitHub</a>
-    </div>
-  </div>
-</footer>
-<!-- End Footer -->
-<script src="assets/js/site-main.js"></script>
-
 </body>
 </html>
