@@ -1,141 +1,153 @@
 /* ========================================================================= */
-/* --- FLUXZK CLIENT STYLES - TEMA PHOENIX (LARANJA/BRONZE) --- */
+/* --- 1. VARIÁVEIS DE COR E ESTILO GLOBAL (TEMA DARK/PHOENIX) --- */
 /* ========================================================================= */
-
 :root {
-    /* Cores do Phoenix Client (Adaptadas) */
-    --accent-orange: #ff781f; /* Laranja/Bronze Principal */
-    --primary-dark: #121212; /* Fundo principal escuro */
-    --main-bg: #121212;
-    --secondary-bg: #1e1e1e; /* Fundo secundário (cards, etc.) */
-    --light-text: #f0f0f0;
-    --muted-text: #bdc3c7;
-    /* Fundo semi-transparente para a navbar */
-    --nav-bg: rgba(30, 30, 30, 0.7); /* Mais escuro */
-    --border-color: rgba(255, 255, 255, 0.05); /* Borda mais sutil */
+    /* Cores do Phoenix Client (Ajuste Fino para um Bronze Mais Escuro) */
+    --accent-orange: #e06d1c; /* Laranja/Bronze Principal */
+    --primary-dark: #0c0c0c; /* Fundo principal */
+    --main-bg: #121212;      /* Fundo do corpo */
+    --secondary-bg: #1e1e1e; /* Fundo de componentes (cards, modals) */
+    --light-text: #f0f0f0;   /* Texto principal */
+    --muted-text: #bdc3c7;   /* Texto secundário/apagado */
+    
+    /* Cores da Navbar */
+    --nav-bg: rgba(30, 30, 30, 0.7); 
+    --border-color: rgba(255, 255, 255, 0.05); 
+    
+    /* Configurações Globais */
+    --border-radius-lg: 10px;
 }
 
-/* --- Base & Reset --- */
-* {
+/* Fundo com Padrão Quadriculado Sutil (Como no Phoenix) */
+body {
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background-color: var(--main-bg);
     color: var(--light-text);
-    display: flex;
-    flex-direction: column;
+    background-color: var(--main-bg);
+    
+    /* Fundo quadriculado/grade sutil */
+    background-image: linear-gradient(0deg, transparent 9px, rgba(255, 255, 255, 0.015) 10px), 
+                      linear-gradient(90deg, transparent 9px, rgba(255, 255, 255, 0.015) 10px);
+    background-size: 10px 10px;
     min-height: 100vh;
-    /* Efeito de Grade do Phoenix */
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 30px 30px; 
-    background-attachment: fixed;
 }
 
-/* Scrollbar Styles (Atualizado para Laranja) */
+/* Scrollbar Style */
 ::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--main-bg); }
-::-webkit-scrollbar-thumb { background: var(--accent-orange); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #e06d1c; }
+::-webkit-scrollbar-track { background: var(--primary-dark); }
+::-webkit-scrollbar-thumb { 
+    background: var(--secondary-bg); 
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: #c25d19; } 
 
-/* --- Global Container --- */
+
+/* Reset e Utilitários */
+* {
+    box-sizing: border-box;
+}
+
+main {
+    padding-top: 150px; /* Espaço para a navbar fixa */
+}
+
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
 }
 
-/* Adiciona espaçamento superior para a navbar fixa */
-main {
-    padding-top: 100px; /* Reduzido um pouco o padding */
-    flex-grow: 1;
-    overflow-x: hidden;
-}
-
-/* --- LOGO IMAGE STYLES --- */
-.logo-img-nav { height: 30px; width: auto; }
-.logo-img-footer { height: 50px; width: auto; margin-bottom: 5px; }
-
-/* --- Botões (Styles Globais) --- */
-.btn {
-    padding: 10px 25px;
-    border-radius: 10px; /* Ajuste para o estilo Phoenix */
-    font-size: 1rem;
-    font-weight: 600;
+a {
     text-decoration: none;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border: none;
+    color: var(--accent-orange);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #f08c43;
+}
+
+/* Títulos */
+h1, h2, h3, h4 {
+    color: var(--light-text);
+}
+
+
+/* ========================================================================= */
+/* --- 2. BOTÕES GERAIS (ESTILO MINIMALISTA E ACENTO) --- */
+/* ========================================================================= */
+.btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-.btn-secondary {
-    background: transparent;
-    color: var(--light-text);
-    border: 2px solid var(--muted-text);
-    box-shadow: none;
-}
-.btn-secondary:hover {
-    background: var(--secondary-bg);
-    border-color: var(--accent-orange);
-    transform: translateY(-2px);
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--border-radius-lg);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
 }
 
-/* ========================================================================= */
-/* --- BOTÃO RGB ANIMADO (ATUALIZADO PARA LARANJA) --- */
-/* ========================================================================= */
-@keyframes rgb-animation {
-    0% { border-color: var(--accent-orange); box-shadow: 0 0 15px rgba(255, 120, 31, 0.5); }
-    33% { border-color: #9b59b6; box-shadow: 0 0 15px rgba(155, 89, 182, 0.5); } /* Manteve um toque de roxo sutil */
-    66% { border-color: #3498db; box-shadow: 0 0 15px rgba(52, 152, 219, 0.5); }
-    100% { border-color: var(--accent-orange); box-shadow: 0 0 15px rgba(255, 120, 31, 0.5); }
-}
-.rgb-animated-button {
-    background: transparent;
+/* Botão de Destaque Padrão (Phoenix Sign In) */
+.phoenix-sign-in-btn {
+    background-color: var(--accent-orange);
     color: var(--light-text);
-    border: 2px solid var(--accent-orange);
-    animation: rgb-animation 4s linear infinite;
+    box-shadow: 0 4px 10px rgba(224, 109, 28, 0.4); 
+    padding: 10px 20px;
+    gap: 8px;
+}
+.phoenix-sign-in-btn:hover {
+    background: #c25d19; /* Laranja mais escuro no hover */
+    color: var(--light-text);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(224, 109, 28, 0.6);
+}
+
+/* Botão RGB (Como os botões Premium/VIP na Loja) */
+.rgb-animated-button {
+    color: #fff;
+    font-weight: 700;
+    background: var(--accent-orange);
     position: relative;
     overflow: hidden;
-    z-index: 1;
-    font-weight: 500;
-    padding: 12px 30px;
+    padding: 12px 25px;
 }
-.rgb-animated-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(255, 120, 31, 0.6);
+
+.rgb-animated-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.3), transparent 70%);
+    transition: transform 0.6s ease-out;
+    transform: translateX(-100%);
 }
-.btn-download-animated {
-    display: none; /* Escondido na navbar Phoenix */
+
+.rgb-animated-button:hover:before {
+    transform: translateX(100%);
 }
 
 
 /* ========================================================================= */
-/* --- NAVBAR ESTILO PHOENIX --- */
+/* --- 3. NAVBAR ESTILO PHOENIX CLIENT --- */
 /* ========================================================================= */
 .navbar {
     position: fixed;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    width: fit-content;
-    max-width: 98%;
+    width: 90%; 
+    max-width: 1250px; 
     z-index: 1000;
     background: var(--nav-bg);
     backdrop-filter: blur(15px); 
-    border-radius: 15px; /* Mais quadrado, menos arredondado */
+    border-radius: var(--border-radius-lg); 
     border: 1px solid var(--border-color);
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
     padding: 0; 
@@ -146,46 +158,50 @@ main {
     display: flex;
     align-items: center;
     padding: 10px 15px;
-    gap: 30px;
     width: 100%;
+    justify-content: space-between; 
+    gap: 15px;
 }
 
-.navbar .logo { 
+/* Logo e Contador */
+.logo-group { 
     display: flex;
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
 }
-
-/* Estilo do contador de jogadores Online */
+.logo-img-nav {
+    height: 35px; 
+    transition: transform 0.3s;
+}
+.logo-img-nav:hover {
+    transform: scale(1.05);
+}
 .online-counter {
-    background: var(--secondary-bg);
-    color: var(--muted-text);
-    padding: 2px 8px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    border: 1px solid var(--border-color);
-    flex-shrink: 0;
+    color: var(--accent-orange);
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding-left: 5px;
+    border-left: 1px solid var(--border-color);
 }
 
-/* Container para os links de navegação principais (meio da barra) */
-.main-nav-links {
+/* GRUPO CENTRO: Ícones Utilitários */
+.utility-icons-center {
     display: flex;
     gap: 10px;
-    flex-grow: 1;
-    justify-content: center; /* Centraliza os links do meio */
+    margin-right: auto; 
+    margin-left: 20px; 
 }
 
-/* Container para os ícones secundários e botão de login (lado direito) */
-.secondary-nav-icons {
+/* GRUPO DIREITA: Home/Link Ativo + Outros Ícones + Login */
+.right-actions-group {
     display: flex;
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
 }
 
-/* Estilo Básico de Link/Ícone na Navbar */
+/* Estilo Básico de Link/Ícone na Navbar (Sem Texto) */
 .nav-icon-link {
     color: var(--muted-text);
     text-decoration: none;
@@ -196,315 +212,441 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
-    white-space: nowrap; /* Impede quebras de linha */
+    width: 40px; 
+    height: 40px;
 }
-
-.nav-icon-link i { font-size: 1.2rem; }
-
 .nav-icon-link:hover {
-    color: var(--light-text);
-    background: var(--secondary-bg);
+    color: var(--accent-orange);
+    background-color: rgba(224, 109, 28, 0.1); /* Fundo sutil no hover */
 }
 
-/* Estilo Especial para o Botão/Link Home (Active) */
+/* Link de Destaque (Home/Loja/Atualizações Ativo) */
 .phoenix-btn-home {
     background-color: var(--accent-orange);
     color: var(--light-text) !important;
     font-weight: 600;
     padding: 8px 15px; 
-    border-radius: 10px;
+    border-radius: 8px; 
     font-size: 1rem;
-}
-.phoenix-btn-home:hover {
-    background-color: #e06d1c;
-}
-
-/* Estilo do Botão Sign In */
-.phoenix-sign-in-btn {
-    background: var(--accent-orange);
-    color: var(--light-text);
-    padding: 8px 15px;
-    border-radius: 10px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    box-shadow: 0 4px 10px rgba(255, 120, 31, 0.4);
-    transition: background-color 0.3s;
-}
-.phoenix-sign-in-btn:hover {
-    background: #e06d1c;
-    transform: none; 
-}
-
-/* ========================================================================= */
-/* --- SEÇÃO HERO --- */
-/* ========================================================================= */
-.hero {
-    min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    /* Compensa o padding do main para o hero ocupar a tela inteira */
-    margin-top: -100px; 
-    padding-bottom: 50px;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(224, 109, 28, 0.4);
+    transition: background-color 0.3s, transform 0.3s;
 }
-.hero-content h1 {
-    font-size: 4.5rem;
-    font-weight: 800;
-    margin-bottom: 15px;
-}
-.hero-content p {
-    font-size: 1.2rem;
-    color: var(--muted-text);
-    margin-bottom: 40px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-.scroll-down-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-.scroll-down-indicator a {
-    color: var(--accent-orange); /* Laranja */
-    font-size: 2rem;
-    animation: bounce 2s infinite;
-}
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
+.phoenix-btn-home:hover {
+    background-color: #c25d19;
+    color: var(--light-text) !important;
+    transform: scale(1.02);
 }
 
+/* Media Query para Responsividade da Navbar */
+@media (max-width: 900px) {
+    .navbar {
+        width: 95%;
+        max-width: none;
+    }
+    .utility-icons-center {
+        display: none; /* Esconde links centrais no mobile */
+    }
+    .right-actions-group {
+        gap: 5px;
+    }
+    .phoenix-btn-home {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+    .phoenix-btn-home span {
+        display: none; /* Esconde o texto do Home/Loja/etc no mobile, deixando só o ícone */
+    }
+}
+
+
 /* ========================================================================= */
-/* --- SEÇÃO CTA DOWNLOAD (ATUALIZADA) --- */
+/* --- 4. ESTILOS DA SEÇÃO DE LOJA (store-section) --- */
 /* ========================================================================= */
-.cta-section {
+.store-section {
     padding: 80px 0;
     text-align: center;
-    background: var(--secondary-bg);
-}
-.cta-title {
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--accent-orange); /* Laranja */
-    margin-bottom: 15px;
-    text-shadow: 0 0 10px rgba(255, 120, 31, 0.5); /* Sombra Laranja */
-}
-.cta-description {
-    font-size: 1.2rem;
-    color: var(--muted-text);
-    margin-bottom: 30px;
-}
-.cta-note {
-    font-size: 0.9rem;
-    color: var(--muted-text);
-    margin-top: 20px;
 }
 
+.store-section h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.cta-description {
+    font-size: 1.1rem;
+    color: var(--muted-text);
+    margin-bottom: 50px;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    border-radius: var(--border-radius-lg);
+    width: 350px;
+    max-width: 100%;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.product-card h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 0;
+    color: var(--accent-orange);
+}
+
+.product-card p {
+    color: var(--muted-text);
+    min-height: 50px; /* Para manter o alinhamento em cards com texto de tamanho diferente */
+    margin-bottom: 30px;
+}
+
+/* Botões Premium/VIP na Loja (Tamanhos e Cores Específicas) */
+.product-card .btn {
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+
 /* ========================================================================= */
-/* --- SEÇÃO DE VÍDEO --- */
+/* --- 5. ESTILOS DO MODAL (authModal) --- */
 /* ========================================================================= */
-.client-video-section {
+.modal {
+    display: none; /* Escondido por padrão, ativado via JS */
+    position: fixed;
+    z-index: 2000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8); 
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--secondary-bg);
+    margin: auto;
+    padding: 30px;
+    border: 1px solid var(--border-color);
+    width: 90%;
+    max-width: 400px;
+    border-radius: var(--border-radius-lg);
+    position: relative;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Animação de entrada do modal */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.close-btn {
+    color: var(--muted-text);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--accent-orange);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h4 {
+    font-size: 1.5rem;
+    color: var(--accent-orange);
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.modal-content p strong {
+    color: var(--light-text);
+}
+
+
+/* ========================================================================= */
+/* --- 6. ESTILOS DA TIMELINE (updates.html) --- */
+/* ========================================================================= */
+.changelog-section {
     padding: 100px 0;
     text-align: center;
 }
-.client-video-section h2 {
+
+.changelog-section h1 {
     font-size: 3rem;
     font-weight: 700;
-    margin-bottom: 15px;
-}
-.client-video-section p {
-    color: var(--muted-text);
-    margin-bottom: 40px;
-}
-.video-container-embed {
-    max-width: 900px;
-    margin: 0 auto;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-}
-.video-container-embed video {
-    width: 100%;
-    display: block;
+    margin-bottom: 10px;
+    color: var(--accent-orange);
 }
 
+.changelog-section h2 {
+    font-size: 1.2rem;
+    color: var(--muted-text);
+    margin-bottom: 50px;
+}
+
+/* Base da Timeline */
+.version-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 20px; 
+}
+
+/* Linha vertical central */
+.version-timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--secondary-bg);
+    top: 0;
+    bottom: 0;
+    left: 2px; 
+    margin-left: -3px;
+    border-radius: 2px;
+}
+
+/* Container de cada versão */
+.timeline-version {
+    padding: 10px 0;
+    position: relative;
+    margin-left: 30px; 
+    text-align: left;
+}
+
+/* O conteúdo do Card da versão */
+.timeline-content {
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.timeline-version:hover .timeline-content {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* O Círculo na linha vertical */
+.timeline-version::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: var(--accent-orange); 
+    border: 3px solid var(--primary-dark); 
+    top: 25px;
+    left: -25px; 
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-content h3 {
+    font-size: 1.5rem;
+    color: var(--light-text);
+    margin-bottom: 5px;
+}
+
+.update-date {
+    display: block;
+    color: var(--muted-text);
+    font-size: 0.9em;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+.update-date i {
+    color: var(--accent-orange);
+    margin-right: 5px;
+}
+
+.update-category {
+    font-weight: 600;
+    color: var(--accent-orange);
+    margin-top: 20px;
+    margin-bottom: 5px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+    padding-bottom: 5px;
+}
+
+.update-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.update-list li {
+    color: var(--light-text);
+    margin-bottom: 5px;
+    display: flex;
+    align-items: flex-start;
+    font-size: 0.95rem;
+}
+
+.update-list li i {
+    font-size: 0.8em;
+    margin-right: 10px;
+    margin-top: 5px;
+    color: var(--accent-orange);
+}
+
+/* Media Query para a Timeline no Mobile */
+@media (max-width: 600px) {
+    .version-timeline {
+        padding-left: 10px;
+    }
+    .version-timeline::after {
+        left: 0px;
+    }
+    .timeline-version::before {
+        left: -15px;
+    }
+    .timeline-version {
+        margin-left: 20px;
+    }
+}
+
+
 /* ========================================================================= */
-/* --- FOOTER (ATUALIZADO) --- */
+/* --- 7. ESTILOS DO FOOTER --- */
 /* ========================================================================= */
 .footer {
-    background: var(--secondary-bg);
-    padding-top: 60px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: var(--secondary-bg);
+    border-top: 1px solid var(--border-color);
+    padding: 50px 0 0;
+    margin-top: 80px;
 }
+
 .footer-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     gap: 40px;
     padding-bottom: 40px;
 }
-.footer-brand .footer-logo-text {
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-brand {
+        align-items: center;
+    }
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Coluna da Marca */
+.footer-brand {
+    align-items: flex-start;
+    gap: 10px;
+}
+@media (max-width: 768px) {
+    .footer-brand {
+        align-items: center;
+    }
+}
+
+.logo-img-footer {
+    height: 40px;
+}
+
+.footer-logo-text {
     font-size: 1.5rem;
     font-weight: 700;
-    display: block;
-    margin-top: 5px;
+    color: var(--light-text);
 }
-.footer-brand .footer-description {
+
+.footer-description {
     color: var(--muted-text);
     font-size: 0.9rem;
-    margin-top: 10px;
-    max-width: 250px;
+    margin-top: 5px;
 }
+
+/* Títulos do Footer */
 .footer-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--light-text);
-    margin-bottom: 20px;
-    position: relative;
-    padding-left: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--accent-orange);
+    margin-bottom: 15px;
 }
-.footer-title::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 5px;
-    height: 100%;
-    background-color: var(--accent-orange); /* Laranja */
-    border-radius: 3px;
+
+/* Links do Footer */
+.footer-links {
+    list-style: none;
+    padding: 0;
 }
-.footer-links { list-style: none; }
-.footer-links li a {
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
     color: var(--muted-text);
-    text-decoration: none;
     font-size: 0.95rem;
-    margin-bottom: 10px;
     display: flex;
     align-items: center;
-    transition: color 0.3s, transform 0.3s;
+    transition: color 0.3s;
 }
-.footer-links li a i {
-    font-size: 0.7rem;
-    margin-right: 10px;
-    color: var(--accent-orange); /* Laranja */
-}
-.footer-links li a:hover {
+
+.footer-links a:hover {
     color: var(--light-text);
-    transform: translateX(5px);
 }
+
+.footer-links a i {
+    font-size: 0.7em;
+    margin-right: 10px;
+    color: var(--accent-orange);
+}
+@media (max-width: 768px) {
+    .footer-links a {
+        justify-content: center;
+    }
+}
+
+/* Bottom Copyright */
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid var(--border-color);
     padding: 20px 0;
     text-align: center;
 }
+
 .footer-copyright {
     color: var(--muted-text);
     font-size: 0.85rem;
+    margin: 0;
 }
 .footer-copyright strong {
     color: var(--light-text);
-    font-weight: 600;
-}
-
-/* ========================================================================= */
-/* --- LOJA (EXEMPLO DE ADAPTAÇÃO) --- */
-/* ========================================================================= */
-.store-section {
-    padding: 80px 0 100px;
-    text-align: center;
-}
-.store-section h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 10px;
-}
-.product-grid {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 50px;
-}
-.product-card {
-    background: var(--secondary-bg);
-    padding: 40px;
-    border-radius: 15px;
-    max-width: 350px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease;
-    border: 1px solid var(--border-color);
-}
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.7);
-}
-.product-card h3 {
-    font-size: 1.8rem;
-    color: var(--accent-orange); /* Laranja */
-    margin-bottom: 15px;
-}
-.product-card p {
-    color: var(--muted-text);
-    margin-bottom: 30px;
-    min-height: 50px;
-}
-
-
-/* ========================================================================= */
-/* --- RESPONSIVIDADE FINAL (AJUSTADA) --- */
-/* ========================================================================= */
-@media (max-width: 992px) {
-    /* Esconde o texto dos links na navbar para economizar espaço em telas menores */
-    .main-nav-links span {
-        display: none;
-    }
-    .main-nav-links {
-        gap: 8px;
-    }
-    .hero-content h1 { font-size: 3.5rem; }
-}
-
-@media (max-width: 768px) {
-    main { padding-top: 100px; }
-    .hero { margin-top: -100px; }
-    .hero-content h1 { font-size: 2.8rem; }
-    .cta-title, .client-video-section h2, .store-section h1 { font-size: 2.2rem; }
-    .product-grid { flex-direction: column; gap: 30px; align-items: center; }
-    .product-card { max-width: 90%; }
-    
-    /* Navbar Mobile Ajustada */
-    .navbar {
-        width: 95%; 
-    }
-    .navbar .container {
-        padding: 8px 10px;
-        gap: 15px;
-    }
-    .phoenix-sign-in-btn {
-        padding: 6px 10px;
-        font-size: 0.85rem;
-    }
-
-    /* Footer Mobile */
-    .footer-grid { grid-template-columns: 1fr; text-align: center; }
-    .footer-title { margin: 20px auto 10px; padding-left: 0; }
-    .footer-title::before { left: 50%; transform: translate(-50%, -50%); width: 50px; height: 3px; }
-    .footer-links { text-align: center; }
-    .footer-links li a { justify-content: center; }
-
-    /* Ajustes na Timeline (mantido o seu estilo original para a timeline) */
-    .version-timeline::after { left: 15px; }
-    .timeline-version { width: 100%; padding-left: 50px; padding-right: 5px; left: 0 !important; text-align: left !important; }
-    .timeline-version::after { left: 8px !important; right: auto; }
-    .timeline-content { padding: 15px; }
 }
