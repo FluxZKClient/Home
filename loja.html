@@ -21,26 +21,44 @@
 <body>
 
     <nav class="navbar">
-        <div class="container navbar-inner">
-            <div class="logo">
-                <a href="/">
+        <div class="container">
+            <div class="logo-group">
+                <a href="index.html">
                     <img src="images/dsd.png" alt="FluxZK Client Logo" class="logo-img-nav">
                 </a>
-            </div>
-            <div class="links">
-                <a href="index.html">Home</a>
-                <a href="documentacao.html">Documentação</a>
-                <a href="faq.html">FAQ</a> 
-                <a href="loja.html">Loja</a>
-                <a href="https://discord.gg/FluxZK" target="_blank">Discord</a>
+                <span class="online-counter">43</span> 
             </div>
             
-            <a class="btn btn-download-animated" href="https://github.com/FluxZKClient/Data/releases/tag/Download" target="_blank">Download</a>
+            <div class="utility-icons-center">
+                <a href="documentacao.html" class="nav-icon-link" title="Documentação">
+                    <i class="fas fa-book-open"></i> 
+                </a>
+                <a href="faq.html" class="nav-icon-link" title="FAQ">
+                    <i class="fas fa-question-circle"></i> 
+                </a>
+                <a href="updates.html" class="nav-icon-link" title="Updates">
+                    <i class="fas fa-sync-alt"></i> 
+                </a>
+                <a href="https://discord.gg/FluxZK" target="_blank" class="nav-icon-link" title="Discord">
+                    <i class="fab fa-discord"></i> 
+                </a>
+            </div>
             
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <div class="right-actions-group">
+                <a href="loja.html" class="btn active phoenix-btn-home">
+                    <i class="fas fa-shopping-cart"></i> Loja
+                </a>
+                
+                <a href="#" class="nav-icon-link" title="Configurações">
+                    <i class="fas fa-cog"></i>
+                </a>
+                <a href="#" class="nav-icon-link" title="Tema Escuro">
+                    <i class="fas fa-moon"></i>
+                </a>
+                
+                <a class="btn phoenix-sign-in-btn" href="#">
+                    <i class="fas fa-sign-in-alt"></i> Sign In
+                </a>
             </div>
         </div>
     </nav>
@@ -98,10 +116,10 @@
             <div class="footer-column">
                 <h4 class="footer-title">Produto</h4>
                 <ul class="footer-links">
-                    <li><a href="/#features"><i class="fas fa-chevron-right"></i> Recursos</a></li>
-                    <li><a href="/#cta-download"><i class="fas fa-chevron-right"></i> Download</a></li>
+                    <li><a href="index.html#features"><i class="fas fa-chevron-right"></i> Recursos</a></li>
+                    <li><a href="index.html#cta-download"><i class="fas fa-chevron-right"></i> Download</a></li>
                     <li><a href="loja.html"><i class="fas fa-chevron-right"></i> Loja</a></li>
-                    <li><a href="/#updates"><i class="fas fa-chevron-right"></i> Atualizações</a></li>
+                    <li><a href="index.html#updates"><i class="fas fa-chevron-right"></i> Atualizações</a></li>
                 </ul>
             </div>
 
@@ -136,7 +154,6 @@
             // Função para abrir o modal
             function openModal(plano) {
                 planoNomeSpan.textContent = plano;
-                // A MUDANÇA ESTÁ AQUI: Usamos 'flex' para ativar a centralização do CSS
                 modal.style.display = 'flex'; 
             }
 
@@ -163,6 +180,16 @@
                     modal.style.display = 'none';
                 }
             });
+            
+            // Script para o Hamburger Menu (Opcional, se você for mantê-lo)
+            // const hamburger = document.querySelector('.hamburger');
+            // const navLinks = document.querySelector('.links');
+
+            // if (hamburger) {
+            //     hamburger.addEventListener('click', () => {
+            //         navLinks.classList.toggle('active');
+            //     });
+            // }
         });
     </script>
 </body>
