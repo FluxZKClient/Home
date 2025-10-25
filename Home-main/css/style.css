@@ -1,0 +1,898 @@
+/* ========================================================================= */
+/* --- 1. VARIÁVEIS DE COR E ESTILO GLOBAL (TEMA DARK/PURPLE) --- */
+/* ========================================================================= */
+:root {
+    /* Cores do Novo Tema */
+    --accent-purple: #973cff; /* Roxo/Pink Principal (Destaque) */
+    --primary-dark: #0c0c0c; /* Fundo principal */
+    --main-bg: #1a1a1e;      /* Fundo do corpo (Ligeiramente mais claro que o dark) */
+    --secondary-bg: #222226; /* Fundo de componentes (cards, modals) */
+    --light-text: #ffffff;   /* Texto principal */
+    --muted-text: #b3b3b3;   /* Texto secundário/apagado */
+    
+    /* Cores da Navbar */
+    --nav-bg: rgba(34, 34, 38, 0.9); /* Fundo opaco com blur */
+    --border-color: rgba(255, 255, 255, 0.1); 
+    
+    /* Configurações Globais */
+    --border-radius-lg: 12px;
+}
+
+/* Fundo Simplesmente Escuro */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--light-text);
+    background-color: var(--main-bg);
+    min-height: 100vh;
+}
+
+/* Scrollbar Style */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--primary-dark); }
+::-webkit-scrollbar-thumb { 
+    background: var(--secondary-bg); 
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--accent-purple); } 
+
+/* Reset e Utilitários */
+* {
+    box-sizing: border-box;
+}
+
+main {
+    padding-top: 150px; 
+    min-height: calc(100vh - 150px);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-purple);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #c080ff; /* Roxo mais claro no hover */
+}
+
+/* Títulos */
+h1, h2, h3, h4 {
+    color: var(--light-text);
+}
+
+
+/* ========================================================================= */
+/* --- 2. BOTÕES GERAIS (NOVO ESTILO) --- */
+/* ========================================================================= */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--border-radius-lg);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+/* Botão de Destaque Padrão (Sign In, Loja) */
+.phoenix-sign-in-btn, .phoenix-btn-home {
+    background-color: var(--accent-purple);
+    color: var(--light-text);
+    box-shadow: 0 4px 15px rgba(151, 60, 255, 0.4); 
+    padding: 10px 20px;
+    gap: 8px;
+    border: none !important;
+}
+.phoenix-sign-in-btn:hover, .phoenix-btn-home:hover {
+    background: #7a2ed4; 
+    color: var(--light-text);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(151, 60, 255, 0.6);
+}
+
+/* Botão RGB - Usando o novo destaque roxo */
+.rgb-animated-button {
+    color: #fff;
+    font-weight: 700;
+    background: var(--accent-purple);
+    position: relative;
+    overflow: hidden;
+    padding: 12px 25px;
+    border: 2px solid var(--accent-purple);
+}
+
+.rgb-animated-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.3), transparent 70%);
+    transition: transform 0.6s ease-out;
+    transform: translateX(-100%);
+}
+
+.rgb-animated-button:hover:before {
+    transform: translateX(100%);
+}
+
+/* Novo Estilo de Botão: Contornado Roxo (Usado no Index/Hero) */
+.btn-outline-purple {
+    background-color: transparent;
+    border: 2px solid var(--accent-purple);
+    color: var(--light-text);
+    box-shadow: none;
+}
+.btn-outline-purple:hover {
+    background-color: var(--accent-purple);
+    color: var(--light-text);
+    box-shadow: 0 4px 15px rgba(151, 60, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Novo Estilo de Botão: Sólido Escuro (Usado no Index/Hero) */
+.btn-dark-filled {
+    background-color: var(--secondary-bg);
+    border: 2px solid var(--secondary-bg);
+    color: var(--light-text);
+}
+.btn-dark-filled:hover {
+    background-color: #333337; /* Um pouco mais claro */
+    border-color: #333337;
+    color: var(--accent-purple);
+    transform: translateY(-2px);
+}
+
+
+/* ========================================================================= */
+/* --- 3. NAVBAR (ESTILO FLOATING MAIS COMPACTO) --- */
+/* ========================================================================= */
+.navbar {
+    position: fixed;
+    top: 25px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%; 
+    max-width: 1250px; 
+    z-index: 1000;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px); 
+    border-radius: 50px; /* Borda mais arredondada */
+    border: 1px solid var(--border-color);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.6);
+    padding: 0; 
+    transition: all 0.3s;
+}
+
+.navbar .container {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px; 
+    width: 100%;
+    justify-content: space-between; 
+    gap: 10px;
+}
+
+/* Logo e Contador */
+.logo-group { 
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+.logo-img-nav {
+    height: 30px; 
+}
+.online-counter {
+    color: var(--light-text);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 5px 8px;
+    background-color: var(--secondary-bg);
+    border-radius: 50px;
+}
+
+/* GRUPO CENTRO: Ícones Utilitários (Links de Navegação) */
+.utility-icons-center {
+    display: flex;
+    gap: 5px; 
+    margin-right: auto; 
+    margin-left: 20px; 
+}
+
+/* Estilo Básico de Link/Ícone na Navbar (Com Ícone e Texto) */
+.nav-icon-link {
+    color: var(--muted-text);
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 8px 12px;
+    border-radius: 50px; /* Arredondado para "pill" shape */
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+.nav-icon-link i {
+    font-size: 1em;
+}
+
+.nav-icon-link:hover {
+    color: var(--accent-purple);
+    background-color: rgba(151, 60, 255, 0.1); 
+}
+
+/* Link Ativo (Da página atual) */
+.nav-icon-link.active {
+    background-color: var(--accent-purple);
+    color: var(--light-text) !important;
+}
+.nav-icon-link.active:hover {
+    background-color: #7a2ed4;
+    color: var(--light-text) !important;
+}
+
+
+/* GRUPO DIREITA */
+.right-actions-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+/* Media Query para Responsividade da Navbar */
+@media (max-width: 900px) {
+    .navbar {
+        width: 95%;
+        top: 15px;
+    }
+    /* Oculta o texto dos links de navegação, mantendo só os ícones */
+    .utility-icons-center .nav-icon-link {
+        padding: 8px;
+        width: 40px; 
+        height: 40px;
+        justify-content: center;
+    }
+    .utility-icons-center .nav-icon-link span {
+        display: none; 
+    }
+    .phoenix-sign-in-btn {
+        display: none; /* Oculta o sign in no mobile */
+    }
+    .online-counter {
+        display: none;
+    }
+}
+
+
+/* ========================================================================= */
+/* --- 4. SEÇÃO HERO (index.html) --- */
+/* ========================================================================= */
+.hero-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 0;
+    margin-bottom: 50px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.highlight-text {
+    color: var(--accent-purple);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--muted-text);
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.hero-media-placeholder {
+    width: 100%;
+    max-width: 900px;
+    height: 400px; 
+    background-color: var(--secondary-bg);
+    margin: 40px auto 0 auto;
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    .hero-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hero-actions .btn {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+
+/* ========================================================================= */
+/* --- 5. SEÇÃO DE RECURSOS (FEATURES - index.html) --- */
+/* ========================================================================= */
+.features-section {
+    padding: 80px 0;
+    background-color: var(--main-bg);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--light-text);
+    margin-bottom: 10px;
+}
+
+.section-description {
+    font-size: 1.1rem;
+    color: var(--muted-text);
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-purple);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--accent-purple);
+    margin-bottom: 15px;
+}
+
+.feature-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 0;
+}
+
+.feature-text {
+    color: var(--muted-text);
+    font-size: 0.95rem;
+}
+
+
+/* ========================================================================= */
+/* --- 6. ESTILOS DA SEÇÃO DE LOJA (store-section) --- */
+/* ========================================================================= */
+.store-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.store-section h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.cta-description {
+    font-size: 1.1rem;
+    color: var(--muted-text);
+    margin-bottom: 50px;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.product-card {
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    border-radius: var(--border-radius-lg);
+    width: 350px;
+    max-width: 100%;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-color: var(--accent-purple);
+}
+
+.product-card h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 0;
+    color: var(--accent-purple);
+}
+
+.product-card p {
+    color: var(--muted-text);
+    min-height: 50px; 
+    margin-bottom: 30px;
+}
+
+/* Botões Premium/VIP na Loja */
+.product-card .btn {
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+
+/* ========================================================================= */
+/* --- 7. ESTILOS DE MODAIS (Geral) --- */
+/* ========================================================================= */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 2000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8); 
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--secondary-bg);
+    margin: auto;
+    padding: 30px;
+    border: 1px solid var(--accent-purple);
+    width: 90%;
+    max-width: 400px;
+    border-radius: var(--border-radius-lg);
+    position: relative;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.close-btn {
+    color: var(--muted-text);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--accent-purple);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilos para outros Modais (ex: authModal) */
+.modal-content h4 {
+    font-size: 1.5rem;
+    color: var(--accent-purple);
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.modal-content p strong {
+    color: var(--light-text);
+}
+
+
+/* ========================================================================= */
+/* --- 8. ESTILOS DO NOVO MODAL DE DOWNLOAD --- */
+/* ========================================================================= */
+
+.download-modal .modal-content {
+    max-width: 550px; 
+    padding: 40px;
+    text-align: center;
+}
+
+.modal-title-download {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.modal-subtitle-download {
+    color: var(--muted-text);
+    margin-bottom: 30px;
+}
+
+/* Estilo das Abas de OS (SO) */
+.os-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.os-tab-btn {
+    background-color: var(--secondary-bg);
+    color: var(--muted-text);
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.os-tab-btn:hover {
+    color: var(--light-text);
+    border-color: var(--accent-purple);
+}
+
+.os-tab-btn.active {
+    background-color: var(--accent-purple);
+    color: var(--light-text);
+    border-color: var(--accent-purple);
+    box-shadow: 0 3px 10px rgba(151, 60, 255, 0.5);
+}
+
+/* Conteúdo de Download */
+.download-info {
+    display: none; /* Esconde todos por padrão */
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.download-info.active {
+    display: flex; /* Mostra o ativo */
+}
+
+.os-icon {
+    font-size: 4rem;
+    color: var(--light-text);
+    margin-bottom: 10px;
+}
+
+.btn-download-modal {
+    width: 100%;
+    max-width: 250px;
+    background-color: var(--accent-purple);
+    color: var(--light-text);
+    box-shadow: 0 4px 15px rgba(151, 60, 255, 0.4); 
+    text-transform: none; /* Não precisa de uppercase */
+    font-weight: 600;
+}
+.btn-download-modal:hover {
+    background-color: #7a2ed4;
+}
+
+/* Estilo para links "Em Breve" */
+.btn-download-modal.disabled {
+    background-color: var(--secondary-bg);
+    color: var(--muted-text);
+    cursor: default;
+    box-shadow: none;
+    border: 1px solid var(--border-color);
+}
+.btn-download-modal.disabled:hover {
+    background-color: var(--secondary-bg);
+    transform: none;
+}
+
+
+/* ========================================================================= */
+/* --- 9. ESTILOS DA TIMELINE (updates.html) --- */
+/* ========================================================================= */
+.changelog-section {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.changelog-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--accent-purple);
+}
+
+.changelog-section h2 {
+    font-size: 1.2rem;
+    color: var(--muted-text);
+    margin-bottom: 50px;
+}
+
+/* Base da Timeline */
+.version-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 20px; 
+}
+
+/* Linha vertical central */
+.version-timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--secondary-bg);
+    top: 0;
+    bottom: 0;
+    left: 2px; 
+    margin-left: -3px;
+    border-radius: 2px;
+}
+
+/* Container de cada versão */
+.timeline-version {
+    padding: 10px 0;
+    position: relative;
+    margin-left: 30px; 
+    text-align: left;
+}
+
+/* O conteúdo do Card da versão */
+.timeline-content {
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.timeline-version:hover .timeline-content {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    border-color: var(--accent-purple);
+}
+
+/* O Círculo na linha vertical */
+.timeline-version::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: var(--accent-purple); 
+    border: 3px solid var(--main-bg); 
+    top: 25px;
+    left: -25px; 
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-content h3 {
+    font-size: 1.5rem;
+    color: var(--light-text);
+    margin-bottom: 5px;
+}
+
+.update-date {
+    display: block;
+    color: var(--muted-text);
+    font-size: 0.9em;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+.update-date i {
+    color: var(--accent-purple);
+    margin-right: 5px;
+}
+
+.update-category {
+    font-weight: 600;
+    color: var(--accent-purple);
+    margin-top: 20px;
+    margin-bottom: 5px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
+    padding-bottom: 5px;
+}
+
+.update-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.update-list li {
+    color: var(--light-text);
+    margin-bottom: 5px;
+    display: flex;
+    align-items: flex-start;
+    font-size: 0.95rem;
+}
+
+.update-list li i {
+    font-size: 0.8em;
+    margin-right: 10px;
+    margin-top: 5px;
+    color: var(--accent-purple);
+}
+
+/* Media Query para a Timeline no Mobile */
+@media (max-width: 600px) {
+    .version-timeline {
+        padding-left: 10px;
+    }
+    .version-timeline::after {
+        left: 0px;
+    }
+    .timeline-version::before {
+        left: -15px;
+    }
+    .timeline-version {
+        margin-left: 20px;
+    }
+}
+
+
+/* ========================================================================= */
+/* --- 10. ESTILOS DO FOOTER --- */
+/* ========================================================================= */
+.footer {
+    background-color: var(--secondary-bg);
+    border-top: 1px solid var(--border-color);
+    padding: 50px 0 0;
+    margin-top: 80px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-brand {
+        align-items: center;
+    }
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Coluna da Marca */
+.footer-brand {
+    align-items: flex-start;
+    gap: 10px;
+}
+@media (max-width: 768px) {
+    .footer-brand {
+        align-items: center;
+    }
+}
+
+.logo-img-footer {
+    height: 40px;
+}
+
+.footer-logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--light-text);
+}
+
+.footer-description {
+    color: var(--muted-text);
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Títulos do Footer */
+.footer-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--accent-purple);
+    margin-bottom: 15px;
+}
+
+/* Links do Footer */
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: var(--muted-text);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--light-text);
+}
+
+.footer-links a i {
+    font-size: 0.7em;
+    margin-right: 10px;
+    color: var(--accent-purple);
+}
+@media (max-width: 768px) {
+    .footer-links a {
+        justify-content: center;
+    }
+}
+
+/* Bottom Copyright */
+.footer-bottom {
+    border-top: 1px solid var(--border-color);
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-copyright {
+    color: var(--muted-text);
+    font-size: 0.85rem;
+    margin: 0;
+}
+.footer-copyright strong {
+    color: var(--light-text);
+}

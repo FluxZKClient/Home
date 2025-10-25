@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>FluxZK Client - A Melhor Experiência para Minecraft</title>
+    
+    <link href="images/dsd.png" rel="icon" type="image/png"/>
+    <meta content="#0c0c0c" name="theme-color"/>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="css/all.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo-group">
+                <a href="index.html">
+                    <img src="images/dsd.png" alt="FluxZK Client Logo" class="logo-img-nav">
+                </a>
+                <span class="online-counter">43</span> 
+            </div>
+            
+            <div class="utility-icons-center">
+                <a href="index.html" class="nav-icon-link active">
+                    <i class="fas fa-home"></i> <span>Home</span>
+                </a>
+                <a href="documentacao.html" class="nav-icon-link" title="Documentação">
+                    <i class="fas fa-book-open"></i> <span>Docs</span>
+                </a>
+                <a href="faq.html" class="nav-icon-link" title="FAQ">
+                    <i class="fas fa-question-circle"></i> <span>FAQ</span>
+                </a>
+                <a href="loja.html" class="nav-icon-link" title="Loja">
+                    <i class="fas fa-shopping-cart"></i> <span>Loja</span>
+                </a>
+                <a href="updates.html" class="nav-icon-link" title="Atualizações">
+                    <i class="fas fa-sync-alt"></i> <span>Updates</span>
+                </a>
+                <a href="https://discord.gg/FluxZK" target="_blank" class="nav-icon-link" title="Discord">
+                    <i class="fab fa-discord"></i> <span>Discord</span>
+                </a>
+            </div>
+            
+            <div class="right-actions-group">
+                <a href="#" class="nav-icon-link" title="Configurações">
+                    <i class="fas fa-cog"></i>
+                </a>
+                <a href="#" class="nav-icon-link" title="Tema Escuro">
+                    <i class="fas fa-moon"></i>
+                </a>
+                
+                <a class="btn phoenix-sign-in-btn" href="#">
+                    <i class="fas fa-sign-in-alt"></i> Sign In
+                </a>
+            </div>
+        </div>
+    </nav>
+    
+    <main>
+
+        <section class="hero-section text-center">
+            <div class="container">
+                <h1 class="hero-title">A Melhor Experiência para <span class="highlight-text">Minecraft</span></h1>
+                <p class="hero-subtitle">FPS otimizado, +70 mods incríveis e uma interface moderna. Jogue no máximo desempenho!</p>
+
+                <div class="hero-actions">
+                    <a class="btn btn-outline-purple" href="#" id="openDownloadModal">
+                        <i class="fas fa-download"></i> Baixar Agora
+                    </a>
+                    <a class="btn btn-dark-filled" href="https://discord.gg/FluxZK" target="_blank">
+                        Comunidade Discord
+                    </a>
+                </div>
+                
+                <div class="hero-media-placeholder">
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section" id="features">
+            <div class="container">
+                <h2 class="section-title">Nossos Recursos</h2>
+                <p class="section-description">Descubra o que torna o FluxZK Client o melhor para jogar Minecraft.</p>
+
+                <div class="features-grid">
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-tachometer-alt feature-icon"></i>
+                        <h3 class="feature-title">Performance Extrema</h3>
+                        <p class="feature-text">O FluxZK Client é projetado para máxima fluidez. Com código otimizado e algoritmos eficientes, ele oferece um desempenho ultra-rápido e suave.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-palette feature-icon"></i>
+                        <h3 class="feature-title">Totalmente Customizável</h3>
+                        <p class="feature-text">Nosso Client é altamente personalizável, incluindo temas, mods, configurações de mod e muito mais, permitindo que os jogadores ajustem tudo ao seu gosto.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-users feature-icon"></i>
+                        <h3 class="feature-title">Comunidade Vibrante</h3>
+                        <p class="feature-text">O FluxZK é uma comunidade de Minecraft com milhares de jogadores. Ajuda você a se conectar com outros e a desfrutar de uma experiência de jogo de alta qualidade.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="fas fa-laptop-code feature-icon"></i>
+                        <h3 class="feature-title">Multi-Plataforma</h3>
+                        <p class="feature-text">O FluxZK Client suporta sistemas operacionais Windows e Linux (em breve), permitindo que você aproveite a melhor qualidade em diferentes plataformas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="downloadModal" class="modal download-modal">
+        <div class="modal-content download-content">
+            <span class="close-btn download-close-btn">&times;</span>
+            <h4 class="modal-title-download">Download FluxZK Client</h4>
+            
+            <p class="modal-subtitle-download">
+                Selecione seu sistema operacional para começar a jogar:
+            </p>
+
+            <div class="os-tabs">
+                <button class="os-tab-btn active" data-os="windows">Windows</button>
+                <button class="os-tab-btn" data-os="macos">macOS</button>
+                <button class="os-tab-btn" data-os="linux">Linux</button>
+            </div>
+
+            <div class="download-info active" data-os-content="windows">
+                <i class="fab fa-windows os-icon"></i>
+                <a class="btn btn-download-modal" href="https://github.com/FluxZKClient/Data/releases/tag/Download" target="_blank">
+                    <i class="fas fa-download"></i> Baixar para Windows
+                </a>
+            </div>
+            
+            <div class="download-info" data-os-content="macos">
+                <i class="fab fa-apple os-icon"></i>
+                <a class="btn btn-download-modal disabled" href="#">
+                    <i class="fas fa-clock"></i> Em Breve (macOS)
+                </a>
+            </div>
+            
+            <div class="download-info" data-os-content="linux">
+                <i class="fab fa-linux os-icon"></i>
+                <a class="btn btn-download-modal disabled" href="#">
+                    <i class="fas fa-clock"></i> Em Breve (Linux)
+                </a>
+            </div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-column footer-brand">
+                <img src="images/dsd.png" alt="FluxZK Client Logo" class="logo-img-footer">
+                <span class="footer-logo-text">FluxZK Client</span>
+                <p class="footer-description">Performance extrema, +70 mods e segurança total.</p>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">Produto</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#features"><i class="fas fa-chevron-right"></i> Recursos</a></li>
+                    <li><a href="#openDownloadModal"><i class="fas fa-chevron-right"></i> Download</a></li>
+                    <li><a href="loja.html"><i class="fas fa-chevron-right"></i> Loja</a></li>
+                    <li><a href="updates.html"><i class="fas fa-chevron-right"></i> Atualizações</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">Suporte & Info</h4>
+                <ul class="footer-links">
+                    <li><a href="documentacao.html"><i class="fas fa-chevron-right"></i> Documentação</a></li>
+                    <li><a href="faq.html"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    <li><a href="https://discord.gg/FluxZK" target="_blank"><i class="fas fa-chevron-right"></i> Discord</a></li>
+                    <li><a href="LICENSE"><i class="fas fa-chevron-right"></i> Licença</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="footer-copyright">
+                    © 2025 <strong>FluxZK Client</strong>. Website by GlideClient Team (Edited By STRONGSK)
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/particles.min.js"></script>
+    <script src="js/vanilla-tilt.min.js"></script>
+    <script src="js/scrollreveal.min.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Variáveis existentes (que estavam no seu código anterior)
+            // Caso tenha outro modal (ex: authModal), adicione o código aqui.
+
+            
+            // --- CÓDIGO PARA O MODAL DE DOWNLOAD ---
+            
+            const openModalBtn = document.getElementById('openDownloadModal');
+            const downloadModal = document.getElementById('downloadModal');
+            const closeDownloadBtn = document.querySelector('.download-close-btn');
+            const osTabButtons = document.querySelectorAll('.os-tab-btn');
+            const downloadContents = document.querySelectorAll('.download-info');
+
+            // 1. Função para abrir o modal
+            if (openModalBtn) {
+                openModalBtn.addEventListener('click', (e) => {
+                    e.preventDefault(); 
+                    downloadModal.style.display = 'flex';
+                });
+            }
+
+            // 2. Funções para fechar o modal
+            if (closeDownloadBtn) {
+                closeDownloadBtn.addEventListener('click', () => {
+                    downloadModal.style.display = 'none';
+                });
+            }
+
+            window.addEventListener('click', (event) => {
+                if (event.target == downloadModal) {
+                    downloadModal.style.display = 'none';
+                }
+            });
+            
+            // 3. Lógica para alternar as abas de OS
+            osTabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const selectedOs = button.getAttribute('data-os');
+                    
+                    // Remove 'active' de todos os botões e conteúdos
+                    osTabButtons.forEach(btn => btn.classList.remove('active'));
+                    downloadContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Adiciona 'active' ao botão e conteúdo selecionados
+                    button.classList.add('active');
+                    document.querySelector(`.download-info[data-os-content="${selectedOs}"]`).classList.add('active');
+                });
+            });
+            
+        });
+    </script>
+</body>
+</html>

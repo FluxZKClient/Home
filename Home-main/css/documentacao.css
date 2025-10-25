@@ -1,0 +1,84 @@
+/* --- NAVBAR REDONDA E FLUTUANTE GLOBAL --- */
+.navbar {
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  background: rgba(18, 18, 28, 0.6);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 0, 184, 0.25);
+  border-radius: 50px;
+  box-shadow: 0 0 25px rgba(255, 0, 184, 0.25);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.8rem 2rem;
+  max-width: 1200px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  color: #ff00b8;
+}
+
+.navbar .active {
+  color: #ff00b8;
+}
+
+.nav-btn-icon i {
+  margin-right: 6px;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-icon-link {
+  color: #fff;
+  font-size: 1.1rem;
+  transition: 0.3s;
+}
+
+.nav-icon-link:hover {
+  color: #ff00b8;
+}
+
+.btn-sign-in {
+  background: linear-gradient(90deg, #ff00b8, #7300ff);
+  padding: 8px 16px;
+  border-radius: 30px;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-sign-in:hover {
+  opacity: 0.85;
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+  .links-center {
+    display: none;
+  }
+  .navbar {
+    width: 95%;
+  }
+}
