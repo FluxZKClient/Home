@@ -2,7 +2,7 @@
 /* --- 1. VARIÁVEIS DE COR E ESTILO GLOBAL (TEMA DARK/PURPLE) --- */
 /* ========================================================================= */
 :root {
-    /* Cores do Novo Tema (Baseado em image_4dd080.png e image_42f9ea.png) */
+    /* Cores do Novo Tema */
     --accent-purple: #973cff; /* Roxo/Pink Principal (Destaque) */
     --primary-dark: #0c0c0c; /* Fundo principal */
     --main-bg: #1a1a1e;      /* Fundo do corpo (Ligeiramente mais claro que o dark) */
@@ -36,7 +36,6 @@ body {
     border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--accent-purple); } 
-
 
 /* Reset e Utilitários */
 * {
@@ -237,7 +236,7 @@ h1, h2, h3, h4 {
     background-color: rgba(151, 60, 255, 0.1); 
 }
 
-/* Link Ativo (Da página atual) */
+/* Link Ativo (Da página atual) - ISSO FAZ O DESTAQUE FUNCIONAR */
 .nav-icon-link.active {
     background-color: var(--accent-purple);
     color: var(--light-text) !important;
