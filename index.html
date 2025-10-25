@@ -75,19 +75,7 @@
                     </a>
                 </div>
                 
-                <div class="hero-media-placeholder video-container">
-                    <video 
-                        autoplay 
-                        muted 
-                        loop 
-                        playsinline 
-                        poster="images/video-placeholder.jpg" 
-                        class="client-video">
-                        <source 
-                            src="https://raw.githubusercontent.com/FluxZKClient/Home/main/Client.mp4" 
-                            type="video/mp4">
-                        Seu navegador não suporta a tag de vídeo.
-                    </video>
+                <div class="hero-media-placeholder">
                 </div>
             </div>
         </section>
@@ -138,15 +126,15 @@
             </p>
 
             <div class="os-tabs">
-                <button class="os-tab-btn active" data-os="windows">Windows x64</button>
+                <button class="os-tab-btn active" data-os="windows">Windows</button>
                 <button class="os-tab-btn" data-os="macos">macOS</button>
-                <button class="os-tab-btn" data-os="linux">Linux x64</button>
+                <button class="os-tab-btn" data-os="linux">Linux</button>
             </div>
 
             <div class="download-info active" data-os-content="windows">
                 <i class="fab fa-windows os-icon"></i>
                 <a class="btn btn-download-modal" href="https://github.com/FluxZKClient/Data/releases/tag/Download" target="_blank">
-                    <i class="fas fa-download"></i> Download
+                    <i class="fas fa-download"></i> Baixar para Windows
                 </a>
             </div>
             
@@ -208,6 +196,12 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            
+            // Variáveis existentes (que estavam no seu código anterior)
+            // Caso tenha outro modal (ex: authModal), adicione o código aqui.
+
+            
+            // --- CÓDIGO PARA O MODAL DE DOWNLOAD ---
             
             const openModalBtn = document.getElementById('openDownloadModal');
             const downloadModal = document.getElementById('downloadModal');
