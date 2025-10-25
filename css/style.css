@@ -70,7 +70,7 @@ h1, h2, h3, h4 {
 
 
 /* ========================================================================= */
-/* --- 2. BOTÕES GERAIS (NOVO ESTILO) --- */
+/* --- 2. BOTÕES GERAIS --- */
 /* ========================================================================= */
 .btn {
     display: inline-flex;
@@ -103,34 +103,7 @@ h1, h2, h3, h4 {
     box-shadow: 0 6px 20px rgba(151, 60, 255, 0.6);
 }
 
-/* Botão RGB - Usando o novo destaque roxo */
-.rgb-animated-button {
-    color: #fff;
-    font-weight: 700;
-    background: var(--accent-purple);
-    position: relative;
-    overflow: hidden;
-    padding: 12px 25px;
-    border: 2px solid var(--accent-purple);
-}
-
-.rgb-animated-button:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 300%;
-    height: 100%;
-    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.3), transparent 70%);
-    transition: transform 0.6s ease-out;
-    transform: translateX(-100%);
-}
-
-.rgb-animated-button:hover:before {
-    transform: translateX(100%);
-}
-
-/* Novo Estilo de Botão: Contornado Roxo (Usado no Index/Hero) */
+/* Novo Estilo de Botão: Contornado Roxo (Baixar Agora) */
 .btn-outline-purple {
     background-color: transparent;
     border: 2px solid var(--accent-purple);
@@ -144,7 +117,7 @@ h1, h2, h3, h4 {
     transform: translateY(-2px);
 }
 
-/* Novo Estilo de Botão: Sólido Escuro (Usado no Index/Hero) */
+/* Novo Estilo de Botão: Sólido Escuro (Discord) */
 .btn-dark-filled {
     background-color: var(--secondary-bg);
     border: 2px solid var(--secondary-bg);
@@ -159,7 +132,7 @@ h1, h2, h3, h4 {
 
 
 /* ========================================================================= */
-/* --- 3. NAVBAR (ESTILO FLOATING MAIS COMPACTO) --- */
+/* --- 3. NAVBAR (ESTILO FLOATING) --- */
 /* ========================================================================= */
 .navbar {
     position: fixed;
@@ -171,7 +144,7 @@ h1, h2, h3, h4 {
     z-index: 1000;
     background: var(--nav-bg);
     backdrop-filter: blur(10px); 
-    border-radius: 50px; /* Borda mais arredondada */
+    border-radius: 50px; 
     border: 1px solid var(--border-color);
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.6);
     padding: 0; 
@@ -187,81 +160,39 @@ h1, h2, h3, h4 {
     gap: 10px;
 }
 
-/* Logo e Contador */
-.logo-group { 
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-}
-.logo-img-nav {
-    height: 30px; 
-}
-.online-counter {
-    color: var(--light-text);
-    font-weight: 600;
-    font-size: 0.9rem;
-    padding: 5px 8px;
-    background-color: var(--secondary-bg);
-    border-radius: 50px;
-}
-
-/* GRUPO CENTRO: Ícones Utilitários (Links de Navegação) */
+/* GRUPO CENTRO: Links de Navegação */
 .utility-icons-center {
     display: flex;
     gap: 5px; 
     margin-right: auto; 
     margin-left: 20px; 
 }
-
-/* Estilo Básico de Link/Ícone na Navbar (Com Ícone e Texto) */
 .nav-icon-link {
     color: var(--muted-text);
-    text-decoration: none;
     font-size: 1rem;
     padding: 8px 12px;
-    border-radius: 50px; /* Arredondado para "pill" shape */
+    border-radius: 50px; 
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
     gap: 6px;
     white-space: nowrap;
 }
-.nav-icon-link i {
-    font-size: 1em;
-}
-
 .nav-icon-link:hover {
     color: var(--accent-purple);
     background-color: rgba(151, 60, 255, 0.1); 
 }
-
-/* Link Ativo (Da página atual) */
 .nav-icon-link.active {
     background-color: var(--accent-purple);
     color: var(--light-text) !important;
 }
-.nav-icon-link.active:hover {
-    background-color: #7a2ed4;
-    color: var(--light-text) !important;
-}
 
-
-/* GRUPO DIREITA */
-.right-actions-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-}
-
-/* Media Query para Responsividade da Navbar */
+/* Responsividade Navbar */
 @media (max-width: 900px) {
     .navbar {
         width: 95%;
         top: 15px;
     }
-    /* Oculta o texto dos links de navegação, mantendo só os ícones */
     .utility-icons-center .nav-icon-link {
         padding: 8px;
         width: 40px; 
@@ -272,7 +203,7 @@ h1, h2, h3, h4 {
         display: none; 
     }
     .phoenix-sign-in-btn {
-        display: none; /* Oculta o sign in no mobile */
+        display: none; 
     }
     .online-counter {
         display: none;
@@ -281,7 +212,7 @@ h1, h2, h3, h4 {
 
 
 /* ========================================================================= */
-/* --- 4. SEÇÃO HERO (index.html) --- */
+/* --- 4. SEÇÃO HERO (COM VÍDEO MP4 EMBUTIDO) --- */
 /* ========================================================================= */
 .hero-section {
     min-height: 80vh;
@@ -318,16 +249,36 @@ h1, h2, h3, h4 {
     margin-bottom: 50px;
 }
 
-.hero-media-placeholder {
+/* Container de Vídeo (Hero Media Placeholder) */
+.hero-media-placeholder.video-container {
+    /* Define o formato 16:9 de forma responsiva */
+    position: relative;
+    padding-bottom: 56.25%; /* Proporção 16:9 */
+    height: 0;
+    overflow: hidden;
+    
+    /* Estilos visuais */
     width: 100%;
     max-width: 900px;
-    height: 400px; 
-    background-color: var(--secondary-bg);
     margin: 40px auto 0 auto;
     border-radius: var(--border-radius-lg);
     border: 1px solid var(--border-color);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    background-color: var(--primary-dark); 
 }
+
+/* O elemento de vídeo ou iframe */
+.video-container video,
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: var(--border-radius-lg);
+}
+
 
 @media (max-width: 768px) {
     .hero-title {
@@ -346,7 +297,7 @@ h1, h2, h3, h4 {
 
 
 /* ========================================================================= */
-/* --- 5. SEÇÃO DE RECURSOS (FEATURES - index.html) --- */
+/* --- 5. SEÇÃO DE RECURSOS --- */
 /* ========================================================================= */
 .features-section {
     padding: 80px 0;
@@ -408,71 +359,7 @@ h1, h2, h3, h4 {
 
 
 /* ========================================================================= */
-/* --- 6. ESTILOS DA SEÇÃO DE LOJA (store-section) --- */
-/* ========================================================================= */
-.store-section {
-    padding: 80px 0;
-    text-align: center;
-}
-
-.store-section h1 {
-    font-size: 2.8rem;
-    font-weight: 800;
-    margin-bottom: 5px;
-}
-
-.cta-description {
-    font-size: 1.1rem;
-    color: var(--muted-text);
-    margin-bottom: 50px;
-}
-
-.product-grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.product-card {
-    background-color: var(--secondary-bg);
-    border: 1px solid var(--border-color);
-    padding: 30px;
-    border-radius: var(--border-radius-lg);
-    width: 350px;
-    max-width: 100%;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border-color: var(--accent-purple);
-}
-
-.product-card h3 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-top: 0;
-    color: var(--accent-purple);
-}
-
-.product-card p {
-    color: var(--muted-text);
-    min-height: 50px; 
-    margin-bottom: 30px;
-}
-
-/* Botões Premium/VIP na Loja */
-.product-card .btn {
-    width: 100%;
-    font-size: 1.1rem;
-}
-
-
-/* ========================================================================= */
-/* --- 7. ESTILOS DE MODAIS (Geral) --- */
+/* --- 6. ESTILOS DE MODAIS (Geral) --- */
 /* ========================================================================= */
 .modal {
     display: none; 
@@ -524,21 +411,8 @@ h1, h2, h3, h4 {
     cursor: pointer;
 }
 
-/* Estilos para outros Modais (ex: authModal) */
-.modal-content h4 {
-    font-size: 1.5rem;
-    color: var(--accent-purple);
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-.modal-content p strong {
-    color: var(--light-text);
-}
-
-
 /* ========================================================================= */
-/* --- 8. ESTILOS DO NOVO MODAL DE DOWNLOAD --- */
+/* --- 7. ESTILOS DO NOVO MODAL DE DOWNLOAD --- */
 /* ========================================================================= */
 
 .download-modal .modal-content {
@@ -615,7 +489,7 @@ h1, h2, h3, h4 {
     background-color: var(--accent-purple);
     color: var(--light-text);
     box-shadow: 0 4px 15px rgba(151, 60, 255, 0.4); 
-    text-transform: none; /* Não precisa de uppercase */
+    text-transform: none; 
     font-weight: 600;
 }
 .btn-download-modal:hover {
@@ -637,152 +511,7 @@ h1, h2, h3, h4 {
 
 
 /* ========================================================================= */
-/* --- 9. ESTILOS DA TIMELINE (updates.html) --- */
-/* ========================================================================= */
-.changelog-section {
-    padding: 100px 0;
-    text-align: center;
-}
-
-.changelog-section h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    color: var(--accent-purple);
-}
-
-.changelog-section h2 {
-    font-size: 1.2rem;
-    color: var(--muted-text);
-    margin-bottom: 50px;
-}
-
-/* Base da Timeline */
-.version-timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    padding-left: 20px; 
-}
-
-/* Linha vertical central */
-.version-timeline::after {
-    content: '';
-    position: absolute;
-    width: 4px;
-    background-color: var(--secondary-bg);
-    top: 0;
-    bottom: 0;
-    left: 2px; 
-    margin-left: -3px;
-    border-radius: 2px;
-}
-
-/* Container de cada versão */
-.timeline-version {
-    padding: 10px 0;
-    position: relative;
-    margin-left: 30px; 
-    text-align: left;
-}
-
-/* O conteúdo do Card da versão */
-.timeline-content {
-    background-color: var(--secondary-bg);
-    border: 1px solid var(--border-color);
-    padding: 25px;
-    border-radius: 10px;
-    position: relative;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.timeline-version:hover .timeline-content {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    border-color: var(--accent-purple);
-}
-
-/* O Círculo na linha vertical */
-.timeline-version::before {
-    content: '';
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background-color: var(--accent-purple); 
-    border: 3px solid var(--main-bg); 
-    top: 25px;
-    left: -25px; 
-    border-radius: 50%;
-    z-index: 1;
-}
-
-.timeline-content h3 {
-    font-size: 1.5rem;
-    color: var(--light-text);
-    margin-bottom: 5px;
-}
-
-.update-date {
-    display: block;
-    color: var(--muted-text);
-    font-size: 0.9em;
-    margin-bottom: 20px;
-    font-weight: 500;
-}
-.update-date i {
-    color: var(--accent-purple);
-    margin-right: 5px;
-}
-
-.update-category {
-    font-weight: 600;
-    color: var(--accent-purple);
-    margin-top: 20px;
-    margin-bottom: 5px;
-    border-bottom: 1px dashed rgba(255, 255, 255, 0.05);
-    padding-bottom: 5px;
-}
-
-.update-list {
-    list-style: none;
-    padding-left: 0;
-}
-
-.update-list li {
-    color: var(--light-text);
-    margin-bottom: 5px;
-    display: flex;
-    align-items: flex-start;
-    font-size: 0.95rem;
-}
-
-.update-list li i {
-    font-size: 0.8em;
-    margin-right: 10px;
-    margin-top: 5px;
-    color: var(--accent-purple);
-}
-
-/* Media Query para a Timeline no Mobile */
-@media (max-width: 600px) {
-    .version-timeline {
-        padding-left: 10px;
-    }
-    .version-timeline::after {
-        left: 0px;
-    }
-    .timeline-version::before {
-        left: -15px;
-    }
-    .timeline-version {
-        margin-left: 20px;
-    }
-}
-
-
-/* ========================================================================= */
-/* --- 10. ESTILOS DO FOOTER --- */
+/* --- 8. ESTILOS DO FOOTER --- */
 /* ========================================================================= */
 .footer {
     background-color: var(--secondary-bg);
