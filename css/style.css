@@ -236,7 +236,7 @@ h1, h2, h3, h4 {
     background-color: rgba(151, 60, 255, 0.1); 
 }
 
-/* Link Ativo (Da página atual) - ISSO FAZ O DESTAQUE FUNCIONAR */
+/* Link Ativo (Da página atual) */
 .nav-icon-link.active {
     background-color: var(--accent-purple);
     color: var(--light-text) !important;
@@ -472,7 +472,7 @@ h1, h2, h3, h4 {
 
 
 /* ========================================================================= */
-/* --- 7. ESTILOS DO MODAL (authModal) --- */
+/* --- 7. ESTILOS DE MODAIS (Geral) --- */
 /* ========================================================================= */
 .modal {
     display: none; 
@@ -524,6 +524,7 @@ h1, h2, h3, h4 {
     cursor: pointer;
 }
 
+/* Estilos para outros Modais (ex: authModal) */
 .modal-content h4 {
     font-size: 1.5rem;
     color: var(--accent-purple);
@@ -537,7 +538,106 @@ h1, h2, h3, h4 {
 
 
 /* ========================================================================= */
-/* --- 8. ESTILOS DA TIMELINE (updates.html) --- */
+/* --- 8. ESTILOS DO NOVO MODAL DE DOWNLOAD --- */
+/* ========================================================================= */
+
+.download-modal .modal-content {
+    max-width: 550px; 
+    padding: 40px;
+    text-align: center;
+}
+
+.modal-title-download {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.modal-subtitle-download {
+    color: var(--muted-text);
+    margin-bottom: 30px;
+}
+
+/* Estilo das Abas de OS (SO) */
+.os-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.os-tab-btn {
+    background-color: var(--secondary-bg);
+    color: var(--muted-text);
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.os-tab-btn:hover {
+    color: var(--light-text);
+    border-color: var(--accent-purple);
+}
+
+.os-tab-btn.active {
+    background-color: var(--accent-purple);
+    color: var(--light-text);
+    border-color: var(--accent-purple);
+    box-shadow: 0 3px 10px rgba(151, 60, 255, 0.5);
+}
+
+/* Conteúdo de Download */
+.download-info {
+    display: none; /* Esconde todos por padrão */
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.download-info.active {
+    display: flex; /* Mostra o ativo */
+}
+
+.os-icon {
+    font-size: 4rem;
+    color: var(--light-text);
+    margin-bottom: 10px;
+}
+
+.btn-download-modal {
+    width: 100%;
+    max-width: 250px;
+    background-color: var(--accent-purple);
+    color: var(--light-text);
+    box-shadow: 0 4px 15px rgba(151, 60, 255, 0.4); 
+    text-transform: none; /* Não precisa de uppercase */
+    font-weight: 600;
+}
+.btn-download-modal:hover {
+    background-color: #7a2ed4;
+}
+
+/* Estilo para links "Em Breve" */
+.btn-download-modal.disabled {
+    background-color: var(--secondary-bg);
+    color: var(--muted-text);
+    cursor: default;
+    box-shadow: none;
+    border: 1px solid var(--border-color);
+}
+.btn-download-modal.disabled:hover {
+    background-color: var(--secondary-bg);
+    transform: none;
+}
+
+
+/* ========================================================================= */
+/* --- 9. ESTILOS DA TIMELINE (updates.html) --- */
 /* ========================================================================= */
 .changelog-section {
     padding: 100px 0;
@@ -682,7 +782,7 @@ h1, h2, h3, h4 {
 
 
 /* ========================================================================= */
-/* --- 9. ESTILOS DO FOOTER --- */
+/* --- 10. ESTILOS DO FOOTER --- */
 /* ========================================================================= */
 .footer {
     background-color: var(--secondary-bg);
