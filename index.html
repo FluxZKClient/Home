@@ -1,80 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>FluxZK — Redesign</title>
-  <link rel="stylesheet" href="assets/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FluxZK Client</title>
   <link rel="icon" href="assets/dsd.png" type="image/png">
+  <link rel="stylesheet" href="assets/styles.css">
 </head>
-<body class="neon-theme">\n  <canvas id="particles-canvas" aria-hidden="true"></canvas>>
-  <nav class="nav">
-    <div class="brand"><img src="assets/dsd.png" alt="FluxZK" style="height:34px;margin-right:10px;border-radius:8px;box-shadow:0 8px 30px rgba(255,45,149,0.08)">FluxZK</div>
-    <ul class="nav-links">
-      <li><a href="#features">Recursos</a></li>
-      <li><a href="#gallery">Galeria</a></li>
-      <li><a href="#contact">Contato</a></li>
+<body>
+  <nav class="navbar">
+    <div class="logo">FluxZK</div>
+    <ul class="menu">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#recursos">Recursos</a></li>
+      <li><a href="download.html">Download</a></li>
+      <li><a href="contact.html">Contato</a></li>
     </ul>
-    <a class="cta" href="https://github.com/FluxZKClient/Data/releases/tag/Download" target="_blank" rel="noopener">Baixar</a>
   </nav>
 
-  <header class="hero" id="home">
-    <div class="hero-inner">
-      <h1>Um site lindo, moderno e simples<span class="accent"> — feito pra impressionar.</span></h1>
-      <p class="lead"><strong style="color:transparent;background:linear-gradient(90deg,#ff2d95,#8b5cf6);-webkit-background-clip:text;background-clip:text;">Client Minecraft — FPS, HUD, Keystrokes e muito mais.</strong><br/>Animações suaves, layout minimalista e código limpo. Pronto para usar — HTML/CSS/JS puro.</p>
-      <div class="hero-actions">
-        <a class="btn primary" href="contact.html">Começar</a>
-        <a class="btn ghost" href="#gallery">Ver demo</a>
-      </div>
-      <ul class="stats">
-        <li><strong>A+</strong><span>Velocidade</span></li>
-        <li><strong>&lt;200KB</strong><span>Bundle</span></li>
-        <li><strong>WCAG</strong><span>Acessível</span></li>
-      </ul>
-    </div>
-    <div class="mockup" aria-hidden="true">
-      <div class="mock-top">FluxZK Client — v1.8.9</div>
-      <div class="mock-body">
-        <div class="menu">Menu • Itens interativos</div>
-        <div class="screen">Preview</div>
-      </div>
-    </div>
+  <header class="hero">
+    <h1>FluxZK Client</h1>
+    <p>O client mais moderno e otimizado para Minecraft.</p>
+    <a href="https://github.com/FluxZKClient/Data/releases/tag/Download" target="_blank" class="btn">Baixar Agora</a>
   </header>
 
-  <main>
-    <section id="features" class="section">
-      <h2>Recursos</h2>
-      <p class="muted">Micro-interações, carregamento preguiçoso e foco em simplicidade.</p>
-      <div class="cards">
-        <article class="card"><div class="emoji">✨</div><h3>Animações</h3><p>Transições suaves em botões, cards e carregamento de páginas.</p></article>
-        <article class="card"><div class="emoji">⚡</div><h3>Performance</h3><p>Código otimizado, imagens responsivas e cache inteligente.</p></article>
-        <article class="card"><div class="emoji">♿</div><h3>Acessibilidade</h3><p>Semântica correta, contraste e navegação por teclado.</p></article>
-      </div>
-    </section>
+  <section id="sobre">
+    <h2>Sobre o FluxZK</h2>
+    <p>FluxZK é um client projetado para oferecer desempenho máximo, interface moderna e uma experiência suave no Minecraft.</p>
+  </section>
 
-    <section id="gallery" class="section alt">
-      <h2>Galeria</h2>
-      <p class="muted">Mockups e pequenas animações que funcionam em todas as telas.</p>
-      <div class="grid">
-        <div class="thumb">Imagem 1</div><div class="thumb">Imagem 2</div><div class="thumb">Imagem 3</div>
-        <div class="thumb">Imagem 4</div><div class="thumb">Imagem 5</div><div class="thumb">Imagem 6</div>
-      </div>
-    </section>
+  <section id="recursos">
+    <h2>Recursos</h2>
+    <div class="cards">
+      <div class="card"><h3>Desempenho</h3><p>Mais FPS, menos lag e estabilidade total.</p></div>
+      <div class="card"><h3>Interface</h3><p>Design elegante, com animações suaves e modernas.</p></div>
+      <div class="card"><h3>Compatibilidade</h3><p>Funciona em diversas versões do Minecraft.</p></div>
+    </div>
+  </section>
 
-    <section id="contact" class="section">
-      <h2>Trabalhar juntos</h2>
-      <p class="muted">Me mande seus arquivos, logo e paleta de cores que eu integro tudo.</p>
-      <form class="form" onsubmit="handleSubmit(event)">
-        <input name="name" placeholder="Seu nome" required>
-        <input name="email" type="email" placeholder="Email" required>
-        <textarea name="message" rows="5" placeholder="Mensagem / instruções"></textarea>
-        <button class="btn primary" type="submit">Enviar</button>
-      </form>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div>© 2025 FluxZK • Feito com ♥ — pronto para personalizar.</div>
+  <footer>
+    <p>© 2025 FluxZK Client — Todos os direitos reservados.</p>
   </footer>
 
   <script src="assets/script.js"></script>
