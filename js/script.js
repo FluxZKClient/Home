@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const btn = document.querySelector('.btn');
-    btn.addEventListener('click', () => {
-        btn.classList.add('clicked');
-        setTimeout(() => btn.classList.remove('clicked'), 300);
+    const downloadBtn = document.querySelector('.download-btn');
+    downloadBtn.addEventListener('click', () => {
+        downloadBtn.classList.add('clicked');
+        setTimeout(() => downloadBtn.classList.remove('clicked'), 300);
     });
 });

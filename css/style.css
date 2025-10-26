@@ -1,103 +1,193 @@
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: 'Poppins', sans-serif;
-    color: #fff;
-    background: url('../images/bg.gif') no-repeat center center fixed;
-    background-size: cover;
+    color: white;
+    background-color: #0a0012;
     overflow-x: hidden;
 }
 
-.overlay {
+.background {
+    background: url('../images/bg.gif') no-repeat center center fixed;
+    background-size: cover;
+    filter: brightness(0.4);
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 0;
+    z-index: -1;
 }
 
-header {
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 60px;
+    background: rgba(30, 0, 50, 0.6);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid #ff00ff;
     position: fixed;
     width: 100%;
     top: 0;
-    background: rgba(20, 0, 40, 0.6);
-    backdrop-filter: blur(10px);
-    border-bottom: 2px solid #ff00ff;
-    z-index: 10;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .logo {
-    width: 70px;
+    width: 50px;
     border-radius: 50%;
-    animation: pulse 3s infinite alternate;
+    box-shadow: 0 0 15px #ff00ff;
 }
 
-nav ul {
+.brand {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #ff00ff;
+}
+
+.navbar ul {
     list-style: none;
     display: flex;
     gap: 30px;
 }
 
-nav ul li a {
-    color: #fff;
+.navbar a {
+    color: white;
     text-decoration: none;
-    font-weight: 600;
-    position: relative;
-    transition: color 0.3s ease;
+    font-weight: 500;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
-nav ul li a:hover {
+.navbar a:hover {
     color: #ff00ff;
     text-shadow: 0 0 10px #ff00ff;
 }
 
-main {
-    text-align: center;
-    margin-top: 200px;
-    z-index: 5;
-    position: relative;
+.login-btn {
+    background: linear-gradient(90deg, #ff00ff, #8a2be2);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.title {
+.login-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff00ff;
+}
+
+.hero-section {
+    text-align: center;
+    margin-top: 180px;
+    padding: 100px 20px;
+}
+
+.main-title {
     font-size: 4em;
-    text-shadow: 0 0 25px #ff00ff, 0 0 50px #8a2be2;
-    animation: fadeIn 2s ease-in;
+    text-shadow: 0 0 25px #ff00ff, 0 0 40px #8a2be2;
 }
 
 .subtitle {
-    font-size: 1.5em;
-    margin: 20px 0;
+    font-size: 1.2em;
+    margin: 20px auto;
+    max-width: 800px;
     color: #ccc;
-    animation: fadeIn 3s ease-in;
 }
 
-.btn {
+.download-btn {
     background: linear-gradient(90deg, #ff00ff, #8a2be2);
     border: none;
-    padding: 15px 40px;
-    border-radius: 30px;
+    padding: 15px 50px;
+    border-radius: 40px;
+    color: white;
+    font-weight: 700;
     font-size: 1.2em;
-    font-weight: bold;
-    color: #fff;
     cursor: pointer;
     box-shadow: 0 0 20px #ff00ff;
     transition: all 0.3s ease;
 }
 
-.btn:hover {
+.download-btn:hover {
     transform: scale(1.05);
     box-shadow: 0 0 40px #ff00ff, 0 0 60px #8a2be2;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+.available {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #aaa;
 }
 
-@keyframes pulse {
-    0% { box-shadow: 0 0 10px #ff00ff; }
-    100% { box-shadow: 0 0 40px #8a2be2; }
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 80px 20px;
+    flex-wrap: wrap;
+}
+
+.feature-card {
+    background: rgba(30, 0, 60, 0.6);
+    border-radius: 20px;
+    padding: 40px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 40px #ff00ff;
+}
+
+.footer {
+    background: rgba(10, 0, 20, 0.95);
+    padding: 60px 10%;
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.footer h4 {
+    color: #ff00ff;
+    margin-bottom: 15px;
+}
+
+.footer ul {
+    list-style: none;
+}
+
+.footer a {
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: #ff00ff;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 40px;
+    color: #777;
+    font-size: 0.9em;
 }
