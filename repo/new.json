@@ -1,0 +1,20 @@
+{
+    "news": [
+        {
+            "title": "Star Client Release.",
+            "Author": "Klyleenb",
+            "unixtime": 1734487980,
+            "subtitle": "we have released StarClient.",
+            "body": "Today we are happy to say we have finaly released StarClient into public beta, with this we expect there to be bugs however we have tried to ensure that the client is usable. We are looking forward to hearing user reactions to the glide beta and want to thank for using Glide.",
+            "img": ""
+        },
+        {
+            "title": "Linux Sypport!!!",
+            "Author": "MikiDevAHM",
+            "unixtime": 1754137348,
+            "subtitle": "Im glad to announce that StarClient now supports Linux.",
+            "body": "We are happy to announce that StarClient now supports Linux, this is a big step for us and we hope to see more users using the client on Linux. We have tested it on multiple distributions and it seems to work well, however if you find any issues please report them on our discord or github.",
+            "img": ""
+        }
+    ]
+}

@@ -77,64 +77,6 @@ body{
   box-shadow: 0 12px 24px rgba(0,0,0,0.45);
 }
 
-
-/* Screenshots Carousel */
-.screenshots{margin:60px auto;text-align:center}
-.screenshots h2{font-size:28px;margin-bottom:20px}
-.carousel{position:relative;max-width:900px;margin:0 auto;background:#000;border-radius:12px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.6)}
-.carousel .slides img{width:100%;display:none}
-.carousel .prev,.carousel .next{
-  cursor:pointer;position:absolute;top:50%;transform:translateY(-50%);
-  background:rgba(0,0,0,0.4);color:#fff;border:none;font-size:24px;
-  padding:8px 14px;border-radius:50%;transition:0.3s
-}
-.carousel .prev:hover,.carousel .next:hover{background:rgba(0,0,0,0.8)}
-.carousel .prev{left:12px}
-.carousel .next{right:12px}
-.carousel .dots{text-align:center;padding:12px;background:#000}
-.carousel .dot{
-  height:10px;width:10px;margin:0 4px;display:inline-block;
-  border-radius:50%;background:#444;cursor:pointer;transition:0.3s
-}
-.carousel .dot.active,.carousel .dot:hover{background:#39ff77}
-
-
-/* Fix carousel display */
-.carousel .slides {
-  position: relative;
-  width: 100%;
-  height: 500px; /* fix height */
-}
-
-.carousel .slides img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: none;
-}
-
-.carousel .slides img.active {
-  display: block;
-}
-
-
-/* Login modal */
-.modal{display:none;position:fixed;inset:0;z-index:1200;font-family:inherit}
-.modal[aria-hidden="false"]{display:block}
-.modal-backdrop{position:absolute;inset:0;background:rgba(2,6,23,0.65);backdrop-filter:blur(4px)}
-.modal-panel{position:relative;max-width:420px;margin:6vh auto;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:22px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 20px 60px rgba(0,0,0,0.7);color:var(--text)}
-.modal-panel h2{margin:0 0 6px}
-.modal-panel .muted{color:var(--muted);margin-bottom:12px}
-.social-login{display:flex;gap:10px;margin-bottom:10px}
-.btn.google{background:linear-gradient(90deg,#f2f2f2,#e6e6e6);color:#111;font-weight:700;border-radius:10px;padding:10px 12px;display:flex;align-items:center;gap:8px}
-.or{display:flex;align-items:center;gap:12px;margin:10px 0;color:var(--muted)}
-.or span{background:transparent;padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.02)}
-#loginForm label{display:block;font-size:13px;margin-top:8px;color:var(--muted)}
-#loginForm input{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);margin-top:6px;background:transparent;color:var(--text);outline:none}
-#loginForm .form-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
-.modal-close{position:absolute;right:10px;top:8px;background:transparent;border:none;color:var(--muted);font-size:22px;cursor:pointer}
-.small{font-size:13px}
-
 /* ===== Hover Animation Added ===== */
 button, .btn, .button {
   transition: all 0.3s ease;

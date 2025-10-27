@@ -1,0 +1,153 @@
+{
+    "changelogs": [
+        {
+            "text": "Crosshair Mod: 3 new styles",
+            "type": 0
+        },
+        {
+            "text": "Animations Mod: Smooth sneak setting",
+            "type": 0
+        },
+        {
+            "text": "Hotbar Mod: New option to use the client theme",
+            "type": 0
+        },
+        {
+            "text": "Hotbar Mod: New pickup animation setting",
+            "type": 0
+        },
+        {
+            "text": "New Mod: Female gender, cosmetic that makes your character female",
+            "type": 0
+        },
+        {
+            "text": "New Mod: Cat ears",
+            "type": 0
+        },
+        {
+            "text": "Client: Added more Language support",
+            "type": 0
+        },
+        {
+            "text": "Client: Added UI sounds",
+            "type": 0
+        },
+        {
+            "text": "Client: Added macOS dock icons",
+            "type": 0
+        },
+        {
+            "text": "HUD: Added new HUD styles",
+            "type": 0
+        },
+        {
+            "text": "HUD: Added Blurred background option",
+            "type": 0
+        },
+        {
+            "text": "HUD: Added Mojangles font option",
+            "type": 0
+        },
+        {
+            "text": "Menus: GuiIngameMenu now uses the Glide style",
+            "type": 0
+        },
+        {
+            "text": "Cosmetics: Added a ton of new capes",
+            "type": 0
+        },
+        {
+            "text": "Cosmetics: Made Custom capes better",
+            "type": 0
+        },
+        {
+            "text": "Mod Menu: 10+ new themes",
+            "type": 0
+        },
+        {
+            "text": "Mod Menu: New home screen",
+            "type": 0
+        },
+        {
+            "text": "Mod Menu: New Minigames to play in the client while you wait for games to start (bird and clickyCat)",
+            "type": 0
+        },
+        {
+            "text": "Mod Menu: Back buttons in more places",
+            "type": 1
+        },
+        {
+            "text": "Mod Menu: Improve the mod menu design",
+            "type": 1
+        },
+        {
+            "text": "Mod Menu: Made it so when you search it will search also for common aliases of the mod",
+            "type": 1
+        },
+        {
+            "text": "Mod Menu: you can now just Type to search without engaging the search bar",
+            "type": 1
+        },
+        {
+            "text": "Mod Menu: you can now use arrow keys to scroll up and down",
+            "type": 1
+        },
+        {
+            "text": "Mod Menu: Modules will now warn you that they may be banable",
+            "type": 1
+        },
+        {
+            "text": "Client: You can now click out of bounds in some GUIs and it will close",
+            "type": 1
+        },
+        {
+            "text": "Client: Change the setup menu",
+            "type": 1
+        },
+        {
+            "text": "Client: Glide will check for its own updates",
+            "type": 1
+        },
+        {
+            "text": "Client: Rebrand most of the client to glide and change the fonts for this",
+            "type": 1
+        },
+        {
+            "text": "Client: Made GlideClient compatible with linux and macOS",
+            "type": 1
+        },
+        {
+            "text": "HudEditor: Made it so you can use a shift key modifier to disable snapping and make movement/scaling more precise and delete mods by pressing backspace",
+            "type": 1
+        },
+        {
+            "text": "HudEditor: Added useful tooltips",
+            "type": 1
+        },
+        {
+            "text": "Cosmetics: Capes now save when the game closes",
+            "type": 1
+        },
+        {
+            "text": "Mods: Remove browser since it impacts performance",
+            "type": 2
+        },
+        {
+            "text": "Mods: Remove ViaVersion since it impacts performance",
+            "type": 2
+        },
+        {
+            "text": "Client: Remove Music player since it impacts performance",
+            "type": 2
+        },
+        {
+            "text": "Client: Remove Soar API and replace it with remote features",
+            "type": 2
+        },
+        {
+            "text": "Client: Remove Soar Premium so all featurs are free",
+            "type": 2
+        }
+
+    ]
+}
