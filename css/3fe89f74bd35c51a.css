@@ -1,77 +1,163 @@
+/* -------------------------
+   Tema: Vidro escuro com blur
+   Arquivo: css/styles.css
+   ------------------------- */
+
+/* Variáveis principais */
 :root{
-  /* NOVO TEMA PRETO E AZUL */
-  --rt-color-white: #FFFFFF; /* Texto principal e elementos claros */
-  --rt-color-dark: #0A132C; /* Fundo principal: Preto-azulado muito escuro */
-  --rt-color-primary-blue: #00BFFF; /* AZUL DE DESTAQUE VIBRANTE */
-  --rt-color-secondary-dark: #1F2937; /* Fundo de componentes secundários (cinza escuro) */
-  
-  /* Cores de Feedback (ajustadas para o dark mode) */
-  --rt-color-success: #36D7B7; /* Ciano/Verde para Sucesso */
-  --rt-color-error: #FF4136; /* Vermelho vibrante para Erro */
-  --rt-color-warning: #FFD700; /* Dourado para Aviso */
-  --rt-color-info: #00BFFF; /* Usando o azul de destaque para Info */
-  
-  /* Variáveis originais mantidas */
-  --rt-opacity: 0.95; 
+  --rt-color-white: #ffffff;
+  --rt-color-dark: rgba(10,10,12,0.6);
+  --rt-color-success: #8dc572;
+  --rt-color-error: #be6464;
+  --rt-color-warning: #f0ad4e;
+  --rt-color-info: #337ab7;
+  --rt-opacity: 0.95;
   --rt-transition-show-delay: 0.15s;
   --rt-transition-closing-delay: 0.15s;
+
+  --glass-bg: rgba(15,15,18,0.55);
+  --glass-border: rgba(255,255,255,0.06);
+  --glass-strong: rgba(15,15,18,0.8);
+  --muted: rgba(200,200,210,0.6);
+  --accent: #2ea6ff;
 }
 
-/* 1. AJUSTES NAS CLASSES DE TOOLTIP (react-tooltip) */
-.styles-module_tooltip__mnnfp{border-radius:3px;font-size:90%;padding:8px 16px;width:max-content}
-/* Tooltip Dark: Fundo preto-azulado, texto branco */
-.styles-module_dark__xNqje{
-  background: var(--rt-color-dark);
+/* Reset e tipografia (mantive a base do original) */
+*,:after,:before{box-sizing:border-box}
+html{font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Color Emoji";-webkit-text-size-adjust:100%}
+body{margin:0;color:var(--rt-color-white);background:linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.65));min-height:100vh}
+
+/* BACKDROP + blur geral (usa a imagem de fundo existente) */
+.fixed.-z-10 > .relative > img{filter:brightness(1.05);transform:scale(1.02)}
+.fixed.-z-10 > .relative::after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom, rgba(0,0,0,0.28), rgba(0,0,0,0.6));
+  pointer-events:none;
+}
+body, .container, .card, .menu-pill, .btn-download, .btn-primary-large, .dropdown, .dropdown-item {
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* UTILIDADES glass */
+.glass-dark{
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.45);
   color: var(--rt-color-white);
 }
-/* Tooltip Info: Fundo azul de destaque, texto escuro */
-.styles-module_info__BWdHW{
-  background-color: var(--rt-color-info); 
-  color: var(--rt-color-dark); /* Texto escuro no fundo claro */
+
+/* Specific overrides to keep existing classes working but with glass look */
+.bg-primary-200,
+.bg-primary-300,
+.bg-primary-400,
+.bg-primary-500,
+.bg-primary-300[style],
+.bg-primary-400[style],
+.bg-primary-500[style] {
+  background: var(--glass-strong) !important;
+  color: var(--rt-color-white) !important;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px) saturate(130%);
+  -webkit-backdrop-filter: blur(10px) saturate(130%);
 }
-/* Outras cores de tooltip ajustadas */
-.styles-module_light__Z6W-X{background-color:var(--rt-color-white);color:var(--rt-color-dark)}
-.styles-module_success__A2AKt{background-color:var(--rt-color-success);color:var(--rt-color-dark)}
-.styles-module_warning__SCK0X{background-color:var(--rt-color-warning);color:var(--rt-color-dark)}
-.styles-module_error__JvumD{background-color:var(--rt-color-error);color:var(--rt-color-white)}
 
+/* Tooltips */
+.styles-module_dark__xNqje, .core-styles-module_tooltip__3vRRp, .styles-module_tooltip__mnnfp {
+  background: rgba(18,18,20,0.8);
+  color: var(--rt-color-white);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding:8px 12px;
+  border-radius:6px;
+  backdrop-filter: blur(6px);
+}
 
-/* 2. AJUSTES NAS CORES DE FUNDO TAILWIND (Substituindo cores primárias) */
+/* NAVIGATION */
+nav .menu-pill {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:0.5rem 1.25rem;
+  border-radius:999px;
+  cursor:pointer;
+  transition:all 200ms ease;
+  color:var(--rt-color-white);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  font-weight:600;
+}
+nav .menu-pill:hover{ transform:translateY(-2px); color:#fff; background:rgba(255,255,255,0.04) }
+nav .menu-pill.disabled, nav .menu-pill.cursor-not-allowed{ opacity:0.6; cursor:default; transform:none }
 
-/* Fundos Primários (Preto-Azulado) */
-.bg-primary-200{--tw-bg-opacity:1;background-color:var(--rt-color-secondary-dark)}.bg-primary-300{--tw-bg-opacity:1;background-color:#141F40}.bg-primary-400{--tw-bg-opacity:1;background-color:#0A132C}.bg-primary-500{--tw-bg-opacity:1;background-color:var(--rt-color-dark)}
-.hover\:bg-primary-200:hover{--tw-bg-opacity:1;background-color:var(--rt-color-secondary-dark)}.hover\:bg-primary-300:hover{--tw-bg-opacity:1;background-color:#141F40}
+/* Buttons */
+.btn-download, .btn-primary-large, .btn-primary, button {
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:0.6rem 1.1rem;
+  gap:8px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(245,245,245,0.92));
+  color:#000; font-weight:700;
+  cursor:pointer; transition:all .18s ease;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+}
+.btn-primary-large{
+  padding:1rem 3rem; font-size:1.25rem; border-radius:999px;
+  background: linear-gradient(180deg, #ffffff, #f3f3f3);
+  color:#000;
+}
+.btn-download:hover, .btn-primary-large:hover{ transform:translateY(-3px) }
 
-/* Fundos Azuis (Cores de Destaque) */
-.bg-blue-800{--tw-bg-opacity:1;background-color:var(--rt-color-info)}.bg-blue-900{--tw-bg-opacity:1;background-color:var(--rt-color-dark)}
-.bg-blue-500{--tw-bg-opacity:1;background-color:var(--rt-color-primary-blue)}
-.bg-blue-400\/50{background-color:rgba(0, 191, 255, .5)} /* Ajustado para o novo azul */
+/* Hero */
+.hero{ text-align:center; padding:3rem 1rem; margin-top:5.5rem; }
+.hero .badge{ display:inline-block; padding:.5rem 1.5rem; border-radius:999px; background: rgba(249,115,22,0.22); color: #fff; font-weight:600; backdrop-filter: blur(6px); }
+.hero-title{ font-size:3rem; margin:1rem 0; font-weight:900; line-height:1; letter-spacing:-1px }
+.hero-sub{ color:var(--muted); margin-top:1rem; font-size:1.0625rem }
 
-/* Outras cores de feedback mantidas ou ajustadas */
-.bg-green-500{--tw-bg-opacity:1;background-color:var(--rt-color-success)}.bg-red-500{--tw-bg-opacity:1;background-color:var(--rt-color-error)}.bg-yellow-500{--tw-bg-opacity:1;background-color:var(--rt-color-warning)}
+/* Sections & containers */
+.container{ max-width:1100px; margin:0 auto; padding:1rem; }
+.section-title{ font-size:1.75rem; color:var(--rt-color-white); margin-bottom:0.5rem; font-weight:700; }
+.section-sub{ color:var(--muted); margin-bottom:1rem }
 
-/* 3. AJUSTES NAS CORES DE TEXTO TAILWIND */
+/* Cards / feature grid */
+.grid-features{ display:grid; gap:1rem; grid-template-columns:repeat(3,minmax(0,1fr)); margin-top:1rem }
+.card{ padding:1.5rem; border-radius:12px; background:var(--glass-bg); border:1px solid var(--glass-border); box-shadow:0 10px 30px rgba(0,0,0,0.45) }
+.card h3{ margin:0; color:#fff; font-size:1.25rem; font-weight:600 }
 
-/* Texto Claro (Branco/Azul Claro) */
-.text-white{--tw-text-opacity:1;color:var(--rt-color-white)}
-.text-blue-300{--tw-text-opacity:1;color:var(--rt-color-primary-blue)} /* Azul vibrante */
-.text-primary-100{--tw-text-opacity:1;color:var(--rt-color-white)} /* Mantém texto claro no fundo escuro */
+/* Dropdowns (keeps HTML but closes by default) */
+.dropdown{ position:absolute; left:50%; transform:translateX(-50%); top:4.25rem; opacity:0; height:0; overflow:hidden; transition:all .18s ease; pointer-events:none }
+.dropdown.open{ opacity:1; height:auto; pointer-events:auto }
+.dropdown-item{ display:flex; gap:12px; padding:0.6rem; align-items:center; border-radius:8px; transition:background .15s; background:transparent }
+.dropdown-item:hover{ background: rgba(255,255,255,0.02) }
 
-/* Texto Escuro (no fundo claro, se houver) */
-.text-black{--tw-text-opacity:1;color:var(--rt-color-dark)}
-.hover\:text-black:hover{--tw-text-opacity:1;color:var(--rt-color-dark)}
-.hover\:text-white:hover{--tw-text-opacity:1;color:var(--rt-color-white)}
+/* misc */
+.muted{ color:var(--muted) }
+.link-footer{ color:var(--rt-color-white); font-size:1.125rem; margin:0; }
+.footer-inner{ max-width:1100px; margin:0 auto; padding:2rem 1rem 4rem 1rem; }
 
-/* A cor do contorno (ring) também é importante */
-.border-primary-200{--tw-border-opacity:1;border-color:var(--rt-color-secondary-dark)}
-.shadow-primary-200{--tw-shadow-color:#0A132C;--tw-shadow:var(--tw-shadow-colored)}
-.to-primary-500{--tw-gradient-to:#0A132C var(--tw-gradient-to-position)}
+/* small screens */
+@media (max-width:1024px){
+  .grid-features{ grid-template-columns:repeat(1,1fr) }
+  .hero-title{ font-size:2.25rem }
+  .hero-sub{ font-size:1rem }
+}
 
+/* Accessibility and small polish */
+a{ color:inherit; text-decoration:none }
+.icon{ fill:currentColor; color:rgba(255,255,255,0.95) }
 
-/* 4. RESTANTE DO CSS ORIGINAL (Não relacionado à cor) */
-/* (Todo o restante do seu CSS original para layout, espaçamento, tipografia, etc., permanece o mesmo.) */
+/* Keep some original tailwind utility look but adapted */
+.bg-white{ background:#fff !important; color:#000 !important }
+.text-white{ color:#fff !important }
+.rounded-lg{ border-radius:0.5rem }
 
-/* ... (O restante do seu CSS que não foi modificado para cor) ... */
+/* Tooltip positioning helpers (kept minimal) */
+.has-tooltip{ position:relative }
+.has-tooltip .tooltip{ position:absolute; left:50%; transform:translateX(-50%); bottom:120%; white-space:nowrap; display:inline-block; }
 
-*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia; }
-/* ... (Todo o restante do seu CSS de Tailwind e Tooltips) ... */
+/* End of styles.css */
